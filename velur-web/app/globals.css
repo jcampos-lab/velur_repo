@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper:      #FFFFFF;
+  --color-cream:      #F5F2EC;
+  --color-ink:        #1A1A1A;
+  --color-amber:      #FF5B1A;
+  --color-amber-tint: #FFE8DC;
+  --color-line:       #D9D6CF;
+  --color-muted:      #6E6E6E;
+  --color-positive:   #1F7A4D;
+
+  --font-sans:  var(--font-bricolage), sans-serif;
+  --font-serif: var(--font-fraunces), serif;
+  --font-mono:  var(--font-jetbrains), monospace;
+}
+
+/* ─── Dark mode variable overrides ─────────────────────────────────────── */
+html.dark {
+  --color-paper:      #0E0E0E;
+  --color-cream:      #161616;
+  --color-ink:        #F0EDE8;
+  --color-amber-tint: #2A1206;
+  --color-line:       #262626;
+  --color-muted:      #888888;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-bricolage), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection { background: #FF5B1A; color: #FFFFFF; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-ink); }
+
+:focus-visible {
+  outline: 2px solid #FF5B1A;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── Marquee ───────────────────────────────────────────────────────────── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 60s linear infinite; will-change: transform; }
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ─── Status dot ────────────────────────────────────────────────────────── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
+  50%       { opacity: 1;   transform: scale(1.1); }
+}
+.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+
+/* ─── Reduced motion ────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:       0.01ms !important;
+    animation-iteration-count: 1     !important;
+    transition-duration:      0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track { animation: none; }
+}

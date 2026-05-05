@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 400 400">
+  <defs>
+    <style>.st0{fill:#fff;}.st1{fill:#1a1a1a;}</style>
+  </defs>
+  <rect class="st1" width="400" height="400" rx="100" ry="100"/>
+  <g>
+    <circle class="st0" cx="135" cy="135" r="55"/>
+    <circle class="st0" cx="265" cy="135" r="55"/>
+    <circle class="st0" cx="135" cy="265" r="55"/>
+    <circle class="st0" cx="265" cy="265" r="55"/>
+    <rect class="st0" x="185" y="185" width="30" height="30" rx="8" ry="8"/>
+  </g>
+</svg>
