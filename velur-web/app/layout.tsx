@@ -37,6 +37,14 @@ export const metadata: Metadata = {
     siteName: "Velur",
     locale: "en_US",
     type: "website",
+    images: [{ url: "https://velur.io/og-image.png", width: 1200, height: 630, alt: "Velur" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Velur — Revenue Intelligence for DTC Brands",
+    description:
+      "Velur turns your Shopify, Klaviyo, and Meta data into the three numbers that decide your next quarter.",
+    images: ["https://velur.io/og-image.png"],
   },
 };
 
@@ -49,6 +57,14 @@ export default function RootLayout({
       className={`${bricolage.variable} ${fraunces.variable} ${jetbrains.variable} h-full`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Runs before paint to avoid flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem('velur-theme');var p=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';if((s||p)==='dark')document.documentElement.classList.add('dark')}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body className="min-h-full antialiased">
         <ThemeProvider>{children}</ThemeProvider>
       </body>

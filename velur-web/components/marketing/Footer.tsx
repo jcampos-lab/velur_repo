@@ -66,13 +66,13 @@ export default function Footer() {
 
         {/* Editorial line */}
         <p className="font-serif italic font-black text-muted text-sm mb-8 max-w-md" style={{ fontSize: "clamp(13px,1.2vw,16px)" }}>
-          "Built in Barcelona. Numbers are the only language that doesn't lie."
+          "Numbers are the only language that doesn't lie."
         </p>
 
         {/* Bottom bar */}
         <div className="border-t border-line pt-8">
           <p className="font-mono text-xs text-muted tracking-widest uppercase">
-            © 2026 VELUR · BARCELONA
+            © {new Date().getFullYear()} VELUR
           </p>
         </div>
       </div>

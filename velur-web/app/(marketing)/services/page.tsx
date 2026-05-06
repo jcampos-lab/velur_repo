@@ -3,7 +3,6 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import Button from "@/components/ui/Button";
 import MarqueeCarousel from "@/components/marketing/MarqueeCarousel";
 import CtaSection from "@/components/marketing/CtaSection";
-import Graph3D from "@/components/illustrations/Graph3DClient";
 
 export const metadata: Metadata = {
   title: "Services — Velur",
@@ -64,29 +63,22 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-paper pt-20 pb-24 relative overflow-hidden">
+      <section className="bg-paper pt-20 pb-24">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-widest text-muted mb-8">
-                SERVICES · WHAT WE BUILD
-              </p>
-              <h1
-                className="font-sans font-bold text-ink leading-[0.95] tracking-[-0.04em] mb-8"
-                style={{ fontSize: "clamp(48px, 7vw, 96px)" }}
-              >
-                How we work
-                <br />with your data.
-              </h1>
-              <p className="font-sans text-xl text-muted leading-relaxed max-w-2xl">
-                Three engagements. One direction: turn what&apos;s already in your warehouse into the
-                decisions that change your quarter.
-              </p>
-            </div>
-            <div className="hidden lg:block shrink-0 opacity-80">
-              <Graph3D width={340} height={260} />
-            </div>
-          </div>
+          <p className="font-mono text-xs uppercase tracking-widest text-muted mb-8">
+            SERVICES · WHAT WE BUILD
+          </p>
+          <h1
+            className="font-sans font-bold text-ink leading-[0.95] tracking-[-0.04em] mb-8"
+            style={{ fontSize: "clamp(48px, 7vw, 96px)" }}
+          >
+            How we work
+            <br />with your data.
+          </h1>
+          <p className="font-sans text-xl text-muted leading-relaxed max-w-2xl">
+            Three engagements. One direction: turn what&apos;s already in your warehouse into the
+            decisions that change your quarter.
+          </p>
         </div>
       </section>
 

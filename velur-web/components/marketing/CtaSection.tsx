@@ -54,7 +54,7 @@ export default function CtaSection({
         <div ref={containerRef} className="flex flex-col items-center text-center gap-10">
           {/* Headline line 1 — Fraunces italic */}
           <h2
-            className="font-serif italic font-black text-ink leading-[1.05] tracking-[-0.03em] max-w-4xl"
+            className="font-serif italic font-normal text-ink leading-[1.05] tracking-[-0.03em] max-w-4xl"
             style={{ fontSize: "clamp(32px, 5.5vw, 88px)" }}
           >
             {headline1}

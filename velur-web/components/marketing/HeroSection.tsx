@@ -122,7 +122,7 @@ export default function HeroSection() {
               </Button>
             </div>
             <p className="font-mono text-xs text-muted tracking-widest uppercase" style={{ margin: 0 }}>
-              velur.io · Barcelona · est. 2026
+              velur.io
             </p>
           </div>
 

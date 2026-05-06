@@ -1,10 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
 import SectionLabel from "@/components/ui/SectionLabel";
-
-const Graph3D = dynamic(() => import("@/components/illustrations/Graph3D"), { ssr: false });
 
 const ROWS = [
   {
@@ -58,23 +55,16 @@ export default function ThreeThingsSection() {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <SectionLabel left="02 / THE SHAPE" right="HOW VELUR IS DIFFERENT" className="mb-14" />
 
-        {/* Headline + 3D illustration side by side */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
-          <h2
-            className="font-sans font-bold text-ink leading-[1.0] tracking-[-0.04em]"
-            style={{ fontSize: "clamp(40px, 6vw, 88px)" }}
-          >
-            Three things{" "}
-            <em className="font-serif not-italic italic font-black" style={{ fontStyle: "italic" }}>
-              we don&apos;t
-            </em>{" "}
-            do.
-          </h2>
-
-          <div className="hidden lg:block shrink-0 opacity-75">
-            <Graph3D width={280} height={210} />
-          </div>
-        </div>
+        <h2
+          className="font-sans font-bold text-ink leading-[1.0] tracking-[-0.04em] mb-16"
+          style={{ fontSize: "clamp(40px, 6vw, 88px)" }}
+        >
+          Three things{" "}
+          <em className="font-serif not-italic italic font-normal" style={{ fontStyle: "italic" }}>
+            we don&apos;t
+          </em>{" "}
+          do.
+        </h2>
 
         {/* Rows */}
         <div ref={rowsRef} className="divide-y divide-line border-t border-line">

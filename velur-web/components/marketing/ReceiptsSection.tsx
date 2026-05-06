@@ -1,10 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
 import SectionLabel from "@/components/ui/SectionLabel";
-
-const Graph3D = dynamic(() => import("@/components/illustrations/Graph3D"), { ssr: false });
 
 const STATS = [
   {
@@ -95,16 +92,11 @@ function StatColumn({ stat, index, isLast }: { stat: (typeof STATS)[number]; ind
 export default function ReceiptsSection() {
   return (
     <section className="bg-ink dark:bg-neutral-950 py-32 relative overflow-hidden">
-      {/* 3D illustration — decorative corner */}
-      <div className="absolute bottom-0 right-0 opacity-30 pointer-events-none hidden xl:block">
-        <Graph3D width={320} height={240} forceTheme="dark" />
-      </div>
-
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative">
         <div className="mb-16 border-b border-white/10 pb-8">
           <SectionLabel
             left="03 / THE RECEIPTS"
-            right="AS OF Q2 2026"
+            right=""
             className="[&_span]:text-muted [&_.flex-1]:bg-white/10"
             animate={false}
           />

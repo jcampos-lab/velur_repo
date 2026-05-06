@@ -49,9 +49,6 @@ export default function ContactPage() {
                 className="rounded-2xl border border-line w-full"
                 title="Book a 30-min call with Velur"
               />
-              <p className="font-mono text-xs text-muted mt-4 italic">
-                [USER ACTION: replace the Cal.com URL above with your real booking link]
-              </p>
             </div>
 
             {/* Sidebar */}
@@ -76,7 +73,7 @@ export default function ContactPage() {
                   </a>
                 </p>
                 <p className="font-mono text-xs text-muted">
-                  Based in Barcelona. We work async with clients across timezones.
+                  We work async with clients across timezones.
                 </p>
                 <p className="font-mono text-xs text-muted">
                   We respond within 24 hours, weekdays.
