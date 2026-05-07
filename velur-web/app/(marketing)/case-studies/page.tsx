@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SectionLabel from "@/components/ui/SectionLabel";
 import CtaSection from "@/components/marketing/CtaSection";
+import CohortOrbit from "@/components/illustrations/CohortOrbit";
 
 export const metadata: Metadata = {
   title: "Results — Velur",
@@ -236,6 +237,13 @@ export default function CaseStudiesPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Cohort orbit illustration — placed between voices and impact bar */}
+      <section className="bg-cream pb-8 flex justify-center overflow-hidden">
+        <div className="w-full max-w-[560px] px-6 md:px-0 pointer-events-none select-none" aria-hidden>
+          <CohortOrbit />
         </div>
       </section>
 

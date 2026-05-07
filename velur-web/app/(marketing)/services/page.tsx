@@ -3,6 +3,8 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import Button from "@/components/ui/Button";
 import MarqueeCarousel from "@/components/marketing/MarqueeCarousel";
 import CtaSection from "@/components/marketing/CtaSection";
+import RevenueStack from "@/components/illustrations/RevenueStack";
+import DataWarehouse from "@/components/illustrations/DataWarehouse";
 
 export const metadata: Metadata = {
   title: "Services — Velur",
@@ -63,22 +65,31 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-paper pt-20 pb-24">
+      <section className="bg-paper pt-20 pb-12 overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <p className="font-mono text-xs uppercase tracking-widest text-muted mb-8">
-            SERVICES · WHAT WE BUILD
-          </p>
-          <h1
-            className="font-sans font-bold text-ink leading-[0.95] tracking-[-0.04em] mb-8"
-            style={{ fontSize: "clamp(48px, 7vw, 96px)" }}
-          >
-            How we work
-            <br />with your data.
-          </h1>
-          <p className="font-sans text-xl text-muted leading-relaxed max-w-2xl">
-            Three engagements. One direction: turn what&apos;s already in your warehouse into the
-            decisions that change your quarter.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-widest text-muted mb-8">
+                SERVICES · WHAT WE BUILD
+              </p>
+              <h1
+                className="font-sans font-bold text-ink leading-[0.95] tracking-[-0.04em] mb-8"
+                style={{ fontSize: "clamp(48px, 7vw, 96px)" }}
+              >
+                How we work
+                <br />with your data.
+              </h1>
+              <p className="font-sans text-xl text-muted leading-relaxed max-w-2xl">
+                Three engagements. One direction: turn what&apos;s already in your warehouse into the
+                decisions that change your quarter.
+              </p>
+            </div>
+            <div className="flex justify-center lg:justify-end pointer-events-none select-none" aria-hidden>
+              <div className="w-full max-w-[420px]">
+                <RevenueStack />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -126,6 +137,13 @@ export default function ServicesPage() {
           </div>
         ))}
       </div>
+
+      {/* Data warehouse illustration — visual of the stack we build */}
+      <section className="bg-paper py-16 flex justify-center overflow-hidden">
+        <div className="w-full max-w-[600px] px-6 md:px-0 pointer-events-none select-none" aria-hidden>
+          <DataWarehouse />
+        </div>
+      </section>
 
       {/* Marquee */}
       <MarqueeCarousel />

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Button from "@/components/ui/Button";
 import UnderlineDoodle from "@/components/illustrations/UnderlineDoodle";
+import DecisionMoment from "@/components/illustrations/DecisionMoment";
 
 type CtaSectionProps = {
   headline1?: string;
@@ -51,6 +52,13 @@ export default function CtaSection({
   return (
     <section className="bg-cream py-40 md:py-48">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
+        {/* Decorative illustration */}
+        <div className="flex justify-center mb-2 pointer-events-none select-none" aria-hidden>
+          <div className="w-48 md:w-64">
+            <DecisionMoment />
+          </div>
+        </div>
+
         <div ref={containerRef} className="flex flex-col items-center text-center gap-10">
           {/* Headline line 1 — Fraunces italic */}
           <h2
