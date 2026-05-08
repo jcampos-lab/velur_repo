@@ -3,8 +3,8 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import Button from "@/components/ui/Button";
 import MarqueeCarousel from "@/components/marketing/MarqueeCarousel";
 import CtaSection from "@/components/marketing/CtaSection";
-import RevenueStack from "@/components/illustrations/RevenueStack";
-import DataWarehouse from "@/components/illustrations/DataWarehouse";
+import VelurDelivery from "@/components/illustrations/VelurDelivery";
+import VelurStack    from "@/components/illustrations/VelurStack";
 
 export const metadata: Metadata = {
   title: "Services — Velur",
@@ -86,7 +86,7 @@ export default function ServicesPage() {
             </div>
             <div className="flex justify-center lg:justify-end pointer-events-none select-none" aria-hidden>
               <div className="w-full max-w-[420px]">
-                <RevenueStack />
+                <VelurDelivery />
               </div>
             </div>
           </div>
@@ -138,10 +138,10 @@ export default function ServicesPage() {
         ))}
       </div>
 
-      {/* Data warehouse illustration — visual of the stack we build */}
-      <section className="bg-paper py-16 flex justify-center overflow-hidden">
-        <div className="w-full max-w-[600px] px-6 md:px-0 pointer-events-none select-none" aria-hidden>
-          <DataWarehouse />
+      {/* Stack illustration — tools Velur connects to */}
+      <section className="bg-paper py-16 flex justify-center overflow-visible">
+        <div className="w-full max-w-[580px] px-6 md:px-0 pointer-events-none select-none" aria-hidden>
+          <VelurStack />
         </div>
       </section>
 

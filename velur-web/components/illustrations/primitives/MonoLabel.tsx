@@ -1,91 +1,62 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 interface MonoLabelProps {
   x: number;
   y: number;
   text: string;
-  number?: string;
-  align?: "left" | "center" | "right";
+  accentNumber?: string;
   dark?: boolean;
 }
 
-// Floating mono caption pill — sits above illustrated elements
-export default function MonoLabel({ x, y, text, number, align = "left", dark = false }: MonoLabelProps) {
-  const anchor = align === "center" ? "middle" : align === "right" ? "end" : "start";
-  const fill       = dark ? "var(--color-ink)"  : "var(--color-cream)";
-  const textColor  = dark ? "var(--color-paper)" : "var(--color-ink)";
-  const mutedColor = dark ? "rgba(255,255,255,0.5)" : "var(--color-muted)";
-  const border     = dark ? "rgba(255,255,255,0.12)" : "var(--color-line)";
+// Auto-sizing mono label — uses getBBox() to measure text and fit the rect.
+// x, y = center of the label pill.
+export default function MonoLabel({ x, y, text, accentNumber, dark = false }: MonoLabelProps) {
+  const textRef = useRef<SVGTextElement>(null);
+  const [dims, setDims] = useState({ width: 0, height: 0 });
 
-  const label = number ? `${number} · ${text}` : text;
-  const charW = 6.4;
-  const padX  = 10;
-  const padY  = 5;
-  const fs    = 10.5;
-  const w     = label.length * charW * 0.72 + padX * 2;
-  const h     = fs + padY * 2;
+  useEffect(() => {
+    if (!textRef.current) return;
+    const b = textRef.current.getBBox();
+    setDims({ width: b.width + 16, height: b.height + 8 });
+  }, [text, accentNumber]);
 
-  const rx = align === "right" ? x - w : align === "center" ? x - w / 2 : x;
+  const bg     = dark ? "var(--color-ink)"   : "var(--color-cream)";
+  const border = dark ? "rgba(255,255,255,0.15)" : "var(--color-ink)";
+  const fill   = dark ? "var(--color-paper)" : "var(--color-ink)";
 
   return (
-    <g>
-      <rect
-        x={rx}
-        y={y - h / 2}
-        width={w}
-        height={h}
-        rx={3}
-        fill={fill}
-        stroke={border}
-        strokeWidth={0.75}
-      />
-      {number ? (
-        <>
-          <text
-            x={rx + padX}
-            y={y}
-            dominantBaseline="middle"
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: fs,
-              fill: "var(--color-amber)",
-              fontWeight: 600,
-            }}
-          >
-            {number} ·{" "}
-          </text>
-          <text
-            x={rx + padX + (number.length + 3) * charW * 0.72}
-            y={y}
-            dominantBaseline="middle"
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: fs,
-              fill: textColor,
-              fontWeight: 400,
-            }}
-          >
-            {text}
-          </text>
-        </>
-      ) : (
-        <text
-          x={align === "center" ? x : align === "right" ? x - padX : rx + padX}
-          y={y}
-          textAnchor={anchor}
-          dominantBaseline="middle"
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: fs,
-            fill: textColor,
-            fontWeight: 400,
-          }}
-        >
-          {label}
-        </text>
+    <g transform={`translate(${x}, ${y})`}>
+      {dims.width > 0 && (
+        <rect
+          x={-dims.width / 2}
+          y={-dims.height / 2}
+          width={dims.width}
+          height={dims.height}
+          rx={4}
+          fill={bg}
+          stroke={border}
+          strokeWidth={0.75}
+        />
       )}
+      <text
+        ref={textRef}
+        textAnchor="middle"
+        dominantBaseline="central"
+        style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: 11,
+          letterSpacing: "0.02em",
+        }}
+      >
+        {accentNumber && (
+          <tspan fill="var(--color-amber)" fontWeight={600}>
+            {accentNumber}{" "}
+          </tspan>
+        )}
+        <tspan fill={fill}>{text}</tspan>
+      </text>
     </g>
   );
 }

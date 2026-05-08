@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Button from "@/components/ui/Button";
 import UnderlineDoodle from "@/components/illustrations/UnderlineDoodle";
-import DecisionMoment from "@/components/illustrations/DecisionMoment";
+import VelurFinal from "@/components/illustrations/VelurFinal";
 
 type CtaSectionProps = {
   headline1?: string;
@@ -52,10 +52,10 @@ export default function CtaSection({
   return (
     <section className="bg-cream py-40 md:py-48">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        {/* Decorative illustration */}
-        <div className="flex justify-center mb-2 pointer-events-none select-none" aria-hidden>
-          <div className="w-48 md:w-64">
-            <DecisionMoment />
+        {/* Closing illustration — calls back to VelurAnchor at the top of the page */}
+        <div className="flex justify-center mb-4 select-none" aria-hidden>
+          <div className="w-48 md:w-72">
+            <VelurFinal />
           </div>
         </div>
 
