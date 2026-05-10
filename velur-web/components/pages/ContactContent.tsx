@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import WaitlistForm from "@/components/ui/WaitlistForm";
 
 export default function ContactContent() {
   const { t } = useLanguage();
@@ -27,23 +28,17 @@ export default function ContactContent() {
         </div>
       </section>
 
-      {/* Cal + sidebar */}
+      {/* Form + sidebar */}
       <section className="bg-cream py-16">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            {/* Cal embed */}
-            <div className="lg:col-span-8">
-              <iframe
-                src="https://cal.com/velur/30min"
-                width="100%"
-                className="rounded-2xl border border-line w-full"
-                style={{ height: "clamp(480px, 75vh, 750px)", border: "none" }}
-                title={c.iframeTitle}
-              />
+            {/* Waitlist form */}
+            <div className="lg:col-span-7">
+              <WaitlistForm />
             </div>
 
             {/* Sidebar */}
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-4 lg:col-start-9">
               <p className="font-mono text-xs uppercase tracking-widest text-muted mb-8">
                 {c.whatToExpect}
               </p>
