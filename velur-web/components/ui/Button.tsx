@@ -4,7 +4,7 @@ import Link from "next/link";
 import { type AnchorHTMLAttributes, type ButtonHTMLAttributes } from "react";
 
 type BaseProps = {
-  variant?: "primary" | "secondary" | "amber";
+  variant?: "primary" | "secondary" | "amber" | "light";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
   className?: string;
@@ -31,6 +31,8 @@ const variantClasses = {
     "bg-paper text-ink border border-ink hover:bg-ink hover:text-white transition-colors duration-200",
   amber:
     "bg-amber text-white border border-amber hover:bg-ink hover:border-ink transition-colors duration-200",
+  light:
+    "bg-cream text-black border border-line hover:bg-amber hover:border-amber hover:text-white transition-colors duration-200",
 };
 
 export default function Button({

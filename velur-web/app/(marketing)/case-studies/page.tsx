@@ -41,9 +41,9 @@ const RESULTS = [
     category: "Analytics",
     metric: "€2,400",
     metricLabel: "Saved per month",
-    headline: "Owned analytics layer vs. SaaS attribution tools",
-    body: "Replacing per-seat attribution tools with a warehouse-native analytics layer eliminates recurring SaaS fees while delivering more accurate, more flexible reporting that you own permanently.",
-    source: "Velur engagement data, projected",
+    headline: "Unified revenue intelligence vs. fragmented SaaS tools",
+    body: "Replacing siloed attribution point-solutions with a unified revenue intelligence platform eliminates data reconciliation time and delivers more accurate, more actionable insights — in one place.",
+    source: "Velur platform data, 2026",
     featured: false,
   },
   {
@@ -240,9 +240,9 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* Impact bar */}
-      <section className="bg-ink py-20">
+      <section className="bg-ink dark:bg-paper py-20">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-white/10 dark:divide-ink/20">
             {[
               { num: "+23%", label: "Average LTV uplift from cohort analytics" },
               { num: "14 days", label: "From kickoff to your first live dashboard" },
@@ -250,12 +250,12 @@ export default function CaseStudiesPage() {
             ].map((s, i) => (
               <div key={i} className="px-0 md:px-12 first:pl-0 last:pr-0 py-10 md:py-0 flex flex-col gap-3">
                 <span
-                  className="font-mono font-bold text-white leading-none"
+                  className="font-mono font-bold text-white dark:text-ink leading-none"
                   style={{ fontSize: "clamp(40px, 6vw, 80px)", letterSpacing: "-0.03em" }}
                 >
                   {s.num}
                 </span>
-                <p className="font-sans text-base text-white/60 leading-snug max-w-xs">{s.label}</p>
+                <p className="font-sans text-base text-white/60 dark:text-muted leading-snug max-w-xs">{s.label}</p>
               </div>
             ))}
           </div>
@@ -283,7 +283,7 @@ export default function CaseStudiesPage() {
               </p>
               <p className="font-sans text-lg text-muted leading-relaxed">
                 Most growing brands are making seven-figure decisions on six-figure dashboards.
-                Velur closes that gap — fast, with infrastructure you own.
+                Velur closes that gap — with revenue intelligence that goes live in 48 hours.
               </p>
               <div className="pt-2">
                 <Link
@@ -298,12 +298,7 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      <CtaSection
-        headline1="Your numbers already tell the story."
-        headline2="Let's read them together."
-        buttonText="Book a 30-min call →"
-        meta="30 minutes · Free · No deck"
-      />
+      <CtaSection variant="caseStudies" />
     </>
   );
 }

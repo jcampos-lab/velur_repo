@@ -2,27 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import SectionLabel from "@/components/ui/SectionLabel";
-
-const ROWS = [
-  {
-    num: "01",
-    heading: "We don't sell another dashboard.",
-    body: "You already have five. We replace them with one you own — built in your warehouse, on your domain, with your data.",
-  },
-  {
-    num: "02",
-    heading: "We don't lock you in.",
-    body: "Every model, every query, every dashboard we build is yours. SQL files in your GitHub. No hidden infrastructure. Cancel us tomorrow and nothing breaks.",
-  },
-  {
-    num: "03",
-    heading: "We don't pretend to be an AI agency.",
-    body: "We use AI to ship faster. Claude, Cursor, modern tooling — they make us 5× faster than agencies still writing PowerPoints. That speed becomes your savings.",
-  },
-];
+import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 export default function ThreeThingsSection() {
   const rowsRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (!rowsRef.current) return;
@@ -53,25 +37,25 @@ export default function ThreeThingsSection() {
   return (
     <section className="bg-paper py-36">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <SectionLabel left="02 / THE SHAPE" right="HOW VELUR IS DIFFERENT" className="mb-14" />
+        <SectionLabel left={t.threeThings.sectionLeft} right={t.threeThings.sectionRight} className="mb-14" />
 
         <h2
           className="font-sans font-bold text-ink leading-[1.0] tracking-[-0.04em] mb-16"
           style={{ fontSize: "clamp(40px, 6vw, 88px)" }}
         >
-          Three things{" "}
+          {t.threeThings.heading1}{" "}
           <em className="font-serif not-italic italic font-normal" style={{ fontStyle: "italic" }}>
-            we don&apos;t
+            {t.threeThings.headingItalic}
           </em>{" "}
-          do.
+          {t.threeThings.heading2}
         </h2>
 
         {/* Rows */}
         <div ref={rowsRef} className="divide-y divide-line border-t border-line">
-          {ROWS.map(row => (
-            <div key={row.num} className="thing-row grid grid-cols-12 gap-6 py-14 opacity-0">
+          {t.threeThings.rows.map((row, i) => (
+            <div key={i} className="thing-row grid grid-cols-12 gap-6 py-14 opacity-0">
               <div className="col-span-1 flex items-start pt-1">
-                <span className="font-mono text-sm font-medium text-muted tracking-wide">{row.num}</span>
+                <span className="font-mono text-sm font-medium text-muted tracking-wide">{String(i + 1).padStart(2, "0")}</span>
               </div>
               <div className="col-span-12 md:col-span-5">
                 <h3

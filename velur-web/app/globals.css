@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Use class-based dark mode so dark: utilities respond to html.dark, not OS preference */
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-paper:      #FFFFFF;
   --color-cream:      #F5F2EC;
@@ -26,7 +29,7 @@ html.dark {
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   background-color: var(--color-paper);

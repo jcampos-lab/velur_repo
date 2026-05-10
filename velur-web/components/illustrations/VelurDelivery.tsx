@@ -111,7 +111,7 @@ export default function VelurDelivery({ className }: VelurDeliveryProps) {
       className={className}
       style={{ width: "100%", height: "auto", overflow: "visible" }}
     >
-      <IsoGrid width={W} height={H} spacing={32} opacity={0.08} />
+      <IsoGrid width={W} height={H} spacing={96} opacity={0.16} />
 
       {/* Output line */}
       <line

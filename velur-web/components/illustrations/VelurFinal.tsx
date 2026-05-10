@@ -85,7 +85,7 @@ export default function VelurFinal({ className }: VelurFinalProps) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <IsoGrid width={W} height={H} spacing={32} opacity={0.08} />
+      <IsoGrid width={W} height={H} spacing={96} opacity={0.16} />
 
       {/* Hover glow ring */}
       <circle

@@ -10,39 +10,38 @@ interface DataChaosProps {
 }
 
 // Chapter 2: Without Velur, your data is chaos.
-// Scattered grayscale cubes — no protagonist, no order.
-// Deliberately asymmetric. No Velur cube present.
+// Scattered grayscale cubes in a horizontal band — no order, no protagonist.
 
 const CUBES = [
-  { cx: 130, cy:  70, size: 52, label: "shopify",  showLabel: true  },
-  { cx: 370, cy:  38, size: 40, label: "klaviyo",  showLabel: true  },
-  { cx: 620, cy:  80, size: 56, label: "meta",     showLabel: true  },
-  { cx: 210, cy: 250, size: 34, label: "tiktok",   showLabel: false },
-  { cx: 490, cy: 190, size: 46, label: "google",   showLabel: true  },
-  { cx: 680, cy: 280, size: 30, label: "email",    showLabel: false },
-  { cx: 330, cy: 320, size: 42, label: "direct",   showLabel: true  },
-  { cx:  80, cy: 360, size: 26, label: null,        showLabel: false },
-  { cx: 720, cy: 150, size: 38, label: "social",   showLabel: false },
+  { cx:  70, cy: 52, size: 52, label: "shopify"   },
+  { cx: 190, cy: 70, size: 40, label: "klaviyo"   },
+  { cx: 305, cy: 42, size: 56, label: "meta"      },
+  { cx: 430, cy: 75, size: 34, label: "tiktok"    },
+  { cx: 535, cy: 58, size: 46, label: "google"    },
+  { cx: 645, cy: 80, size: 30, label: "email"     },
+  { cx: 745, cy: 62, size: 42, label: "direct"    },
+  { cx: 855, cy: 85, size: 26, label: "affiliate" },
+  { cx: 950, cy: 70, size: 38, label: null        },
 ];
 
-// Each cube drifts independently — offset values for GSAP float animation
+// Each cube drifts in a distinct direction — chaos, not oscillation
 const DRIFTS = [
-  {  dy: -4, dx:  2, dur: 5.8 },
-  {  dy:  3, dx: -3, dur: 6.4 },
-  {  dy: -3, dx:  4, dur: 7.1 },
-  {  dy:  5, dx: -2, dur: 5.3 },
-  {  dy: -5, dx:  3, dur: 6.9 },
-  {  dy:  4, dx: -4, dur: 7.5 },
-  {  dy: -3, dx:  2, dur: 6.2 },
-  {  dy:  3, dx: -5, dur: 5.7 },
-  {  dy: -4, dx:  3, dur: 6.8 },
+  { dx: -18, dy: -10, dur: 8.5 },
+  { dx:  14, dy: -14, dur: 9.2 },
+  { dx: -12, dy:  12, dur: 7.8 },
+  { dx:  20, dy:   8, dur: 10.1 },
+  { dx: -16, dy:   6, dur: 8.9 },
+  { dx:  12, dy: -16, dur: 9.6 },
+  { dx: -14, dy: -10, dur: 7.4 },
+  { dx:  18, dy:  12, dur: 11.0 },
+  { dx: -10, dy:  18, dur: 8.1 },
 ];
 
 export default function DataChaos({ className }: DataChaosProps) {
   const svgRef = useRef<SVGSVGElement>(null);
 
-  const W = 800;
-  const H = 460;
+  const W = 1000;
+  const H = 210;
 
   useEffect(() => {
     const svg = svgRef.current;
@@ -62,13 +61,6 @@ export default function DataChaos({ className }: DataChaosProps) {
         return;
       }
 
-      // Random entrance directions
-      const directions = [
-        [-60, -40], [30, -50], [70, -30],
-        [-50, 20], [60, 10], [80, -20],
-        [-40, 50], [-70, 30], [50, -40],
-      ];
-
       gsap.set(cubeGroups, { opacity: 0 });
 
       gsap.to(cubeGroups, {
@@ -79,14 +71,13 @@ export default function DataChaos({ className }: DataChaosProps) {
         scrollTrigger: { trigger: svg, start: "top 80%", once: true },
       });
 
-      // Continuous drift — each cube has its own timeline
       cubeGroups.forEach((el, i) => {
         const drift = DRIFTS[i] ?? DRIFTS[0];
         gsap.to(el, {
-          y: drift.dy,
           x: drift.dx,
+          y: drift.dy,
           duration: drift.dur,
-          ease: "sine.inOut",
+          ease: "power1.inOut",
           yoyo: true,
           repeat: -1,
         });
@@ -104,20 +95,34 @@ export default function DataChaos({ className }: DataChaosProps) {
       className={className}
       style={{ width: "100%", height: "auto", overflow: "visible" }}
     >
-      <IsoGrid width={W} height={H} spacing={34} opacity={0.06} />
+      <IsoGrid width={W} height={H} spacing={96} opacity={0.16} />
 
       {CUBES.map((cube, i) => (
         <g key={i} className="chaos-cube" style={{ opacity: 0 }}>
           <DataCube size={cube.size} cx={cube.cx} cy={cube.cy} />
-          {cube.showLabel && cube.label && (
+          {cube.label && (
             <MonoLabel
               x={cube.cx}
-              y={cube.cy - 12}
+              y={cube.cy - 10}
               text={cube.label}
             />
           )}
         </g>
       ))}
+
+      {/* Caption */}
+      <text
+        x={W / 2}
+        y={H - 6}
+        textAnchor="middle"
+        fontFamily="var(--font-mono)"
+        fontSize={11}
+        fill="var(--color-muted)"
+        opacity={0.6}
+        letterSpacing="0.08em"
+      >
+        the data is there. but it&apos;s not yours yet.
+      </text>
     </svg>
   );
 }

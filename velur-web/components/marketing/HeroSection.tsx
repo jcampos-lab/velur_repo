@@ -3,11 +3,13 @@
 import { useEffect, useRef } from "react";
 import Button from "@/components/ui/Button";
 import Pill from "@/components/ui/Pill";
+import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 export default function HeroSection() {
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
   const subRef   = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -73,7 +75,7 @@ export default function HeroSection() {
         {/* Status pill */}
         <Pill>
           <span className="pulse-dot w-2 h-2 rounded-full bg-positive inline-block shrink-0" />
-          <span className="text-ink">Available — taking 2 new clients this quarter</span>
+          <span className="text-ink">{t.hero.pill}</span>
         </Pill>
 
         {/* Giant headline — overflows past the right grid edge */}
@@ -88,14 +90,14 @@ export default function HeroSection() {
             }}
           >
             <span ref={line1Ref} className="block" style={{ clipPath: "inset(0 0% 0 0)" }}>
-              Your data already&nbsp;knows.
+              {t.hero.line1}
             </span>
             <span
               ref={line2Ref}
               className="block text-amber"
               style={{ clipPath: "inset(0 0% 0 0)", fontWeight: 700 }}
             >
-              We help you act on it.
+              {t.hero.line2}
             </span>
           </h1>
         </div>
@@ -109,16 +111,14 @@ export default function HeroSection() {
           {/* Left: body + buttons */}
           <div>
             <p className="font-sans text-ink leading-relaxed mb-8" style={{ fontSize: 20, maxWidth: 540, margin: "0 0 32px" }}>
-              Velur turns your Shopify, Klaviyo, and Meta data into the three
-              numbers that decide your next quarter. No new dashboard. No new SaaS
-              bill. Built by analysts, owned by you.
+              {t.hero.subhead}
             </p>
             <div className="flex flex-wrap gap-3 mb-6">
               <Button href="/contact" variant="primary" size="lg">
-                Book a 30-min call →
+                {t.hero.ctaPrimary}
               </Button>
-              <Button href="#pain" variant="secondary" size="lg">
-                See what we do ↓
+              <Button href="/services" variant="secondary" size="lg">
+                {t.hero.ctaSecondary}
               </Button>
             </div>
             <p className="font-mono text-xs text-muted tracking-widest uppercase" style={{ margin: 0 }}>
@@ -132,15 +132,13 @@ export default function HeroSection() {
             style={{ borderLeft: "1px solid var(--color-line)", paddingLeft: 32, maxWidth: 420 }}
           >
             <p className="font-mono uppercase text-muted mb-4" style={{ fontSize: 11, letterSpacing: "0.08em" }}>
-              The thesis
+              {t.hero.thesisLabel}
             </p>
             <p
               className="font-serif italic text-ink"
               style={{ fontSize: 22, lineHeight: 1.4, margin: 0, fontWeight: 400 }}
             >
-              Most brands don't have a data problem. They have an action problem.
-              The number that decides your quarter is already in your warehouse —
-              quietly waiting.
+              {t.hero.thesis}
             </p>
           </div>
         </div>

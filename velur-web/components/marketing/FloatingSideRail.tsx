@@ -8,10 +8,10 @@ export default function FloatingSideRail() {
         href="https://linkedin.com/company/velur"
         target="_blank"
         rel="noopener noreferrer"
-        className="w-8 h-8 rounded-full border border-ink bg-white flex items-center justify-center hover:bg-ink hover:text-white transition-colors duration-200 group"
+        className="w-8 h-8 rounded-full border border-ink bg-paper flex items-center justify-center hover:bg-ink hover:text-paper transition-colors duration-200 group"
         aria-label="LinkedIn"
       >
-        <span className="font-mono text-[10px] font-medium text-ink group-hover:text-white transition-colors">in</span>
+        <span className="font-mono text-[10px] font-medium text-ink group-hover:text-paper transition-colors">in</span>
       </a>
 
       {/* X */}
@@ -19,19 +19,19 @@ export default function FloatingSideRail() {
         href="https://x.com/velur_io"
         target="_blank"
         rel="noopener noreferrer"
-        className="w-8 h-8 rounded-full border border-ink bg-white flex items-center justify-center hover:bg-ink hover:text-white transition-colors duration-200 group"
+        className="w-8 h-8 rounded-full border border-ink bg-paper flex items-center justify-center hover:bg-ink hover:text-paper transition-colors duration-200 group"
         aria-label="X / Twitter"
       >
-        <span className="font-mono text-[10px] font-medium text-ink group-hover:text-white transition-colors">x</span>
+        <span className="font-mono text-[10px] font-medium text-ink group-hover:text-paper transition-colors">x</span>
       </a>
 
       {/* Email */}
       <a
         href="mailto:hello@velur.io"
-        className="w-8 h-8 rounded-full border border-ink bg-white flex items-center justify-center hover:bg-ink hover:text-white transition-colors duration-200 group"
+        className="w-8 h-8 rounded-full border border-ink bg-paper flex items-center justify-center hover:bg-ink hover:text-paper transition-colors duration-200 group"
         aria-label="Email"
       >
-        <span className="font-mono text-[10px] font-medium text-ink group-hover:text-white transition-colors">@</span>
+        <span className="font-mono text-[10px] font-medium text-ink group-hover:text-paper transition-colors">@</span>
       </a>
 
       {/* Rotated label */}

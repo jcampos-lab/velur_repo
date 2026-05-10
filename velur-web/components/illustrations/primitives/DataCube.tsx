@@ -34,30 +34,23 @@ export default function DataCube({ size = 60, cx = 0, cy = 0, className }: DataC
 
   return (
     <g className={className}>
-      {/* Right face */}
+      {/* Fills — no strokes to prevent double-drawn shared edges */}
+      <polygon className="data-face data-face-right" points={p([v.B, v.E, v.F, v.C])} fill="var(--color-paper)" />
+      <polygon className="data-face data-face-left"  points={p([v.D, v.C, v.F, v.G])} fill="#ECE9E1" />
+      <polygon className="data-face data-face-top"   points={p([v.A, v.B, v.C, v.D])} fill="var(--color-cream)" />
+
+      {/* Outer silhouette — drawn once, round joins for clean corners */}
       <polygon
-        className="data-face data-face-right"
-        points={p([v.B, v.E, v.F, v.C])}
-        fill="var(--color-paper)"
+        points={p([v.A, v.B, v.E, v.F, v.G, v.D])}
+        fill="none"
         stroke="var(--color-ink)"
         strokeWidth={1.5}
+        strokeLinejoin="round"
       />
-      {/* Left face */}
-      <polygon
-        className="data-face data-face-left"
-        points={p([v.D, v.C, v.F, v.G])}
-        fill="#ECE9E1"
-        stroke="var(--color-ink)"
-        strokeWidth={1.5}
-      />
-      {/* Top face */}
-      <polygon
-        className="data-face data-face-top"
-        points={p([v.A, v.B, v.C, v.D])}
-        fill="var(--color-cream)"
-        stroke="var(--color-ink)"
-        strokeWidth={1.5}
-      />
+      {/* Interior ridges — each drawn once, round caps blend into contour */}
+      <line x1={v.B[0]} y1={v.B[1]} x2={v.C[0]} y2={v.C[1]} stroke="var(--color-ink)" strokeWidth={1.5} strokeLinecap="round" />
+      <line x1={v.D[0]} y1={v.D[1]} x2={v.C[0]} y2={v.C[1]} stroke="var(--color-ink)" strokeWidth={1.5} strokeLinecap="round" />
+      <line x1={v.C[0]} y1={v.C[1]} x2={v.F[0]} y2={v.F[1]} stroke="var(--color-ink)" strokeWidth={1.5} strokeLinecap="round" />
     </g>
   );
 }

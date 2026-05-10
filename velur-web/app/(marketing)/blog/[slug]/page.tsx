@@ -87,7 +87,7 @@ export default async function BlogPostPage({ params }: Props) {
             href="/contact"
             className="inline-flex items-center gap-2 font-mono text-sm bg-ink text-paper px-6 py-3 rounded-pill hover:bg-amber transition-colors duration-200"
           >
-            Book a call →
+            Book a demo →
           </Link>
         </div>
       </section>

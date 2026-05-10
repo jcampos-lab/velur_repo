@@ -7,8 +7,10 @@ export type LineState = "static" | "active" | "pulse";
 interface ConnectionLineProps {
   from: { x: number; y: number };
   to:   { x: number; y: number };
+  /** 'static' = slow dot (2.5s), 'active'/'pulse' = fast dot (1s) */
   state?: LineState;
   curveAmount?: number;
+  dotDelay?: number;
 }
 
 function bezierAt(
@@ -29,35 +31,30 @@ export default function ConnectionLine({
   to,
   state = "static",
   curveAmount = 0.18,
+  dotDelay = 0,
 }: ConnectionLineProps) {
-  const dotRef  = useRef<SVGCircleElement>(null);
+  const dotRef   = useRef<SVGCircleElement>(null);
   const tweenRef = useRef<{ kill: () => void } | null>(null);
 
-  // Quadratic bezier control point — perpendicular offset from midpoint
+  // Quadratic bezier control point
   const ctrl = useMemo(() => {
     const dx  = to.x - from.x;
     const dy  = to.y - from.y;
     const len = Math.sqrt(dx * dx + dy * dy) || 1;
     const mx  = (from.x + to.x) / 2;
     const my  = (from.y + to.y) / 2;
-    // Perpendicular unit vector (90° ccw)
-    const nx = -dy / len;
-    const ny =  dx / len;
+    const nx  = -dy / len;
+    const ny  =  dx / len;
     return { x: mx + nx * len * curveAmount, y: my + ny * len * curveAmount };
   }, [from.x, from.y, to.x, to.y, curveAmount]);
 
   const d = `M ${from.x},${from.y} Q ${ctrl.x},${ctrl.y} ${to.x},${to.y}`;
 
-  // Line visual per state
-  const isStatic = state === "static";
-  const isPulse  = state === "pulse";
+  // Lines always render amber after entrance (no static-dashed state)
+  const isAccelerated = state === "active" || state === "pulse";
+  const dotDuration   = isAccelerated ? 1.0 : 2.5;
 
-  const stroke        = isStatic ? "var(--color-ink)"   : "var(--color-amber)";
-  const strokeWidth   = isStatic ? 1   : 1.5;
-  const opacity       = isStatic ? 0.35 : 1;
-  const strokeDash    = isStatic ? "4 4" : "none";
-
-  // Pulse dot animation
+  // Continuous traveling dot — always active
   useEffect(() => {
     const dot = dotRef.current;
     if (!dot) return;
@@ -65,18 +62,15 @@ export default function ConnectionLine({
     tweenRef.current?.kill();
     tweenRef.current = null;
 
-    if (!isPulse) {
-      dot.style.display = "none";
-      return;
-    }
-
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReduced) {
-      dot.style.display = "none";
+      dot.style.opacity = "0";
       return;
     }
 
-    dot.style.display = "";
+    dot.style.opacity = "1";
+
+    // Place dot at start position immediately
     const pos0 = bezierAt(0, from, ctrl, to);
     dot.setAttribute("cx", String(pos0.x));
     dot.setAttribute("cy", String(pos0.y));
@@ -84,40 +78,45 @@ export default function ConnectionLine({
     const run = async () => {
       const { gsap } = await import("gsap");
       const obj = { t: 0 };
+
       tweenRef.current = gsap.to(obj, {
         t: 1,
-        duration: 1,
+        duration: dotDuration,
         ease: "none",
+        delay: dotDelay,
         repeat: -1,
+        repeatDelay: 0.4,
         onUpdate() {
           const pos = bezierAt(obj.t, from, ctrl, to);
           dot.setAttribute("cx", String(pos.x));
           dot.setAttribute("cy", String(pos.y));
         },
+        onRepeat() {
+          obj.t = 0;
+        },
       });
     };
-    run();
 
-    return () => { tweenRef.current?.kill(); };
-  }, [isPulse, from.x, from.y, ctrl.x, ctrl.y, to.x, to.y]);
+    run();
+    return () => tweenRef.current?.kill();
+  }, [dotDuration, dotDelay, from.x, from.y, ctrl.x, ctrl.y, to.x, to.y]);
 
   return (
     <g>
+      {/* Always-on amber connection line */}
       <path
         d={d}
         fill="none"
-        stroke={stroke}
-        strokeWidth={strokeWidth}
-        strokeDasharray={strokeDash}
-        opacity={opacity}
-        style={{ transition: "stroke 0.4s, stroke-width 0.4s, opacity 0.4s" }}
+        stroke="var(--color-amber)"
+        strokeWidth={1.5}
+        opacity={0.8}
       />
-      {/* Pulse dot — hidden unless state=pulse */}
+      {/* Traveling transfer dot */}
       <circle
         ref={dotRef}
         r={3.5}
-        fill="var(--color-amber)"
-        style={{ display: "none" }}
+        fill="#FF7A40"
+        style={{ opacity: 0 }}
       />
     </g>
   );

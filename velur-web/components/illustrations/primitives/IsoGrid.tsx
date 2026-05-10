@@ -1,58 +1,44 @@
 "use client";
 
-import React from "react";
+import React, { useId } from "react";
 
 interface IsoGridProps {
   width: number;
   height: number;
-  spacing?: number;
+  spacing?: number; // horizontal distance between vertices
   opacity?: number;
+  bleed?: number;   // how far the pattern extends beyond the viewBox on each side
 }
 
-// Isometric grid background — infinite tiling pattern via SVG <pattern>
-export default function IsoGrid({ width, height, spacing = 32, opacity = 0.18 }: IsoGridProps) {
-  const s = spacing;
-  const R = Math.sqrt(3) / 2;
-  // Pattern tile: rhombus width = 2*s*R, height = s
-  const tW = s * R * 2;
-  const tH = s;
+// Proper isometric grid — lines at 30°/60°/90° angles
+// bleed extends the pattern rect beyond the SVG viewBox so it merges with the page edge
+export default function IsoGrid({ width, height, spacing = 60, opacity = 0.06, bleed = 2000 }: IsoGridProps) {
+  const rawId    = useId();
+  const uid      = rawId.replace(/:/g, "");
+  const patId    = `iso-${uid}`;
 
-  // Isometric grid lines in one tile
-  // Two sets of parallel lines at ±30°
-  const lines: string[] = [
-    // \ diagonal
-    `M 0,0 L ${tW},${tH}`,
-    // / diagonal
-    `M ${tW},0 L 0,${tH}`,
-    // horizontal midpoint connector
-    `M 0,${tH / 2} L ${tW},${tH / 2}`,
-  ];
-
-  const patternId = `iso-grid-${Math.round(spacing * 100)}`;
+  const half = spacing / 2;
+  const h    = half / Math.sqrt(3);
+  const patH = h * 2;
 
   return (
     <g opacity={opacity} aria-hidden>
       <defs>
         <pattern
-          id={patternId}
+          id={patId}
           x="0"
           y="0"
-          width={tW}
-          height={tH}
+          width={spacing}
+          height={patH}
           patternUnits="userSpaceOnUse"
         >
-          {lines.map((d, i) => (
-            <path
-              key={i}
-              d={d}
-              stroke="var(--color-line)"
-              strokeWidth={0.5}
-              fill="none"
-            />
-          ))}
+          <line x1={0}    y1={0}    x2={half}    y2={h}    stroke="var(--color-ink)" strokeWidth={0.7} />
+          <line x1={half} y1={h}    x2={spacing} y2={0}    stroke="var(--color-ink)" strokeWidth={0.7} />
+          <line x1={0}    y1={patH} x2={half}    y2={h}    stroke="var(--color-ink)" strokeWidth={0.7} />
+          <line x1={half} y1={h}    x2={spacing} y2={patH} stroke="var(--color-ink)" strokeWidth={0.7} />
         </pattern>
       </defs>
-      <rect width={width} height={height} fill={`url(#${patternId})`} />
+      <rect x={-bleed} y={0} width={width + bleed * 2} height={height} fill={`url(#${patId})`} />
     </g>
   );
 }

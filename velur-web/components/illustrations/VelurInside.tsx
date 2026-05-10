@@ -130,7 +130,7 @@ export default function VelurInside({ className }: VelurInsideProps) {
       className={className}
       style={{ width: "100%", height: "auto", overflow: "visible" }}
     >
-      <IsoGrid width={W} height={H} spacing={34} opacity={0.1} />
+      <IsoGrid width={W} height={H} spacing={96} opacity={0.16} />
 
       <WireframeShell s={outerS} cx={cx} cy={outerCy} />
 

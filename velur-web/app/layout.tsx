@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Fraunces, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
+import { LanguageProvider } from "@/lib/i18n/LanguageProvider";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -66,7 +67,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider><LanguageProvider>{children}</LanguageProvider></ThemeProvider>
       </body>
     </html>
   );

@@ -88,7 +88,7 @@ export default function VelurConvergence({ className }: VelurConvergenceProps) {
       className={className}
       style={{ width: "100%", height: "auto", overflow: "visible" }}
     >
-      <IsoGrid width={W} height={H} spacing={32} opacity={0.1} />
+      <IsoGrid width={W} height={H} spacing={96} opacity={0.16} />
 
       {/* Connection lines — static by default, pulse on Velur hover */}
       {sources.map((src, i) => {

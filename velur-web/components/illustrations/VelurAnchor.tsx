@@ -70,7 +70,7 @@ export default function VelurAnchor({ className }: VelurAnchorProps) {
       className={className}
       style={{ width: "100%", height: "auto", overflow: "visible" }}
     >
-      <IsoGrid width={W} height={H} spacing={32} opacity={0.08} />
+      <IsoGrid width={W} height={H} spacing={96} opacity={0.16} />
 
       <VelurCube ref={cubeRef} size={s} cx={cx} cy={cy} breathe interactive />
 

@@ -4,23 +4,22 @@ import { useEffect, useRef } from "react";
 import Button from "@/components/ui/Button";
 import UnderlineDoodle from "@/components/illustrations/UnderlineDoodle";
 import VelurFinal from "@/components/illustrations/VelurFinal";
+import { useLanguage } from "@/lib/i18n/LanguageProvider";
+
+type CtaVariant = "default" | "platform" | "company" | "caseStudies";
 
 type CtaSectionProps = {
-  headline1?: string;
-  headline2?: string;
-  meta?: string;
-  buttonText?: string;
+  variant?: CtaVariant;
   buttonHref?: string;
 };
 
 export default function CtaSection({
-  headline1 = "“Are you numbers unlocking your growth potential?”",
-  headline2 = "Let's find it together.",
-  meta = "30 minutes · Free · No deck · We'll look at your actual data together",
-  buttonText = "Book a 30-min call →",
+  variant = "default",
   buttonHref = "/contact",
 }: CtaSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
+  const copy = t.cta[variant];
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -52,40 +51,36 @@ export default function CtaSection({
   return (
     <section className="bg-cream py-40 md:py-48">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        {/* Closing illustration — calls back to VelurAnchor at the top of the page */}
         <div className="flex justify-center mb-4 select-none" aria-hidden>
-          <div className="w-48 md:w-72">
+          <div className="w-64 md:w-96">
             <VelurFinal />
           </div>
         </div>
 
         <div ref={containerRef} className="flex flex-col items-center text-center gap-10">
-          {/* Headline line 1 — Fraunces italic */}
           <h2
             className="font-serif italic font-normal text-ink leading-[1.05] tracking-[-0.03em] max-w-4xl"
             style={{ fontSize: "clamp(32px, 5.5vw, 88px)" }}
           >
-            {headline1}
+            {copy.h1}
           </h2>
 
-          {/* Headline line 2 — Bricolage */}
           <div className="relative inline-block">
             <h2
               className="font-sans font-bold text-ink leading-[1.0] tracking-[-0.04em]"
               style={{ fontSize: "clamp(32px, 5.5vw, 88px)" }}
             >
-              {headline2}
+              {copy.h2}
             </h2>
             <UnderlineDoodle className="absolute -bottom-3 left-0 w-full h-4" />
           </div>
 
-          {/* Button + meta */}
           <div className="flex flex-col sm:flex-row items-center gap-5 mt-4">
             <Button href={buttonHref} variant="amber" size="lg">
-              {buttonText}
+              {copy.btn}
             </Button>
             <p className="font-mono text-xs text-muted tracking-wide leading-relaxed">
-              {meta}
+              {copy.meta}
             </p>
           </div>
         </div>
