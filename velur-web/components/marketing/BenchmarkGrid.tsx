@@ -70,7 +70,7 @@ function BenchmarkCard({
   return (
     <div
       ref={cardRef}
-      className={`border border-line bg-paper rounded-[16px] p-10 flex flex-col gap-4 opacity-0 ${
+      className={`border border-line bg-paper rounded-[16px] p-6 md:p-10 flex flex-col gap-4 opacity-0 ${
         num.highlight ? "ring-1 ring-amber/25" : ""
       }`}
     >
@@ -96,7 +96,7 @@ export default function BenchmarkGrid() {
   const [line1, line2] = t.benchmarkGrid.heading.split("\n");
 
   return (
-    <section id="pain" className="bg-cream py-32">
+    <section id="pain" className="bg-cream py-16 md:py-24 lg:py-32">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <div className="mb-16">
           <SectionLabel left={t.benchmarkGrid.sectionLeft} right={t.benchmarkGrid.sectionRight} className="mb-10" />

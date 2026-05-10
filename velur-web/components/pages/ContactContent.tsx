@@ -36,9 +36,8 @@ export default function ContactContent() {
               <iframe
                 src="https://cal.com/velur/30min"
                 width="100%"
-                height="700"
-                frameBorder="0"
                 className="rounded-2xl border border-line w-full"
+                style={{ height: "clamp(480px, 75vh, 750px)", border: "none" }}
                 title={c.iframeTitle}
               />
             </div>

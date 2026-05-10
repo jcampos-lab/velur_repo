@@ -111,13 +111,13 @@ export default function Header() {
               </svg>
             </button>
           </div>
-          <nav className="flex flex-col gap-1 p-6">
+          <nav className="flex flex-col gap-1 p-5">
             {NAV_LINKS.map(link => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="font-sans font-semibold text-2xl text-ink py-4 border-b border-line"
+                className="font-sans font-semibold text-lg text-ink py-3.5 border-b border-line"
               >
                 {link.label}
               </Link>
@@ -125,7 +125,7 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-8 inline-flex items-center justify-center gap-2 bg-ink text-paper font-sans font-medium text-lg px-8 py-4 rounded-full"
+              className="mt-6 inline-flex items-center justify-center gap-2 bg-ink text-paper font-sans font-medium text-base px-6 py-3.5 rounded-full"
             >
               {t.header.cta} →
             </Link>

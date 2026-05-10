@@ -49,7 +49,7 @@ export default function CtaSection({
   }, []);
 
   return (
-    <section className="bg-cream py-40 md:py-48">
+    <section className="bg-cream py-20 md:py-32 lg:py-48">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <div className="flex justify-center mb-4 select-none" aria-hidden>
           <div className="w-64 md:w-96">

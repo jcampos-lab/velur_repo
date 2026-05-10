@@ -33,7 +33,7 @@ export default function ServicesContent() {
                 {s.subhead}
               </p>
             </div>
-            <div className="flex justify-center lg:justify-end pointer-events-none select-none" aria-hidden>
+            <div className="hidden lg:flex justify-end pointer-events-none select-none" aria-hidden>
               <div className="w-full max-w-[600px]">
                 <VelurDelivery />
               </div>
@@ -45,7 +45,7 @@ export default function ServicesContent() {
       {/* Platform modules */}
       <div className="bg-cream divide-y divide-line border-t border-b border-line">
         {s.modules.map((m, idx) => (
-          <div key={idx} className="max-w-[1440px] mx-auto px-6 md:px-12 py-20">
+          <div key={idx} className="max-w-[1440px] mx-auto px-6 md:px-12 py-12 md:py-20">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-6">
                 <p className="font-mono text-xs uppercase tracking-widest text-muted mb-5">
@@ -94,12 +94,12 @@ export default function ServicesContent() {
       <MarqueeCarousel />
 
       {/* How it works */}
-      <section className="bg-paper py-28">
+      <section className="bg-paper py-14 md:py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <SectionLabel left={s.howLabel} right={s.howRight} className="mb-16" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {s.steps.map((step, i) => (
-              <div key={i} className="border border-line bg-paper rounded-[16px] p-8 flex flex-col gap-4">
+              <div key={i} className="border border-line bg-paper rounded-[16px] p-5 md:p-8 flex flex-col gap-4">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="font-mono text-xs text-muted">{String(i + 1).padStart(2, "0")}</span>
                   {i < s.steps.length - 1 && <div className="flex-1 h-px bg-line hidden lg:block" />}

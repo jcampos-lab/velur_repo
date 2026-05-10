@@ -86,7 +86,7 @@ export default function ReceiptsSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="bg-ink dark:bg-paper py-32 relative overflow-hidden">
+    <section className="bg-ink dark:bg-paper py-16 md:py-24 lg:py-32 relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative">
         <div className="mb-16 border-b border-white/10 pb-8">
           <SectionLabel

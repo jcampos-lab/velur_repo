@@ -48,8 +48,8 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative bg-paper overflow-hidden"
-      style={{ minHeight: "calc(100vh - 80px)", padding: "96px 40px 80px" }}
+      className="relative bg-paper overflow-hidden px-5 sm:px-10 pt-16 pb-16 md:pt-24 md:pb-20"
+      style={{ minHeight: "calc(100vh - 80px)" }}
     >
       {/* 12-column dashed grid overlay — matches design prototype */}
       <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
@@ -70,7 +70,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="relative z-10" style={{ maxWidth: 1280, margin: "0 auto" }}>
+      <div className="relative z-10 w-full" style={{ maxWidth: 1280, margin: "0 auto" }}>
 
         {/* Status pill */}
         <Pill>
@@ -83,10 +83,10 @@ export default function HeroSection() {
           <h1
             className="font-sans font-bold text-ink"
             style={{
-              fontSize: "clamp(64px, 11vw, 168px)",
+              fontSize: "clamp(44px, 11vw, 168px)",
               letterSpacing: "-0.045em",
               lineHeight: 0.95,
-              marginRight: "-6vw",
+              marginRight: "0",
             }}
           >
             <span ref={line1Ref} className="block" style={{ clipPath: "inset(0 0% 0 0)" }}>
@@ -102,34 +102,33 @@ export default function HeroSection() {
           </h1>
         </div>
 
-        {/* Sub-row — 7/5 grid */}
+        {/* Sub-row — stacks on mobile, 7/5 on large screens */}
         <div
           ref={subRef}
-          className="grid gap-16 items-end opacity-100"
-          style={{ gridTemplateColumns: "7fr 5fr" }}
+          className="grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-10 lg:gap-16 items-end opacity-100"
         >
           {/* Left: body + buttons */}
           <div>
-            <p className="font-sans text-ink leading-relaxed mb-8" style={{ fontSize: 20, maxWidth: 540, margin: "0 0 32px" }}>
+            <p className="font-sans text-ink leading-relaxed mb-8 text-lg md:text-xl max-w-xl">
               {t.hero.subhead}
             </p>
-            <div className="flex flex-wrap gap-3 mb-6">
-              <Button href="/contact" variant="primary" size="lg">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-6">
+              <Button href="/contact" variant="primary" size="md">
                 {t.hero.ctaPrimary}
               </Button>
-              <Button href="/services" variant="secondary" size="lg">
+              <Button href="/services" variant="secondary" size="md">
                 {t.hero.ctaSecondary}
               </Button>
             </div>
-            <p className="font-mono text-xs text-muted tracking-widest uppercase" style={{ margin: 0 }}>
+            <p className="font-mono text-xs text-muted tracking-widest uppercase">
               velur.io
             </p>
           </div>
 
-          {/* Right: editorial thesis note */}
+          {/* Right: editorial thesis note — hidden on mobile */}
           <div
-            className="pb-2"
-            style={{ borderLeft: "1px solid var(--color-line)", paddingLeft: 32, maxWidth: 420 }}
+            className="hidden lg:block pb-2 pl-8 max-w-md"
+            style={{ borderLeft: "1px solid var(--color-line)" }}
           >
             <p className="font-mono uppercase text-muted mb-4" style={{ fontSize: 11, letterSpacing: "0.08em" }}>
               {t.hero.thesisLabel}

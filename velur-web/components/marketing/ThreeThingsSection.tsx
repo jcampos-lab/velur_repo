@@ -35,7 +35,7 @@ export default function ThreeThingsSection() {
   }, []);
 
   return (
-    <section className="bg-paper py-36">
+    <section className="bg-paper py-16 md:py-24 lg:py-36">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <SectionLabel left={t.threeThings.sectionLeft} right={t.threeThings.sectionRight} className="mb-14" />
 
@@ -53,7 +53,7 @@ export default function ThreeThingsSection() {
         {/* Rows */}
         <div ref={rowsRef} className="divide-y divide-line border-t border-line">
           {t.threeThings.rows.map((row, i) => (
-            <div key={i} className="thing-row grid grid-cols-12 gap-6 py-14 opacity-0">
+            <div key={i} className="thing-row grid grid-cols-12 gap-4 md:gap-6 py-8 md:py-14 opacity-0">
               <div className="col-span-1 flex items-start pt-1">
                 <span className="font-mono text-sm font-medium text-muted tracking-wide">{String(i + 1).padStart(2, "0")}</span>
               </div>

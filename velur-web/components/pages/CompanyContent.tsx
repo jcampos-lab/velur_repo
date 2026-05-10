@@ -30,12 +30,12 @@ export default function CompanyContent() {
       </section>
 
       {/* Why it works */}
-      <section className="bg-paper py-28">
+      <section className="bg-paper py-14 md:py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <SectionLabel left={c.whyLabel} right="" className="mb-16" />
+          <SectionLabel left={c.whyLabel} right="" className="mb-10 md:mb-16" />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-line border border-line rounded-[16px] overflow-hidden">
             {c.cards.map((item) => (
-              <div key={item.num} className="bg-paper p-10 flex flex-col gap-5">
+              <div key={item.num} className="bg-paper p-6 md:p-10 flex flex-col gap-5">
                 <span className="font-mono text-xs text-muted">{item.num}</span>
                 <h3
                   className="font-sans font-bold text-ink leading-tight tracking-[-0.025em]"
@@ -51,7 +51,7 @@ export default function CompanyContent() {
       </section>
 
       {/* Background — dark section */}
-      <section className="bg-ink dark:bg-paper py-32">
+      <section className="bg-ink dark:bg-paper py-16 md:py-24 lg:py-32">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             <div className="lg:col-span-7">
@@ -68,11 +68,11 @@ export default function CompanyContent() {
             <div className="lg:col-span-5">
               <div className="divide-y divide-white/10 dark:divide-ink/20 border-t border-white/10 dark:border-ink/20">
                 {c.stackRows.map((row) => (
-                  <div key={row.label} className="py-6 grid grid-cols-3 gap-4 items-start">
+                  <div key={row.label} className="py-5 grid grid-cols-[auto_1fr] gap-6 items-start">
                     <span className="font-mono text-xs uppercase tracking-widest text-muted">
                       {row.label}
                     </span>
-                    <span className="font-mono text-xs text-white/60 dark:text-muted col-span-2 leading-relaxed">
+                    <span className="font-mono text-xs text-white/60 dark:text-muted leading-relaxed">
                       {row.value}
                     </span>
                   </div>
@@ -101,7 +101,7 @@ export default function CompanyContent() {
       </section>
 
       {/* Where we're going */}
-      <section className="bg-cream py-28">
+      <section className="bg-cream py-14 md:py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <SectionLabel left={c.roadmapLabel} right="" className="mb-16" />
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">

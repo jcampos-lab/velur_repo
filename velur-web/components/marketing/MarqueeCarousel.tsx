@@ -13,7 +13,7 @@ const CARDS = [
 
 function Card({ label, text }: { label: string; text: string }) {
   return (
-    <div className="shrink-0 w-[380px] border border-line bg-paper rounded-[16px] p-9 flex flex-col gap-4 mr-5">
+    <div className="shrink-0 w-[260px] sm:w-[320px] md:w-[380px] border border-line bg-paper rounded-[16px] p-6 md:p-9 flex flex-col gap-4 mr-4 md:mr-5">
       <span className="font-mono text-xs uppercase tracking-widest text-muted">{label}</span>
       <p className="font-sans font-semibold text-ink text-xl leading-snug">{text}</p>
     </div>
@@ -24,7 +24,7 @@ export default function MarqueeCarousel() {
   const doubled = [...CARDS, ...CARDS];
 
   return (
-    <div className="bg-cream py-20 overflow-hidden">
+    <div className="bg-cream py-12 md:py-20 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-10">
         <p className="font-mono text-xs uppercase tracking-widest text-muted">
           HOW WE ACTUALLY DELIVER

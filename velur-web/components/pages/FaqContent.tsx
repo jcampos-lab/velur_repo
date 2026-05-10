@@ -23,7 +23,7 @@ function AccordionItem({
       <button
         onClick={onToggle}
         aria-expanded={open}
-        className="w-full flex items-start justify-between gap-8 py-7 text-left group"
+        className="w-full flex items-start justify-between gap-4 md:gap-8 py-5 md:py-7 text-left group"
       >
         <span
           className="font-sans font-semibold text-ink leading-snug tracking-[-0.015em] group-hover:text-amber transition-colors duration-150"
@@ -46,7 +46,7 @@ function AccordionItem({
       </button>
 
       {open && (
-        <div className="pb-7 pr-12">
+        <div className="pb-5 md:pb-7 pr-6 md:pr-12">
           <p className="font-sans text-base text-muted leading-[1.75]">{a}</p>
         </div>
       )}
