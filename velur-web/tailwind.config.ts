@@ -11,8 +11,8 @@ const config: Config = {
     extend: {
       colors: {
         paper: "#FFFFFF",
-        cream: "#FBFAF7",
-        stone: "#F6F5F1",
+        cream: "#FDFDFC",
+        stone: "#FBFBF9",
         ink: "#1A1A1A",
         amber: "#FF5B1A",
         "amber-tint": "#FFE8DC",
