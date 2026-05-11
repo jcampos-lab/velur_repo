@@ -5,9 +5,9 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 const STAT_NUMBERS = [
-  { number: 5,  prefix: "",  suffix: "+"   },
-  { number: 1,  prefix: "$", suffix: "B+"  },
-  { number: 48, prefix: "",  suffix: " hrs"},
+  { number: 5,  prefix: "",  suffix: "+"    },
+  { number: 15, prefix: "",  suffix: "+"    },
+  { number: 48, prefix: "",  suffix: " hrs" },
 ];
 
 function StatColumn({

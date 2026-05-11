@@ -25,7 +25,7 @@ function BenchmarkCard({
   index,
 }: {
   num: (typeof CARD_NUMBERS)[number];
-  text: { label: string; body: string; source: string };
+  text: { label: string; body: string };
   index: number;
 }) {
   const numberRef = useRef<HTMLSpanElement>(null);
@@ -85,8 +85,6 @@ function BenchmarkCard({
         <span className="font-mono text-xs uppercase tracking-widest text-muted">{text.label}</span>
       </div>
       <p className="font-sans text-[17px] text-ink leading-[1.5] flex-1">{text.body}</p>
-      <div className="border-t border-line" />
-      <p className="font-mono text-xs text-muted">Source · {text.source}</p>
     </div>
   );
 }
