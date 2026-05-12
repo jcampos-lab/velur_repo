@@ -104,8 +104,8 @@ export default function HeroSection() {
         </div>
 
         {/* Animated specialty cycle — sits between headline and subhead */}
-        <div className="mb-10 overflow-hidden">
-          <p className="font-sans text-lg md:text-3xl text-muted flex flex-wrap items-baseline gap-x-3 leading-snug">
+        <div className="mb-10">
+          <p className="font-sans text-2xl md:text-3xl text-muted leading-snug flex flex-col md:flex-row md:flex-wrap md:items-baseline md:gap-x-3 gap-y-1">
             <span>{t.hero.cyclePre}</span>
             <AnimatedTextCycle
               words={t.hero.cycleWords}
