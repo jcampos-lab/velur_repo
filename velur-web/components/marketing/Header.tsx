@@ -39,10 +39,10 @@ export default function Header() {
 
           {/* Logo — black in light mode, white in dark mode */}
           <Link href="/" className="flex items-center gap-3 shrink-0" aria-label="Velur home">
-            <Image src="/logos/Velur_Icon_Logo_Black.svg" alt="Velur mark" width={28} height={28} className="shrink-0 dark:hidden" />
-            <Image src="/logos/Velur_Copy_Logo_Black.svg" alt="velur"       width={72} height={18} className="shrink-0 dark:hidden" />
-            <Image src="/logos/Velur_Icon_Logo_White.svg" alt="Velur mark" width={28} height={28} className="shrink-0 hidden dark:block" />
-            <Image src="/logos/Velur_Copy_Logo_White.svg" alt="velur"       width={72} height={18} className="shrink-0 hidden dark:block" />
+            <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur mark" width={42} height={42} className="shrink-0 dark:hidden" />
+            <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur"       width={108} height={27} className="shrink-0 dark:hidden" />
+            <Image src="/logos/Velur_Icon_Logo_Transparent_White.png" alt="Velur mark" width={42} height={42} className="shrink-0 hidden dark:block" />
+            <Image src="/logos/Velur_Copy_Logo_Transparent_White.png" alt="velur"       width={108} height={27} className="shrink-0 hidden dark:block" />
           </Link>
 
           {/* Nav */}
@@ -95,10 +95,10 @@ export default function Header() {
         <div className="fixed inset-0 z-[100] bg-paper flex flex-col">
           <div className="flex items-center justify-between px-6 h-20 border-b border-line">
             <Link href="/" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
-              <Image src="/logos/Velur_Icon_Logo_Black.svg" alt="Velur mark" width={28} height={28} className="dark:hidden" />
-              <Image src="/logos/Velur_Copy_Logo_Black.svg" alt="velur"       width={72} height={18} className="dark:hidden" />
-              <Image src="/logos/Velur_Icon_Logo_White.svg" alt="Velur mark" width={28} height={28} className="hidden dark:block" />
-              <Image src="/logos/Velur_Copy_Logo_White.svg" alt="velur"       width={72} height={18} className="hidden dark:block" />
+              <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur mark" width={42} height={42} className="dark:hidden" />
+              <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur"       width={108} height={27} className="dark:hidden" />
+              <Image src="/logos/Velur_Icon_Logo_Transparent_White.png" alt="Velur mark" width={42} height={42} className="hidden dark:block" />
+              <Image src="/logos/Velur_Copy_Logo_Transparent_White.png" alt="velur"       width={108} height={27} className="hidden dark:block" />
             </Link>
             <button
               onClick={() => setMenuOpen(false)}

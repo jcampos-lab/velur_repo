@@ -56,10 +56,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <Image src="/logos/Velur_Icon_Logo_Black.svg" alt="Velur" width={28} height={28} className="dark:hidden" />
-              <Image src="/logos/Velur_Copy_Logo_Black.svg" alt="velur" width={72} height={18} className="dark:hidden" />
-              <Image src="/logos/Velur_Icon_Logo_White.svg" alt="Velur" width={28} height={28} className="hidden dark:block" />
-              <Image src="/logos/Velur_Copy_Logo_White.svg" alt="velur" width={72} height={18} className="hidden dark:block" />
+              <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur" width={28} height={28} className="dark:hidden" />
+              <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur" width={72} height={18} className="dark:hidden" />
+              <Image src="/logos/Velur_Icon_Logo_Transparent_White.png" alt="Velur" width={28} height={28} className="hidden dark:block" />
+              <Image src="/logos/Velur_Copy_Logo_Transparent_White.png" alt="velur" width={72} height={18} className="hidden dark:block" />
             </Link>
             <p className="font-sans text-base text-muted leading-relaxed max-w-xs">
               {t.footer.tagline}
