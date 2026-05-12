@@ -84,6 +84,53 @@ export default function ServicesContent() {
         ))}
       </div>
 
+      {/* Right for you / Not for you */}
+      <section className="bg-paper py-16 md:py-24 border-b border-line">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12">
+          <p className="font-mono text-xs uppercase tracking-widest text-muted mb-10">
+            {s.rightForLabel}
+          </p>
+          <h2
+            className="font-sans font-bold text-ink leading-tight tracking-[-0.03em] mb-14"
+            style={{ fontSize: "clamp(26px, 3vw, 44px)" }}
+          >
+            {s.rightForHeading}
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-line rounded-[16px] overflow-hidden">
+            {/* Right for you */}
+            <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-line">
+              <div className="flex items-center gap-2 mb-8">
+                <span className="w-2 h-2 rounded-full bg-positive shrink-0" />
+                <p className="font-mono text-xs uppercase tracking-widest text-muted">Good fit</p>
+              </div>
+              <ul className="space-y-5">
+                {s.rightForItems.map((item, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <span className="font-mono text-xs text-muted mt-0.5 shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="font-sans text-base text-ink leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Not for you */}
+            <div className="p-8 md:p-12 bg-stone">
+              <div className="flex items-center gap-2 mb-8">
+                <span className="w-2 h-2 rounded-full bg-muted shrink-0" />
+                <p className="font-mono text-xs uppercase tracking-widest text-muted">{s.notRightForLabel}</p>
+              </div>
+              <ul className="space-y-5">
+                {s.notRightForItems.map((item, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <span className="font-mono text-xs text-muted mt-0.5 shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="font-sans text-base text-muted leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Data pipeline flow */}
       <section className="bg-cream py-16 border-y border-line overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">

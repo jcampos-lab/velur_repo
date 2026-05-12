@@ -4,121 +4,107 @@ import { useEffect, useRef } from "react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
-const CARD_NUMBERS = [
-  { number: 47000, prefix: "€", suffix: "",     highlight: true  },
-  { number: 23,    prefix: "",  suffix: "%",    highlight: false },
-  { number: 8,     prefix: "",  suffix: " hrs", highlight: false },
-  { number: 42,    prefix: "",  suffix: "%",    highlight: false },
-  { number: 3.4,   prefix: "",  suffix: "×",    highlight: false },
-  { number: 67,    prefix: "",  suffix: "%",    highlight: false },
-];
-
-function formatNumber(n: number, prefix: string, suffix: string): string {
-  if (prefix === "€" && n >= 1000) return `${prefix}${Math.round(n).toLocaleString("de-DE")}${suffix}`;
-  if (Number.isInteger(n)) return `${prefix}${Math.round(n)}${suffix}`;
-  return `${prefix}${n.toFixed(1)}${suffix}`;
-}
-
-function BenchmarkCard({
-  num,
-  text,
-  index,
-}: {
-  num: (typeof CARD_NUMBERS)[number];
-  text: { label: string; body: string };
-  index: number;
-}) {
-  const numberRef = useRef<HTMLSpanElement>(null);
-  const cardRef   = useRef<HTMLDivElement>(null);
+export default function BenchmarkGrid() {
+  const { t } = useLanguage();
+  const b = t.benchmarkGrid;
+  const featuredRef = useRef<HTMLDivElement>(null);
+  const quoteRef    = useRef<HTMLQuoteElement>(null);
+  const statsRef    = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el     = numberRef.current;
-    const cardEl = cardRef.current;
-    if (!el || !cardEl) return;
-
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
     const animate = async () => {
       const { gsap } = await import("gsap");
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
 
-      gsap.fromTo(cardEl,
-        { opacity: 0, y: prefersReduced ? 0 : 24 },
-        {
-          opacity: 1, y: 0,
-          duration: prefersReduced ? 0 : 0.5,
-          delay:    prefersReduced ? 0 : (index % 3) * 0.08,
-          ease: "cubic-bezier(0.16,1,0.3,1)",
-          scrollTrigger: { trigger: cardEl, start: "top 85%", once: true },
-        }
-      );
-
-      const obj = { val: 0 };
-      gsap.to(obj, {
-        val: num.number,
-        duration: prefersReduced ? 0 : 1.2,
-        ease: "power3.out",
-        onUpdate: () => { el.textContent = formatNumber(obj.val, num.prefix, num.suffix); },
-        scrollTrigger: { trigger: cardEl, start: "top 85%", once: true },
+      [featuredRef.current, quoteRef.current, statsRef.current].forEach((el, i) => {
+        if (!el) return;
+        gsap.fromTo(el,
+          { opacity: 0, y: prefersReduced ? 0 : 28 },
+          {
+            opacity: 1, y: 0,
+            duration: prefersReduced ? 0 : 0.6,
+            delay:    prefersReduced ? 0 : i * 0.12,
+            ease: "cubic-bezier(0.16,1,0.3,1)",
+            scrollTrigger: { trigger: el, start: "top 88%", once: true },
+          }
+        );
       });
     };
-
     animate();
-  }, [num, index]);
-
-  return (
-    <div
-      ref={cardRef}
-      className={`border border-line bg-paper rounded-[16px] p-6 md:p-10 flex flex-col gap-4 opacity-0 ${
-        num.highlight ? "ring-1 ring-amber/25" : ""
-      }`}
-    >
-      <div className="flex items-baseline gap-3 flex-wrap">
-        <span
-          ref={numberRef}
-          className="font-mono font-semibold text-ink leading-none"
-          style={{ fontSize: "clamp(48px, 6vw, 88px)" }}
-        >
-          {formatNumber(0, num.prefix, num.suffix)}
-        </span>
-        <span className="font-mono text-xs uppercase tracking-widest text-muted">{text.label}</span>
-      </div>
-      <p className="font-sans text-[17px] text-ink leading-[1.5] flex-1">{text.body}</p>
-    </div>
-  );
-}
-
-export default function BenchmarkGrid() {
-  const { t } = useLanguage();
-  const [line1, line2] = t.benchmarkGrid.heading.split("\n");
+  }, []);
 
   return (
     <section id="pain" className="bg-cream py-16 md:py-24 lg:py-32">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="mb-16">
-          <SectionLabel left={t.benchmarkGrid.sectionLeft} right={t.benchmarkGrid.sectionRight} className="mb-10" />
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            <div className="lg:col-span-8">
-              <h2
-                className="font-sans font-bold text-ink leading-[1.0] tracking-[-0.04em]"
-                style={{ fontSize: "clamp(40px, 6vw, 88px)" }}
-              >
-                {line1}
-                <br />{line2}
-              </h2>
-            </div>
-            <div className="lg:col-span-4 flex items-start lg:justify-end">
-              <p className="font-sans text-lg text-muted leading-relaxed max-w-sm">
-                {t.benchmarkGrid.desc}
-              </p>
-            </div>
+        <SectionLabel left={b.sectionLeft} right={b.sectionRight} className="mb-14" />
+
+        {/* Featured stat — editorial asymmetric layout */}
+        <div
+          ref={featuredRef}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-16 opacity-0"
+        >
+          {/* Left: giant number */}
+          <div className="lg:col-span-7">
+            <p
+              className="font-mono font-semibold text-ink leading-none tracking-[-0.04em]"
+              style={{ fontSize: "clamp(88px, 14vw, 200px)" }}
+            >
+              {b.featuredNum}
+            </p>
+            <p className="font-mono text-sm uppercase tracking-widest text-muted mt-3">
+              {b.featuredLabel}
+            </p>
+          </div>
+
+          {/* Right: explanation */}
+          <div className="lg:col-span-5 pb-2">
+            <p className="font-sans text-lg text-ink leading-relaxed mb-5">
+              {b.featuredBody}
+            </p>
+            <p className="font-mono text-xs uppercase tracking-widest text-muted">
+              Source · {b.featuredSource}
+            </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {CARD_NUMBERS.map((num, i) => (
-            <BenchmarkCard key={i} num={num} text={t.benchmarkGrid.cards[i]} index={i} />
+        {/* Editorial pull quote — full width */}
+        <blockquote
+          ref={quoteRef}
+          className="border-t border-line pt-10 mb-14 opacity-0"
+        >
+          <p
+            className="font-serif italic text-ink leading-[1.2] tracking-[-0.01em]"
+            style={{ fontSize: "clamp(28px, 4vw, 56px)" }}
+          >
+            &ldquo;{b.editorialQuote}&rdquo;
+          </p>
+        </blockquote>
+
+        {/* Supporting mini-stats — borderless horizontal strip */}
+        <div
+          ref={statsRef}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0 opacity-0"
+        >
+          {b.supportStats.map((stat, i) => (
+            <div
+              key={i}
+              className={`py-8 ${i > 0 ? "md:border-l md:border-line md:pl-12" : ""}`}
+            >
+              <p
+                className="font-mono font-semibold text-ink leading-none mb-2"
+                style={{ fontSize: "clamp(48px, 6vw, 80px)" }}
+              >
+                {stat.num}
+              </p>
+              <p className="font-mono text-xs uppercase tracking-widest text-amber mb-3">
+                {stat.label}
+              </p>
+              <p className="font-sans text-base text-muted leading-relaxed max-w-sm">
+                {stat.body}
+              </p>
+            </div>
           ))}
         </div>
       </div>
