@@ -23,6 +23,9 @@ const en = {
     ctaSecondary: "See what we're building ↓",
     thesisLabel: "The thesis",
     thesis: "The brands winning in DTC don't have more data. They make faster decisions. We turn your existing stack into a daily revenue briefing — with analyst-grade context, every morning.",
+    cyclePre: "We turn your",
+    cyclePost: "into your next quarter's decision.",
+    cycleWords: ["Shopify data", "Klaviyo flows", "Meta spend", "customer cohorts", "ad attribution", "revenue mix"],
   },
   benchmarkGrid: {
     sectionLeft: "01 / THE PROOF",
@@ -218,6 +221,10 @@ const en = {
       { title: "Intelligence starts",  body: "Daily revenue briefings, attribution dashboards, and cohort models go live — all in one place." },
       { title: "Grow with context",    body: "Every week your picture gets sharper. Every metric comes with an explanation of why it moved." },
     ],
+    stackLabel: "Our stack",
+    stackHeading: "Built on modern tools.",
+    stackCyclePre: "Currently running",
+    stackCycleWords: ["Claude", "SQL", "Python", "dbt", "BigQuery", "Looker", "Metabase", "Fivetran", "Power BI"],
     rightForLabel: "IS IT FOR ME?",
     rightForHeading: "Velur is built for a specific kind of brand.",
     rightForItems: [
@@ -429,6 +436,9 @@ const es: typeof en = {
     ctaSecondary: "Ver qué estamos construyendo ↓",
     thesisLabel: "La tesis",
     thesis: "Las marcas que ganan en DTC no tienen más datos. Toman decisiones más rápidas. Convertimos tu stack actual en un informe diario de ingresos — con contexto de nivel analista, cada mañana.",
+    cyclePre: "Convertimos tu",
+    cyclePost: "en la decisión del próximo trimestre.",
+    cycleWords: ["datos de Shopify", "flujos de Klaviyo", "inversión en Meta", "cohortes de clientes", "atribución de anuncios", "mix de ingresos"],
   },
   benchmarkGrid: {
     sectionLeft: "01 / LA EVIDENCIA",
@@ -624,6 +634,10 @@ const es: typeof en = {
       { title: "Comienza la inteligencia",  body: "Los informes diarios, dashboards de atribución y modelos de cohortes se ponen en marcha — todo en un solo lugar." },
       { title: "Crece con contexto",        body: "Cada semana tu panorama mejora. Cada métrica incluye una explicación de por qué se movió." },
     ],
+    stackLabel: "Nuestro stack",
+    stackHeading: "Construido con herramientas modernas.",
+    stackCyclePre: "Ejecutando ahora",
+    stackCycleWords: ["Claude", "SQL", "Python", "dbt", "BigQuery", "Looker", "Metabase", "Fivetran", "Power BI"],
     rightForLabel: "¿ES PARA MÍ?",
     rightForHeading: "Velur está pensado para un tipo específico de marca.",
     rightForItems: [

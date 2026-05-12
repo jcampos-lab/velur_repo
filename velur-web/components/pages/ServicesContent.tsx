@@ -144,18 +144,18 @@ export default function ServicesContent() {
       <section className="bg-stone border-y border-line py-20 md:py-28">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <p className="font-mono text-xs uppercase tracking-widest text-muted mb-8">
-            Our stack
+            {s.stackLabel}
           </p>
           <h2
             className="font-sans font-bold text-ink leading-[0.95] tracking-[-0.04em]"
             style={{ fontSize: "clamp(36px, 6vw, 88px)" }}
           >
-            Built on modern tools.
+            {s.stackHeading}
             <br />
             <span className="inline-flex flex-wrap items-baseline gap-x-4 text-muted">
-              <span>Currently running</span>
+              <span>{s.stackCyclePre}</span>
               <AnimatedTextCycle
-                words={["Claude", "SQL", "Python", "dbt", "BigQuery", "Looker", "Metabase", "Fivetran", "Power BI"]}
+                words={s.stackCycleWords}
                 interval={2200}
                 className="text-amber"
               />

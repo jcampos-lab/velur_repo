@@ -106,20 +106,13 @@ export default function HeroSection() {
         {/* Animated specialty cycle — sits between headline and subhead */}
         <div className="mb-10 overflow-hidden">
           <p className="font-sans text-2xl md:text-3xl text-muted flex flex-wrap items-baseline gap-x-3 leading-snug">
-            <span>We turn your</span>
+            <span>{t.hero.cyclePre}</span>
             <AnimatedTextCycle
-              words={[
-                "Shopify data",
-                "Klaviyo flows",
-                "Meta spend",
-                "customer cohorts",
-                "ad attribution",
-                "revenue mix",
-              ]}
+              words={t.hero.cycleWords}
               interval={2600}
               className="text-ink"
             />
-            <span>into your next quarter&apos;s decision.</span>
+            <span>{t.hero.cyclePost}</span>
           </p>
         </div>
 
