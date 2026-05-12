@@ -1,7 +1,7 @@
 "use client";
 
 // Cohort retention heatmap: rows = monthly cohorts, cols = months since acquisition
-// Color scale: amber-tint (low) → amber (high), null = empty/pending cell
+// All SVG colors use CSS custom properties so they adapt to dark mode automatically
 
 const COHORTS = [
   { label: "Jan", values: [100, 68, 52, 41, 35, 31] as (number | null)[] },
@@ -17,8 +17,8 @@ const PERIODS = ["M1", "M2", "M3", "M4", "M5", "M6"];
 const CW = 68; // cell width
 const CH = 44; // cell height
 const CG = 5;  // gap
-const LX = 44; // left margin (row labels)
-const TY = 30; // top margin (column labels)
+const LX = 44; // left margin for row labels
+const TY = 30; // top margin for column labels
 
 function amberAt(v: number): string {
   const t = v / 100;
@@ -27,13 +27,13 @@ function amberAt(v: number): string {
   return `rgb(255,${g},${b})`;
 }
 
-const W = LX + PERIODS.length * (CW + CG) - CG + 12;
-const H = TY + COHORTS.length * (CH + CG) - CG + 20;
+const VBW = LX + PERIODS.length * (CW + CG) - CG + 12;
+const VBH = TY + COHORTS.length * (CH + CG) - CG + 20;
 
 export default function CohortHeatmap() {
   return (
     <div
-      className="border border-line bg-paper rounded-2xl p-5 md:p-6 select-none"
+      className="border border-line bg-stone rounded-2xl p-5 md:p-6 select-none"
       style={{ animation: "fadeSlideUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.15s both" }}
     >
       <div className="flex items-center justify-between mb-5">
@@ -52,7 +52,7 @@ export default function CohortHeatmap() {
         </div>
       </div>
 
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full overflow-visible" aria-hidden>
+      <svg viewBox={`0 0 ${VBW} ${VBH}`} className="w-full overflow-visible" aria-hidden>
         {/* Period column labels */}
         {PERIODS.map((p, j) => (
           <text
@@ -61,8 +61,8 @@ export default function CohortHeatmap() {
             y={TY - 12}
             textAnchor="middle"
             fontSize="8.5"
-            fill="#6E6E6E"
             fontFamily="var(--font-jetbrains)"
+            style={{ fill: "var(--color-muted)" }}
           >
             {p}
           </text>
@@ -71,19 +71,17 @@ export default function CohortHeatmap() {
         {/* Rows */}
         {COHORTS.map((cohort, i) => (
           <g key={cohort.label}>
-            {/* Row label */}
             <text
               x={LX - 8}
               y={TY + i * (CH + CG) + CH / 2 + 3.5}
               textAnchor="end"
               fontSize="8.5"
-              fill="#6E6E6E"
               fontFamily="var(--font-jetbrains)"
+              style={{ fill: "var(--color-muted)" }}
             >
               {cohort.label}
             </text>
 
-            {/* Cells */}
             {cohort.values.map((val, j) => {
               const cx = LX + j * (CW + CG);
               const cy = TY + i * (CH + CG);
@@ -95,13 +93,16 @@ export default function CohortHeatmap() {
                     key={j}
                     x={cx} y={cy} width={CW} height={CH} rx={4}
                     style={{
-                      fill: "var(--color-stone, #FBFBF9)",
+                      fill: "var(--color-line)",
+                      opacity: 0.4,
                       animation: `fadeSlideUp 0.3s ease ${delay} both`,
                     }}
                   />
                 );
               }
 
+              // Amber cells: white text above 55%, ink-colored text below
+              // The amber fill is always warm-toned, readable in both modes
               return (
                 <g key={j} style={{ animation: `fadeSlideUp 0.3s ease ${delay} both` }}>
                   <rect x={cx} y={cy} width={CW} height={CH} rx={4} fill={amberAt(val)} />
@@ -111,8 +112,8 @@ export default function CohortHeatmap() {
                     textAnchor="middle"
                     fontSize="10"
                     fontWeight="600"
-                    fill={val > 55 ? "#FFFFFF" : "#1A1A1A"}
                     fontFamily="var(--font-jetbrains)"
+                    fill={val > 55 ? "#FFFFFF" : "#1A1A1A"}
                   >
                     {val}%
                   </text>

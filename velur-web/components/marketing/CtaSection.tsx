@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import Button from "@/components/ui/Button";
 import UnderlineDoodle from "@/components/illustrations/UnderlineDoodle";
-import VelurFinal from "@/components/illustrations/VelurFinal";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 type CtaVariant = "default" | "platform" | "company" | "caseStudies";
@@ -51,12 +50,6 @@ export default function CtaSection({
   return (
     <section className="bg-cream py-20 md:py-32 lg:py-48">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="flex justify-center mb-4 select-none" aria-hidden>
-          <div className="w-64 md:w-96">
-            <VelurFinal />
-          </div>
-        </div>
-
         <div ref={containerRef} className="flex flex-col items-center text-center gap-10">
           <h2
             className="font-serif italic font-normal text-ink leading-[1.05] tracking-[-0.03em] max-w-4xl"

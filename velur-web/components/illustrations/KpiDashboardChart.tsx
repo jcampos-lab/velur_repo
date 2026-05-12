@@ -1,7 +1,7 @@
 "use client";
 
 // KPI dashboard card — shown in Services hero right column
-// 4 metrics in a 2×2 grid with mini sparklines
+// Uses Tailwind semantic classes so dark mode is automatic
 
 const KPIS = [
   {
@@ -56,7 +56,7 @@ function Sparkline({ data }: { data: number[] }) {
 export default function KpiDashboardChart() {
   return (
     <div
-      className="border border-line bg-paper rounded-2xl overflow-hidden select-none"
+      className="border border-line bg-stone rounded-2xl overflow-hidden select-none"
       style={{ animation: "fadeSlideUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.15s both" }}
     >
       {/* Header bar */}

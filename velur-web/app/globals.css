@@ -22,10 +22,11 @@
 /* ─── Dark mode variable overrides ─────────────────────────────────────── */
 html.dark {
   --color-paper:      #0E0E0E;
-  --color-cream:      #161616;
+  --color-cream:      #141414;
+  --color-stone:      #1C1C1C;
   --color-ink:        #F0EDE8;
   --color-amber-tint: #2A1206;
-  --color-line:       #262626;
+  --color-line:       #2A2A2A;
   --color-muted:      #888888;
 }
 

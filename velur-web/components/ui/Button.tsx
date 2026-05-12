@@ -25,14 +25,17 @@ const sizeClasses = {
 };
 
 const variantClasses = {
+  // text-paper flips: white in light, dark in dark — always readable on bg-ink which also flips
   primary:
-    "bg-ink text-white border border-ink hover:bg-amber hover:border-amber transition-colors duration-200",
+    "bg-ink text-paper border border-ink hover:bg-amber hover:border-amber hover:text-white transition-colors duration-200",
   secondary:
-    "bg-paper text-ink border border-ink hover:bg-ink hover:text-white transition-colors duration-200",
+    "bg-paper text-ink border border-ink hover:bg-ink hover:text-paper transition-colors duration-200",
+  // amber stays amber; text-paper on ink hover is dark in dark mode = correct on light ink bg
   amber:
-    "bg-amber text-white border border-amber hover:bg-ink hover:border-ink transition-colors duration-200",
+    "bg-amber text-white border border-amber hover:bg-ink hover:border-ink hover:text-paper transition-colors duration-200",
+  // text-black → text-ink so it flips in dark mode
   light:
-    "bg-cream text-black border border-line hover:bg-amber hover:border-amber hover:text-white transition-colors duration-200",
+    "bg-cream text-ink border border-line hover:bg-amber hover:border-amber hover:text-white transition-colors duration-200",
 };
 
 export default function Button({
