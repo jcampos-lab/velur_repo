@@ -3,6 +3,7 @@
 import Link from "next/link";
 import SectionLabel from "@/components/ui/SectionLabel";
 import CtaSection from "@/components/marketing/CtaSection";
+import LtvLineChart from "@/components/illustrations/LtvLineChart";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -27,20 +28,21 @@ export default function CaseStudiesContent() {
           <p className="font-mono text-xs uppercase tracking-widest text-muted mb-8">
             {cs.label}
           </p>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-            <div className="lg:col-span-7">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-5 flex flex-col gap-6">
               <h1
                 className="font-sans font-bold text-ink leading-[0.95] tracking-[-0.04em]"
-                style={{ fontSize: "clamp(40px, 6.5vw, 96px)" }}
+                style={{ fontSize: "clamp(40px, 5.5vw, 80px)" }}
               >
                 {cs.h1a}
                 <br />{cs.h1b}
               </h1>
-            </div>
-            <div className="lg:col-span-5">
-              <p className="font-sans text-lg text-muted leading-relaxed">
+              <p className="font-sans text-lg text-muted leading-relaxed max-w-md">
                 {cs.subhead}
               </p>
+            </div>
+            <div className="hidden lg:block lg:col-span-7">
+              <LtvLineChart />
             </div>
           </div>
         </div>
