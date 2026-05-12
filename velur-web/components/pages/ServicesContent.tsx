@@ -4,8 +4,8 @@ import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 import MarqueeCarousel from "@/components/marketing/MarqueeCarousel";
 import CtaSection from "@/components/marketing/CtaSection";
-import VelurDelivery from "@/components/illustrations/VelurDelivery";
-import VelurStack from "@/components/illustrations/VelurStack";
+import KpiDashboardChart from "@/components/illustrations/KpiDashboardChart";
+import DataPipelineFlow  from "@/components/illustrations/DataPipelineFlow";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 export default function ServicesContent() {
@@ -35,7 +35,7 @@ export default function ServicesContent() {
             </div>
             <div className="hidden lg:flex justify-end pointer-events-none select-none" aria-hidden>
               <div className="w-full max-w-[600px]">
-                <VelurDelivery />
+                <KpiDashboardChart />
               </div>
             </div>
           </div>
@@ -84,10 +84,12 @@ export default function ServicesContent() {
         ))}
       </div>
 
-      {/* Stack illustration */}
-      <section className="bg-paper py-16 flex justify-center overflow-visible">
-        <div className="w-full max-w-4xl px-6 md:px-0 pointer-events-none select-none" aria-hidden>
-          <VelurStack />
+      {/* Data pipeline flow */}
+      <section className="bg-cream py-16 border-y border-line overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12">
+          <div className="pointer-events-none select-none" aria-hidden>
+            <DataPipelineFlow />
+          </div>
         </div>
       </section>
 
