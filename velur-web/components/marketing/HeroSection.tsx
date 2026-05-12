@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Button from "@/components/ui/Button";
 import Pill from "@/components/ui/Pill";
+import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 export default function HeroSection() {
@@ -79,7 +80,7 @@ export default function HeroSection() {
         </Pill>
 
         {/* Giant headline — overflows past the right grid edge */}
-        <div className="overflow-visible mt-12 mb-16">
+        <div className="overflow-visible mt-12 mb-8">
           <h1
             className="font-sans font-bold text-ink"
             style={{
@@ -100,6 +101,26 @@ export default function HeroSection() {
               {t.hero.line2}
             </span>
           </h1>
+        </div>
+
+        {/* Animated specialty cycle — sits between headline and subhead */}
+        <div className="mb-10 overflow-hidden">
+          <p className="font-mono text-sm md:text-base text-muted flex flex-wrap items-baseline gap-x-2">
+            <span>We turn your</span>
+            <AnimatedTextCycle
+              words={[
+                "Shopify data",
+                "Klaviyo flows",
+                "Meta spend",
+                "customer cohorts",
+                "ad attribution",
+                "revenue mix",
+              ]}
+              interval={2600}
+              className="text-ink"
+            />
+            <span>into your next quarter&apos;s decision.</span>
+          </p>
         </div>
 
         {/* Sub-row — stacks on mobile, 7/5 on large screens */}
