@@ -2,7 +2,7 @@
 
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
-import MarqueeCarousel from "@/components/marketing/MarqueeCarousel";
+import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 import CtaSection from "@/components/marketing/CtaSection";
 import KpiDashboardChart from "@/components/illustrations/KpiDashboardChart";
 import DataPipelineFlow  from "@/components/illustrations/DataPipelineFlow";
@@ -93,7 +93,30 @@ export default function ServicesContent() {
         </div>
       </section>
 
-      <MarqueeCarousel />
+      {/* Tool stack — replaces marquee carousel */}
+      <section className="bg-ink dark:bg-stone py-20 md:py-28">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12">
+          <p className="font-mono text-xs uppercase tracking-widest text-white/40 dark:text-muted mb-8">
+            Our stack
+          </p>
+          <h2
+            className="font-sans font-bold text-paper dark:text-ink leading-[0.95] tracking-[-0.04em]"
+            style={{ fontSize: "clamp(36px, 6vw, 88px)" }}
+          >
+            Built on modern tools.
+            <br />
+            <span className="inline-flex flex-wrap items-baseline gap-x-4 text-white/30 dark:text-muted">
+              <span>Currently running</span>
+              <AnimatedTextCycle
+                words={["Claude", "SQL", "Python", "dbt", "BigQuery", "Looker", "Metabase", "Fivetran", "Power BI"]}
+                interval={2200}
+                className="text-amber"
+              />
+              <span>.</span>
+            </span>
+          </h2>
+        </div>
+      </section>
 
       {/* How it works */}
       <section className="bg-paper py-14 md:py-24 lg:py-28">
