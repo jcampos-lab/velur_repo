@@ -84,6 +84,36 @@ body {
   to   { opacity: 1; transform: scale(1); }
 }
 
+/* ─── Marketing card hover group ───────────────────────────────────────── */
+.marketing-card {
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    filter     0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity    0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s ease,
+    border-color     0.3s ease;
+  position: relative;
+  will-change: transform, filter;
+  z-index: 1;
+}
+
+/* Dim and blur every card that is NOT currently hovered */
+.card-group:hover .marketing-card:not(:hover) {
+  filter:    blur(2.5px);
+  opacity:   0.5;
+  transform: scale(0.97);
+}
+
+/* The hovered card: scale up + glassy stone treatment */
+.marketing-card:hover {
+  transform:          scale(1.04);
+  z-index:            10;
+  background-color:   color-mix(in srgb, var(--color-stone) 90%, transparent);
+  backdrop-filter:    blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-color:       var(--color-muted) !important;
+}
+
 /* ─── Reduced motion ────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

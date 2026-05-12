@@ -33,9 +33,9 @@ export default function CompanyContent() {
       <section className="bg-paper py-14 md:py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <SectionLabel left={c.whyLabel} right="" className="mb-10 md:mb-16" />
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-line border border-line rounded-[16px] overflow-hidden">
+          <div className="card-group grid grid-cols-1 lg:grid-cols-3 gap-4">
             {c.cards.map((item) => (
-              <div key={item.num} className="bg-paper p-6 md:p-10 flex flex-col gap-5">
+              <div key={item.num} className="marketing-card bg-paper border border-line rounded-[16px] p-6 md:p-10 flex flex-col gap-5">
                 <span className="font-mono text-xs text-muted">{item.num}</span>
                 <h3
                   className="font-sans font-bold text-ink leading-tight tracking-[-0.025em]"
@@ -87,9 +87,9 @@ export default function CompanyContent() {
       <section className="bg-paper py-24">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <SectionLabel left={c.beliefsLabel} right="" className="mb-14" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line border border-line rounded-[16px] overflow-hidden">
+          <div className="card-group grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {c.beliefs.map((belief, i) => (
-              <div key={i} className="bg-paper p-8 flex items-start gap-4">
+              <div key={i} className="marketing-card bg-paper border border-line rounded-[16px] p-8 flex items-start gap-4">
                 <span className="font-mono text-xs text-muted shrink-0 mt-0.5">
                   {String(i + 1).padStart(2, "0")} ·
                 </span>

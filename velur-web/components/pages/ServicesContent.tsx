@@ -63,7 +63,7 @@ export default function ServicesContent() {
                 </Button>
               </div>
               <div className="lg:col-span-5 lg:col-start-8">
-                <div className="border border-line bg-paper rounded-[16px] p-8">
+                <div className="marketing-card border border-line bg-paper rounded-[16px] p-8">
                   <p className="font-mono text-xs uppercase tracking-widest text-muted mb-5">
                     {s.includedLabel}
                   </p>
@@ -168,9 +168,9 @@ export default function ServicesContent() {
       <section className="bg-paper py-14 md:py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <SectionLabel left={s.howLabel} right={s.howRight} className="mb-16" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="card-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {s.steps.map((step, i) => (
-              <div key={i} className="border border-line bg-paper rounded-[16px] p-5 md:p-8 flex flex-col gap-4">
+              <div key={i} className="marketing-card border border-line bg-paper rounded-[16px] p-5 md:p-8 flex flex-col gap-4">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="font-mono text-xs text-muted">{String(i + 1).padStart(2, "0")}</span>
                   {i < s.steps.length - 1 && <div className="flex-1 h-px bg-line hidden lg:block" />}
