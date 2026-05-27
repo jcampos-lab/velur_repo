@@ -1,0 +1,329 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { useState } from "react";
+import Link from "next/link";
+import KpiDashboardChart from "@/components/illustrations/KpiDashboardChart";
+import NumberTicker from "@/components/motion/NumberTicker";
+import SectionLabel from "@/components/ui/SectionLabel";
+
+/* ─── Scatter mini-chart: spend vs margin correlation ─────────────────── */
+
+type Dot = { x: number; y: number; label: string; channel: string };
+
+const DOTS: Dot[] = [
+  { x: 12, y: 38, label: "TikTok organic",      channel: "tiktok" },
+  { x: 30, y: 52, label: "Klaviyo flows",       channel: "klaviyo" },
+  { x: 48, y: 41, label: "Meta retargeting",    channel: "meta" },
+  { x: 65, y: 28, label: "Meta prospecting",    channel: "meta" },
+  { x: 78, y: 14, label: "Google PMax",         channel: "google" },
+  { x: 85, y: 8,  label: "Affiliate",           channel: "affiliate" },
+  { x: 22, y: 60, label: "TikTok creators",     channel: "tiktok" },
+  { x: 40, y: 47, label: "Email broadcasts",    channel: "klaviyo" },
+];
+
+const CHANNEL_COLOR: Record<string, string> = {
+  tiktok:    "#1A1A1A",
+  klaviyo:   "#FF5B1A",
+  meta:      "#0866FF",
+  google:    "#F9AB00",
+  affiliate: "#6E6E6E",
+};
+
+function CorrelationChart() {
+  const prefersReduced = useReducedMotion();
+  const [hover, setHover] = useState<Dot | null>(null);
+  const W = 320;
+  const H = 200;
+  const PAD = { l: 36, r: 14, t: 14, b: 28 };
+  const cw = W - PAD.l - PAD.r;
+  const ch = H - PAD.t - PAD.b;
+
+  const xFor = (x: number) => PAD.l + (x / 100) * cw;
+  const yFor = (y: number) => PAD.t + (1 - y / 70) * ch;
+
+  return (
+    <div className="relative h-full flex flex-col">
+      <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase mb-2">
+        Spend vs margin · last 30 days
+      </p>
+      <p className="font-sans text-[13px] text-ink leading-snug mb-3">
+        Each dot is one campaign. Top-right is high spend + low margin — the cuts.
+      </p>
+
+      <svg
+        viewBox={`0 0 ${W} ${H}`}
+        className="w-full overflow-visible flex-1"
+        role="img"
+        aria-label="Spend vs margin scatter plot"
+      >
+        {/* Gridlines */}
+        {[0, 25, 50, 75, 100].map(t => (
+          <line
+            key={`vx-${t}`}
+            x1={xFor(t)}
+            y1={PAD.t}
+            x2={xFor(t)}
+            y2={H - PAD.b}
+            strokeWidth="0.5"
+            opacity="0.4"
+            style={{ stroke: "var(--color-line)" }}
+          />
+        ))}
+        {[0, 20, 40, 60].map(t => (
+          <line
+            key={`hy-${t}`}
+            x1={PAD.l}
+            y1={yFor(t)}
+            x2={W - PAD.r}
+            y2={yFor(t)}
+            strokeWidth="0.5"
+            opacity="0.4"
+            style={{ stroke: "var(--color-line)" }}
+          />
+        ))}
+
+        {/* Trend line: simple regression hint, top-right negative slope */}
+        <motion.line
+          x1={xFor(8)}
+          y1={yFor(58)}
+          x2={xFor(92)}
+          y2={yFor(12)}
+          stroke="#FF5B1A"
+          strokeWidth="1.2"
+          strokeDasharray="4 4"
+          opacity="0.6"
+          initial={prefersReduced ? {} : { pathLength: 0, opacity: 0 }}
+          whileInView={{ pathLength: 1, opacity: 0.6 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, delay: 0.5 }}
+        />
+
+        {/* Axis labels */}
+        <text x={PAD.l - 6} y={yFor(0) + 4} textAnchor="end" fontSize="8.5"
+          fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
+          0%
+        </text>
+        <text x={PAD.l - 6} y={yFor(60) + 4} textAnchor="end" fontSize="8.5"
+          fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
+          60%
+        </text>
+        <text x={xFor(0)} y={H - PAD.b + 14} textAnchor="start" fontSize="8.5"
+          fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
+          $0 spend
+        </text>
+        <text x={xFor(100)} y={H - PAD.b + 14} textAnchor="end" fontSize="8.5"
+          fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
+          $20K spend
+        </text>
+
+        {/* Dots */}
+        {DOTS.map((d, i) => {
+          const isHover = hover === d;
+          const dim = hover && hover !== d;
+          return (
+            <motion.circle
+              key={d.label}
+              cx={xFor(d.x)}
+              cy={yFor(d.y)}
+              r={isHover ? 7 : 5}
+              fill={CHANNEL_COLOR[d.channel]}
+              stroke="var(--color-paper)"
+              strokeWidth="1.4"
+              style={{
+                cursor: "pointer",
+                opacity: dim ? 0.3 : 1,
+                transition: "opacity 200ms ease, r 200ms ease",
+              }}
+              initial={prefersReduced ? {} : { scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: dim ? 0.3 : 1 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{
+                duration: 0.4,
+                delay: prefersReduced ? 0 : 0.3 + i * 0.06,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              onMouseEnter={() => setHover(d)}
+              onMouseLeave={() => setHover(null)}
+            />
+          );
+        })}
+      </svg>
+
+      <div className="mt-2 min-h-[36px] flex items-center">
+        {hover ? (
+          <motion.p
+            key={hover.label}
+            initial={{ opacity: 0, y: 3 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.18 }}
+            className="font-mono text-[11px] text-ink"
+          >
+            <span className="inline-block w-2 h-2 rounded-full mr-1.5 align-middle" style={{ background: CHANNEL_COLOR[hover.channel] }} />
+            <span className="font-semibold">{hover.label}</span>
+            <span className="text-muted"> · {hover.y}% margin at ${Math.round(hover.x * 200).toLocaleString()} spend</span>
+          </motion.p>
+        ) : (
+          <p className="font-mono text-[11px] text-muted">Hover any dot to inspect a campaign.</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ─── Tool list with animated row reveal ───────────────────────────────── */
+
+const TOOLS = [
+  { name: "Shopify",     role: "orders + margin",     color: "#95BF47" },
+  { name: "Klaviyo",     role: "flows + LTV",         color: "#FF5B1A" },
+  { name: "Meta Ads",    role: "spend + creative",    color: "#0866FF" },
+  { name: "TikTok Ads",  role: "spend + saves",       color: "#1A1A1A" },
+  { name: "Higgsfield",  role: "reel drafts",         color: "#7C3AED" },
+  { name: "Claude",      role: "email + brand copy",  color: "#D97757" },
+];
+
+function ToolsCard() {
+  const prefersReduced = useReducedMotion();
+  return (
+    <div className="h-full flex flex-col">
+      <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase mb-3">
+        Six of the tools we read
+      </p>
+      <h3 className="font-sans font-bold text-ink text-[22px] leading-tight tracking-[-0.02em] mb-5">
+        Plug in. Sit back.
+      </h3>
+
+      <ul className="flex flex-col gap-2 flex-1">
+        {TOOLS.map((t, i) => (
+          <motion.li
+            key={t.name}
+            initial={prefersReduced ? {} : { opacity: 0, x: -8 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{
+              duration: 0.4,
+              delay: prefersReduced ? 0 : 0.2 + i * 0.06,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            whileHover={prefersReduced ? undefined : { x: 4 }}
+            className="flex items-center gap-3 py-1.5"
+          >
+            <span className="block w-2 h-2 rounded-full shrink-0" style={{ background: t.color }} />
+            <span className="font-sans font-semibold text-ink text-[14px] min-w-[90px]">{t.name}</span>
+            <span className="font-mono text-[10px] tracking-wide text-muted">{t.role}</span>
+          </motion.li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/* ─── Mini brief card ──────────────────────────────────────────────────── */
+
+function MiniBrief() {
+  return (
+    <div className="h-full flex flex-col">
+      <div className="flex items-center gap-2 mb-3">
+        <span className="w-2 h-2 rounded-full bg-positive pulse-dot" />
+        <p className="font-mono text-[10px] tracking-[0.14em] text-positive uppercase">
+          Today's brief · 08:02
+        </p>
+      </div>
+      <h3 className="font-sans font-bold text-ink text-[19px] leading-snug tracking-[-0.02em] mb-3">
+        Net revenue up 12% week-over-week.
+      </h3>
+      <p className="font-sans text-[14px] text-ink leading-relaxed mb-3">
+        TikTok creator <span className="font-semibold">@mara.skincare</span> drove 38% of the lift. Klaviyo win-back flow underperformed — recommend pausing variant B.
+      </p>
+      <p className="font-mono text-[10px] tracking-wide text-muted mt-auto">
+        Reply to this email and the model recalibrates by tomorrow.
+      </p>
+    </div>
+  );
+}
+
+/* ─── Highlight stat card ──────────────────────────────────────────────── */
+
+function StatCard({ value, label, suffix = "", prefix = "" }: {
+  value: number; label: string; suffix?: string; prefix?: string;
+}) {
+  return (
+    <div className="h-full flex flex-col justify-between">
+      <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
+        {label}
+      </p>
+      <p className="font-sans font-bold text-ink leading-none tracking-tight"
+        style={{ fontSize: "clamp(38px, 4vw, 56px)" }}>
+        <NumberTicker value={value} prefix={prefix} suffix={suffix} duration={1.8} />
+      </p>
+    </div>
+  );
+}
+
+/* ─── BentoSection ─────────────────────────────────────────────────────── */
+
+export default function BentoSection() {
+  return (
+    <section className="bg-paper py-16 md:py-24 border-y border-line">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
+        <SectionLabel left="HOW IT FEELS" right="ONE SCREEN · ONE DECISION" className="mb-10 md:mb-14" />
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 auto-rows-[minmax(220px,auto)]">
+
+          {/* Big: live KPI dashboard (col-span-8, row-span-2) */}
+          <BentoCard className="md:col-span-8 md:row-span-2 p-5 md:p-6">
+            <KpiDashboardChart />
+          </BentoCard>
+
+          {/* Top-right: today's brief */}
+          <BentoCard className="md:col-span-4 p-5 md:p-6">
+            <MiniBrief />
+          </BentoCard>
+
+          {/* Right-middle: stat */}
+          <BentoCard className="md:col-span-4 p-5 md:p-6 bg-ink text-paper">
+            <StatCard value={184} label="Avg minutes saved / week" suffix="m" />
+          </BentoCard>
+
+          {/* Bottom-left: correlation scatter */}
+          <BentoCard className="md:col-span-7 p-5 md:p-6">
+            <CorrelationChart />
+          </BentoCard>
+
+          {/* Bottom-right: tools */}
+          <BentoCard className="md:col-span-5 p-5 md:p-6">
+            <ToolsCard />
+          </BentoCard>
+        </div>
+
+        <div className="mt-10 md:mt-12 flex flex-wrap items-baseline gap-x-3 gap-y-2">
+          <p className="font-sans text-base md:text-lg text-muted leading-relaxed max-w-2xl">
+            Not screenshots — the actual charts, hover anything.
+          </p>
+          <Link
+            href="/services"
+            className="font-sans font-medium text-base text-ink hover:text-amber transition-colors"
+          >
+            See the full platform →
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BentoCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  const prefersReduced = useReducedMotion();
+  return (
+    <motion.div
+      initial={prefersReduced ? {} : { opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={prefersReduced ? undefined : { y: -2 }}
+      className={`bg-cream border border-line rounded-2xl overflow-hidden flex flex-col ${className}`}
+    >
+      {children}
+    </motion.div>
+  );
+}

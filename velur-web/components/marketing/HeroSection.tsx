@@ -1,60 +1,63 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Button from "@/components/ui/Button";
+import { motion, useReducedMotion } from "framer-motion";
 import Pill from "@/components/ui/Pill";
 import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
+import MagneticButton from "@/components/motion/MagneticButton";
+import { TextRevealWords } from "@/components/motion/TextReveal";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 export default function HeroSection() {
-  const line1Ref = useRef<HTMLSpanElement>(null);
-  const line2Ref = useRef<HTMLSpanElement>(null);
-  const subRef   = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
-
-  useEffect(() => {
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    const animate = async () => {
-      const { gsap } = await import("gsap");
-
-      const lines = [line1Ref.current, line2Ref.current].filter(Boolean) as Element[];
-      const sub   = subRef.current!;
-
-      if (prefersReduced) {
-        lines.forEach(el => { (el as HTMLElement).style.clipPath = "inset(0 0% 0 0)"; });
-        sub.style.opacity   = "1";
-        sub.style.transform = "none";
-        return;
-      }
-
-      gsap.set(lines, { clipPath: "inset(0 100% 0 0)" });
-      gsap.set(sub,   { opacity: 0, y: 20 });
-
-      const tl = gsap.timeline({ delay: 0.1 });
-      tl.to(lines, {
-        clipPath: "inset(0 0% 0 0)",
-        duration: 0.7,
-        stagger: 0.12,
-        ease: "cubic-bezier(0.16,1,0.3,1)",
-      }).to(sub, {
-        opacity: 1, y: 0,
-        duration: 0.55,
-        ease: "cubic-bezier(0.16,1,0.3,1)",
-      }, "-=0.25");
-    };
-
-    animate();
-  }, []);
+  const prefersReduced = useReducedMotion();
 
   return (
-    <section
-      className="relative bg-paper overflow-hidden px-5 sm:px-10 pt-14 pb-14 md:pt-20 md:pb-20"
-    >
-      {/* 12-column dashed grid overlay */}
+    <section className="relative bg-paper overflow-hidden px-5 sm:px-10 pt-14 pb-14 md:pt-20 md:pb-24">
+
+      {/* Aurora glow — subtle amber bloom behind the headline */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        {!prefersReduced && (
+          <>
+            <motion.div
+              className="absolute"
+              style={{
+                top: "-10%",
+                left: "5%",
+                width: "55vw",
+                height: "55vw",
+                maxWidth: 760,
+                maxHeight: 760,
+                background:
+                  "radial-gradient(circle, rgba(255,91,26,0.16), rgba(255,91,26,0) 65%)",
+                filter: "blur(30px)",
+              }}
+              animate={{ x: [0, 30, -20, 0], y: [0, -20, 25, 0] }}
+              transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="absolute"
+              style={{
+                top: "20%",
+                right: "-5%",
+                width: "45vw",
+                height: "45vw",
+                maxWidth: 600,
+                maxHeight: 600,
+                background:
+                  "radial-gradient(circle, rgba(255,176,136,0.18), rgba(255,176,136,0) 65%)",
+                filter: "blur(30px)",
+              }}
+              animate={{ x: [0, -40, 25, 0], y: [0, 30, -15, 0] }}
+              transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </>
+        )}
+      </div>
+
+      {/* 12-column dashed grid */}
       <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
         <div
-          className="h-full mx-auto grid grid-cols-12 opacity-[0.32]"
+          className="h-full mx-auto grid grid-cols-12 opacity-[0.28]"
           style={{ maxWidth: 1280, padding: "0 0px", gap: 24 }}
         >
           {Array.from({ length: 12 }).map((_, i) => (
@@ -72,37 +75,33 @@ export default function HeroSection() {
 
       <div className="relative z-10 w-full" style={{ maxWidth: 1280, margin: "0 auto" }}>
 
-        {/* Status pill */}
         <Pill>
           <span className="pulse-dot w-2 h-2 rounded-full bg-positive inline-block shrink-0" />
           <span className="text-ink">{t.hero.pill}</span>
         </Pill>
 
-        {/* Headline — meaningfully smaller, SaaS-scale not editorial */}
-        <div className="overflow-visible mt-8 md:mt-10 mb-6 md:mb-8">
-          <h1
-            className="font-sans font-bold text-ink"
-            style={{
-              fontSize: "clamp(36px, 6.5vw, 88px)",
-              letterSpacing: "-0.03em",
-              lineHeight: 1.0,
-            }}
-          >
-            <span ref={line1Ref} className="block" style={{ clipPath: "inset(0 0% 0 0)" }}>
-              {t.hero.line1}
-            </span>
-            <span
-              ref={line2Ref}
-              className="block text-amber"
-              style={{ clipPath: "inset(0 0% 0 0)", fontWeight: 700 }}
-            >
-              {t.hero.line2}
-            </span>
-          </h1>
-        </div>
+        <h1
+          className="font-sans font-bold text-ink mt-8 md:mt-10 mb-6 md:mb-8"
+          style={{
+            fontSize: "clamp(36px, 6.5vw, 88px)",
+            letterSpacing: "-0.03em",
+            lineHeight: 1.0,
+          }}
+        >
+          <span className="block">
+            <TextRevealWords text={t.hero.line1} delay={0.05} />
+          </span>
+          <span className="block text-amber">
+            <TextRevealWords text={t.hero.line2} delay={0.3} wordClassName="text-amber" />
+          </span>
+        </h1>
 
-        {/* Animated specialty cycle — smaller, lighter */}
-        <div className="mb-8 md:mb-10">
+        <motion.div
+          initial={prefersReduced ? {} : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-8 md:mb-10"
+        >
           <p className="font-sans text-lg md:text-2xl text-muted leading-snug flex flex-col md:flex-row md:flex-wrap md:items-baseline md:gap-x-3 gap-y-1">
             <span>{t.hero.cyclePre}</span>
             <AnimatedTextCycle
@@ -112,25 +111,34 @@ export default function HeroSection() {
             />
             <span>{t.hero.cyclePost}</span>
           </p>
-        </div>
+        </motion.div>
 
-        {/* Sub-row — body + buttons, no editorial thesis */}
-        <div
-          ref={subRef}
-          className="max-w-2xl opacity-100"
+        <motion.div
+          initial={prefersReduced ? {} : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.95, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-2xl"
         >
           <p className="font-sans text-ink leading-relaxed mb-8 text-base md:text-lg">
             Velur connects Shopify, Klaviyo, Meta and TikTok to one daily brief that explains what&apos;s working, what isn&apos;t, and where to focus next. Built for founders who want clarity — not another dashboard to babysit.
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-3">
-            <Button href="/contact" variant="primary" size="md">
+            <MagneticButton
+              href="/contact"
+              className="bg-ink text-paper rounded-full px-6 py-3.5 font-sans font-medium text-base hover:bg-amber transition-colors duration-200"
+              strength={0.35}
+            >
               {t.hero.ctaPrimary}
-            </Button>
-            <Button href="/services" variant="secondary" size="md">
+            </MagneticButton>
+            <MagneticButton
+              href="/services"
+              className="bg-paper text-ink border border-ink rounded-full px-6 py-3.5 font-sans font-medium text-base hover:bg-ink hover:text-paper transition-colors duration-200"
+              strength={0.25}
+            >
               {t.hero.ctaSecondary}
-            </Button>
+            </MagneticButton>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
