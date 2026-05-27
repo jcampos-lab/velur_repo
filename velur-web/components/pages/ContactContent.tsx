@@ -9,57 +9,53 @@ export default function ContactContent() {
 
   return (
     <>
-      <section className="bg-paper pt-20 pb-16">
+      <section className="bg-paper pt-16 md:pt-20 pb-12 md:pb-16 border-b border-line">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <p className="font-mono text-xs uppercase tracking-widest text-muted mb-8">
+          <p className="font-sans text-ink/55 text-[13px] mb-3">
             {c.label}
           </p>
           <h1
-            className="font-sans font-bold text-ink leading-[0.95] tracking-[-0.04em] mb-8"
-            style={{ fontSize: "clamp(40px, 6.5vw, 96px)" }}
+            className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em] mb-6"
+            style={{ fontSize: "clamp(28px, 4.4vw, 56px)" }}
           >
-            {c.h1a}
-            <br />
-            {c.h1b}
+            {c.h1a} {c.h1b}
           </h1>
-          <p className="font-sans text-xl text-muted leading-relaxed max-w-2xl">
+          <p className="font-sans text-base md:text-lg text-ink/70 leading-relaxed max-w-2xl">
             {c.subhead}
           </p>
         </div>
       </section>
 
-      {/* Form + sidebar */}
-      <section className="bg-cream py-16">
+      <section className="bg-cream py-14 md:py-20">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            {/* Waitlist form */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12">
+
             <div className="lg:col-span-7">
               <WaitlistForm />
             </div>
 
-            {/* Sidebar */}
             <div className="lg:col-span-4 lg:col-start-9">
-              <p className="font-mono text-xs uppercase tracking-widest text-muted mb-8">
+              <p className="font-sans text-ink/55 text-[13px] mb-5">
                 {c.whatToExpect}
               </p>
-              <div className="space-y-6">
+              <div className="space-y-5">
                 {c.timeline.map((item) => (
                   <div key={item.time} className="flex gap-5">
-                    <span className="font-mono text-sm text-muted shrink-0 w-10">{item.time}</span>
-                    <span className="font-sans text-base text-ink leading-relaxed">{item.text}</span>
+                    <span className="font-mono text-[12px] text-amber shrink-0 w-12 tracking-[0.06em]">{item.time}</span>
+                    <span className="font-sans text-[15px] text-ink/85 leading-relaxed">{item.text}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="border-t border-line mt-12 pt-10 space-y-3">
-                <p className="font-mono text-xs text-muted">
+              <div className="border-t border-line mt-10 pt-8 space-y-3">
+                <p className="font-sans text-[13px] text-ink/65">
                   {c.noTime}{" "}
                   <a href="mailto:hello@velur.io" className="text-amber hover:underline">
                     hello@velur.io
                   </a>
                 </p>
-                <p className="font-mono text-xs text-muted">{c.async}</p>
-                <p className="font-mono text-xs text-muted">{c.response}</p>
+                <p className="font-sans text-[13px] text-ink/65">{c.async}</p>
+                <p className="font-sans text-[13px] text-ink/65">{c.response}</p>
               </div>
             </div>
           </div>

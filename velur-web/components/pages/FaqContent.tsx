@@ -64,23 +64,22 @@ export default function FaqContent() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-paper pt-20 pb-24 border-b border-line">
+      <section className="bg-paper pt-16 md:pt-20 pb-14 md:pb-20 border-b border-line">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <p className="font-mono text-xs uppercase tracking-widest text-muted mb-8">
+          <p className="font-sans text-ink/55 text-[13px] mb-3">
             {f.label}
           </p>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-end">
             <div className="lg:col-span-7">
               <h1
-                className="font-sans font-bold text-ink leading-[0.95] tracking-[-0.04em]"
-                style={{ fontSize: "clamp(48px, 7vw, 96px)" }}
+                className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em]"
+                style={{ fontSize: "clamp(28px, 4.4vw, 56px)" }}
               >
-                {f.h1a}
-                <br />{f.h1b}
+                {f.h1a} {f.h1b}
               </h1>
             </div>
             <div className="lg:col-span-5">
-              <p className="font-sans text-xl text-muted leading-relaxed">
+              <p className="font-sans text-base md:text-lg text-ink/70 leading-relaxed">
                 {f.subhead}
               </p>
             </div>
@@ -89,20 +88,19 @@ export default function FaqContent() {
       </section>
 
       {/* FAQ body */}
-      <section className="bg-paper py-24">
+      <section className="bg-paper py-14 md:py-20">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
 
-            {/* Sticky category nav — desktop */}
+            {/* Sticky category nav */}
             <aside className="hidden lg:block lg:col-span-3">
               <div className="sticky top-28 space-y-2">
                 {f.categories.map((cat, ci) => (
                   <a
                     key={ci}
                     href={`#cat-${ci}`}
-                    className="block font-mono text-xs uppercase tracking-widest text-muted hover:text-ink transition-colors duration-150 py-1"
+                    className="block font-sans text-[14px] text-ink/65 hover:text-amber transition-colors duration-150 py-1"
                   >
-                    <span className="mr-2 opacity-50">{String(ci + 1).padStart(2, "0")}</span>
                     {cat.title}
                   </a>
                 ))}
@@ -110,16 +108,13 @@ export default function FaqContent() {
             </aside>
 
             {/* Accordion */}
-            <div className="lg:col-span-9 space-y-16">
+            <div className="lg:col-span-9 space-y-12 md:space-y-14">
               {f.categories.map((cat, ci) => (
                 <div key={ci} id={`cat-${ci}`}>
-                  <div className="flex items-center gap-4 mb-8">
-                    <span className="font-mono text-xs text-muted">
-                      {String(ci + 1).padStart(2, "0")}
-                    </span>
+                  <div className="flex items-center gap-4 mb-6">
                     <h2
-                      className="font-sans font-bold text-ink tracking-[-0.025em]"
-                      style={{ fontSize: "clamp(18px, 2vw, 28px)" }}
+                      className="font-sans font-bold text-ink tracking-[-0.02em]"
+                      style={{ fontSize: "clamp(17px, 1.8vw, 22px)" }}
                     >
                       {cat.title}
                     </h2>
@@ -149,24 +144,24 @@ export default function FaqContent() {
       </section>
 
       {/* Still have questions */}
-      <section className="bg-cream py-24 border-t border-line">
+      <section className="bg-cream py-14 md:py-20 border-t border-line">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-center">
             <div className="lg:col-span-7">
               <h2
-                className="font-sans font-bold text-ink leading-tight tracking-[-0.03em] mb-4"
-                style={{ fontSize: "clamp(28px, 4vw, 56px)" }}
+                className="font-sans font-bold text-ink leading-[1.1] tracking-[-0.025em] mb-3"
+                style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
               >
                 {f.stillHaveQuestions}
               </h2>
-              <p className="font-sans text-lg text-muted leading-relaxed">
+              <p className="font-sans text-base text-ink/70 leading-relaxed">
                 {f.stillHaveQuestionsBody}
               </p>
             </div>
             <div className="lg:col-span-5 flex lg:justify-end">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-ink text-paper font-sans font-medium text-base px-8 py-4 rounded-full hover:bg-amber transition-colors duration-200"
+                className="inline-flex items-center gap-2 bg-ink text-paper font-sans font-medium text-base px-7 py-3.5 rounded-full hover:bg-amber transition-colors duration-200"
               >
                 {f.contactBtn}
               </Link>

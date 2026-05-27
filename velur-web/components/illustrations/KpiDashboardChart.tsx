@@ -224,7 +224,7 @@ function KpiCard({
 
       <div className="flex items-center justify-between font-mono text-[9.5px] tracking-wide text-muted">
         <span>Day 1</span>
-        <span>{hoverIdx != null ? `Day ${hoverIdx + 1}` : "—"}</span>
+        <span className="text-ink/70">{hoverIdx != null ? `Day ${hoverIdx + 1}` : "Today"}</span>
         <span>Day {DAYS}</span>
       </div>
     </motion.div>
@@ -237,12 +237,17 @@ export default function KpiDashboardChart() {
   return (
     <div className="bg-stone border border-line rounded-2xl p-5 md:p-6">
       <div className="flex items-center justify-between mb-5 gap-3 flex-wrap">
-        <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
-          Live brief preview · last 28 days
-        </p>
-        <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
-          Hover to scrub →
-        </p>
+        <div>
+          <p className="font-sans font-semibold text-ink text-[15px] leading-tight">
+            Live brief preview
+          </p>
+          <p className="font-sans text-[12.5px] text-ink/55">
+            Last 28 days. Hover to scrub the date.
+          </p>
+        </div>
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-positive/10 text-positive font-mono text-[10px] font-semibold">
+          <span className="w-1.5 h-1.5 rounded-full bg-positive pulse-dot" /> live
+        </span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">

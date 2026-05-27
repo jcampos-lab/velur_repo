@@ -24,18 +24,16 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-paper pt-20 pb-20 border-b border-line">
+      <section className="bg-paper pt-16 md:pt-20 pb-14 md:pb-16 border-b border-line">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <p className="font-mono text-xs uppercase tracking-widest text-muted mb-8">
-            BLOG · THINKING OUT LOUD
+          <p className="font-sans text-ink/55 text-[13px] mb-3">
+            Blog
           </p>
           <h1
-            className="font-sans font-bold text-ink leading-[0.95] tracking-[-0.04em]"
-            style={{ fontSize: "clamp(40px, 6vw, 88px)" }}
+            className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em]"
+            style={{ fontSize: "clamp(28px, 4.4vw, 56px)" }}
           >
-            Ideas on analytics,
-            <br />
-            strategy, and data.
+            Ideas on analytics, strategy, and data.
           </h1>
         </div>
       </section>

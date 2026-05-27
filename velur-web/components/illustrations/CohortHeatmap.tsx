@@ -45,8 +45,8 @@ export default function CohortHeatmap() {
       className="border border-line bg-stone rounded-2xl p-5 md:p-6 select-none"
     >
       <div className="flex items-center justify-between mb-5 gap-3 flex-wrap">
-        <p className="font-mono text-[10px] uppercase tracking-widest text-muted">
-          Cohort retention — hover any cell
+        <p className="font-sans font-semibold text-ink text-[15px] leading-tight">
+          Cohort retention. Hover any cell.
         </p>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">
@@ -184,13 +184,13 @@ export default function CohortHeatmap() {
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.18 }}
-              className="font-mono text-[11px] tracking-wide text-ink"
+              className="font-sans text-[12px] tracking-wide text-ink"
             >
-              <span className="text-muted">{hover.cohort} cohort · {hover.period}</span>{" "}
-              · {hover.value}% still active — that&apos;s the share of customers acquired that month who came back to buy {hover.period === "M1" ? "the next month" : `${hover.period.replace("M", "")} months later`}.
+              <span className="text-ink/55">{hover.cohort} cohort, {hover.period}.</span>{" "}
+              <span className="font-semibold">{hover.value}% still active.</span> That is the share of customers acquired that month who came back to buy {hover.period === "M1" ? "the next month" : `${hover.period.replace("M", "")} months later`}.
             </motion.p>
           ) : (
-            <p className="font-mono text-[11px] tracking-wide text-muted">
+            <p className="font-sans text-[12px] tracking-wide text-ink/55">
               Hover a cell to see what it means in plain English.
             </p>
           )}

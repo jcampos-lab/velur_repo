@@ -112,10 +112,10 @@ export default function LtvLineChart() {
       {/* Header */}
       <div className="flex items-start justify-between gap-4 flex-wrap mb-5">
         <div>
-          <p className="font-mono text-[10px] uppercase tracking-widest text-muted mb-1">
-            12-month LTV — three segmentation strategies
+          <p className="font-sans font-semibold text-ink text-[15px] leading-tight">
+            12-month LTV by segmentation
           </p>
-          <p className="font-sans text-[13px] text-ink">
+          <p className="font-sans text-[12.5px] text-ink/55 mt-0.5">
             Hover the chart to scrub across months.
           </p>
         </div>
@@ -303,26 +303,29 @@ export default function LtvLineChart() {
             Month
           </p>
           <p className="font-sans font-bold text-ink text-xl tracking-tight">
-            {hoverIdx != null ? MONTHS[hoverIdx] : "—"}
+            {hoverIdx != null ? MONTHS[hoverIdx] : "M12"}
           </p>
         </div>
         <div className="grid grid-cols-3 gap-3 md:gap-5">
-          {SERIES.map(s => (
-            <div key={s.key}>
-              <div className="flex items-center gap-1.5 mb-0.5">
-                <span
-                  className="block w-2 h-2 rounded-full"
-                  style={{ background: s.color }}
-                />
-                <p className="font-mono text-[9.5px] tracking-wide text-muted truncate">
-                  {s.label}
+          {SERIES.map(s => {
+            const v = hoverIdx != null ? s.values[hoverIdx] : s.values[s.values.length - 1];
+            return (
+              <div key={s.key}>
+                <div className="flex items-center gap-1.5 mb-0.5">
+                  <span
+                    className="block w-2 h-2 rounded-full"
+                    style={{ background: s.color }}
+                  />
+                  <p className="font-mono text-[9.5px] tracking-wide text-muted truncate">
+                    {s.label}
+                  </p>
+                </div>
+                <p className="font-sans font-semibold text-ink text-[15px] tracking-tight">
+                  ${v}
                 </p>
               </div>
-              <p className="font-sans font-semibold text-ink text-[15px] tracking-tight">
-                {hoverIdx != null ? `$${s.values[hoverIdx]}` : "—"}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </motion.div>

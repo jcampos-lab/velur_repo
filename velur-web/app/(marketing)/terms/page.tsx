@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <section className="bg-paper pt-20 pb-24">
+    <section className="bg-paper pt-16 md:pt-20 pb-20 md:pb-24">
       <div className="max-w-[720px] mx-auto px-6 md:px-12">
         <Link
           href="/"
@@ -22,8 +22,8 @@ export default function TermsPage() {
         </p>
 
         <h1
-          className="font-sans font-bold text-ink leading-[0.95] tracking-[-0.04em] mb-10"
-          style={{ fontSize: "clamp(32px, 5vw, 64px)" }}
+          className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em] mb-8"
+          style={{ fontSize: "clamp(26px, 3.4vw, 40px)" }}
         >
           Terms of Service
         </h1>

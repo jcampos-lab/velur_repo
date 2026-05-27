@@ -28,8 +28,8 @@ export default function Footer() {
   return (
     <footer className="bg-cream border-t border-line overflow-hidden">
 
-      {/* Top: link columns */}
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 pt-16 md:pt-20 pb-10 md:pb-14">
+      {/* Link columns */}
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 pt-14 md:pt-20 pb-8 md:pb-12">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
           <FooterCol title={t.footer.cols.pages}   links={PAGES}   />
           <FooterCol title={t.footer.cols.connect} links={CONNECT} external />
@@ -37,26 +37,30 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Copyright row — sits above the wordmark */}
+      {/* Copyright row */}
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 border-t border-line py-5 flex flex-wrap items-center justify-between gap-3">
         <p className="font-mono text-[11px] text-muted tracking-widest uppercase">
-          &copy; {new Date().getFullYear()} VELUR · ALL RIGHTS RESERVED
+          &copy; {new Date().getFullYear()} VELUR. All rights reserved.
         </p>
         <p className="font-mono text-[11px] text-muted tracking-widest uppercase">
-          Built in Barcelona · velur.io
+          velur.io
         </p>
       </div>
 
-      {/* Full-screen wordmark — fills the viewport width edge-to-edge */}
+      {/* Full-screen wordmark, desktop only, fades out at top + bottom */}
       <div
-        className="w-full select-none pointer-events-none flex items-end justify-center overflow-hidden"
+        className="hidden md:flex w-full select-none pointer-events-none items-end justify-center overflow-hidden"
         aria-hidden
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,1) 65%, rgba(0,0,0,0.4) 100%)",
+          maskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,1) 65%, rgba(0,0,0,0.4) 100%)",
+        }}
       >
         <p
           className="font-sans font-extrabold text-ink leading-[0.8] tracking-[-0.06em] text-center"
           style={{
-            // Sized so it fills the entire width of the viewport without overflow,
-            // independent of the max-content wrapper used elsewhere on the page.
             fontSize: "calc(100vw / 2.45)",
             lineHeight: 0.8,
             marginBottom: "-0.08em",
@@ -81,7 +85,7 @@ function FooterCol({
 }) {
   return (
     <div>
-      <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-muted mb-4 md:mb-5">
+      <p className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-muted mb-4 md:mb-5">
         {title}
       </p>
       <ul className="space-y-2 md:space-y-3">
@@ -91,7 +95,7 @@ function FooterCol({
               href={link.href}
               target={external ? "_blank" : undefined}
               rel={external    ? "noopener noreferrer" : undefined}
-              className="font-sans text-sm md:text-base text-ink hover:text-amber transition-colors duration-150 leading-snug"
+              className="font-sans text-[14px] md:text-[15px] text-ink hover:text-amber transition-colors duration-150 leading-snug"
             >
               {link.label}
             </Link>

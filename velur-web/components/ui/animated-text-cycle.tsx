@@ -64,9 +64,9 @@ export default function AnimatedTextCycle({
           <motion.span
             key={currentIndex}
             className={`inline-block font-bold ${className}`}
-            initial={{ y: -16, opacity: 0, filter: "blur(8px)" }}
-            animate={{ y: 0,   opacity: 1, filter: "blur(0px)", transition: { duration: 0.4, ease: "easeOut" } }}
-            exit={{    y: 16,  opacity: 0, filter: "blur(8px)", transition: { duration: 0.3, ease: "easeIn"  } }}
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0,   opacity: 1, transition: { duration: 0.35, ease: "easeOut" } }}
+            exit={{    y: 10,  opacity: 0, transition: { duration: 0.2,  ease: "easeIn"  } }}
             style={{ whiteSpace: "nowrap" }}
           >
             {words[currentIndex]}

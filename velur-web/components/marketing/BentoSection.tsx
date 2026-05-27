@@ -5,7 +5,6 @@ import { useState } from "react";
 import Link from "next/link";
 import KpiDashboardChart from "@/components/illustrations/KpiDashboardChart";
 import NumberTicker from "@/components/motion/NumberTicker";
-import SectionLabel from "@/components/ui/SectionLabel";
 
 /* ─── Scatter mini-chart: spend vs margin correlation ─────────────────── */
 
@@ -33,8 +32,8 @@ const CHANNEL_COLOR: Record<string, string> = {
 function CorrelationChart() {
   const prefersReduced = useReducedMotion();
   const [hover, setHover] = useState<Dot | null>(null);
-  const W = 320;
-  const H = 200;
+  const W = 340;
+  const H = 220;
   const PAD = { l: 36, r: 14, t: 14, b: 28 };
   const cw = W - PAD.l - PAD.r;
   const ch = H - PAD.t - PAD.b;
@@ -44,12 +43,14 @@ function CorrelationChart() {
 
   return (
     <div className="relative h-full flex flex-col">
-      <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase mb-2">
-        Spend vs margin · last 30 days
-      </p>
-      <p className="font-sans text-[13px] text-ink leading-snug mb-3">
-        Each dot is one campaign. Top-right is high spend + low margin — the cuts.
-      </p>
+      <div className="mb-3">
+        <p className="font-sans font-semibold text-ink text-[15px] leading-tight mb-1">
+          Spend vs margin, last 30 days
+        </p>
+        <p className="font-sans text-[12.5px] text-ink/60 leading-snug">
+          Each dot is a campaign. The trend line shows the gradual margin drop as spend grows.
+        </p>
+      </div>
 
       <svg
         viewBox={`0 0 ${W} ${H}`}
@@ -57,86 +58,67 @@ function CorrelationChart() {
         role="img"
         aria-label="Spend vs margin scatter plot"
       >
-        {/* Gridlines */}
         {[0, 25, 50, 75, 100].map(t => (
           <line
             key={`vx-${t}`}
-            x1={xFor(t)}
-            y1={PAD.t}
-            x2={xFor(t)}
-            y2={H - PAD.b}
-            strokeWidth="0.5"
-            opacity="0.4"
+            x1={xFor(t)} y1={PAD.t} x2={xFor(t)} y2={H - PAD.b}
+            strokeWidth="0.5" opacity="0.35"
             style={{ stroke: "var(--color-line)" }}
           />
         ))}
         {[0, 20, 40, 60].map(t => (
           <line
             key={`hy-${t}`}
-            x1={PAD.l}
-            y1={yFor(t)}
-            x2={W - PAD.r}
-            y2={yFor(t)}
-            strokeWidth="0.5"
-            opacity="0.4"
+            x1={PAD.l} y1={yFor(t)} x2={W - PAD.r} y2={yFor(t)}
+            strokeWidth="0.5" opacity="0.35"
             style={{ stroke: "var(--color-line)" }}
           />
         ))}
 
-        {/* Trend line: simple regression hint, top-right negative slope */}
         <motion.line
-          x1={xFor(8)}
-          y1={yFor(58)}
-          x2={xFor(92)}
-          y2={yFor(12)}
-          stroke="#FF5B1A"
-          strokeWidth="1.2"
-          strokeDasharray="4 4"
-          opacity="0.6"
+          x1={xFor(8)} y1={yFor(58)} x2={xFor(92)} y2={yFor(12)}
+          stroke="#FF5B1A" strokeWidth="1.4" strokeDasharray="4 4" opacity="0.55"
           initial={prefersReduced ? {} : { pathLength: 0, opacity: 0 }}
-          whileInView={{ pathLength: 1, opacity: 0.6 }}
+          whileInView={{ pathLength: 1, opacity: 0.55 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, delay: 0.5 }}
         />
 
-        {/* Axis labels */}
-        <text x={PAD.l - 6} y={yFor(0) + 4} textAnchor="end" fontSize="8.5"
+        <text x={PAD.l - 6} y={yFor(0) + 4} textAnchor="end" fontSize="9"
           fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
           0%
         </text>
-        <text x={PAD.l - 6} y={yFor(60) + 4} textAnchor="end" fontSize="8.5"
+        <text x={PAD.l - 6} y={yFor(60) + 4} textAnchor="end" fontSize="9"
           fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
           60%
         </text>
-        <text x={xFor(0)} y={H - PAD.b + 14} textAnchor="start" fontSize="8.5"
+        <text x={xFor(0)} y={H - PAD.b + 14} textAnchor="start" fontSize="9"
           fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
           $0 spend
         </text>
-        <text x={xFor(100)} y={H - PAD.b + 14} textAnchor="end" fontSize="8.5"
+        <text x={xFor(100)} y={H - PAD.b + 14} textAnchor="end" fontSize="9"
           fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
           $20K spend
         </text>
 
-        {/* Dots */}
         {DOTS.map((d, i) => {
           const isHover = hover === d;
           const dim = hover && hover !== d;
           return (
             <motion.circle
               key={d.label}
-              cx={xFor(d.x)}
-              cy={yFor(d.y)}
+              cx={xFor(d.x)} cy={yFor(d.y)}
               r={isHover ? 7 : 5}
               fill={CHANNEL_COLOR[d.channel]}
               stroke="var(--color-paper)"
-              strokeWidth="1.4"
+              strokeWidth="1.6"
               style={{
                 cursor: "pointer",
-                opacity: dim ? 0.3 : 1,
+                opacity: dim ? 0.25 : 1,
                 transition: "opacity 200ms ease, r 200ms ease",
               }}
               initial={prefersReduced ? {} : { scale: 0, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: dim ? 0.3 : 1 }}
+              whileInView={{ scale: 1, opacity: dim ? 0.25 : 1 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{
                 duration: 0.4,
@@ -157,21 +139,21 @@ function CorrelationChart() {
             initial={{ opacity: 0, y: 3 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.18 }}
-            className="font-mono text-[11px] text-ink"
+            className="font-sans text-[12px] text-ink"
           >
             <span className="inline-block w-2 h-2 rounded-full mr-1.5 align-middle" style={{ background: CHANNEL_COLOR[hover.channel] }} />
             <span className="font-semibold">{hover.label}</span>
-            <span className="text-muted"> · {hover.y}% margin at ${Math.round(hover.x * 200).toLocaleString()} spend</span>
+            <span className="text-ink/55">  ·  {hover.y}% margin at ${Math.round(hover.x * 200).toLocaleString()} spend</span>
           </motion.p>
         ) : (
-          <p className="font-mono text-[11px] text-muted">Hover any dot to inspect a campaign.</p>
+          <p className="font-sans text-[12px] text-ink/55">Hover any dot for the campaign detail.</p>
         )}
       </div>
     </div>
   );
 }
 
-/* ─── Tool list with animated row reveal ───────────────────────────────── */
+/* ─── Tool list ────────────────────────────────────────────────────────── */
 
 const TOOLS = [
   { name: "Shopify",     role: "orders + margin",     color: "#95BF47" },
@@ -186,13 +168,9 @@ function ToolsCard() {
   const prefersReduced = useReducedMotion();
   return (
     <div className="h-full flex flex-col">
-      <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase mb-3">
+      <p className="font-sans font-semibold text-ink text-[15px] leading-tight mb-4">
         Six of the tools we read
       </p>
-      <h3 className="font-sans font-bold text-ink text-[22px] leading-tight tracking-[-0.02em] mb-5">
-        Plug in. Sit back.
-      </h3>
-
       <ul className="flex flex-col gap-2 flex-1">
         {TOOLS.map((t, i) => (
           <motion.li
@@ -210,7 +188,7 @@ function ToolsCard() {
           >
             <span className="block w-2 h-2 rounded-full shrink-0" style={{ background: t.color }} />
             <span className="font-sans font-semibold text-ink text-[14px] min-w-[90px]">{t.name}</span>
-            <span className="font-mono text-[10px] tracking-wide text-muted">{t.role}</span>
+            <span className="font-sans text-[12px] text-ink/55">{t.role}</span>
           </motion.li>
         ))}
       </ul>
@@ -226,16 +204,16 @@ function MiniBrief() {
       <div className="flex items-center gap-2 mb-3">
         <span className="w-2 h-2 rounded-full bg-positive pulse-dot" />
         <p className="font-mono text-[10px] tracking-[0.14em] text-positive uppercase">
-          Today's brief · 08:02
+          Today&apos;s brief, 08:02
         </p>
       </div>
-      <h3 className="font-sans font-bold text-ink text-[19px] leading-snug tracking-[-0.02em] mb-3">
+      <p className="font-sans font-bold text-ink text-[17px] leading-snug tracking-[-0.015em] mb-3">
         Net revenue up 12% week-over-week.
-      </h3>
-      <p className="font-sans text-[14px] text-ink leading-relaxed mb-3">
-        TikTok creator <span className="font-semibold">@mara.skincare</span> drove 38% of the lift. Klaviyo win-back flow underperformed — recommend pausing variant B.
       </p>
-      <p className="font-mono text-[10px] tracking-wide text-muted mt-auto">
+      <p className="font-sans text-[13.5px] text-ink/80 leading-relaxed mb-3">
+        TikTok creator <span className="font-semibold text-ink">@mara.skincare</span> drove 38% of the lift. Klaviyo win-back flow underperformed, recommend pausing variant B.
+      </p>
+      <p className="font-sans text-[12px] text-ink/55 mt-auto">
         Reply to this email and the model recalibrates by tomorrow.
       </p>
     </div>
@@ -249,11 +227,11 @@ function StatCard({ value, label, suffix = "", prefix = "" }: {
 }) {
   return (
     <div className="h-full flex flex-col justify-between">
-      <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
+      <p className="font-sans text-paper/60 text-[13px] leading-tight">
         {label}
       </p>
-      <p className="font-sans font-bold text-ink leading-none tracking-tight"
-        style={{ fontSize: "clamp(38px, 4vw, 56px)" }}>
+      <p className="font-sans font-bold text-paper leading-none tracking-tight"
+        style={{ fontSize: "clamp(32px, 3vw, 44px)" }}>
         <NumberTicker value={value} prefix={prefix} suffix={suffix} duration={1.8} />
       </p>
     </div>
@@ -264,41 +242,47 @@ function StatCard({ value, label, suffix = "", prefix = "" }: {
 
 export default function BentoSection() {
   return (
-    <section className="bg-paper py-16 md:py-24 border-y border-line">
+    <section className="bg-paper py-14 md:py-20 border-y border-line">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <SectionLabel left="HOW IT FEELS" right="ONE SCREEN · ONE DECISION" className="mb-10 md:mb-14" />
+
+        <div className="mb-10 md:mb-12 max-w-2xl">
+          <p className="font-sans text-ink/55 text-[13px] mb-2">
+            How it feels
+          </p>
+          <h2
+            className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em]"
+            style={{ fontSize: "clamp(24px, 3.4vw, 40px)" }}
+          >
+            One screen. One decision. Every interaction is hover-live.
+          </h2>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 auto-rows-[minmax(220px,auto)]">
 
-          {/* Big: live KPI dashboard (col-span-8, row-span-2) */}
           <BentoCard className="md:col-span-8 md:row-span-2 p-5 md:p-6">
             <KpiDashboardChart />
           </BentoCard>
 
-          {/* Top-right: today's brief */}
           <BentoCard className="md:col-span-4 p-5 md:p-6">
             <MiniBrief />
           </BentoCard>
 
-          {/* Right-middle: stat */}
           <BentoCard className="md:col-span-4 p-5 md:p-6 bg-ink text-paper">
-            <StatCard value={184} label="Avg minutes saved / week" suffix="m" />
+            <StatCard value={184} label="Average minutes saved per week" suffix="m" />
           </BentoCard>
 
-          {/* Bottom-left: correlation scatter */}
           <BentoCard className="md:col-span-7 p-5 md:p-6">
             <CorrelationChart />
           </BentoCard>
 
-          {/* Bottom-right: tools */}
           <BentoCard className="md:col-span-5 p-5 md:p-6">
             <ToolsCard />
           </BentoCard>
         </div>
 
-        <div className="mt-10 md:mt-12 flex flex-wrap items-baseline gap-x-3 gap-y-2">
-          <p className="font-sans text-base md:text-lg text-muted leading-relaxed max-w-2xl">
-            Not screenshots — the actual charts, hover anything.
+        <div className="mt-8 md:mt-10 flex flex-wrap items-baseline gap-x-3 gap-y-2">
+          <p className="font-sans text-base text-ink/65 leading-relaxed max-w-2xl">
+            Not screenshots. The actual charts. Hover anything.
           </p>
           <Link
             href="/services"
