@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Fraunces, JetBrains_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { LanguageProvider } from "@/lib/i18n/LanguageProvider";
 import "./globals.css";
 
@@ -27,13 +26,13 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Velur · Revenue Intelligence for DTC Brands",
+  title: "Velur · Revenue Intelligence + AI Studio for small businesses",
   description:
-    "Velur turns your Shopify, Klaviyo, and Meta data into the three numbers that decide your next quarter. No new dashboard. No new SaaS bill.",
+    "Velur helps small businesses grow revenue with AI. Two products: AI Studio for creative work with Higgsfield, MidJourney, Claude and ChatGPT, plus Revenue Intelligence for the data that ties it all back to dollars.",
   openGraph: {
-    title: "Velur · Revenue Intelligence for DTC Brands",
+    title: "Velur · AI Studio + Revenue Intelligence",
     description:
-      "Velur turns your Shopify, Klaviyo, and Meta data into the three numbers that decide your next quarter.",
+      "We help small businesses turn AI into revenue. Creative, campaigns, and the analytics behind both.",
     url: "https://velur.io",
     siteName: "Velur",
     locale: "en_US",
@@ -42,9 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Velur · Revenue Intelligence for DTC Brands",
+    title: "Velur · AI Studio + Revenue Intelligence",
     description:
-      "Velur turns your Shopify, Klaviyo, and Meta data into the three numbers that decide your next quarter.",
+      "We help small businesses turn AI into revenue.",
     images: ["https://velur.io/og-image.png"],
   },
 };
@@ -56,18 +55,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${bricolage.variable} ${fraunces.variable} ${jetbrains.variable} h-full`}
-      suppressHydrationWarning
     >
-      <head>
-        {/* Runs before paint to avoid flash of wrong theme */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var s=localStorage.getItem('velur-theme');var p=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';if((s||p)==='dark')document.documentElement.classList.add('dark')}catch(e){}})()`,
-          }}
-        />
-      </head>
       <body className="min-h-full antialiased">
-        <ThemeProvider><LanguageProvider>{children}</LanguageProvider></ThemeProvider>
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

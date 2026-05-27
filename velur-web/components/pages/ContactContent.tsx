@@ -1,63 +1,93 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import WaitlistForm from "@/components/ui/WaitlistForm";
 
 export default function ContactContent() {
   const { t } = useLanguage();
   const c = t.contact;
+  const prefersReduced = useReducedMotion();
 
   return (
     <>
-      <section className="bg-paper pt-16 md:pt-20 pb-12 md:pb-16 border-b border-line">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <p className="font-sans text-ink/55 text-[13px] mb-3">
-            {c.label}
-          </p>
-          <h1
-            className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em] mb-6"
-            style={{ fontSize: "clamp(28px, 4.4vw, 56px)" }}
+      {/* Hero card */}
+      <section className="bg-cream py-12 md:py-16">
+        <div className="max-w-[1280px] mx-auto px-5 md:px-10">
+          <motion.div
+            initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="rounded-3xl bg-brand-brown text-paper p-7 md:p-12 lg:p-16"
           >
-            {c.h1a} {c.h1b}
-          </h1>
-          <p className="font-sans text-base md:text-lg text-ink/70 leading-relaxed max-w-2xl">
-            {c.subhead}
-          </p>
+            <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-5">
+              {c.label}
+            </p>
+            <h1
+              className="font-sans font-bold leading-[1.05] tracking-[-0.025em] mb-5 max-w-3xl"
+              style={{ fontSize: "clamp(26px, 4vw, 48px)" }}
+            >
+              {c.h1a} {c.h1b}
+            </h1>
+            <p className="font-sans text-paper/75 text-base md:text-lg leading-relaxed max-w-2xl">
+              {c.subhead}
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      <section className="bg-cream py-14 md:py-20">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12">
+      {/* Form + expectations, two-card layout */}
+      <section className="bg-cream pb-14 md:pb-20">
+        <div className="max-w-[1280px] mx-auto px-5 md:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-5">
 
-            <div className="lg:col-span-7">
+            <motion.div
+              initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-7 rounded-3xl bg-paper border border-line p-6 md:p-8"
+            >
               <WaitlistForm />
-            </div>
+            </motion.div>
 
-            <div className="lg:col-span-4 lg:col-start-9">
-              <p className="font-sans text-ink/55 text-[13px] mb-5">
-                {c.whatToExpect}
-              </p>
-              <div className="space-y-5">
-                {c.timeline.map((item) => (
-                  <div key={item.time} className="flex gap-5">
-                    <span className="font-mono text-[12px] text-amber shrink-0 w-12 tracking-[0.06em]">{item.time}</span>
-                    <span className="font-sans text-[15px] text-ink/85 leading-relaxed">{item.text}</span>
-                  </div>
-                ))}
+            <motion.div
+              initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-5 rounded-3xl bg-brand-beige border border-line p-6 md:p-8 flex flex-col gap-6"
+            >
+              <div>
+                <p className="font-mono text-[11px] tracking-[0.16em] text-amber uppercase mb-3 font-semibold">
+                  {c.whatToExpect}
+                </p>
+                <div className="space-y-4">
+                  {c.timeline.map((item) => (
+                    <div key={item.time} className="flex gap-4">
+                      <span className="font-mono text-[11.5px] text-ink/65 shrink-0 w-12 tracking-[0.06em] pt-0.5">
+                        {item.time}
+                      </span>
+                      <span className="font-sans text-[14.5px] text-ink/85 leading-relaxed">
+                        {item.text}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div className="border-t border-line mt-10 pt-8 space-y-3">
+              <div className="border-t border-ink/10 pt-5 space-y-2.5">
                 <p className="font-sans text-[13px] text-ink/65">
                   {c.noTime}{" "}
-                  <a href="mailto:hello@velur.io" className="text-amber hover:underline">
+                  <a href="mailto:hello@velur.io" className="text-amber hover:underline font-medium">
                     hello@velur.io
                   </a>
                 </p>
                 <p className="font-sans text-[13px] text-ink/65">{c.async}</p>
                 <p className="font-sans text-[13px] text-ink/65">{c.response}</p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

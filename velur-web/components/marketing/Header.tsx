@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import ThemeToggle from "@/components/ui/ThemeToggle";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 export default function Header() {
@@ -38,10 +37,8 @@ export default function Header() {
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 h-full flex items-center justify-between gap-6">
 
           <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="Velur home">
-            <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur mark" width={22} height={22} className="shrink-0 dark:hidden" />
-            <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur"       width={56} height={14} className="shrink-0 dark:hidden" />
-            <Image src="/logos/Velur_Icon_Logo_Transparent_White.png" alt="Velur mark" width={22} height={22} className="shrink-0 hidden dark:block" />
-            <Image src="/logos/Velur_Copy_Logo_Transparent_White.png" alt="velur"       width={56} height={14} className="shrink-0 hidden dark:block" />
+            <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur mark" width={22} height={22} className="shrink-0" />
+            <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur"       width={56} height={14} className="shrink-0" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-7" aria-label="Main navigation">
@@ -66,7 +63,6 @@ export default function Header() {
               <span className="text-line">/</span>
               <span className={lang === "es" ? "text-ink font-semibold" : ""}>ES</span>
             </button>
-            <ThemeToggle />
             <Link
               href="/contact"
               className="hidden md:inline-flex items-center gap-1.5 bg-ink text-paper font-sans font-medium text-[13.5px] px-4 py-2 rounded-full hover:bg-amber transition-colors duration-200"
@@ -90,10 +86,8 @@ export default function Header() {
         <div className="fixed inset-0 z-[100] bg-paper flex flex-col">
           <div className="flex items-center justify-between px-5 h-16 border-b border-line">
             <Link href="/" className="flex items-center gap-2" onClick={() => setMenuOpen(false)}>
-              <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur mark" width={22} height={22} className="dark:hidden" />
-              <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur"       width={56} height={14} className="dark:hidden" />
-              <Image src="/logos/Velur_Icon_Logo_Transparent_White.png" alt="Velur mark" width={22} height={22} className="hidden dark:block" />
-              <Image src="/logos/Velur_Copy_Logo_Transparent_White.png" alt="velur"       width={56} height={14} className="hidden dark:block" />
+              <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur mark" width={22} height={22} />
+              <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur"       width={56} height={14} />
             </Link>
             <button
               onClick={() => setMenuOpen(false)}

@@ -1,45 +1,38 @@
 @import "tailwindcss";
 
-/* Use class-based dark mode so dark: utilities respond to html.dark, not OS preference */
-@variant dark (&:where(.dark, .dark *));
-
 @theme {
+  /* Core surface palette */
   --color-paper:      #FFFFFF;
-  --color-cream:      #FDFDFC;
-  --color-stone:      #FBFBF9;
+  --color-cream:      #FAF5EC;
+  --color-stone:      #F2EBDD;
   --color-ink:        #1A1A1A;
-  --color-amber:      #FF5B1A;
-  --color-amber-tint: #FFE8DC;
-  --color-line:       #D9D6CF;
+  --color-line:       #E3DCCC;
   --color-muted:      #6E6E6E;
   --color-positive:   #1F7A4D;
+
+  /* Brand accents */
+  --color-amber:      #FF5B1A;
+  --color-amber-tint: #FFE8DC;
+
+  /* Card brand surfaces, used across Studio + homepage cards */
+  --color-brand-brown:  #2A1206;
+  --color-brand-slate:  #3F5772;
+  --color-brand-beige:  #EFE9DE;
 
   --font-sans:  var(--font-bricolage), sans-serif;
   --font-serif: var(--font-fraunces), serif;
   --font-mono:  var(--font-jetbrains), monospace;
 }
 
-/* ─── Dark mode variable overrides ─────────────────────────────────────── */
-html.dark {
-  --color-paper:      #0E0E0E;
-  --color-cream:      #141414;
-  --color-stone:      #1C1C1C;
-  --color-ink:        #F0EDE8;
-  --color-amber-tint: #2A1206;
-  --color-line:       #2A2A2A;
-  --color-muted:      #888888;
-}
-
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
-  background-color: var(--color-paper);
+  background-color: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-bricolage), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 ::selection { background: #FF5B1A; color: #FFFFFF; }
@@ -97,21 +90,15 @@ body {
   z-index: 1;
 }
 
-/* Dim and blur every card that is NOT currently hovered */
 .card-group:hover .marketing-card:not(:hover) {
   filter:    blur(2.5px);
   opacity:   0.5;
   transform: scale(0.97);
 }
 
-/* The hovered card: scale up + glassy stone treatment */
 .marketing-card:hover {
-  transform:          scale(1.04);
+  transform:          scale(1.02);
   z-index:            10;
-  background-color:   color-mix(in srgb, var(--color-stone) 90%, transparent);
-  backdrop-filter:    blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-color:       var(--color-muted) !important;
 }
 
 /* ─── Reduced motion ────────────────────────────────────────────────────── */

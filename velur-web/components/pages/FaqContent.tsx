@@ -2,52 +2,48 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import CtaSection from "@/components/marketing/CtaSection";
+import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 function AccordionItem({
   q,
   a,
-  id,
   open,
   onToggle,
+  isLast,
 }: {
   q: string;
   a: string;
-  id: string;
   open: boolean;
   onToggle: () => void;
+  isLast: boolean;
 }) {
   return (
-    <div className="border-b border-line last:border-b-0">
+    <div className={isLast ? "" : "border-b border-line"}>
       <button
         onClick={onToggle}
         aria-expanded={open}
-        className="w-full flex items-start justify-between gap-4 md:gap-8 py-5 md:py-7 text-left group"
+        className="w-full flex items-start justify-between gap-6 px-6 md:px-8 py-5 md:py-6 text-left"
       >
-        <span
-          className="font-sans font-semibold text-ink leading-snug tracking-[-0.015em] group-hover:text-amber transition-colors duration-150"
-          style={{ fontSize: "clamp(16px, 1.4vw, 20px)" }}
-        >
+        <span className="font-sans font-semibold text-ink leading-snug tracking-[-0.01em] text-[15px] md:text-[16.5px]">
           {q}
         </span>
-        <span className="shrink-0 mt-1 w-6 h-6 flex items-center justify-center rounded-full border border-line text-muted group-hover:border-ink group-hover:text-ink transition-colors duration-150">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden>
+        <span className="shrink-0 mt-1 w-7 h-7 flex items-center justify-center rounded-full border border-line text-ink/60">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
             {open ? (
-              <line x1="1" y1="5" x2="9" y2="5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="2" y1="5.5" x2="9" y2="5.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
             ) : (
               <>
-                <line x1="5" y1="1" x2="5" y2="9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="1" y1="5" x2="9" y2="5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="5.5" y1="2" x2="5.5" y2="9" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                <line x1="2" y1="5.5" x2="9" y2="5.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
               </>
             )}
           </svg>
         </span>
       </button>
-
       {open && (
-        <div className="pb-5 md:pb-7 pr-6 md:pr-12">
-          <p className="font-sans text-base text-muted leading-[1.75]">{a}</p>
+        <div className="px-6 md:px-8 pb-5 md:pb-6">
+          <p className="font-sans text-[14.5px] text-ink/75 leading-relaxed max-w-3xl">{a}</p>
         </div>
       )}
     </div>
@@ -58,43 +54,44 @@ export default function FaqContent() {
   const { t } = useLanguage();
   const f = t.faq;
   const [openId, setOpenId] = useState<string | null>("0-0");
-
   const toggle = (id: string) => setOpenId(prev => (prev === id ? null : id));
+  const prefersReduced = useReducedMotion();
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-paper pt-16 md:pt-20 pb-14 md:pb-20 border-b border-line">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <p className="font-sans text-ink/55 text-[13px] mb-3">
-            {f.label}
-          </p>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-end">
-            <div className="lg:col-span-7">
-              <h1
-                className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em]"
-                style={{ fontSize: "clamp(28px, 4.4vw, 56px)" }}
-              >
-                {f.h1a} {f.h1b}
-              </h1>
-            </div>
-            <div className="lg:col-span-5">
-              <p className="font-sans text-base md:text-lg text-ink/70 leading-relaxed">
-                {f.subhead}
-              </p>
-            </div>
-          </div>
+      {/* Hero card */}
+      <section className="bg-cream py-12 md:py-16">
+        <div className="max-w-[1280px] mx-auto px-5 md:px-10">
+          <motion.div
+            initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="rounded-3xl bg-brand-brown text-paper p-7 md:p-12 lg:p-16"
+          >
+            <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-5">
+              {f.label}
+            </p>
+            <h1
+              className="font-sans font-bold leading-[1.05] tracking-[-0.025em] mb-5 max-w-3xl"
+              style={{ fontSize: "clamp(26px, 4vw, 48px)" }}
+            >
+              {f.h1a} {f.h1b}
+            </h1>
+            <p className="font-sans text-paper/75 text-base md:text-lg leading-relaxed max-w-2xl">
+              {f.subhead}
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* FAQ body */}
-      <section className="bg-paper py-14 md:py-20">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <section className="bg-cream pb-14 md:pb-20">
+        <div className="max-w-[1280px] mx-auto px-5 md:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-6 md:gap-10">
 
-            {/* Sticky category nav */}
-            <aside className="hidden lg:block lg:col-span-3">
-              <div className="sticky top-28 space-y-2">
+            <aside className="hidden lg:block">
+              <div className="sticky top-24 space-y-2">
                 {f.categories.map((cat, ci) => (
                   <a
                     key={ci}
@@ -107,36 +104,36 @@ export default function FaqContent() {
               </div>
             </aside>
 
-            {/* Accordion */}
-            <div className="lg:col-span-9 space-y-12 md:space-y-14">
+            <div className="space-y-6">
               {f.categories.map((cat, ci) => (
-                <div key={ci} id={`cat-${ci}`}>
-                  <div className="flex items-center gap-4 mb-6">
-                    <h2
-                      className="font-sans font-bold text-ink tracking-[-0.02em]"
-                      style={{ fontSize: "clamp(17px, 1.8vw, 22px)" }}
-                    >
+                <motion.div
+                  key={ci}
+                  id={`cat-${ci}`}
+                  initial={prefersReduced ? {} : { opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: ci * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                  className="rounded-3xl bg-paper border border-line overflow-hidden"
+                >
+                  <div className="px-6 md:px-8 pt-6 md:pt-7 pb-2">
+                    <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase">
                       {cat.title}
-                    </h2>
-                    <div className="flex-1 h-px bg-line" />
+                    </p>
                   </div>
-
-                  <div className="border-t border-line">
-                    {cat.items.map((item, ii) => {
-                      const id = `${ci}-${ii}`;
-                      return (
-                        <AccordionItem
-                          key={id}
-                          id={id}
-                          q={item.q}
-                          a={item.a}
-                          open={openId === id}
-                          onToggle={() => toggle(id)}
-                        />
-                      );
-                    })}
-                  </div>
-                </div>
+                  {cat.items.map((item, ii) => {
+                    const id = `${ci}-${ii}`;
+                    return (
+                      <AccordionItem
+                        key={id}
+                        q={item.q}
+                        a={item.a}
+                        open={openId === id}
+                        onToggle={() => toggle(id)}
+                        isLast={ii === cat.items.length - 1}
+                      />
+                    );
+                  })}
+                </motion.div>
               ))}
             </div>
           </div>
@@ -144,24 +141,24 @@ export default function FaqContent() {
       </section>
 
       {/* Still have questions */}
-      <section className="bg-cream py-14 md:py-20 border-t border-line">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-center">
-            <div className="lg:col-span-7">
-              <h2
-                className="font-sans font-bold text-ink leading-[1.1] tracking-[-0.025em] mb-3"
-                style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
-              >
-                {f.stillHaveQuestions}
-              </h2>
-              <p className="font-sans text-base text-ink/70 leading-relaxed">
-                {f.stillHaveQuestionsBody}
-              </p>
-            </div>
-            <div className="lg:col-span-5 flex lg:justify-end">
+      <section className="bg-cream pb-14 md:pb-20">
+        <div className="max-w-[1280px] mx-auto px-5 md:px-10">
+          <div className="rounded-3xl bg-brand-beige border border-line p-7 md:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
+              <div className="max-w-2xl">
+                <h2
+                  className="font-sans font-bold text-ink leading-[1.1] tracking-[-0.025em] mb-3"
+                  style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
+                >
+                  {f.stillHaveQuestions}
+                </h2>
+                <p className="font-sans text-base text-ink/70 leading-relaxed">
+                  {f.stillHaveQuestionsBody}
+                </p>
+              </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-ink text-paper font-sans font-medium text-base px-7 py-3.5 rounded-full hover:bg-amber transition-colors duration-200"
+                className="inline-flex items-center gap-2 bg-ink text-paper font-sans font-semibold text-[14.5px] px-5 py-3 rounded-full hover:bg-amber transition-colors"
               >
                 {f.contactBtn}
               </Link>
@@ -169,8 +166,6 @@ export default function FaqContent() {
           </div>
         </div>
       </section>
-
-      <CtaSection variant="default" />
     </>
   );
 }

@@ -63,7 +63,7 @@ export default function CompanyContent() {
       </section>
 
       {/* Background, dark section */}
-      <section className="bg-ink dark:bg-paper py-14 md:py-20">
+      <section className="bg-ink py-14 md:py-20">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start">
             <div className="lg:col-span-7">
@@ -71,20 +71,20 @@ export default function CompanyContent() {
                 {c.bgLabel}
               </p>
               <p
-                className="font-sans font-medium text-white dark:text-ink leading-[1.35] tracking-[-0.015em]"
+                className="font-sans font-medium text-white leading-[1.35] tracking-[-0.015em]"
                 style={{ fontSize: "clamp(18px, 2vw, 26px)" }}
               >
                 &ldquo;{c.quote}&rdquo;
               </p>
             </div>
             <div className="lg:col-span-5">
-              <div className="divide-y divide-white/10 dark:divide-ink/20 border-t border-white/10 dark:border-ink/20">
+              <div className="divide-y divide-white/10 border-t border-white/10">
                 {c.stackRows.map((row) => (
                   <div key={row.label} className="py-4 grid grid-cols-[auto_1fr] gap-5 items-start">
                     <span className="font-mono text-[10.5px] uppercase tracking-widest text-muted">
                       {row.label}
                     </span>
-                    <span className="font-mono text-[11.5px] text-white/65 dark:text-muted leading-relaxed">
+                    <span className="font-mono text-[11.5px] text-white/65 leading-relaxed">
                       {row.value}
                     </span>
                   </div>
