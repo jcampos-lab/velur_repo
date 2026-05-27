@@ -28,7 +28,7 @@ function HeroCard() {
             >
               The platform that ties your stack to revenue.
             </h1>
-            <p className="font-sans text-paper/75 leading-relaxed text-[15px] md:text-[16px] max-w-md">
+            <p className="font-sans text-ink/75 leading-relaxed text-[15px] md:text-[16px] max-w-md">
               Shopify, Klaviyo, Meta, TikTok and Google Ads connected to one daily brief. We tell you what actually moved money last night, in plain English, before your team is even online.
             </p>
           </div>
@@ -41,7 +41,7 @@ function HeroCard() {
             </Link>
             <Link
               href="#how"
-              className="inline-flex items-center bg-transparent text-paper border border-paper/30 font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-paper/10 transition-colors"
+              className="inline-flex items-center bg-transparent text-paper border border-ink/30 font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-ink/10 transition-colors"
             >
               How it works
             </Link>
@@ -57,7 +57,7 @@ function HeroCard() {
                 "radial-gradient(circle at 30% 30%, rgba(208,255,176,0.35), transparent 50%), radial-gradient(circle at 75% 75%, rgba(208,255,176,0.25), transparent 50%)",
             }}
           />
-          <div className="absolute top-10 left-8 right-12 rounded-xl bg-paper/95 backdrop-blur-sm border border-line/20 p-5 shadow-2xl">
+          <div className="absolute top-10 left-8 right-12 rounded-xl bg-ink/95 backdrop-blur-sm border border-line/20 p-5 shadow-2xl">
             <p className="font-mono text-[9.5px] tracking-[0.18em] text-amber uppercase">
               Today&apos;s brief · 08:02
             </p>
@@ -174,14 +174,14 @@ function ModuleCard({ m, i, prefersReduced }: { m: Module; i: number; prefersRed
       >
         {m.title}
       </h3>
-      <p className={`font-sans text-[14.5px] leading-relaxed ${dark ? "text-paper/75" : "text-ink/70"}`}>
+      <p className={`font-sans text-[14.5px] leading-relaxed ${dark ? "text-ink/75" : "text-ink/70"}`}>
         {m.body}
       </p>
       <ul className={`mt-2 space-y-2 ${dark ? "" : ""}`}>
         {m.bullets.map(b => (
           <li key={b} className="flex items-start gap-2.5">
             <span className="mt-2 inline-block w-1.5 h-1.5 rounded-full bg-amber shrink-0" />
-            <span className={`font-sans text-[13.5px] ${dark ? "text-paper/85" : "text-ink/85"}`}>
+            <span className={`font-sans text-[13.5px] ${dark ? "text-ink/85" : "text-ink/85"}`}>
               {b}
             </span>
           </li>
@@ -253,7 +253,7 @@ export default function ServicesContent() {
                 >
                   Live in fourteen days. Owned by you on day fifteen.
                 </h2>
-                <p className="font-sans text-paper/75 leading-relaxed mt-5 text-[15px] md:text-[16px] max-w-md">
+                <p className="font-sans text-ink/75 leading-relaxed mt-5 text-[15px] md:text-[16px] max-w-md">
                   We handle the integrations and the backfill. Your team needs an OAuth approval and twenty minutes on a Wednesday.
                 </p>
                 <Link
@@ -265,14 +265,14 @@ export default function ServicesContent() {
               </div>
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {STEPS.map(step => (
-                  <div key={step.label} className="rounded-2xl bg-paper/[0.06] border border-paper/15 p-5">
+                  <div key={step.label} className="rounded-2xl bg-ink/[0.06] border border-ink/15 p-5">
                     <p className="font-mono text-[10px] tracking-[0.18em] text-amber uppercase mb-3">
                       {step.label}
                     </p>
                     <p className="font-sans font-bold text-paper text-[16px] leading-tight mb-2">
                       {step.title}
                     </p>
-                    <p className="font-sans text-[13.5px] text-paper/65 leading-relaxed">
+                    <p className="font-sans text-[13.5px] text-ink/65 leading-relaxed">
                       {step.body}
                     </p>
                   </div>

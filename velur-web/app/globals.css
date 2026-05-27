@@ -1,30 +1,46 @@
 @import "tailwindcss";
 
+/* Velur runs on a Framer-style dark canvas. One mode, monochrome surfaces,
+   sky-blue as the only chromatic signal, gradient spotlight cards for
+   warmth. Tokens follow the front-matter spec in DESIGN.md. */
+
 @theme {
-  /* ─── Surfaces ────────────────────────────────────────────────────── */
-  --color-paper:      #FFFFFF;   /* bright cards floating on platinum */
-  --color-cream:      #ECECEC;   /* PLATINUM — page background */
-  --color-stone:      #E0E0E0;   /* alternate section background, slightly cooler than cream */
-  --color-alabaster:  #F4F4F4;   /* very light neutral */
-  --color-ink:        #1E1B18;   /* CARBON BLACK — primary text + dark cards */
-  --color-line:       #D4D4D4;   /* SILVER-tinted borders */
-  --color-muted:      #6E6E6E;   /* secondary text */
-  --color-positive:   #1F7A4D;   /* "good fit" green (separate from accent) */
+  /* ─── Anchor surfaces ─────────────────────────────────────────────── */
+  --color-paper:      #0E0E0E;   /* CANVAS — page background */
+  --color-cream:      #0E0E0E;   /* alias for canvas, used on section bg */
+  --color-stone:      #1A1A1A;   /* SURFACE-1 — default card */
+  --color-alabaster:  #242424;   /* SURFACE-2 — featured card / lift */
+  --color-ink:        #FFFFFF;   /* PRIMARY — text + white pill bg */
+  --color-line:       #2A2A2A;   /* hairline border */
+  --color-line-soft:  #1F1F1F;   /* softer divider */
+  --color-muted:      #999999;   /* INK-MUTED — secondary text */
+  --color-positive:   #1F7A4D;   /* semantic green */
 
-  /* ─── Brand accent (Tea Green) ────────────────────────────────────── */
-  /* Token name stays `amber` so all existing utility classes keep working,
-     only the value changes. Tea Green is light, so it pairs with dark
-     text on green surfaces and with green text on dark surfaces. */
-  --color-amber:       #D0FFB0;   /* TEA GREEN */
-  --color-amber-tint:  #E8FFD8;   /* lighter wash for backgrounds */
-  --color-amber-deep:  #A8E580;   /* deeper green for hover/active */
+  /* ─── Single chromatic accent (Sky Blue) ──────────────────────────── */
+  /* Token name stays `amber` so existing utility classes keep working,
+     value is now Framer's accent blue. Use it sparingly: links, focus
+     rings, eyebrow labels, accent dots. Never as a brand fill. */
+  --color-amber:       #0099FF;
+  --color-amber-tint:  #0F2E45;
+  --color-amber-deep:  #0077DD;
 
-  /* ─── Brand surfaces (used by feature cards across Studio/Services) ── */
-  --color-brand-brown:  #1E1B18;   /* now Carbon Black — was warm brown */
-  --color-brand-slate:  #57627C;   /* BLUE SLATE */
-  --color-brand-beige:  #D0FFB0;   /* repurposed as TEA GREEN card surface */
-  --color-brand-sky:    #B7B6B7;   /* SILVER */
+  /* ─── Brand surfaces — repurposed as surface lifts ────────────────── */
+  --color-brand-brown:  #1A1A1A;   /* now surface-1 (was warm dark brown) */
+  --color-brand-slate:  #242424;   /* now surface-2 */
+  --color-brand-beige:  #2E2E2E;   /* slight further lift */
+  --color-brand-sky:    #1A1A1A;   /* now surface-1 */
 
+  /* ─── Gradient spotlight stops (signature device) ─────────────────── */
+  --color-gradient-violet-from:   #7A3FC7;
+  --color-gradient-violet-to:     #3F1F8A;
+  --color-gradient-magenta-from:  #C73FA0;
+  --color-gradient-magenta-to:    #6B1E54;
+  --color-gradient-orange-from:   #E89E4C;
+  --color-gradient-orange-to:     #B86628;
+  --color-gradient-coral-from:    #E85F7A;
+  --color-gradient-coral-to:      #B0394E;
+
+  /* ─── Typography ──────────────────────────────────────────────────── */
   --font-sans:  var(--font-bricolage), sans-serif;
   --font-serif: var(--font-fraunces), serif;
   --font-mono:  var(--font-jetbrains), monospace;
@@ -34,27 +50,34 @@
 html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
-  background-color: var(--color-cream);
+  background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-bricolage), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv01", "cv05", "cv09", "cv11", "ss03", "ss07", "dlig";
 }
 
-::selection { background: #D0FFB0; color: #1E1B18; }
+::selection { background: #0099FF; color: #FFFFFF; }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-track { background: var(--color-paper); }
 ::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-ink); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-muted); }
 
 :focus-visible {
-  outline: 2px solid #1E1B18;
+  outline: 2px solid #0099FF;
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* ─── Marquee ───────────────────────────────────────────────────────────── */
+/* ─── Gradient spotlight card utility classes ──────────────────────── */
+.gradient-violet  { background: radial-gradient(ellipse at 30% 30%, var(--color-gradient-violet-from),  var(--color-gradient-violet-to)  120%); }
+.gradient-magenta { background: radial-gradient(ellipse at 30% 30%, var(--color-gradient-magenta-from), var(--color-gradient-magenta-to) 120%); }
+.gradient-orange  { background: radial-gradient(ellipse at 30% 30%, var(--color-gradient-orange-from),  var(--color-gradient-orange-to)  120%); }
+.gradient-coral   { background: radial-gradient(ellipse at 30% 30%, var(--color-gradient-coral-from),   var(--color-gradient-coral-to)   120%); }
+
+/* ─── Marquee ─────────────────────────────────────────────────────── */
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -62,27 +85,25 @@ body {
 .marquee-track { animation: marquee 60s linear infinite; will-change: transform; }
 .marquee-track:hover { animation-play-state: paused; }
 
-/* ─── Status dot ────────────────────────────────────────────────────────── */
+/* ─── Status dot ──────────────────────────────────────────────────── */
 @keyframes pulse-dot {
   0%, 100% { opacity: 0.5; transform: scale(0.9); }
   50%       { opacity: 1;   transform: scale(1.1); }
 }
 .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
 
-/* ─── Chart animations ──────────────────────────────────────────────────── */
+/* ─── Chart animations ─────────────────────────────────────────────── */
 @keyframes fadeSlideUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-@keyframes drawChartLine {
-  to { stroke-dashoffset: 0; }
-}
+@keyframes drawChartLine { to { stroke-dashoffset: 0; } }
 @keyframes dotPop {
   from { opacity: 0; transform: scale(0); }
   to   { opacity: 1; transform: scale(1); }
 }
 
-/* ─── Marketing card hover group ───────────────────────────────────────── */
+/* ─── Marketing card hover group ──────────────────────────────────── */
 .marketing-card {
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -94,19 +115,14 @@ body {
   will-change: transform, filter;
   z-index: 1;
 }
-
 .card-group:hover .marketing-card:not(:hover) {
-  filter:    blur(2.5px);
-  opacity:   0.5;
+  filter: blur(2.5px);
+  opacity: 0.5;
   transform: scale(0.97);
 }
+.marketing-card:hover { transform: scale(1.02); z-index: 10; }
 
-.marketing-card:hover {
-  transform:          scale(1.02);
-  z-index:            10;
-}
-
-/* ─── Reduced motion ────────────────────────────────────────────────────── */
+/* ─── Reduced motion ──────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration:       0.01ms !important;

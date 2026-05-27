@@ -78,7 +78,7 @@ export default function FaqContent() {
             >
               {f.h1a} {f.h1b}
             </h1>
-            <p className="font-sans text-paper/75 text-base md:text-lg leading-relaxed max-w-2xl">
+            <p className="font-sans text-ink/75 text-base md:text-lg leading-relaxed max-w-2xl">
               {f.subhead}
             </p>
           </motion.div>

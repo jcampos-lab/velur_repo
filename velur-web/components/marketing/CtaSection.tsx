@@ -27,7 +27,7 @@ export default function CtaSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-3xl bg-[#2A1206] text-paper p-8 md:p-12 lg:p-16 overflow-hidden relative"
+          className="rounded-3xl bg-stone text-paper p-8 md:p-12 lg:p-16 overflow-hidden relative"
         >
           {/* Soft amber glow */}
           <div
@@ -44,7 +44,7 @@ export default function CtaSection({
               <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-3">
                 Ready when you are
               </p>
-              <p className="font-sans font-medium text-paper/65 leading-[1.2] tracking-[-0.01em] mb-3 text-[15px] md:text-[17px]">
+              <p className="font-sans font-medium text-ink/65 leading-[1.2] tracking-[-0.01em] mb-3 text-[15px] md:text-[17px]">
                 {copy.h1}
               </p>
               <h3

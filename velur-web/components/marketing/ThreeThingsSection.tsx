@@ -21,7 +21,7 @@ const ROWS = [
     label: "Speed",
     heading: "You'll be live in fourteen days.",
     body: "From first call to first daily brief. We handle the integrations and the backfill, your team just needs an OAuth approval and twenty minutes on a Wednesday.",
-    bg: "bg-[#2A1206]",
+    bg: "bg-stone",
     tone: "text-paper",
   },
 ];
@@ -70,7 +70,7 @@ export default function ThreeThingsSection() {
                 </span>
                 <span
                   className={`font-mono text-[11px] ${
-                    row.tone === "text-paper" ? "text-paper/45" : "text-ink/40"
+                    row.tone === "text-paper" ? "text-ink/45" : "text-ink/40"
                   }`}
                 >
                   0{i + 1}
@@ -84,7 +84,7 @@ export default function ThreeThingsSection() {
               </h3>
               <p
                 className={`font-sans text-[14.5px] leading-relaxed ${
-                  row.tone === "text-paper" ? "text-paper/75" : "text-ink/70"
+                  row.tone === "text-paper" ? "text-ink/75" : "text-ink/70"
                 }`}
               >
                 {row.body}

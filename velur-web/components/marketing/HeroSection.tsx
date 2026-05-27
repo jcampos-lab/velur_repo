@@ -27,8 +27,8 @@ export default function HeroSection() {
                 maxWidth: 760,
                 maxHeight: 760,
                 background:
-                  "radial-gradient(circle, rgba(208,255,176,0.08), rgba(208,255,176,0) 65%)",
-                filter: "blur(40px)",
+                  "radial-gradient(circle, rgba(122,63,199,0.20), rgba(122,63,199,0) 65%)",
+                filter: "blur(60px)",
               }}
               animate={{ x: [0, 40, -20, 0], y: [0, -30, 25, 0] }}
               transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
@@ -43,8 +43,8 @@ export default function HeroSection() {
                 maxWidth: 580,
                 maxHeight: 580,
                 background:
-                  "radial-gradient(circle, rgba(208,255,176,0.10), rgba(208,255,176,0) 70%)",
-                filter: "blur(40px)",
+                  "radial-gradient(circle, rgba(199,63,160,0.16), rgba(199,63,160,0) 70%)",
+                filter: "blur(60px)",
               }}
               animate={{ x: [0, -40, 25, 0], y: [0, 30, -15, 0] }}
               transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
