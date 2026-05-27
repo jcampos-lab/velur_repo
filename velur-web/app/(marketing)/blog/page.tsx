@@ -24,19 +24,20 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-paper pt-20 pb-20 border-b border-line">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <p className="font-mono text-xs uppercase tracking-widest text-muted mb-8">
-            BLOG · THINKING OUT LOUD
-          </p>
+      <section className="bg-cream pt-14 md:pt-20 pb-16 md:pb-20 border-b border-line">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-10">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber text-white font-mono text-[11px] tracking-[0.14em] uppercase mb-8">
+            · Blog
+          </span>
           <h1
-            className="font-sans font-bold text-ink leading-[0.95] tracking-[-0.04em]"
-            style={{ fontSize: "clamp(40px, 6vw, 88px)" }}
+            className="font-sans font-bold text-ink leading-[1.0] tracking-[-0.035em] max-w-[1000px]"
+            style={{ fontSize: "clamp(40px, 5.4vw, 80px)" }}
           >
-            Ideas on analytics,
-            <br />
-            strategy, and data.
+            Notes on creative, data, and the parts that actually sell.
           </h1>
+          <p className="font-sans text-ink/75 text-lg md:text-xl leading-relaxed max-w-[680px] mt-7">
+            Half teardown, half public notebook. Written between client calls — usually around 11pm.
+          </p>
         </div>
       </section>
 

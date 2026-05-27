@@ -8,22 +8,22 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <section className="bg-paper pt-20 pb-24">
-      <div className="max-w-[720px] mx-auto px-6 md:px-12">
+    <section className="bg-paper pt-14 md:pt-20 pb-20 md:pb-24">
+      <div className="max-w-[820px] mx-auto px-6 md:px-10">
         <Link
           href="/"
-          className="font-mono text-xs uppercase tracking-widest text-muted hover:text-ink transition-colors mb-10 inline-block"
+          className="font-mono text-[11px] tracking-[0.14em] text-ink/65 hover:text-amber uppercase mb-8 inline-block"
         >
           ← Home
         </Link>
 
-        <p className="font-mono text-xs uppercase tracking-widest text-muted mb-6">
-          LEGAL · TERMS OF SERVICE
-        </p>
+        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber text-white font-mono text-[11px] tracking-[0.14em] uppercase mb-6">
+          · Legal · Terms
+        </span>
 
         <h1
-          className="font-sans font-bold text-ink leading-[0.95] tracking-[-0.04em] mb-10"
-          style={{ fontSize: "clamp(32px, 5vw, 64px)" }}
+          className="font-sans font-bold text-ink leading-[1.0] tracking-[-0.035em] mb-8"
+          style={{ fontSize: "clamp(32px, 4.4vw, 56px)" }}
         >
           Terms of Service
         </h1>

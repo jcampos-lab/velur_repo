@@ -1,6 +1,6 @@
 import Header from "@/components/marketing/Header";
-import Footer from "@/components/marketing/Footer";
-import FloatingSideRail from "@/components/marketing/FloatingSideRail";
+import WordmarkFooter from "@/components/marketing/WordmarkFooter";
+import AnnouncementBanner from "@/components/marketing/AnnouncementBanner";
 import SmoothScrollProvider from "@/components/marketing/SmoothScrollProvider";
 
 export default function MarketingLayout({
@@ -10,10 +10,10 @@ export default function MarketingLayout({
 }) {
   return (
     <SmoothScrollProvider>
+      <AnnouncementBanner />
       <Header />
-      <main className="pt-20">{children}</main>
-      <FloatingSideRail />
-      <Footer />
+      <main>{children}</main>
+      <WordmarkFooter />
     </SmoothScrollProvider>
   );
 }

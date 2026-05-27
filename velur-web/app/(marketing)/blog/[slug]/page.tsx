@@ -41,53 +41,51 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <>
       {/* Header */}
-      <section className="bg-paper pt-20 pb-16 border-b border-line">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12">
+      <section className="bg-cream pt-14 md:pt-20 pb-14 md:pb-16 border-b border-line">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-10">
           <Link
             href="/blog"
-            className="font-mono text-xs uppercase tracking-widest text-muted hover:text-ink transition-colors mb-10 inline-block"
+            className="font-mono text-[11px] tracking-[0.14em] text-ink/65 hover:text-amber uppercase mb-8 inline-block"
           >
-            ← Back to Blog
+            ← Back to blog
           </Link>
 
-          <div className="max-w-[720px]">
-            <div className="flex items-center gap-4 mb-6">
-              <span className="font-mono text-xs uppercase tracking-widest text-amber">
-                {post.category}
+          <div className="max-w-[820px]">
+            <div className="flex items-center gap-4 mb-5">
+              <span className="font-mono text-[11px] tracking-[0.14em] text-amber uppercase">
+                · {post.category}
               </span>
-              <span className="font-mono text-xs text-muted">{formatDate(post.date)}</span>
+              <span className="font-mono text-[11px] tracking-[0.14em] text-ink/55 uppercase">
+                {formatDate(post.date)}
+              </span>
             </div>
 
             <h1
-              className="font-sans font-bold text-ink leading-[0.95] tracking-[-0.04em] mb-6"
-              style={{ fontSize: "clamp(32px, 5vw, 72px)" }}
+              className="font-sans font-bold text-ink leading-[1.0] tracking-[-0.035em] mb-5"
+              style={{ fontSize: "clamp(30px, 4.4vw, 64px)" }}
             >
               {post.title}
             </h1>
 
-            <p className="font-sans text-xl text-muted leading-relaxed">{post.excerpt}</p>
+            <p className="font-sans text-ink/75 text-lg md:text-xl leading-relaxed">{post.excerpt}</p>
           </div>
         </div>
       </section>
 
       {/* Body placeholder */}
-      <section className="bg-cream py-24">
-        <div className="max-w-[720px] mx-auto px-6 md:px-12 text-center">
-          <p className="font-mono text-xs uppercase tracking-widest text-muted mb-6">
-            COMING SOON
+      <section className="bg-paper py-20 md:py-24">
+        <div className="max-w-[720px] mx-auto px-6 md:px-10">
+          <p className="font-mono text-[11px] tracking-[0.14em] text-amber uppercase mb-4">
+            · In progress
           </p>
-          <p
-            className="font-serif italic text-ink leading-relaxed mb-10"
-            style={{ fontSize: "clamp(20px, 2.5vw, 28px)" }}
-          >
-            "This article is being written. Check back soon — or reach out if
-            you want to talk through the topic now."
+          <p className="font-sans text-ink text-lg leading-relaxed mb-8">
+            This one&apos;s still in drafts. We&apos;d rather ship it slow than ship it generic. If the headline grabbed you and you want to talk the topic through now, just email us.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 font-mono text-sm bg-ink text-paper px-6 py-3 rounded-pill hover:bg-amber transition-colors duration-200"
+            className="inline-flex items-center bg-amber text-white font-sans font-semibold text-[15px] px-6 py-3.5 rounded-md hover:bg-ink transition-colors"
           >
-            Book a demo →
+            Email us about this →
           </Link>
         </div>
       </section>
