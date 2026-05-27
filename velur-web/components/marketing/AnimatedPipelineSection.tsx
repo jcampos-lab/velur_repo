@@ -63,7 +63,7 @@ export default function AnimatedPipelineSection() {
           <div
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[320px] pointer-events-none"
             style={{
-              background: "radial-gradient(ellipse at center, rgba(255,91,26,0.13), transparent 70%)",
+              background: "radial-gradient(ellipse at center, rgba(208,255,176,0.13), transparent 70%)",
             }}
             aria-hidden
           />
@@ -124,13 +124,13 @@ export default function AnimatedPipelineSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="relative bg-ink text-paper rounded-2xl px-5 md:px-7 py-5 md:py-6 shadow-[0_30px_80px_-25px_rgba(255,91,26,0.45)] min-w-[140px] md:min-w-[180px] text-center"
+                className="relative bg-ink text-paper rounded-2xl px-5 md:px-7 py-5 md:py-6 shadow-[0_30px_80px_-25px_rgba(208,255,176,0.45)] min-w-[140px] md:min-w-[180px] text-center"
               >
                 {!prefersReduced && (
                   <span className="absolute inset-0 rounded-2xl pointer-events-none">
                     <span
                       className="absolute inset-0 rounded-2xl animate-[pulse-dot_2.6s_ease-in-out_infinite]"
-                      style={{ boxShadow: "0 0 0 2px rgba(255,91,26,0.25)" }}
+                      style={{ boxShadow: "0 0 0 2px rgba(208,255,176,0.25)" }}
                     />
                   </span>
                 )}
@@ -163,7 +163,7 @@ export default function AnimatedPipelineSection() {
                     ease: [0.16, 1, 0.3, 1],
                   }}
                   whileHover={prefersReduced ? undefined : { x: -4, borderColor: "var(--color-amber)" }}
-                  className="bg-paper border border-line rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-3 transition-shadow hover:shadow-[0_10px_24px_-14px_rgba(255,91,26,0.4)]"
+                  className="bg-paper border border-line rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-3 transition-shadow hover:shadow-[0_10px_24px_-14px_rgba(208,255,176,0.4)]"
                 >
                   <span className="block w-2.5 h-2.5 rounded-full bg-amber shrink-0" />
                   <div className="min-w-0 flex-1">

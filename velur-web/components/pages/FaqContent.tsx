@@ -158,7 +158,7 @@ export default function FaqContent() {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-ink text-paper font-sans font-semibold text-[14.5px] px-5 py-3 rounded-full hover:bg-amber transition-colors"
+                className="inline-flex items-center gap-2 bg-ink text-paper font-sans font-semibold text-[14.5px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors"
               >
                 {f.contactBtn}
               </Link>

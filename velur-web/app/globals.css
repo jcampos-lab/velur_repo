@@ -2,27 +2,28 @@
 
 @theme {
   /* ─── Surfaces ────────────────────────────────────────────────────── */
-  --color-paper:      #FFFFFF;   /* bright cards on cream */
-  --color-cream:      #FAF5EC;   /* page background, warm off-white */
-  --color-stone:      #F2EBDD;   /* alternate section background */
-  --color-alabaster:  #EAEAEA;   /* neutral cool surface */
-  --color-ink:        #1A1A1A;   /* primary text + dark cards */
-  --color-line:       #E5DDCB;   /* warm borders */
+  --color-paper:      #FFFFFF;   /* bright cards floating on platinum */
+  --color-cream:      #ECECEC;   /* PLATINUM — page background */
+  --color-stone:      #E0E0E0;   /* alternate section background, slightly cooler than cream */
+  --color-alabaster:  #F4F4F4;   /* very light neutral */
+  --color-ink:        #1E1B18;   /* CARBON BLACK — primary text + dark cards */
+  --color-line:       #D4D4D4;   /* SILVER-tinted borders */
   --color-muted:      #6E6E6E;   /* secondary text */
-  --color-positive:  #1F7A4D;   /* success / "good fit" green */
+  --color-positive:   #1F7A4D;   /* "good fit" green (separate from accent) */
 
-  /* ─── Brand accent (Burnt Peach) ──────────────────────────────────── */
-  /* Replaces the harsh #FF5B1A amber. Same token name so existing
-     bg-amber / text-amber utilities keep working, the hue just softens. */
-  --color-amber:       #DD6E42;
-  --color-amber-tint:  #F5D7C4;
-  --color-amber-deep:  #B4552F;
+  /* ─── Brand accent (Tea Green) ────────────────────────────────────── */
+  /* Token name stays `amber` so all existing utility classes keep working,
+     only the value changes. Tea Green is light, so it pairs with dark
+     text on green surfaces and with green text on dark surfaces. */
+  --color-amber:       #D0FFB0;   /* TEA GREEN */
+  --color-amber-tint:  #E8FFD8;   /* lighter wash for backgrounds */
+  --color-amber-deep:  #A8E580;   /* deeper green for hover/active */
 
   /* ─── Brand surfaces (used by feature cards across Studio/Services) ── */
-  --color-brand-brown:  #2A1206;
-  --color-brand-slate:  #4F6D7A;
-  --color-brand-beige:  #E8DAB2;
-  --color-brand-sky:    #C0D6DF;
+  --color-brand-brown:  #1E1B18;   /* now Carbon Black — was warm brown */
+  --color-brand-slate:  #57627C;   /* BLUE SLATE */
+  --color-brand-beige:  #D0FFB0;   /* repurposed as TEA GREEN card surface */
+  --color-brand-sky:    #B7B6B7;   /* SILVER */
 
   --font-sans:  var(--font-bricolage), sans-serif;
   --font-serif: var(--font-fraunces), serif;
@@ -40,7 +41,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-::selection { background: #DD6E42; color: #FFFFFF; }
+::selection { background: #D0FFB0; color: #1E1B18; }
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--color-cream); }
@@ -48,7 +49,7 @@ body {
 ::-webkit-scrollbar-thumb:hover { background: var(--color-ink); }
 
 :focus-visible {
-  outline: 2px solid #DD6E42;
+  outline: 2px solid #1E1B18;
   outline-offset: 3px;
   border-radius: 4px;
 }

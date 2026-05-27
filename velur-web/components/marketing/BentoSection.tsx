@@ -23,7 +23,7 @@ const DOTS: Dot[] = [
 
 const CHANNEL_COLOR: Record<string, string> = {
   tiktok:    "#1A1A1A",
-  klaviyo:   "#DD6E42",
+  klaviyo:   "#57627C",
   meta:      "#0866FF",
   google:    "#F9AB00",
   affiliate: "#6E6E6E",
@@ -77,7 +77,7 @@ function CorrelationChart() {
 
         <motion.line
           x1={xFor(8)} y1={yFor(58)} x2={xFor(92)} y2={yFor(12)}
-          stroke="#DD6E42" strokeWidth="1.4" strokeDasharray="4 4" opacity="0.55"
+          stroke="#57627C" strokeWidth="1.4" strokeDasharray="4 4" opacity="0.55"
           initial={prefersReduced ? {} : { pathLength: 0, opacity: 0 }}
           whileInView={{ pathLength: 1, opacity: 0.55 }}
           viewport={{ once: true }}
@@ -157,7 +157,7 @@ function CorrelationChart() {
 
 const TOOLS = [
   { name: "Shopify",     role: "orders + margin",     color: "#95BF47" },
-  { name: "Klaviyo",     role: "flows + LTV",         color: "#DD6E42" },
+  { name: "Klaviyo",     role: "flows + LTV",         color: "#57627C" },
   { name: "Meta Ads",    role: "spend + creative",    color: "#0866FF" },
   { name: "TikTok Ads",  role: "spend + saves",       color: "#1A1A1A" },
   { name: "Higgsfield",  role: "reel drafts",         color: "#7C3AED" },

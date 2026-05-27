@@ -34,7 +34,7 @@ export default function CtaSection({
             aria-hidden
             className="absolute -top-32 -right-20 w-[420px] h-[420px] pointer-events-none"
             style={{
-              background: "radial-gradient(circle, rgba(255,91,26,0.25), transparent 65%)",
+              background: "radial-gradient(circle, rgba(208,255,176,0.25), transparent 65%)",
               filter: "blur(20px)",
             }}
           />
@@ -56,7 +56,7 @@ export default function CtaSection({
             </div>
             <Link
               href={buttonHref}
-              className="inline-flex items-center bg-amber text-paper font-sans font-semibold text-[14.5px] px-5 py-3 rounded-full hover:bg-paper hover:text-ink transition-colors self-start md:self-auto"
+              className="inline-flex items-center bg-amber text-ink font-sans font-semibold text-[14.5px] px-5 py-3 rounded-full hover:bg-paper hover:text-ink transition-colors self-start md:self-auto"
             >
               {copy.btn}
             </Link>

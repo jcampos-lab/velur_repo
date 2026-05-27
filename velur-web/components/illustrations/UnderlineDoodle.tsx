@@ -49,7 +49,7 @@ export default function UnderlineDoodle({ className = "" }: { className?: string
       <path
         ref={pathRef}
         d="M2 10 C40 4, 80 14, 120 8 C160 2, 200 12, 238 7"
-        stroke="#DD6E42"
+        stroke="#57627C"
         strokeWidth="3"
         strokeLinecap="round"
         fill="none"

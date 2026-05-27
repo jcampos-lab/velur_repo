@@ -35,7 +35,7 @@ function HeroCard() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
+              className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors"
             >
               Book a call
             </Link>
@@ -54,7 +54,7 @@ function HeroCard() {
             className="absolute inset-0 opacity-60"
             style={{
               backgroundImage:
-                "radial-gradient(circle at 30% 30%, rgba(255,91,26,0.35), transparent 50%), radial-gradient(circle at 75% 75%, rgba(255,176,136,0.25), transparent 50%)",
+                "radial-gradient(circle at 30% 30%, rgba(208,255,176,0.35), transparent 50%), radial-gradient(circle at 75% 75%, rgba(208,255,176,0.25), transparent 50%)",
             }}
           />
           <div className="absolute top-10 left-8 right-12 rounded-xl bg-paper/95 backdrop-blur-sm border border-line/20 p-5 shadow-2xl">
@@ -258,7 +258,7 @@ export default function ServicesContent() {
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
+                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors"
                 >
                   Book a discovery call
                 </Link>
@@ -348,7 +348,7 @@ export default function ServicesContent() {
             <div
               aria-hidden
               className="absolute -top-20 -right-20 w-[420px] h-[420px] pointer-events-none"
-              style={{ background: "radial-gradient(circle, rgba(255,91,26,0.22), transparent 65%)", filter: "blur(20px)" }}
+              style={{ background: "radial-gradient(circle, rgba(208,255,176,0.22), transparent 65%)", filter: "blur(20px)" }}
             />
             <div className="relative grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
               <div className="max-w-2xl">
@@ -364,7 +364,7 @@ export default function ServicesContent() {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center bg-amber text-paper font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-paper hover:text-ink transition-colors self-start md:self-auto"
+                className="inline-flex items-center bg-amber text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-paper hover:text-ink transition-colors self-start md:self-auto"
               >
                 Book a call
               </Link>

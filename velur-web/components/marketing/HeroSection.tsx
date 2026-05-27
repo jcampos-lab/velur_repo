@@ -27,7 +27,7 @@ export default function HeroSection() {
                 maxWidth: 760,
                 maxHeight: 760,
                 background:
-                  "radial-gradient(circle, rgba(255,91,26,0.08), rgba(255,91,26,0) 65%)",
+                  "radial-gradient(circle, rgba(208,255,176,0.08), rgba(208,255,176,0) 65%)",
                 filter: "blur(40px)",
               }}
               animate={{ x: [0, 40, -20, 0], y: [0, -30, 25, 0] }}
@@ -43,7 +43,7 @@ export default function HeroSection() {
                 maxWidth: 580,
                 maxHeight: 580,
                 background:
-                  "radial-gradient(circle, rgba(255,176,136,0.10), rgba(255,176,136,0) 70%)",
+                  "radial-gradient(circle, rgba(208,255,176,0.10), rgba(208,255,176,0) 70%)",
                 filter: "blur(40px)",
               }}
               animate={{ x: [0, -40, 25, 0], y: [0, 30, -15, 0] }}
@@ -124,7 +124,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row flex-wrap gap-3">
             <MagneticButton
               href="/contact"
-              className="bg-ink text-paper rounded-full px-6 py-3.5 font-sans font-medium text-base hover:bg-amber transition-colors duration-200"
+              className="bg-ink text-paper rounded-full px-6 py-3.5 font-sans font-medium text-base hover:bg-amber hover:text-ink transition-colors duration-200"
               strength={0.35}
             >
               {t.hero.ctaPrimary}

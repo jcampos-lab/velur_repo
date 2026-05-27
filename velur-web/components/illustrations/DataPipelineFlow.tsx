@@ -99,10 +99,10 @@ export default function DataPipelineFlow() {
         <g style={{ animation: "fadeSlideUp 0.4s ease 0.55s both" }}>
           <rect
             x={WH_X} y={SY[0]} width={WH_W} height={WH_H} rx={8}
-            fill="none" stroke="#DD6E42" strokeWidth="1.5"
+            fill="none" stroke="#57627C" strokeWidth="1.5"
           />
           <text x={WH_X + WH_W / 2} y={SY[0] + 24} textAnchor="middle" fontSize="7.5"
-            letterSpacing="0.07em" fill="#DD6E42" fontFamily="var(--font-jetbrains)">
+            letterSpacing="0.07em" fill="#57627C" fontFamily="var(--font-jetbrains)">
             WAREHOUSE
           </text>
           <text x={WH_X + WH_W / 2} y={SY[0] + 50} textAnchor="middle" fontSize="12"

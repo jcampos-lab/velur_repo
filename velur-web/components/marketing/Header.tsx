@@ -65,7 +65,7 @@ export default function Header() {
             </button>
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center gap-1.5 bg-ink text-paper font-sans font-medium text-[13.5px] px-4 py-2 rounded-full hover:bg-amber transition-colors duration-200"
+              className="hidden md:inline-flex items-center gap-1.5 bg-ink text-paper font-sans font-medium text-[13.5px] px-4 py-2 rounded-full hover:bg-amber hover:text-ink transition-colors duration-200"
             >
               {t.header.cta} <span aria-hidden>→</span>
             </Link>

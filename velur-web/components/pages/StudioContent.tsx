@@ -34,7 +34,7 @@ function FeaturedCourse() {
           </div>
           <Link
             href="/contact"
-            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
+            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors"
           >
             Learn more →
           </Link>
@@ -43,7 +43,7 @@ function FeaturedCourse() {
         {/* Preview area: stacked abstract panels */}
         <div className="relative bg-gradient-to-br from-[#3D1E10] via-[#2A1206] to-[#1A0A03] overflow-hidden hidden md:block">
           <div className="absolute inset-0 opacity-50" style={{
-            backgroundImage: "radial-gradient(circle at 30% 40%, rgba(255,91,26,0.4), transparent 50%), radial-gradient(circle at 80% 80%, rgba(255,176,136,0.3), transparent 50%)",
+            backgroundImage: "radial-gradient(circle at 30% 40%, rgba(208,255,176,0.4), transparent 50%), radial-gradient(circle at 80% 80%, rgba(208,255,176,0.3), transparent 50%)",
           }} />
           <div className="absolute top-12 left-8 right-12 bottom-8 rounded-xl bg-gradient-to-br from-[#5B3522] to-[#3D1E10] border border-amber/20 p-5 flex flex-col justify-between shadow-2xl">
             <p className="font-mono text-[10px] tracking-[0.18em] text-amber/80 uppercase">
@@ -102,7 +102,7 @@ function GuideAndPacks() {
           </p>
           <Link
             href="/contact"
-            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
+            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors"
           >
             Learn more →
           </Link>
@@ -121,7 +121,7 @@ function GuideAndPacks() {
                     key={i}
                     className="rounded-sm"
                     style={{
-                      background: i % 4 === 0 ? "#DD6E42" : i % 3 === 0 ? "#1A1A1A" : "#D9D6CF",
+                      background: i % 4 === 0 ? "#57627C" : i % 3 === 0 ? "#1A1A1A" : "#D9D6CF",
                       opacity: 0.85,
                     }}
                   />
@@ -177,7 +177,7 @@ function GuideAndPacks() {
               <p className="font-serif italic text-[10px] text-paper/70 mt-0.5">Prompt Pack</p>
               <div className="mt-2 grid grid-cols-2 gap-1">
                 {Array.from({ length: 4 }).map((_, i) => (
-                  <div key={i} className="aspect-square rounded-sm bg-gradient-to-br from-[#F5D7C4] to-[#DD6E42] opacity-90" />
+                  <div key={i} className="aspect-square rounded-sm bg-gradient-to-br from-[#D0FFB0] to-[#57627C] opacity-90" />
                 ))}
               </div>
             </div>
@@ -201,7 +201,7 @@ function GuideAndPacks() {
 
 const PACKS = [
   { title: "Spa & Studio",       count: "100+ prompts", tone: "from-[#D9CFB9] to-[#8B7E66]", textOnDark: false },
-  { title: "Beauty Shots",       count: "100+ prompts", tone: "from-[#F5D7C4] to-[#DD6E42]", textOnDark: true  },
+  { title: "Beauty Shots",       count: "100+ prompts", tone: "from-[#D0FFB0] to-[#57627C]", textOnDark: true  },
   { title: "DTC Products",       count: "100+ prompts", tone: "from-[#2A2A2A] to-[#0A0A0A]", textOnDark: true  },
   { title: "Hospitality",        count:  "80+ prompts", tone: "from-[#3F5772] to-[#1F2B3A]", textOnDark: true  },
   { title: "Reel Hooks",         count: "50+ scripts",  tone: "from-[#7C3AED] to-[#3F1F8A]", textOnDark: true  },
@@ -266,7 +266,7 @@ const TESTIMONIALS = [
     name: "Camila",
     role: "Spa owner, Cami Lab Studio",
     initial: "C",
-    bg: "#F5D7C4",
+    bg: "#D0FFB0",
   },
   {
     quote: "Replaced our product shoot for two collections. The MidJourney recipes alone paid for the whole engagement in week one.",
@@ -280,7 +280,7 @@ const TESTIMONIALS = [
     name: "Sara V.",
     role: "Clinic owner",
     initial: "S",
-    bg: "#DD6E42",
+    bg: "#57627C",
   },
   {
     quote: "Alex actually picks up the phone. That alone made him different from every other agency we talked to.",
@@ -515,7 +515,7 @@ export default function StudioContent() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center bg-ink text-paper font-sans font-medium text-[14.5px] px-5 py-3 rounded-full hover:bg-amber transition-colors"
+              className="inline-flex items-center bg-ink text-paper font-sans font-medium text-[14.5px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors"
             >
               Book a discovery call
             </Link>
@@ -584,7 +584,7 @@ export default function StudioContent() {
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
+                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors"
                 >
                   Book a discovery call
                 </Link>
@@ -685,7 +685,7 @@ export default function StudioContent() {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors self-start md:self-auto"
+                className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors self-start md:self-auto"
               >
                 Book a discovery call
               </Link>
