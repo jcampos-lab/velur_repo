@@ -8,11 +8,10 @@ export default function Footer() {
   const { t } = useLanguage();
 
   const PAGES = [
-    { label: t.footer.links.platform,    href: "/services"     },
-    { label: t.footer.links.caseStudies, href: "/case-studies" },
-    { label: t.footer.links.company,     href: "/company"      },
-    { label: t.footer.links.faq,         href: "/faq"          },
-    { label: t.footer.links.contact,     href: "/contact"      },
+    { label: t.footer.links.platform, href: "/services" },
+    { label: t.footer.links.company,  href: "/company"  },
+    { label: t.footer.links.faq,      href: "/faq"      },
+    { label: t.footer.links.contact,  href: "/contact"  },
   ];
 
   const CONNECT = [

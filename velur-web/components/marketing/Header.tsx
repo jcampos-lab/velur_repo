@@ -13,9 +13,9 @@ export default function Header() {
   const { t, lang, setLang } = useLanguage();
 
   const NAV_LINKS = [
-    { label: t.header.nav.platform,     href: "/services"      },
-    { label: t.header.nav.caseStudies,  href: "/case-studies"  },
-    { label: t.header.nav.company,      href: "/company"       },
+    { label: t.header.nav.platform, href: "/services" },
+    { label: t.header.nav.company,  href: "/company"  },
+    { label: t.header.nav.faq,      href: "/faq"      },
   ];
 
   useEffect(() => {
