@@ -4,16 +4,25 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const ROWS = [
   {
+    label: "Ownership",
     heading: "You'll own everything we build.",
     body: "Every SQL model, every dashboard config, every score function lives in your repository, under your name, from day one. Cancel any month and the work stays with you.",
+    bg: "bg-paper",
+    tone: "text-ink",
   },
   {
+    label: "Clarity",
     heading: "You'll understand every number.",
     body: "No black boxes. Every metric ships with a plain-English explanation of what moved and why. The goal is to leave you feeling like a data native, not dependent on us.",
+    bg: "bg-cream",
+    tone: "text-ink",
   },
   {
+    label: "Speed",
     heading: "You'll be live in fourteen days.",
     body: "From first call to first daily brief. We handle the integrations and the backfill, your team just needs an OAuth approval and twenty minutes on a Wednesday.",
+    bg: "bg-[#2A1206]",
+    tone: "text-paper",
   },
 ];
 
@@ -22,21 +31,21 @@ export default function ThreeThingsSection() {
 
   return (
     <section className="bg-paper py-14 md:py-20">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10">
 
-        <div className="mb-10 md:mb-14 max-w-2xl">
+        <div className="mb-8 md:mb-12 max-w-2xl">
           <p className="font-sans text-ink/55 text-[13px] mb-2">
             How we work
           </p>
           <h2
             className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em]"
-            style={{ fontSize: "clamp(24px, 3.4vw, 40px)" }}
+            style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
           >
             Three things you can count on.
           </h2>
         </div>
 
-        <div className="divide-y divide-line border-t border-line">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 md:gap-4">
           {ROWS.map((row, i) => (
             <motion.div
               key={i}
@@ -45,29 +54,41 @@ export default function ThreeThingsSection() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{
                 duration: 0.5,
-                delay: prefersReduced ? 0 : i * 0.1,
+                delay: prefersReduced ? 0 : i * 0.08,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="grid grid-cols-12 gap-4 md:gap-6 py-7 md:py-10"
+              whileHover={prefersReduced ? undefined : { y: -3 }}
+              className={`rounded-2xl border border-line p-6 md:p-8 flex flex-col gap-4 ${row.bg} ${row.tone}`}
             >
-              <div className="col-span-1 flex items-start pt-1">
-                <span className="font-mono text-[12px] font-medium text-muted tracking-wide">
-                  {String(i + 1).padStart(2, "0")}
+              <div className="flex items-center justify-between">
+                <span
+                  className={`font-mono text-[10.5px] tracking-[0.16em] uppercase ${
+                    row.tone === "text-paper" ? "text-amber" : "text-amber"
+                  }`}
+                >
+                  {row.label}
+                </span>
+                <span
+                  className={`font-mono text-[11px] ${
+                    row.tone === "text-paper" ? "text-paper/45" : "text-ink/40"
+                  }`}
+                >
+                  0{i + 1}
                 </span>
               </div>
-              <div className="col-span-11 md:col-span-5">
-                <h3
-                  className="font-sans font-bold text-ink leading-tight tracking-[-0.02em]"
-                  style={{ fontSize: "clamp(16px, 1.5vw, 22px)" }}
-                >
-                  {row.heading}
-                </h3>
-              </div>
-              <div className="col-span-12 md:col-span-6 md:col-start-7">
-                <p className="font-sans text-base md:text-[17px] text-ink/75 leading-relaxed">
-                  {row.body}
-                </p>
-              </div>
+              <h3
+                className="font-sans font-bold leading-[1.15] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(17px, 1.6vw, 22px)" }}
+              >
+                {row.heading}
+              </h3>
+              <p
+                className={`font-sans text-[14.5px] leading-relaxed ${
+                  row.tone === "text-paper" ? "text-paper/75" : "text-ink/70"
+                }`}
+              >
+                {row.body}
+              </p>
             </motion.div>
           ))}
         </div>
