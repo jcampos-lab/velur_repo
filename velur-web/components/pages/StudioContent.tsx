@@ -121,7 +121,7 @@ function GuideAndPacks() {
                     key={i}
                     className="rounded-sm"
                     style={{
-                      background: i % 4 === 0 ? "#FF5B1A" : i % 3 === 0 ? "#1A1A1A" : "#D9D6CF",
+                      background: i % 4 === 0 ? "#DD6E42" : i % 3 === 0 ? "#1A1A1A" : "#D9D6CF",
                       opacity: 0.85,
                     }}
                   />
@@ -177,7 +177,7 @@ function GuideAndPacks() {
               <p className="font-serif italic text-[10px] text-paper/70 mt-0.5">Prompt Pack</p>
               <div className="mt-2 grid grid-cols-2 gap-1">
                 {Array.from({ length: 4 }).map((_, i) => (
-                  <div key={i} className="aspect-square rounded-sm bg-gradient-to-br from-[#FFB088] to-[#FF5B1A] opacity-90" />
+                  <div key={i} className="aspect-square rounded-sm bg-gradient-to-br from-[#F5D7C4] to-[#DD6E42] opacity-90" />
                 ))}
               </div>
             </div>
@@ -201,7 +201,7 @@ function GuideAndPacks() {
 
 const PACKS = [
   { title: "Spa & Studio",       count: "100+ prompts", tone: "from-[#D9CFB9] to-[#8B7E66]", textOnDark: false },
-  { title: "Beauty Shots",       count: "100+ prompts", tone: "from-[#FFB088] to-[#FF5B1A]", textOnDark: true  },
+  { title: "Beauty Shots",       count: "100+ prompts", tone: "from-[#F5D7C4] to-[#DD6E42]", textOnDark: true  },
   { title: "DTC Products",       count: "100+ prompts", tone: "from-[#2A2A2A] to-[#0A0A0A]", textOnDark: true  },
   { title: "Hospitality",        count:  "80+ prompts", tone: "from-[#3F5772] to-[#1F2B3A]", textOnDark: true  },
   { title: "Reel Hooks",         count: "50+ scripts",  tone: "from-[#7C3AED] to-[#3F1F8A]", textOnDark: true  },
@@ -266,7 +266,7 @@ const TESTIMONIALS = [
     name: "Camila",
     role: "Spa owner, Cami Lab Studio",
     initial: "C",
-    bg: "#FFB088",
+    bg: "#F5D7C4",
   },
   {
     quote: "Replaced our product shoot for two collections. The MidJourney recipes alone paid for the whole engagement in week one.",
@@ -280,7 +280,7 @@ const TESTIMONIALS = [
     name: "Sara V.",
     role: "Clinic owner",
     initial: "S",
-    bg: "#FF5B1A",
+    bg: "#DD6E42",
   },
   {
     quote: "Alex actually picks up the phone. That alone made him different from every other agency we talked to.",

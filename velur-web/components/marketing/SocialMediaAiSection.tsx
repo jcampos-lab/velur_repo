@@ -39,7 +39,7 @@ export default function SocialMediaAiSection() {
             whileHover={prefersReduced ? undefined : { y: -3 }}
             className="rounded-2xl border border-line bg-cream overflow-hidden flex flex-col"
           >
-            <div className="h-28 md:h-32 bg-gradient-to-br from-[#FF5B1A] via-[#FF7A3D] to-[#FFB088] relative flex items-end p-4">
+            <div className="h-28 md:h-32 bg-gradient-to-br from-[#DD6E42] via-[#E68C5D] to-[#F5D7C4] relative flex items-end p-4">
               <p className="font-mono text-[10.5px] tracking-[0.18em] text-white/90 uppercase">
                 {copy.riLabel}
               </p>

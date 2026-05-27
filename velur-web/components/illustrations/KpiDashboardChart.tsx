@@ -251,7 +251,7 @@ export default function KpiDashboardChart() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-        <KpiCard metric={METRICS[0]} color="#FF5B1A" hoverIdx={hoverIdx} setHoverIdx={setHoverIdx} index={0} />
+        <KpiCard metric={METRICS[0]} color="#DD6E42" hoverIdx={hoverIdx} setHoverIdx={setHoverIdx} index={0} />
         <KpiCard metric={METRICS[1]} color="#1A1A1A" hoverIdx={hoverIdx} setHoverIdx={setHoverIdx} index={1} />
         <KpiCard metric={METRICS[2]} color="#1F7A4D" hoverIdx={hoverIdx} setHoverIdx={setHoverIdx} index={2} />
       </div>

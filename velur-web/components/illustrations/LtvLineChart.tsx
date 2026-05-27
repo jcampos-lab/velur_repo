@@ -19,7 +19,7 @@ const SERIES: Series[] = [
   {
     key: "behavioral",
     label: "Behavioral cohorts",
-    color: "#FF5B1A",
+    color: "#DD6E42",
     values: [42, 58, 71, 89, 104, 121, 135, 148, 160, 171, 180, 188],
   },
   {
@@ -210,8 +210,8 @@ export default function LtvLineChart() {
         {/* Series area fill (behavioral only) */}
         <defs>
           <linearGradient id="ltv-area" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#FF5B1A" stopOpacity="0.16" />
-            <stop offset="100%" stopColor="#FF5B1A" stopOpacity="0" />
+            <stop offset="0%" stopColor="#DD6E42" stopOpacity="0.16" />
+            <stop offset="100%" stopColor="#DD6E42" stopOpacity="0" />
           </linearGradient>
         </defs>
         <motion.path
