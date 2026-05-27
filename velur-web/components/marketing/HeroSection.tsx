@@ -49,10 +49,9 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative bg-paper overflow-hidden px-5 sm:px-10 pt-16 pb-16 md:pt-24 md:pb-20"
-      style={{ minHeight: "calc(100vh - 80px)" }}
+      className="relative bg-paper overflow-hidden px-5 sm:px-10 pt-14 pb-14 md:pt-20 md:pb-20"
     >
-      {/* 12-column dashed grid overlay — matches design prototype */}
+      {/* 12-column dashed grid overlay */}
       <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
         <div
           className="h-full mx-auto grid grid-cols-12 opacity-[0.32]"
@@ -79,15 +78,14 @@ export default function HeroSection() {
           <span className="text-ink">{t.hero.pill}</span>
         </Pill>
 
-        {/* Giant headline — overflows past the right grid edge */}
-        <div className="overflow-visible mt-12 mb-8">
+        {/* Headline — meaningfully smaller, SaaS-scale not editorial */}
+        <div className="overflow-visible mt-8 md:mt-10 mb-6 md:mb-8">
           <h1
             className="font-sans font-bold text-ink"
             style={{
-              fontSize: "clamp(44px, 11vw, 168px)",
-              letterSpacing: "-0.045em",
-              lineHeight: 0.95,
-              marginRight: "0",
+              fontSize: "clamp(36px, 6.5vw, 88px)",
+              letterSpacing: "-0.03em",
+              lineHeight: 1.0,
             }}
           >
             <span ref={line1Ref} className="block" style={{ clipPath: "inset(0 0% 0 0)" }}>
@@ -103,56 +101,34 @@ export default function HeroSection() {
           </h1>
         </div>
 
-        {/* Animated specialty cycle — sits between headline and subhead */}
-        <div className="mb-10">
-          <p className="font-sans text-2xl md:text-3xl text-muted leading-snug flex flex-col md:flex-row md:flex-wrap md:items-baseline md:gap-x-3 gap-y-1">
+        {/* Animated specialty cycle — smaller, lighter */}
+        <div className="mb-8 md:mb-10">
+          <p className="font-sans text-lg md:text-2xl text-muted leading-snug flex flex-col md:flex-row md:flex-wrap md:items-baseline md:gap-x-3 gap-y-1">
             <span>{t.hero.cyclePre}</span>
             <AnimatedTextCycle
               words={t.hero.cycleWords}
               interval={2600}
-              className="text-ink"
+              className="text-ink font-medium"
             />
             <span>{t.hero.cyclePost}</span>
           </p>
         </div>
 
-        {/* Sub-row — stacks on mobile, 7/5 on large screens */}
+        {/* Sub-row — body + buttons, no editorial thesis */}
         <div
           ref={subRef}
-          className="grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-10 lg:gap-16 items-end opacity-100"
+          className="max-w-2xl opacity-100"
         >
-          {/* Left: body + buttons */}
-          <div>
-            <p className="font-sans text-ink leading-relaxed mb-8 text-lg md:text-xl max-w-xl">
-              {t.hero.subhead}
-            </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-6">
-              <Button href="/contact" variant="primary" size="md">
-                {t.hero.ctaPrimary}
-              </Button>
-              <Button href="/services" variant="secondary" size="md">
-                {t.hero.ctaSecondary}
-              </Button>
-            </div>
-            <p className="font-mono text-xs text-muted tracking-widest uppercase">
-              velur.io
-            </p>
-          </div>
-
-          {/* Right: editorial thesis note — hidden on mobile */}
-          <div
-            className="hidden lg:block pb-2 pl-8 max-w-md"
-            style={{ borderLeft: "1px solid var(--color-line)" }}
-          >
-            <p className="font-mono uppercase text-muted mb-4" style={{ fontSize: 11, letterSpacing: "0.08em" }}>
-              {t.hero.thesisLabel}
-            </p>
-            <p
-              className="font-serif italic text-ink"
-              style={{ fontSize: 22, lineHeight: 1.4, margin: 0, fontWeight: 400 }}
-            >
-              {t.hero.thesis}
-            </p>
+          <p className="font-sans text-ink leading-relaxed mb-8 text-base md:text-lg">
+            Velur connects Shopify, Klaviyo, Meta and TikTok to one daily brief that explains what&apos;s working, what isn&apos;t, and where to focus next. Built for founders who want clarity — not another dashboard to babysit.
+          </p>
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+            <Button href="/contact" variant="primary" size="md">
+              {t.hero.ctaPrimary}
+            </Button>
+            <Button href="/services" variant="secondary" size="md">
+              {t.hero.ctaSecondary}
+            </Button>
           </div>
         </div>
       </div>

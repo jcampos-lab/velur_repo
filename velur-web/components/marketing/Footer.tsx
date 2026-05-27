@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 export default function Footer() {
@@ -29,51 +28,43 @@ export default function Footer() {
   return (
     <footer className="bg-cream border-t border-line overflow-hidden">
 
-      {/* Giant lowercase wordmark — fades out at the bottom */}
+      {/* Top: link columns */}
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 pt-16 md:pt-20 pb-10 md:pb-14">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+          <FooterCol title={t.footer.cols.pages}   links={PAGES}   />
+          <FooterCol title={t.footer.cols.connect} links={CONNECT} external />
+          <FooterCol title={t.footer.cols.legal}   links={LEGAL}   />
+        </div>
+      </div>
+
+      {/* Copyright row — sits above the wordmark */}
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 border-t border-line py-5 flex flex-wrap items-center justify-between gap-3">
+        <p className="font-mono text-[11px] text-muted tracking-widest uppercase">
+          &copy; {new Date().getFullYear()} VELUR · ALL RIGHTS RESERVED
+        </p>
+        <p className="font-mono text-[11px] text-muted tracking-widest uppercase">
+          Built in Barcelona · velur.io
+        </p>
+      </div>
+
+      {/* Full-screen wordmark — fills the viewport width edge-to-edge */}
       <div
-        className="w-full select-none pointer-events-none overflow-hidden flex justify-center"
+        className="w-full select-none pointer-events-none flex items-end justify-center overflow-hidden"
         aria-hidden
       >
         <p
-          className="font-sans font-extrabold text-ink leading-[0.85] tracking-[-0.05em] text-center w-full"
+          className="font-sans font-extrabold text-ink leading-[0.8] tracking-[-0.06em] text-center"
           style={{
-            fontSize: "clamp(120px, 26vw, 420px)",
-            WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%)",
-            maskImage:       "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%)",
+            // Sized so it fills the entire width of the viewport without overflow,
+            // independent of the max-content wrapper used elsewhere on the page.
+            fontSize: "calc(100vw / 2.45)",
+            lineHeight: 0.8,
+            marginBottom: "-0.08em",
+            width: "100%",
           }}
         >
           velur
         </p>
-      </div>
-
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 pt-8 pb-0">
-
-        {/* Brand — full width, sits above the link columns */}
-        <div className="mb-10">
-          <Link href="/" className="flex items-center gap-3 mb-4">
-            <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur" width={28} height={28} className="dark:hidden" />
-            <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur" width={72} height={18} className="dark:hidden" />
-            <Image src="/logos/Velur_Icon_Logo_Transparent_White.png" alt="Velur" width={28} height={28} className="hidden dark:block" />
-            <Image src="/logos/Velur_Copy_Logo_Transparent_White.png" alt="velur" width={72} height={18} className="hidden dark:block" />
-          </Link>
-          <p className="font-sans text-base text-muted leading-relaxed max-w-xs">
-            {t.footer.tagline}
-          </p>
-        </div>
-
-        {/* Link columns — 3-col on mobile and desktop */}
-        <div className="grid grid-cols-3 gap-6 md:gap-12 mb-16">
-          <FooterCol title={t.footer.cols.pages}   links={PAGES}   />
-          <FooterCol title={t.footer.cols.connect}  links={CONNECT} external />
-          <FooterCol title={t.footer.cols.legal}    links={LEGAL}   />
-        </div>
-
-        {/* Copyright bar */}
-        <div className="border-t border-line pt-8 pb-6">
-          <p className="font-mono text-xs text-muted tracking-widest uppercase">
-            &copy; {new Date().getFullYear()} VELUR
-          </p>
-        </div>
       </div>
     </footer>
   );
