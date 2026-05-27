@@ -13,7 +13,7 @@ export default function MarketingLayout({
     <SmoothScrollProvider>
       <ScrollProgress />
       <Header />
-      <main className="pt-20">{children}</main>
+      <main className="pt-16 md:pt-[68px]">{children}</main>
       <FloatingSideRail />
       <Footer />
     </SmoothScrollProvider>

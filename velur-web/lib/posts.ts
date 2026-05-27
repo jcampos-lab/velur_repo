@@ -12,7 +12,7 @@ export const posts: Post[] = [
     slug: "post-ios14-attribution-guide",
     title: "The honest guide to attribution after iOS14",
     excerpt:
-      "Three years on, most DTC brands are still flying blind. Here's what actually works — and what to stop pretending works.",
+      "Three years on, most DTC brands are still flying blind. Here's what actually works, and what to stop pretending works.",
     date: "2026-04-15",
     category: "Analytics",
     featured: true,
@@ -21,7 +21,7 @@ export const posts: Post[] = [
     slug: "cohort-analysis-for-dtc",
     title: "Why cohort analysis is the only metric that matters",
     excerpt:
-      "LTV, CAC, ROAS — they're all derivatives of one thing. Here's how to look at your customers the right way.",
+      "LTV, CAC, ROAS, they're all derivatives of one thing. Here's how to look at your customers the right way.",
     date: "2026-03-28",
     category: "Strategy",
     featured: false,

@@ -1,7 +1,6 @@
 import HeroSection            from "@/components/marketing/HeroSection";
 import ToolMarquee            from "@/components/marketing/ToolMarquee";
 import BentoSection            from "@/components/marketing/BentoSection";
-import AnimatedPipelineSection from "@/components/marketing/AnimatedPipelineSection";
 import BenchmarkGrid          from "@/components/marketing/BenchmarkGrid";
 import ThreeThingsSection     from "@/components/marketing/ThreeThingsSection";
 import SocialMediaAiSection   from "@/components/marketing/SocialMediaAiSection";
@@ -19,9 +18,6 @@ export default function HomePage() {
 
       {/* Bento dashboard */}
       <BentoSection />
-
-      {/* Animated pipeline */}
-      <AnimatedPipelineSection />
 
       {/* Interactive LTV chart */}
       <section className="bg-cream py-14 md:py-20 border-b border-line overflow-hidden">
@@ -41,15 +37,16 @@ export default function HomePage() {
                 Compare three segmentation strategies side by side. Scrub across twelve months and watch the gap widen. That is the lift you are leaving on the table with broadcast targeting.
               </p>
             </div>
-            <div className="lg:col-span-8">
+            {/* LTV chart: desktop only, mobile gets the framing copy only */}
+            <div className="hidden lg:block lg:col-span-8">
               <LtvLineChart />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Cohort heatmap */}
-      <section className="bg-paper py-14 md:py-20 border-b border-line overflow-hidden">
+      {/* Cohort heatmap, desktop only */}
+      <section className="hidden lg:block bg-paper py-14 md:py-20 border-b border-line overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-center">
             <div className="lg:col-span-4 lg:order-2">

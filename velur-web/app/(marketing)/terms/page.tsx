@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Velur",
+  title: "Terms of Service · Velur",
   description: "Terms governing your use of Velur and its services.",
 };
 
@@ -53,7 +53,7 @@ export default function TermsPage() {
           <div>
             <h2 className="font-sans font-bold text-xl mb-3">3. Content</h2>
             <p>
-              All content on this site — text, statistics, and design — is the property
+              All content on this site, text, statistics, and design, is the property
               of Velur unless otherwise attributed. Statistics sourced from third parties
               are cited and remain the property of their respective publishers.
             </p>

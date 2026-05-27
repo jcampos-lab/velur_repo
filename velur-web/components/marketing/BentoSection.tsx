@@ -257,25 +257,28 @@ export default function BentoSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 auto-rows-[minmax(220px,auto)]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 md:auto-rows-[minmax(220px,auto)]">
 
-          <BentoCard className="md:col-span-8 md:row-span-2 p-5 md:p-6">
-            <KpiDashboardChart />
-          </BentoCard>
-
-          <BentoCard className="md:col-span-4 p-5 md:p-6">
+          {/* Mini brief: shows first on mobile so users see the human-readable summary, then the chart */}
+          <BentoCard className="md:col-span-4 md:order-2 p-5 md:p-6">
             <MiniBrief />
           </BentoCard>
 
-          <BentoCard className="md:col-span-4 p-5 md:p-6 bg-ink text-paper">
+          {/* KPI dashboard: desktop only — too cramped on mobile */}
+          <BentoCard className="hidden md:flex md:col-span-8 md:row-span-2 md:order-1 p-5 md:p-6">
+            <KpiDashboardChart />
+          </BentoCard>
+
+          <BentoCard className="md:col-span-4 md:order-3 p-5 md:p-6 bg-ink text-paper">
             <StatCard value={184} label="Average minutes saved per week" suffix="m" />
           </BentoCard>
 
-          <BentoCard className="md:col-span-7 p-5 md:p-6">
+          {/* Correlation scatter: desktop only — labels overlap on small screens */}
+          <BentoCard className="hidden md:flex md:col-span-7 md:order-4 p-5 md:p-6">
             <CorrelationChart />
           </BentoCard>
 
-          <BentoCard className="md:col-span-5 p-5 md:p-6">
+          <BentoCard className="md:col-span-5 md:order-5 p-5 md:p-6">
             <ToolsCard />
           </BentoCard>
         </div>

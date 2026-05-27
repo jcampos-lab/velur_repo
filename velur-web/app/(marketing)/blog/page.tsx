@@ -3,7 +3,7 @@ import Link from "next/link";
 import { posts } from "@/lib/posts";
 
 export const metadata: Metadata = {
-  title: "Blog — Velur",
+  title: "Blog · Velur",
   description: "Thinking on revenue analytics, DTC data strategy, and what actually works.",
 };
 

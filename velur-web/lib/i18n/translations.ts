@@ -2,14 +2,14 @@ export type Lang = "en" | "es";
 
 const en = {
   header: {
-    nav: { platform: "Platform", caseStudies: "Case Studies", company: "Company", faq: "FAQ" },
+    nav: { platform: "Platform", studio: "AI Studio", caseStudies: "Case Studies", company: "Company", faq: "FAQ" },
     cta: "Join waitlist",
   },
   footer: {
     tagline: "Revenue intelligence for high-growth DTC and subscription brands.",
     cols: { pages: "PAGES", connect: "CONNECT", legal: "LEGAL" },
     links: {
-      platform: "Platform", caseStudies: "Case Studies", company: "Company",
+      platform: "Platform", studio: "AI Studio", caseStudies: "Case Studies", company: "Company",
       contact: "Contact", faq: "FAQ", privacy: "Privacy", terms: "Terms", imprint: "Imprint",
     },
     quote: "Numbers are the only language that doesn't lie.",
@@ -18,11 +18,11 @@ const en = {
     pill: "Now building · Join the waitlist for early access",
     line1: "Revenue intelligence.",
     line2: "Built for DTC.",
-    subhead: "We connect your Shopify, Klaviyo, and ad platforms into a single intelligence layer — with AI-powered context that tells you why your revenue moved, not just that it did.",
+    subhead: "We connect your Shopify, Klaviyo, and ad platforms into a single intelligence layer, with AI-powered context that tells you why your revenue moved, not just that it did.",
     ctaPrimary: "Join the waitlist →",
     ctaSecondary: "See what we're building ↓",
     thesisLabel: "The thesis",
-    thesis: "The brands winning in DTC don't have more data. They make faster decisions. We turn your existing stack into a daily revenue briefing — with analyst-grade context, every morning.",
+    thesis: "The brands winning in DTC don't have more data. They make faster decisions. We turn your existing stack into a daily revenue briefing, with analyst-grade context, every morning.",
     cyclePre: "We turn your",
     cyclePost: "into your next quarter's decision.",
     cycleWords: ["Shopify data", "Klaviyo flows", "Meta spend", "customer cohorts", "ad attribution", "revenue mix"],
@@ -32,7 +32,7 @@ const en = {
     sectionRight: "IN NUMBERS",
     featuredNum: "+23%",
     featuredLabel: "higher 12-month LTV",
-    featuredBody: "Brands that segment customers into behavioral cohorts — by acquisition channel, first product, and price point — see measurably higher long-term value from the same customer base, compared to brands relying on basic RFM segmentation.",
+    featuredBody: "Brands that segment customers into behavioral cohorts, by acquisition channel, first product, and price point, see measurably higher long-term value from the same customer base, compared to brands relying on basic RFM segmentation.",
     featuredSource: "Klaviyo State of Email Marketing, 2025",
     editorialQuote: "You don't have a data problem. You have an action problem.",
     supportStats: [
@@ -47,8 +47,8 @@ const en = {
     headingItalic: "guarantee.",
     heading2: "",
     rows: [
-      { heading: "You'll own everything we build.", body: "Every SQL file, every dashboard config, every data model — in your repositories, under your name, from day one. Cancel tomorrow and nothing breaks, nothing disappears, nothing gets held hostage." },
-      { heading: "You'll understand every number.", body: "No black boxes, no \"trust the algorithm.\" Every metric we surface comes with a plain-English explanation of what moved and why. Our job is to make you feel like a data native — not dependent on us." },
+      { heading: "You'll own everything we build.", body: "Every SQL file, every dashboard config, every data model, in your repositories, under your name, from day one. Cancel tomorrow and nothing breaks, nothing disappears, nothing gets held hostage." },
+      { heading: "You'll understand every number.", body: "No black boxes, no \"trust the algorithm.\" Every metric we surface comes with a plain-English explanation of what moved and why. Our job is to make you feel like a data native, not dependent on us." },
       { heading: "You'll be live in 14 days.", body: "From first call to first dashboard. No six-month implementations, no data engineering team required on your side. We handle the build end to end. Day 15, you have the keys." },
     ],
   },
@@ -65,7 +65,7 @@ const en = {
     label: "RESULTS · WHAT THE RESEARCH SHOWS",
     h1a: "What proper analytics",
     h1b: "actually delivers.",
-    subhead: "Real benchmarks from independent industry research — the kind of impact that proper data infrastructure consistently unlocks for DTC and subscription brands.",
+    subhead: "Real benchmarks from independent industry research, the kind of impact that proper data infrastructure consistently unlocks for DTC and subscription brands.",
     sectionBenchmarks: "01 / BENCHMARKS",
     sectionBenchmarksRight: "CITED · 2024–2025",
     sectionVoices: "02 / FROM THE FIELD",
@@ -79,8 +79,8 @@ const en = {
       { num: "2.5×",    label: "Revenue growth advantage for data-native brands" },
     ],
     implicationHeading: "First-party data is now the only data you can trust.",
-    implicationBody1: "iOS14 broke attribution. Cookie deprecation broke retargeting. The brands that survive these shifts are the ones who built proper analytics infrastructure before they had to — not after their CAC doubled.",
-    implicationBody2: "Most growing brands are making seven-figure decisions on six-figure dashboards. We close that gap — with revenue intelligence that goes live in 48 hours.",
+    implicationBody1: "iOS14 broke attribution. Cookie deprecation broke retargeting. The brands that survive these shifts are the ones who built proper analytics infrastructure before they had to, not after their CAC doubled.",
+    implicationBody2: "Most growing brands are making seven-figure decisions on six-figure dashboards. We close that gap, with revenue intelligence that goes live in 48 hours.",
     implicationCta: "See what this looks like for your brand →",
     results: [
       {
@@ -89,7 +89,7 @@ const en = {
         metric: "+23%",
         metricLabel: "12-month LTV",
         headline: "Behavioral cohort segmentation vs. basic RFM",
-        body: "Brands that move beyond RFM into behavioral cohorts — segmented by first product, acquisition channel, and price point — see measurably higher long-term value from the same customer base.",
+        body: "Brands that move beyond RFM into behavioral cohorts, segmented by first product, acquisition channel, and price point, see measurably higher long-term value from the same customer base.",
         source: "Klaviyo State of Email Marketing, 2025",
         featured: true,
       },
@@ -99,7 +99,7 @@ const en = {
         metric: "−32%",
         metricLabel: "Customer acquisition cost",
         headline: "Server-side attribution vs. pixel-based measurement",
-        body: "DTC brands that implement post-iOS14 measurement correctly — server-side events, first-party data, modeled conversions — recover most of the signal loss and allocate spend more precisely.",
+        body: "DTC brands that implement post-iOS14 measurement correctly, server-side events, first-party data, modeled conversions, recover most of the signal loss and allocate spend more precisely.",
         source: "AppsFlyer Performance Index, 2025",
         featured: false,
       },
@@ -119,7 +119,7 @@ const en = {
         metric: "€2,400",
         metricLabel: "Saved per month",
         headline: "Unified revenue intelligence vs. fragmented SaaS tools",
-        body: "Replacing siloed attribution point-solutions with a unified revenue intelligence layer eliminates data reconciliation time and delivers more accurate, more actionable insights — in one place.",
+        body: "Replacing siloed attribution point-solutions with a unified revenue intelligence layer eliminates data reconciliation time and delivers more accurate, more actionable insights, in one place.",
         source: "Velur platform data, 2026",
         featured: false,
       },
@@ -129,7 +129,7 @@ const en = {
         metric: "42%",
         metricLabel: "Of mid-market brands",
         headline: "Cannot accurately attribute revenue after iOS14",
-        body: "Brands still on pixel-based attribution are making 20–40% of their ad spend decisions on data they believe is accurate — but isn't. First-party infrastructure closes the gap.",
+        body: "Brands still on pixel-based attribution are making 20–40% of their ad spend decisions on data they believe is accurate, but isn't. First-party infrastructure closes the gap.",
         source: "AppsFlyer Performance Index, 2025",
         featured: false,
       },
@@ -139,7 +139,7 @@ const en = {
         metric: "2.5×",
         metricLabel: "Revenue growth rate",
         headline: "Data-native SMBs vs. peers without analytics infrastructure",
-        body: "The gap between businesses that act on data and those that merely report on it is widening. Infrastructure is the differentiator — not more data, but faster decisions from the data you have.",
+        body: "The gap between businesses that act on data and those that merely report on it is widening. Infrastructure is the differentiator, not more data, but faster decisions from the data you have.",
         source: "McKinsey Digital SMB Maturity Study, 2024",
         featured: false,
       },
@@ -147,18 +147,18 @@ const en = {
     voices: [
       {
         attribution: "Andrew Chen · General Partner, a16z",
-        quote: "Last-click attribution is dead. The brands that survive the post-iOS14 world are the ones that invested in first-party data infrastructure before they had to — not after their CPAs doubled.",
-        source: "a16z.com — The End of Mobile Attribution",
+        quote: "Last-click attribution is dead. The brands that survive the post-iOS14 world are the ones that invested in first-party data infrastructure before they had to, not after their CPAs doubled.",
+        source: "a16z.com, The End of Mobile Attribution",
       },
       {
         attribution: "Patrick Campbell · Founder, ProfitWell (acq. Paddle)",
-        quote: "The subscription brands that scaled weren't the ones with the best product. They were the ones who understood their cohorts. Retention by acquisition channel, by first product, by price point — that granularity is what separates a growing business from a leaking one.",
+        quote: "The subscription brands that scaled weren't the ones with the best product. They were the ones who understood their cohorts. Retention by acquisition channel, by first product, by price point, that granularity is what separates a growing business from a leaking one.",
         source: "ProfitWell Subscription Benchmarks Report",
       },
       {
         attribution: "McKinsey & Company · Digital Practice",
         quote: "SMBs that invest in data analytics capabilities grow revenue 2.5× faster than peers who don't. The gap between data-native and data-delayed companies is widening, not closing.",
-        source: "McKinsey Digital — SMB Analytics Maturity Study",
+        source: "McKinsey Digital, SMB Analytics Maturity Study",
       },
     ],
   },
@@ -172,7 +172,7 @@ const en = {
     label: "PLATFORM · WHAT WE DO",
     h1a: "One intelligence layer.",
     h1b: "Every revenue signal.",
-    subhead: "We unify your Shopify, Klaviyo, and ad data into a single revenue intelligence layer — with machine learning and AI context built in. Know what happened, understand why, and act with confidence.",
+    subhead: "We unify your Shopify, Klaviyo, and ad data into a single revenue intelligence layer, with machine learning and AI context built in. Know what happened, understand why, and act with confidence.",
     includedLabel: "WHAT'S INCLUDED",
     demoBtn: "Join the waitlist →",
     howLabel: "HOW IT WORKS",
@@ -181,7 +181,7 @@ const en = {
       {
         label: "REVENUE PULSE",
         heading: "Your daily revenue briefing, explained.",
-        body: "Every morning, we surface your net revenue, subscription MRR, blended ROAS, and contribution margin — with an AI-written note explaining why the numbers moved. No tabs to open. No spreadsheets to reconcile. Just clarity.",
+        body: "Every morning, we surface your net revenue, subscription MRR, blended ROAS, and contribution margin, with an AI-written note explaining why the numbers moved. No tabs to open. No spreadsheets to reconcile. Just clarity.",
         includes: [
           "Real-time net revenue and MRR tracking",
           "Channel breakdown: Shopify · D2C · Wholesale · Amazon",
@@ -193,7 +193,7 @@ const en = {
       {
         label: "ATTRIBUTION",
         heading: "Know exactly which ads are working.",
-        body: "Post-iOS14 fractured attribution across most DTC brands. We rebuild it using first-party data and server-side signals — giving you accurate CAC and ROAS per channel, per campaign, per creative. No more guessing where your margin is going.",
+        body: "Post-iOS14 fractured attribution across most DTC brands. We rebuild it using first-party data and server-side signals, giving you accurate CAC and ROAS per channel, per campaign, per creative. No more guessing where your margin is going.",
         includes: [
           "First-party attribution model",
           "Meta · TikTok · Google unified spend view",
@@ -205,7 +205,7 @@ const en = {
       {
         label: "COHORTS & LTV",
         heading: "Retain the right customers. Predict the rest.",
-        body: "We build behavioral cohorts that go beyond RFM — segmenting by acquisition channel, product line, and subscription behavior. Then we model 12-month LTV per segment so you know exactly where to invest and where to stop.",
+        body: "We build behavioral cohorts that go beyond RFM, segmenting by acquisition channel, product line, and subscription behavior. Then we model 12-month LTV per segment so you know exactly where to invest and where to stop.",
         includes: [
           "Behavioral cohort analysis (beyond RFM)",
           "Subscription retention and churn curves",
@@ -218,7 +218,7 @@ const en = {
     steps: [
       { title: "Connect your stack",   body: "Link Shopify, Klaviyo, Meta, TikTok, and your other sources in minutes. No engineering required on your end." },
       { title: "We model your data",   body: "We normalize and structure your data into a unified revenue model. Live within 48 hours of connecting." },
-      { title: "Intelligence starts",  body: "Daily revenue briefings, attribution dashboards, and cohort models go live — all in one place." },
+      { title: "Intelligence starts",  body: "Daily revenue briefings, attribution dashboards, and cohort models go live, all in one place." },
       { title: "Grow with context",    body: "Every week your picture gets sharper. Every metric comes with an explanation of why it moved." },
     ],
     stackLabel: "Our stack",
@@ -228,17 +228,48 @@ const en = {
     rightForLabel: "IS IT FOR ME?",
     rightForHeading: "Velur is built for a specific kind of brand.",
     rightForItems: [
-      "You're running Shopify, Klaviyo, and paid ads — and you've lost track of which number to trust",
+      "You're running Shopify, Klaviyo, and paid ads, and you've lost track of which number to trust",
       "You've outgrown spreadsheets but haven't hired a dedicated data analyst yet",
       "You're making weekly revenue decisions based on gut feel or conflicting dashboard data",
-      "You know something is off in your retention or attribution — but you can't see exactly what",
+      "You know something is off in your retention or attribution, but you can't see exactly what",
     ],
     notRightForLabel: "NOT THE RIGHT FIT IF",
     notRightForItems: [
-      "You're pre-revenue or very early stage — native Shopify and Klaviyo reporting will serve you better right now",
-      "You have a dedicated data engineering team in-house — we complement that, we don't replace it",
+      "You're pre-revenue or very early stage, native Shopify and Klaviyo reporting will serve you better right now",
+      "You have a dedicated data engineering team in-house, we complement that, we don't replace it",
       "You want a self-serve SaaS tool with no onboarding or configuration",
     ],
+  },
+  twoProducts: {
+    label: "Two products, one outcome",
+    heading: "Velur is built around revenue. There are two ways in.",
+    subhead: "Revenue Intelligence is the analytics product. Velur AI Studio is the marketing one. Same goal: help small businesses move the only number that matters.",
+    riLabel: "Revenue Intelligence",
+    riHeading: "Read your stack. Explain the why.",
+    riBody: "Shopify, Klaviyo, Meta, TikTok, GA4. One daily brief that tells you what actually moved revenue and what to do next.",
+    riCta: "See the platform →",
+    studioLabel: "AI Studio",
+    studioHeading: "Ship the creative. Run the campaign.",
+    studioBody: "Web, assets, campaigns, social, branding. Built with Higgsfield, MidJourney, Claude and ChatGPT, plus a real person watching the work.",
+    studioCta: "Visit AI Studio →",
+    footnote: "Some clients use one. Some use both. Cami Lab Studio in Florida runs on both at the same time.",
+  },
+  studio: {
+    label: "Velur AI Studio",
+    h1: "We help small businesses turn AI into revenue.",
+    subhead: "The same goal as Revenue Intelligence, a different toolkit. Velur AI Studio is the marketing side of the work: websites, creative, campaigns, social, branding. We use AI where it earns its keep and a human everywhere else.",
+    ctaPrimary: "Book an intro call",
+    ctaSecondary: "See the templates",
+    toolsLabel: "The tools we lean on",
+    toolsHeading: "Four AI products that actually ship work.",
+    servicesLabel: "What we help with",
+    servicesHeading: "End-to-end, or just the piece you need.",
+    templatesLabel: "Free templates",
+    templatesHeading: "Resources for small businesses.",
+    templatesSubhead: "Plug-and-play documents we use with real clients. Reply to the email and we will send you the file.",
+    ctaLabel: "Working with us",
+    ctaHeading: "Tell us about the business. We will reply with a plan.",
+    ctaButton: "Start a conversation",
   },
   company: {
     label: "COMPANY · HOW WE THINK",
@@ -247,12 +278,12 @@ const en = {
     subhead: "We are a revenue intelligence practice. We exist because the gap between what your data could do and what it actually does is the most expensive line in your P&L.",
     whyLabel: "01 / HOW WE WORK",
     cards: [
-      { num: "01", heading: "Clarity in 48 hours.", body: "Most brands wait a week for revenue reports that tell them what already happened. We deliver a unified intelligence layer — live within 48 hours of connecting your stack. No data engineering team needed on your end." },
-      { num: "02", heading: "Intelligence, not just data.", body: "Every metric we surface comes with context — an explanation of the movement, a flag on the anomaly, a signal worth acting on. AI analyst notes, built into every briefing." },
-      { num: "03", heading: "Your stack, finally unified.", body: "Shopify, Klaviyo, Meta, TikTok, Recharge, Stripe — we connect around the exact tools your brand already runs on. No rip-and-replace. No data warehouse team required. Just connect and go." },
+      { num: "01", heading: "Clarity in 48 hours.", body: "Most brands wait a week for revenue reports that tell them what already happened. We deliver a unified intelligence layer, live within 48 hours of connecting your stack. No data engineering team needed on your end." },
+      { num: "02", heading: "Intelligence, not just data.", body: "Every metric we surface comes with context, an explanation of the movement, a flag on the anomaly, a signal worth acting on. AI analyst notes, built into every briefing." },
+      { num: "03", heading: "Your stack, finally unified.", body: "Shopify, Klaviyo, Meta, TikTok, Recharge, Stripe, we connect around the exact tools your brand already runs on. No rip-and-replace. No data warehouse team required. Just connect and go." },
     ],
     bgLabel: "WHO WE ARE",
-    quote: "We've spent years inside the data stacks of high-growth DTC and subscription brands — companies you've heard of, in apparel, consumables, and subscription. We've seen what good revenue intelligence changes: the right product launched earlier, the right cohort retained, the right channel scaled with real confidence. That experience is what we're building into every part of this.",
+    quote: "We've spent years inside the data stacks of high-growth DTC and subscription brands, companies you've heard of, in apparel, consumables, and subscription. We've seen what good revenue intelligence changes: the right product launched earlier, the right cohort retained, the right channel scaled with real confidence. That experience is what we're building into every part of this.",
     stackRows: [
       { label: "Stack",         value: "BigQuery · dbt · Fivetran · Looker Studio · Metabase · Python · SQL" },
       { label: "Integrations",  value: "Shopify · Klaviyo · Meta · Google · TikTok · Recharge · Stripe" },
@@ -260,7 +291,7 @@ const en = {
     ],
     beliefsLabel: "02 / WHAT WE BELIEVE",
     beliefs: [
-      "Intelligence beats raw data — every time, for every decision",
+      "Intelligence beats raw data, every time, for every decision",
       "AI as genuine leverage, not as a marketing claim",
       "DTC brands deserve the same analytics infrastructure as enterprise",
       "Precision and speed are not a trade-off",
@@ -269,21 +300,21 @@ const en = {
     roadmapLabel: "03 / OUR PASSION",
     roadmapHeading: "What gets us out of bed.",
     roadmap: [
-      { year: "Data Science", text: "We've spent years making sense of fragmented, messy DTC data — building models that find signal where others see noise. That rigor is what makes our intelligence layer something you can actually act on." },
+      { year: "Data Science", text: "We've spent years making sense of fragmented, messy DTC data, building models that find signal where others see noise. That rigor is what makes our intelligence layer something you can actually act on." },
       { year: "Machine Learning", text: "ML is embedded in everything we build: LTV prediction, churn signals, attribution modeling. Not as a feature to market, but as the engine running quietly underneath every insight we surface." },
-      { year: "AI", text: "We use AI as a force multiplier — to move faster, surface signals earlier, and deliver analyst-grade context at a speed no manual process can match. Every briefing is AI-assisted. Every number is human-validated." },
+      { year: "AI", text: "We use AI as a force multiplier, to move faster, surface signals earlier, and deliver analyst-grade context at a speed no manual process can match. Every briefing is AI-assisted. Every number is human-validated." },
     ],
   },
   contact: {
     label: "WAITLIST · EARLY ACCESS",
     h1a: "Be first.",
     h1b: "Get in before we launch.",
-    subhead: "We are in development. Leave your email and we'll reach out personally when we're ready for early partners — with a founder rate locked in.",
+    subhead: "We are in development. Leave your email and we'll reach out personally when we're ready for early partners, with a founder rate locked in.",
     whatToExpect: "WHAT HAPPENS NEXT",
     timeline: [
       { time: "01", text: "We confirm your spot on the waitlist within 24 hours" },
       { time: "02", text: "You get a personal email from the founders when we're ready" },
-      { time: "03", text: "Early access partners get a founder rate locked in — permanently" },
+      { time: "03", text: "Early access partners get a founder rate locked in, permanently" },
       { time: "04", text: "You're first in line to connect your stack when we open the doors" },
     ],
     noTime: "Prefer email? Reach us at",
@@ -301,7 +332,7 @@ const en = {
     h1b: "to know.",
     subhead: "Answers to the questions DTC founders and growth leads ask us most.",
     stillHaveQuestions: "Still have questions?",
-    stillHaveQuestionsBody: "Join the waitlist and we'll reach out personally — no pitch, just a conversation about what you're building.",
+    stillHaveQuestionsBody: "Join the waitlist and we'll reach out personally, no pitch, just a conversation about what you're building.",
     contactBtn: "Join the waitlist →",
     categories: [
       {
@@ -309,15 +340,15 @@ const en = {
         items: [
           {
             q: "What do you actually do? Is this another dashboard tool?",
-            a: "We're a revenue intelligence practice — which is fundamentally different from a dashboard. A dashboard shows you numbers. We show you numbers and tell you why they moved, which ones to act on, and what to do next. Every metric comes with an AI analyst note in plain English. Think of it as a senior data analyst available every morning, not another set of charts to stare at.",
+            a: "We're a revenue intelligence practice, which is fundamentally different from a dashboard. A dashboard shows you numbers. We show you numbers and tell you why they moved, which ones to act on, and what to do next. Every metric comes with an AI analyst note in plain English. Think of it as a senior data analyst available every morning, not another set of charts to stare at.",
           },
           {
             q: "How are you different from Triple Whale, Northbeam, or Daasity?",
-            a: "Those are attribution tools — focused on ad spend measurement and pixel-based tracking. We cover attribution too, but also cohort retention, subscription MRR, behavioral LTV modeling, and daily briefings with AI context. The key difference: we don't just report what happened — we tell you why and what to do next. And we unify your ad platforms, email, and subscription data into a single revenue model rather than treating each channel in isolation.",
+            a: "Those are attribution tools, focused on ad spend measurement and pixel-based tracking. We cover attribution too, but also cohort retention, subscription MRR, behavioral LTV modeling, and daily briefings with AI context. The key difference: we don't just report what happened, we tell you why and what to do next. And we unify your ad platforms, email, and subscription data into a single revenue model rather than treating each channel in isolation.",
           },
           {
             q: "What does the daily revenue briefing include?",
-            a: "Every morning, we generate a briefing that surfaces your key metrics — net revenue, MRR, blended ROAS, contribution margin — alongside an AI-written note explaining the movements. If your revenue dropped 12% yesterday, we tell you it was driven by a drop in Meta conversion rate on your acquisition campaigns, correlated with a delivery delay in Shopify. Not just the number — the story behind it.",
+            a: "Every morning, we generate a briefing that surfaces your key metrics, net revenue, MRR, blended ROAS, contribution margin, alongside an AI-written note explaining the movements. If your revenue dropped 12% yesterday, we tell you it was driven by a drop in Meta conversion rate on your acquisition campaigns, correlated with a delivery delay in Shopify. Not just the number, the story behind it.",
           },
           {
             q: "Can you replace my existing analytics tools?",
@@ -330,19 +361,19 @@ const en = {
         items: [
           {
             q: "How do you handle attribution post-iOS14?",
-            a: "We use a first-party attribution model — relying on server-side signals, your Shopify and Klaviyo conversion data, and modeled attribution rather than browser cookies or pixel tracking. This approach recovers the measurement signal that iOS14 destroyed for pixel-dependent tools. You get accurate CAC and ROAS per channel, per campaign, and per creative — even in a cookieless environment.",
+            a: "We use a first-party attribution model, relying on server-side signals, your Shopify and Klaviyo conversion data, and modeled attribution rather than browser cookies or pixel tracking. This approach recovers the measurement signal that iOS14 destroyed for pixel-dependent tools. You get accurate CAC and ROAS per channel, per campaign, and per creative, even in a cookieless environment.",
           },
           {
             q: "What's the difference between blended ROAS and channel ROAS?",
-            a: "Channel ROAS — what Meta, Google, and TikTok each report — is self-reported. Every platform claims credit for the conversion, which leads to triple-counting and inflated numbers. Blended ROAS is your total ad spend divided by total revenue — the only number that can't be gamed. We show you both: blended ROAS as your ground truth, channel ROAS with appropriate context. When the two diverge significantly, we flag it and tell you why.",
+            a: "Channel ROAS, what Meta, Google, and TikTok each report, is self-reported. Every platform claims credit for the conversion, which leads to triple-counting and inflated numbers. Blended ROAS is your total ad spend divided by total revenue, the only number that can't be gamed. We show you both: blended ROAS as your ground truth, channel ROAS with appropriate context. When the two diverge significantly, we flag it and tell you why.",
           },
           {
             q: "How do you model attribution across email and paid channels?",
-            a: "We assign revenue to the touchpoints that actually influenced the conversion, using a data-driven model built on your first-party signals — Shopify order data, Klaviyo flow triggers, and ad platform spend. Unlike last-click models or platform-reported models (which are biased toward their own channels), our model is neutral and built on what your customers actually did.",
+            a: "We assign revenue to the touchpoints that actually influenced the conversion, using a data-driven model built on your first-party signals, Shopify order data, Klaviyo flow triggers, and ad platform spend. Unlike last-click models or platform-reported models (which are biased toward their own channels), our model is neutral and built on what your customers actually did.",
           },
           {
             q: "Can you replace my Triple Whale or Northbeam subscription?",
-            a: "For most DTC brands, yes. We cover the same core attribution use cases — multi-touch attribution, first-party data, creative performance analysis — plus the cohort, LTV, and subscription intelligence that attribution point-solutions don't offer.",
+            a: "For most DTC brands, yes. We cover the same core attribution use cases, multi-touch attribution, first-party data, creative performance analysis, plus the cohort, LTV, and subscription intelligence that attribution point-solutions don't offer.",
           },
         ],
       },
@@ -351,19 +382,19 @@ const en = {
         items: [
           {
             q: "Which platforms do you connect to?",
-            a: "We integrate with Shopify (orders, products, customers), Klaviyo (email flows, segments, revenue attribution), Meta Ads (spend, creative, campaign-level), Google Ads (search, shopping, Performance Max), TikTok Ads (creative, campaign), Recharge (subscription MRR, churn, cohort data), and Stripe (payment and subscription data). New integrations are added regularly — if you're on a platform not listed, reach out and we'll tell you our timeline.",
+            a: "We integrate with Shopify (orders, products, customers), Klaviyo (email flows, segments, revenue attribution), Meta Ads (spend, creative, campaign-level), Google Ads (search, shopping, Performance Max), TikTok Ads (creative, campaign), Recharge (subscription MRR, churn, cohort data), and Stripe (payment and subscription data). New integrations are added regularly, if you're on a platform not listed, reach out and we'll tell you our timeline.",
           },
           {
             q: "How long does it take to go live?",
-            a: "Most brands go live within 48 hours of connecting their stack. There's no data engineering required on your end — you authenticate each integration, and we handle the data modeling, normalization, and intelligence layer. Your first daily revenue briefing arrives the morning after your data connects.",
+            a: "Most brands go live within 48 hours of connecting their stack. There's no data engineering required on your end, you authenticate each integration, and we handle the data modeling, normalization, and intelligence layer. Your first daily revenue briefing arrives the morning after your data connects.",
           },
           {
             q: "Do I need a developer or data engineer?",
-            a: "No. We're built for DTC founders, heads of growth, and marketing leads — not data teams. Connecting your integrations takes minutes and requires no technical knowledge. The person making revenue decisions can use it directly, without a technical intermediary.",
+            a: "No. We're built for DTC founders, heads of growth, and marketing leads, not data teams. Connecting your integrations takes minutes and requires no technical knowledge. The person making revenue decisions can use it directly, without a technical intermediary.",
           },
           {
             q: "Do you work with Shopify Plus or only standard Shopify?",
-            a: "We work with all Shopify plans — Standard, Advanced, and Plus. For Plus brands, we also connect to your B2B wholesale channel, Markets data, and any custom Shopify Flow automations that affect revenue attribution.",
+            a: "We work with all Shopify plans, Standard, Advanced, and Plus. For Plus brands, we also connect to your B2B wholesale channel, Markets data, and any custom Shopify Flow automations that affect revenue attribution.",
           },
         ],
       },
@@ -372,19 +403,19 @@ const en = {
         items: [
           {
             q: "What are behavioral cohorts, and how are they different from RFM?",
-            a: "RFM groups customers by when they last bought, how often, and how much — a useful starting point, but it tells you nothing about why they behave that way. We build cohorts by acquisition channel, first product purchased, subscription type, and behavioral signals — then model their predicted 12-month LTV per segment. The difference: RFM tells you what customers did. Behavioral cohorts tell you which customers to acquire more of, and which are draining your CAC without returning value.",
+            a: "RFM groups customers by when they last bought, how often, and how much, a useful starting point, but it tells you nothing about why they behave that way. We build cohorts by acquisition channel, first product purchased, subscription type, and behavioral signals, then model their predicted 12-month LTV per segment. The difference: RFM tells you what customers did. Behavioral cohorts tell you which customers to acquire more of, and which are draining your CAC without returning value.",
           },
           {
             q: "How accurate is your LTV modeling?",
-            a: "Our LTV model is built on your actual historical cohort data — not industry benchmarks or averages. We use survival analysis on your retention curves to project 12-month and 24-month LTV per segment. Accuracy improves over time as more cohort data accumulates. We also surface confidence intervals so you're never working from false precision.",
+            a: "Our LTV model is built on your actual historical cohort data, not industry benchmarks or averages. We use survival analysis on your retention curves to project 12-month and 24-month LTV per segment. Accuracy improves over time as more cohort data accumulates. We also surface confidence intervals so you're never working from false precision.",
           },
           {
             q: "Where does my data live? Who has access to it?",
-            a: "We process your data to generate intelligence and briefings. We do not resell your data, share it with other brands, or use it to train shared models. Your revenue data is yours — always. We operate under GDPR-compliant data processing agreements and store data in EU-based infrastructure by default.",
+            a: "We process your data to generate intelligence and briefings. We do not resell your data, share it with other brands, or use it to train shared models. Your revenue data is yours, always. We operate under GDPR-compliant data processing agreements and store data in EU-based infrastructure by default.",
           },
           {
             q: "How do you handle subscription metrics differently from one-time purchase brands?",
-            a: "We have a dedicated subscription intelligence layer built for Recharge and Stripe Billing brands — covering MRR tracking, subscription cohort retention curves, churn prediction signals, and plan-level LTV. For hybrid brands (subscription + DTC), we model both revenue streams and show you their interaction: which DTC customers convert to subscription, and at what margin.",
+            a: "We have a dedicated subscription intelligence layer built for Recharge and Stripe Billing brands, covering MRR tracking, subscription cohort retention curves, churn prediction signals, and plan-level LTV. For hybrid brands (subscription + DTC), we model both revenue streams and show you their interaction: which DTC customers convert to subscription, and at what margin.",
           },
         ],
       },
@@ -393,7 +424,7 @@ const en = {
         items: [
           {
             q: "How does pricing work?",
-            a: "Pricing is based on the modules you activate and your brand's revenue scale. Early access partners get a founder rate locked in permanently — the best pricing we'll ever offer. We don't publish per-seat fees or lock you into annual contracts upfront. Join the waitlist and we'll walk you through exact pricing before you make any commitment.",
+            a: "Pricing is based on the modules you activate and your brand's revenue scale. Early access partners get a founder rate locked in permanently, the best pricing we'll ever offer. We don't publish per-seat fees or lock you into annual contracts upfront. Join the waitlist and we'll walk you through exact pricing before you make any commitment.",
           },
           {
             q: "What size brand are you built for?",
@@ -401,11 +432,11 @@ const en = {
           },
           {
             q: "Is there a minimum contract length?",
-            a: "No annual contracts, no minimum term. We run month-to-month. We earn your business by being useful every day — not by locking you in. If we're not delivering intelligence you act on, you should cancel. We'd rather win you back when we've earned it.",
+            a: "No annual contracts, no minimum term. We run month-to-month. We earn your business by being useful every day, not by locking you in. If we're not delivering intelligence you act on, you should cancel. We'd rather win you back when we've earned it.",
           },
           {
             q: "What does early access actually mean?",
-            a: "Early access partners are the first brands we onboard when we launch. You get a founder rate locked in permanently, priority onboarding, and direct access to us during setup. We reach out personally when we're ready — no automated drip, no sales funnel. Just a conversation.",
+            a: "Early access partners are the first brands we onboard when we launch. You get a founder rate locked in permanently, priority onboarding, and direct access to us during setup. We reach out personally when we're ready, no automated drip, no sales funnel. Just a conversation.",
           },
         ],
       },
@@ -415,14 +446,14 @@ const en = {
 
 const es: typeof en = {
   header: {
-    nav: { platform: "Plataforma", caseStudies: "Casos de Éxito", company: "Empresa", faq: "FAQ" },
+    nav: { platform: "Plataforma", studio: "AI Studio", caseStudies: "Casos de Éxito", company: "Empresa", faq: "FAQ" },
     cta: "Unirse a la lista",
   },
   footer: {
     tagline: "Inteligencia de ingresos para marcas DTC y de suscripción en alto crecimiento.",
     cols: { pages: "PÁGINAS", connect: "CONTACTO", legal: "LEGAL" },
     links: {
-      platform: "Plataforma", caseStudies: "Casos de Éxito", company: "Empresa",
+      platform: "Plataforma", studio: "AI Studio", caseStudies: "Casos de Éxito", company: "Empresa",
       contact: "Contacto", faq: "FAQ", privacy: "Privacidad", terms: "Condiciones", imprint: "Aviso Legal",
     },
     quote: "Los números son el único lenguaje que no miente.",
@@ -431,11 +462,11 @@ const es: typeof en = {
     pill: "En desarrollo · Únete a la lista de espera para acceso anticipado",
     line1: "Inteligencia de ingresos.",
     line2: "Para marcas DTC.",
-    subhead: "Conectamos tus datos de Shopify, Klaviyo y plataformas publicitarias en una única capa de inteligencia — con contexto impulsado por IA que te explica por qué se movieron tus ingresos, no solo que se movieron.",
+    subhead: "Conectamos tus datos de Shopify, Klaviyo y plataformas publicitarias en una única capa de inteligencia, con contexto impulsado por IA que te explica por qué se movieron tus ingresos, no solo que se movieron.",
     ctaPrimary: "Unirme a la lista →",
     ctaSecondary: "Ver qué estamos construyendo ↓",
     thesisLabel: "La tesis",
-    thesis: "Las marcas que ganan en DTC no tienen más datos. Toman decisiones más rápidas. Convertimos tu stack actual en un informe diario de ingresos — con contexto de nivel analista, cada mañana.",
+    thesis: "Las marcas que ganan en DTC no tienen más datos. Toman decisiones más rápidas. Convertimos tu stack actual en un informe diario de ingresos, con contexto de nivel analista, cada mañana.",
     cyclePre: "Convertimos tu",
     cyclePost: "en la decisión del próximo trimestre.",
     cycleWords: ["datos de Shopify", "flujos de Klaviyo", "inversión en Meta", "cohortes de clientes", "atribución de anuncios", "mix de ingresos"],
@@ -445,7 +476,7 @@ const es: typeof en = {
     sectionRight: "EN NÚMEROS",
     featuredNum: "+23%",
     featuredLabel: "mayor LTV a 12 meses",
-    featuredBody: "Las marcas que segmentan a sus clientes en cohortes de comportamiento — por canal de adquisición, primer producto y precio — obtienen un valor a largo plazo notablemente mayor de la misma base de clientes, frente a las que usan segmentación RFM básica.",
+    featuredBody: "Las marcas que segmentan a sus clientes en cohortes de comportamiento, por canal de adquisición, primer producto y precio, obtienen un valor a largo plazo notablemente mayor de la misma base de clientes, frente a las que usan segmentación RFM básica.",
     featuredSource: "Klaviyo State of Email Marketing, 2025",
     editorialQuote: "No tienes un problema de datos. Tienes un problema de acción.",
     supportStats: [
@@ -460,8 +491,8 @@ const es: typeof en = {
     headingItalic: "garantizamos.",
     heading2: "",
     rows: [
-      { heading: "Todo lo que construimos es tuyo.", body: "Cada archivo SQL, cada configuración de dashboard, cada modelo de datos — en tus repositorios, bajo tu nombre, desde el primer día. Cancela mañana y nada se rompe, nada desaparece, nada queda retenido." },
-      { heading: "Entenderás cada número.", body: "Sin cajas negras, sin «confía en el algoritmo». Cada métrica que mostramos viene con una explicación en lenguaje claro de qué se ha movido y por qué. Nuestro trabajo es que te sientas nativo en datos — no dependiente de nosotros." },
+      { heading: "Todo lo que construimos es tuyo.", body: "Cada archivo SQL, cada configuración de dashboard, cada modelo de datos, en tus repositorios, bajo tu nombre, desde el primer día. Cancela mañana y nada se rompe, nada desaparece, nada queda retenido." },
+      { heading: "Entenderás cada número.", body: "Sin cajas negras, sin «confía en el algoritmo». Cada métrica que mostramos viene con una explicación en lenguaje claro de qué se ha movido y por qué. Nuestro trabajo es que te sientas nativo en datos, no dependiente de nosotros." },
       { heading: "Estarás activo en 14 días.", body: "De la primera llamada al primer dashboard. Sin implementaciones de seis meses, sin equipo de ingeniería de datos de tu parte. Nosotros nos encargamos del desarrollo de principio a fin. El día 15, tienes las llaves." },
     ],
   },
@@ -478,7 +509,7 @@ const es: typeof en = {
     label: "RESULTADOS · LO QUE MUESTRA LA INVESTIGACIÓN",
     h1a: "Lo que una analítica bien ejecutada",
     h1b: "realmente entrega.",
-    subhead: "Benchmarks reales de investigación independiente — el tipo de impacto que una infraestructura de datos sólida genera de manera consistente en marcas DTC y de suscripción.",
+    subhead: "Benchmarks reales de investigación independiente, el tipo de impacto que una infraestructura de datos sólida genera de manera consistente en marcas DTC y de suscripción.",
     sectionBenchmarks: "01 / BENCHMARKS",
     sectionBenchmarksRight: "CITADOS · 2024–2025",
     sectionVoices: "02 / DEL SECTOR",
@@ -492,8 +523,8 @@ const es: typeof en = {
       { num: "2.5×",    label: "Ventaja de crecimiento de ingresos para marcas data-native" },
     ],
     implicationHeading: "Los datos propios son ahora los únicos datos en los que puedes confiar.",
-    implicationBody1: "iOS14 rompió la atribución. La deprecación de cookies rompió el retargeting. Las marcas que sobreviven estos cambios son las que construyeron su infraestructura analítica antes de necesitarla — no después de que su CAC se duplicara.",
-    implicationBody2: "La mayoría de las marcas en crecimiento toman decisiones de siete cifras con dashboards de seis. Nosotros cerramos esa brecha — con inteligencia de ingresos que entra en funcionamiento en 48 horas.",
+    implicationBody1: "iOS14 rompió la atribución. La deprecación de cookies rompió el retargeting. Las marcas que sobreviven estos cambios son las que construyeron su infraestructura analítica antes de necesitarla, no después de que su CAC se duplicara.",
+    implicationBody2: "La mayoría de las marcas en crecimiento toman decisiones de siete cifras con dashboards de seis. Nosotros cerramos esa brecha, con inteligencia de ingresos que entra en funcionamiento en 48 horas.",
     implicationCta: "Ve cómo se aplica esto a tu marca →",
     results: [
       {
@@ -502,7 +533,7 @@ const es: typeof en = {
         metric: "+23%",
         metricLabel: "LTV a 12 meses",
         headline: "Segmentación por cohortes de comportamiento vs. RFM básico",
-        body: "Las marcas que van más allá del RFM hacia cohortes de comportamiento — segmentadas por primer producto, canal de adquisición y precio — obtienen un valor a largo plazo notablemente mayor de la misma base de clientes.",
+        body: "Las marcas que van más allá del RFM hacia cohortes de comportamiento, segmentadas por primer producto, canal de adquisición y precio, obtienen un valor a largo plazo notablemente mayor de la misma base de clientes.",
         source: "Klaviyo State of Email Marketing, 2025",
         featured: true,
       },
@@ -512,7 +543,7 @@ const es: typeof en = {
         metric: "−32%",
         metricLabel: "Coste de adquisición de cliente",
         headline: "Atribución server-side vs. medición basada en píxel",
-        body: "Las marcas DTC que implementan correctamente la medición post-iOS14 — eventos server-side, datos propios, conversiones modeladas — recuperan la mayor parte de la señal perdida y asignan el gasto con más precisión.",
+        body: "Las marcas DTC que implementan correctamente la medición post-iOS14, eventos server-side, datos propios, conversiones modeladas, recuperan la mayor parte de la señal perdida y asignan el gasto con más precisión.",
         source: "AppsFlyer Performance Index, 2025",
         featured: false,
       },
@@ -532,7 +563,7 @@ const es: typeof en = {
         metric: "€2.400",
         metricLabel: "Ahorrados al mes",
         headline: "Inteligencia de ingresos unificada vs. herramientas SaaS fragmentadas",
-        body: "Sustituir las soluciones de atribución aisladas por una capa de inteligencia de ingresos unificada elimina el tiempo de reconciliación de datos y ofrece insights más precisos y accionables — en un solo lugar.",
+        body: "Sustituir las soluciones de atribución aisladas por una capa de inteligencia de ingresos unificada elimina el tiempo de reconciliación de datos y ofrece insights más precisos y accionables, en un solo lugar.",
         source: "Datos de la plataforma Velur, 2026",
         featured: false,
       },
@@ -542,7 +573,7 @@ const es: typeof en = {
         metric: "42%",
         metricLabel: "De las marcas medianas",
         headline: "No pueden atribuir ingresos con precisión tras iOS14",
-        body: "Las marcas que siguen con atribución basada en píxel toman entre el 20 y el 40% de sus decisiones de gasto publicitario con datos que creen correctos — pero no lo son. La infraestructura de datos propios cierra esa brecha.",
+        body: "Las marcas que siguen con atribución basada en píxel toman entre el 20 y el 40% de sus decisiones de gasto publicitario con datos que creen correctos, pero no lo son. La infraestructura de datos propios cierra esa brecha.",
         source: "AppsFlyer Performance Index, 2025",
         featured: false,
       },
@@ -552,7 +583,7 @@ const es: typeof en = {
         metric: "2.5×",
         metricLabel: "Tasa de crecimiento de ingresos",
         headline: "Pymes data-native vs. competidores sin infraestructura analítica",
-        body: "La brecha entre los negocios que actúan sobre sus datos y los que simplemente los reportan se está ampliando. La infraestructura es el diferenciador — no más datos, sino decisiones más rápidas a partir de los datos que ya tienes.",
+        body: "La brecha entre los negocios que actúan sobre sus datos y los que simplemente los reportan se está ampliando. La infraestructura es el diferenciador, no más datos, sino decisiones más rápidas a partir de los datos que ya tienes.",
         source: "McKinsey Digital SMB Maturity Study, 2024",
         featured: false,
       },
@@ -560,18 +591,18 @@ const es: typeof en = {
     voices: [
       {
         attribution: "Andrew Chen · Socio General, a16z",
-        quote: "La atribución de último clic ha muerto. Las marcas que sobreviven en el mundo post-iOS14 son las que invirtieron en infraestructura de datos propios antes de necesitarla — no después de que sus CPAs se duplicaran.",
-        source: "a16z.com — The End of Mobile Attribution",
+        quote: "La atribución de último clic ha muerto. Las marcas que sobreviven en el mundo post-iOS14 son las que invirtieron en infraestructura de datos propios antes de necesitarla, no después de que sus CPAs se duplicaran.",
+        source: "a16z.com, The End of Mobile Attribution",
       },
       {
         attribution: "Patrick Campbell · Fundador, ProfitWell (adq. por Paddle)",
-        quote: "Las marcas de suscripción que escalaron no eran las que tenían el mejor producto. Eran las que entendían sus cohortes. Retención por canal de adquisición, por primer producto, por precio — esa granularidad es lo que separa un negocio que crece de uno que pierde clientes.",
+        quote: "Las marcas de suscripción que escalaron no eran las que tenían el mejor producto. Eran las que entendían sus cohortes. Retención por canal de adquisición, por primer producto, por precio, esa granularidad es lo que separa un negocio que crece de uno que pierde clientes.",
         source: "ProfitWell Subscription Benchmarks Report",
       },
       {
         attribution: "McKinsey & Company · Práctica Digital",
         quote: "Las pymes que invierten en capacidades de analítica de datos crecen en ingresos 2,5 veces más rápido que las que no lo hacen. La brecha entre las empresas data-native y las data-delayed se está ampliando, no cerrando.",
-        source: "McKinsey Digital — SMB Analytics Maturity Study",
+        source: "McKinsey Digital, SMB Analytics Maturity Study",
       },
     ],
   },
@@ -585,7 +616,7 @@ const es: typeof en = {
     label: "PLATAFORMA · LO QUE HACEMOS",
     h1a: "Una capa de inteligencia.",
     h1b: "Todas las señales de ingresos.",
-    subhead: "Unificamos tus datos de Shopify, Klaviyo y publicidad en una única capa de inteligencia de ingresos — con machine learning e IA integrados. Sabe qué ocurrió, por qué ocurrió y qué hacer a continuación.",
+    subhead: "Unificamos tus datos de Shopify, Klaviyo y publicidad en una única capa de inteligencia de ingresos, con machine learning e IA integrados. Sabe qué ocurrió, por qué ocurrió y qué hacer a continuación.",
     includedLabel: "QUÉ INCLUYE",
     demoBtn: "Unirse a la lista →",
     howLabel: "CÓMO FUNCIONA",
@@ -594,7 +625,7 @@ const es: typeof en = {
       {
         label: "PULSO DE INGRESOS",
         heading: "Tu informe de ingresos diario, explicado.",
-        body: "Cada mañana, mostramos tus ingresos netos, MRR de suscripciones, ROAS combinado y margen de contribución — con una nota analítica de IA que explica por qué se movieron las cifras. Sin pestañas que abrir. Sin hojas de cálculo que reconciliar.",
+        body: "Cada mañana, mostramos tus ingresos netos, MRR de suscripciones, ROAS combinado y margen de contribución, con una nota analítica de IA que explica por qué se movieron las cifras. Sin pestañas que abrir. Sin hojas de cálculo que reconciliar.",
         includes: [
           "Seguimiento de ingresos netos y MRR en tiempo real",
           "Desglose por canal: Shopify · D2C · Mayorista · Amazon",
@@ -606,7 +637,7 @@ const es: typeof en = {
       {
         label: "ATRIBUCIÓN",
         heading: "Saber exactamente qué anuncios están funcionando.",
-        body: "iOS14 fracturó la atribución en la mayoría de marcas DTC. La reconstruimos usando datos propios y señales del lado del servidor — dándote CAC y ROAS precisos por canal, por campaña, por creativo. Sin más adivinar dónde se va tu margen.",
+        body: "iOS14 fracturó la atribución en la mayoría de marcas DTC. La reconstruimos usando datos propios y señales del lado del servidor, dándote CAC y ROAS precisos por canal, por campaña, por creativo. Sin más adivinar dónde se va tu margen.",
         includes: [
           "Modelo de atribución de primera parte",
           "Vista unificada de inversión: Meta · TikTok · Google",
@@ -618,7 +649,7 @@ const es: typeof en = {
       {
         label: "COHORTES Y LTV",
         heading: "Retener a los clientes correctos. Predecir el resto.",
-        body: "Construimos cohortes de comportamiento que van más allá del RFM — segmentando por canal de adquisición, línea de producto y comportamiento de suscripción. Luego modelamos el LTV a 12 meses por segmento para que sepas exactamente dónde invertir y dónde parar.",
+        body: "Construimos cohortes de comportamiento que van más allá del RFM, segmentando por canal de adquisición, línea de producto y comportamiento de suscripción. Luego modelamos el LTV a 12 meses por segmento para que sepas exactamente dónde invertir y dónde parar.",
         includes: [
           "Análisis de cohortes de comportamiento (más allá del RFM)",
           "Curvas de retención y abandono de suscripciones",
@@ -631,7 +662,7 @@ const es: typeof en = {
     steps: [
       { title: "Conecta tu stack",         body: "Vincula Shopify, Klaviyo, Meta, TikTok y tus otras fuentes en minutos. Sin ingeniería de tu parte." },
       { title: "Modelamos tus datos",       body: "Normalizamos y estructuramos tus datos en un modelo de ingresos unificado. En activo en 48 horas." },
-      { title: "Comienza la inteligencia",  body: "Los informes diarios, dashboards de atribución y modelos de cohortes se ponen en marcha — todo en un solo lugar." },
+      { title: "Comienza la inteligencia",  body: "Los informes diarios, dashboards de atribución y modelos de cohortes se ponen en marcha, todo en un solo lugar." },
       { title: "Crece con contexto",        body: "Cada semana tu panorama mejora. Cada métrica incluye una explicación de por qué se movió." },
     ],
     stackLabel: "Nuestro stack",
@@ -641,17 +672,48 @@ const es: typeof en = {
     rightForLabel: "¿ES PARA MÍ?",
     rightForHeading: "Velur está pensado para un tipo específico de marca.",
     rightForItems: [
-      "Usas Shopify, Klaviyo y publicidad de pago — y has perdido la pista de en qué número confiar",
+      "Usas Shopify, Klaviyo y publicidad de pago, y has perdido la pista de en qué número confiar",
       "Has superado las hojas de cálculo pero todavía no has contratado un analista de datos dedicado",
       "Tomas decisiones de ingresos semanales basándote en la intuición o en dashboards que se contradicen",
-      "Sabes que algo no cuadra en tu retención o atribución — pero no puedes ver exactamente qué",
+      "Sabes que algo no cuadra en tu retención o atribución, pero no puedes ver exactamente qué",
     ],
     notRightForLabel: "NO ES EL FIT CORRECTO SI",
     notRightForItems: [
-      "Estás en fase pre-ingresos o muy temprana — la analítica nativa de Shopify y Klaviyo te servirá mejor por ahora",
-      "Tienes un equipo de ingeniería de datos interno — nosotros lo complementamos, no lo reemplazamos",
+      "Estás en fase pre-ingresos o muy temprana, la analítica nativa de Shopify y Klaviyo te servirá mejor por ahora",
+      "Tienes un equipo de ingeniería de datos interno, nosotros lo complementamos, no lo reemplazamos",
       "Quieres una herramienta SaaS de autoservicio sin onboarding ni configuración",
     ],
+  },
+  twoProducts: {
+    label: "Dos productos, un mismo resultado",
+    heading: "Velur está construido alrededor de los ingresos. Hay dos formas de entrar.",
+    subhead: "Revenue Intelligence es el producto de analítica. Velur AI Studio es el de marketing. Mismo objetivo: ayudar a los pequeños negocios a mover el único número que importa.",
+    riLabel: "Revenue Intelligence",
+    riHeading: "Lee tu stack. Explica el porqué.",
+    riBody: "Shopify, Klaviyo, Meta, TikTok, GA4. Un briefing diario que te dice qué movió ingresos y qué hacer a continuación.",
+    riCta: "Ver la plataforma →",
+    studioLabel: "AI Studio",
+    studioHeading: "Lanza la creatividad. Corre la campaña.",
+    studioBody: "Web, activos, campañas, redes sociales y marca. Con Higgsfield, MidJourney, Claude y ChatGPT, más una persona real supervisando el trabajo.",
+    studioCta: "Visita AI Studio →",
+    footnote: "Algunos clientes usan uno. Otros usan los dos. Cami Lab Studio en Florida usa los dos al mismo tiempo.",
+  },
+  studio: {
+    label: "Velur AI Studio",
+    h1: "Ayudamos a pequeños negocios a convertir la IA en ingresos.",
+    subhead: "El mismo objetivo que Revenue Intelligence, con otras herramientas. Velur AI Studio es el lado de marketing del trabajo: webs, creatividad, campañas, redes sociales y marca. Usamos IA donde aporta valor y a una persona en todo lo demás.",
+    ctaPrimary: "Reservar una llamada",
+    ctaSecondary: "Ver las plantillas",
+    toolsLabel: "Las herramientas con las que trabajamos",
+    toolsHeading: "Cuatro productos de IA que entregan trabajo real.",
+    servicesLabel: "En qué te ayudamos",
+    servicesHeading: "De principio a fin, o solo la parte que necesitas.",
+    templatesLabel: "Plantillas gratuitas",
+    templatesHeading: "Recursos para pequeños negocios.",
+    templatesSubhead: "Documentos listos para usar que aplicamos con clientes reales. Respóndenos al correo y te enviamos el archivo.",
+    ctaLabel: "Trabajar con nosotros",
+    ctaHeading: "Cuéntanos sobre tu negocio. Te respondemos con un plan.",
+    ctaButton: "Empezar la conversación",
   },
   company: {
     label: "EMPRESA · CÓMO PENSAMOS",
@@ -660,12 +722,12 @@ const es: typeof en = {
     subhead: "Somos una práctica de inteligencia de ingresos. Existimos porque la brecha entre lo que podrían hacer tus datos y lo que hacen realmente es la línea más cara de tu P&L.",
     whyLabel: "01 / CÓMO TRABAJAMOS",
     cards: [
-      { num: "01", heading: "Claridad en 48 horas.", body: "La mayoría de las marcas esperan una semana para recibir informes que les cuentan lo que ya ocurrió. Entregamos una capa de inteligencia unificada — en activo en 48 horas tras conectar tu stack. Sin equipo de ingeniería de datos de tu parte." },
-      { num: "02", heading: "Inteligencia, no solo datos.", body: "Cada métrica que mostramos incluye contexto — una explicación del movimiento, una alerta sobre la anomalía, una señal que vale la pena tomar en cuenta. Notas analíticas de IA, integradas en cada informe." },
-      { num: "03", heading: "Tu stack, finalmente unificado.", body: "Shopify, Klaviyo, Meta, TikTok, Recharge, Stripe — nos conectamos en torno a las herramientas exactas que ya usa tu marca. Sin cambiar nada. Sin equipo de datos necesario en tu lado. Solo conecta y empieza." },
+      { num: "01", heading: "Claridad en 48 horas.", body: "La mayoría de las marcas esperan una semana para recibir informes que les cuentan lo que ya ocurrió. Entregamos una capa de inteligencia unificada, en activo en 48 horas tras conectar tu stack. Sin equipo de ingeniería de datos de tu parte." },
+      { num: "02", heading: "Inteligencia, no solo datos.", body: "Cada métrica que mostramos incluye contexto, una explicación del movimiento, una alerta sobre la anomalía, una señal que vale la pena tomar en cuenta. Notas analíticas de IA, integradas en cada informe." },
+      { num: "03", heading: "Tu stack, finalmente unificado.", body: "Shopify, Klaviyo, Meta, TikTok, Recharge, Stripe, nos conectamos en torno a las herramientas exactas que ya usa tu marca. Sin cambiar nada. Sin equipo de datos necesario en tu lado. Solo conecta y empieza." },
     ],
     bgLabel: "QUIÉNES SOMOS",
-    quote: "Hemos pasado años dentro de los stacks de datos de marcas DTC y de suscripción en alto crecimiento — marcas que conoces, en moda, gran consumo y suscripción. Hemos visto lo que cambia una buena inteligencia de ingresos: el producto correcto lanzado antes, la cohorte correcta retenida, el canal correcto escalado con confianza real. Esa experiencia es lo que estamos construyendo en cada parte de esto.",
+    quote: "Hemos pasado años dentro de los stacks de datos de marcas DTC y de suscripción en alto crecimiento, marcas que conoces, en moda, gran consumo y suscripción. Hemos visto lo que cambia una buena inteligencia de ingresos: el producto correcto lanzado antes, la cohorte correcta retenida, el canal correcto escalado con confianza real. Esa experiencia es lo que estamos construyendo en cada parte de esto.",
     stackRows: [
       { label: "Stack",         value: "BigQuery · dbt · Fivetran · Looker Studio · Metabase · Python · SQL" },
       { label: "Integraciones", value: "Shopify · Klaviyo · Meta · Google · TikTok · Recharge · Stripe" },
@@ -673,7 +735,7 @@ const es: typeof en = {
     ],
     beliefsLabel: "02 / LO QUE CREEMOS",
     beliefs: [
-      "La inteligencia supera a los datos brutos — siempre, en cada decisión",
+      "La inteligencia supera a los datos brutos, siempre, en cada decisión",
       "IA como palanca real, no como argumento de marketing",
       "Las marcas DTC merecen la misma infraestructura analítica que el enterprise",
       "Precisión y velocidad no son un trade-off",
@@ -682,16 +744,16 @@ const es: typeof en = {
     roadmapLabel: "03 / NUESTRA PASIÓN",
     roadmapHeading: "Lo que nos mueve.",
     roadmap: [
-      { year: "Ciencia de Datos", text: "Llevamos años dando sentido a datos DTC fragmentados y desordenados — construyendo modelos que encuentran señal donde otros ven ruido. Ese rigor es lo que hace que nuestra capa de inteligencia sea algo en lo que puedes actuar de verdad." },
+      { year: "Ciencia de Datos", text: "Llevamos años dando sentido a datos DTC fragmentados y desordenados, construyendo modelos que encuentran señal donde otros ven ruido. Ese rigor es lo que hace que nuestra capa de inteligencia sea algo en lo que puedes actuar de verdad." },
       { year: "Machine Learning", text: "El ML está integrado en todo lo que construimos: predicción de LTV, señales de abandono, modelado de atribución. No como característica de marketing, sino como el motor que funciona silenciosamente detrás de cada insight que mostramos." },
-      { year: "IA", text: "Usamos la IA como multiplicador de fuerza — para movernos más rápido, detectar señales antes y entregar contexto de nivel analista a una velocidad que ningún proceso manual puede igualar. Cada informe es asistido por IA. Cada número está validado por personas." },
+      { year: "IA", text: "Usamos la IA como multiplicador de fuerza, para movernos más rápido, detectar señales antes y entregar contexto de nivel analista a una velocidad que ningún proceso manual puede igualar. Cada informe es asistido por IA. Cada número está validado por personas." },
     ],
   },
   contact: {
     label: "LISTA DE ESPERA · ACCESO ANTICIPADO",
     h1a: "Sé el primero.",
     h1b: "Entra antes del lanzamiento.",
-    subhead: "Estamos en desarrollo. Deja tu email y nos ponemos en contacto personalmente cuando estemos listos para los primeros partners — con una tarifa fundadora garantizada.",
+    subhead: "Estamos en desarrollo. Deja tu email y nos ponemos en contacto personalmente cuando estemos listos para los primeros partners, con una tarifa fundadora garantizada.",
     whatToExpect: "QUÉ PASA DESPUÉS",
     timeline: [
       { time: "01", text: "Confirmamos tu plaza en la lista de espera en menos de 24 horas" },
@@ -714,7 +776,7 @@ const es: typeof en = {
     h1b: "saber.",
     subhead: "Respuestas a las preguntas que más nos hacen los fundadores y responsables de crecimiento de marcas DTC.",
     stillHaveQuestions: "¿Tienes más preguntas?",
-    stillHaveQuestionsBody: "Únete a la lista de espera y te escribimos personalmente — sin pitch, solo una conversación sobre lo que estás construyendo.",
+    stillHaveQuestionsBody: "Únete a la lista de espera y te escribimos personalmente, sin pitch, solo una conversación sobre lo que estás construyendo.",
     contactBtn: "Unirse a la lista →",
     categories: [
       {
@@ -722,19 +784,19 @@ const es: typeof en = {
         items: [
           {
             q: "¿Qué es exactamente Velur? ¿Es otra herramienta de dashboards?",
-            a: "Velur es una plataforma de inteligencia de ingresos — algo fundamentalmente distinto a un dashboard. Un dashboard te muestra números. Velur te muestra números y te explica por qué se movieron, cuáles requieren acción y qué hacer a continuación. Cada métrica incluye una nota analítica de IA en lenguaje natural. Piensa en ello como tener un analista de datos senior disponible cada mañana, no un conjunto de gráficos en los que quedarte mirando.",
+            a: "Velur es una plataforma de inteligencia de ingresos, algo fundamentalmente distinto a un dashboard. Un dashboard te muestra números. Velur te muestra números y te explica por qué se movieron, cuáles requieren acción y qué hacer a continuación. Cada métrica incluye una nota analítica de IA en lenguaje natural. Piensa en ello como tener un analista de datos senior disponible cada mañana, no un conjunto de gráficos en los que quedarte mirando.",
           },
           {
             q: "¿En qué se diferencia Velur de Triple Whale, Northbeam o Daasity?",
-            a: "Triple Whale y Northbeam son ante todo herramientas de atribución — centradas en la medición del gasto publicitario y el tracking por píxel. Velur es una plataforma de inteligencia de ingresos: cubre la atribución, pero también la retención por cohortes, el MRR de suscripciones, el modelado de LTV conductual y los informes diarios con contexto de IA. La diferencia clave es que Velur no solo te dice qué ocurrió — te explica por qué y qué hacer después. Además, unifica tus plataformas publicitarias, email y datos de suscripción en un modelo de ingresos unificado en lugar de tratarlos por separado.",
+            a: "Triple Whale y Northbeam son ante todo herramientas de atribución, centradas en la medición del gasto publicitario y el tracking por píxel. Velur es una plataforma de inteligencia de ingresos: cubre la atribución, pero también la retención por cohortes, el MRR de suscripciones, el modelado de LTV conductual y los informes diarios con contexto de IA. La diferencia clave es que Velur no solo te dice qué ocurrió, te explica por qué y qué hacer después. Además, unifica tus plataformas publicitarias, email y datos de suscripción en un modelo de ingresos unificado en lugar de tratarlos por separado.",
           },
           {
             q: "¿Qué es el informe de ingresos diario y qué incluye?",
-            a: "Cada mañana, Velur genera un informe que muestra tus métricas clave — ingresos netos, MRR, ROAS combinado, margen de contribución — junto con una nota escrita por IA que explica los movimientos. Si tus ingresos bajaron un 12% ayer, Velur te dirá que fue por una caída en la tasa de conversión de Meta en tus campañas de adquisición, correlacionada con un retraso de entrega de 3 días que aparece en Shopify. No solo el número — la historia detrás.",
+            a: "Cada mañana, Velur genera un informe que muestra tus métricas clave, ingresos netos, MRR, ROAS combinado, margen de contribución, junto con una nota escrita por IA que explica los movimientos. Si tus ingresos bajaron un 12% ayer, Velur te dirá que fue por una caída en la tasa de conversión de Meta en tus campañas de adquisición, correlacionada con un retraso de entrega de 3 días que aparece en Shopify. No solo el número, la historia detrás.",
           },
           {
             q: "¿Puede Velur reemplazar mis herramientas de análisis actuales?",
-            a: "Para la mayoría de las marcas DTC, sí — Velur está diseñado para consolidar el stack de análisis que has acumulado con el tiempo. Si usas Triple Whale, Northbeam, una herramienta de cohortes separada y hojas de cálculo manuales en paralelo, Velur las reemplaza a todas. Las marcas suelen ahorrar entre 1.500 y 2.500 €/mes en suscripciones SaaS al consolidar en Velur. La única herramienta que no reemplazamos es la analítica nativa de Shopify, que complementamos en lugar de duplicar.",
+            a: "Para la mayoría de las marcas DTC, sí · Velur está diseñado para consolidar el stack de análisis que has acumulado con el tiempo. Si usas Triple Whale, Northbeam, una herramienta de cohortes separada y hojas de cálculo manuales en paralelo, Velur las reemplaza a todas. Las marcas suelen ahorrar entre 1.500 y 2.500 €/mes en suscripciones SaaS al consolidar en Velur. La única herramienta que no reemplazamos es la analítica nativa de Shopify, que complementamos en lugar de duplicar.",
           },
         ],
       },
@@ -743,19 +805,19 @@ const es: typeof en = {
         items: [
           {
             q: "¿Cómo gestiona Velur la atribución tras iOS14?",
-            a: "Velur utiliza un modelo de atribución de primera parte — es decir, nos apoyamos en señales del lado del servidor, tus datos de conversión de Shopify y Klaviyo, y atribución modelada en lugar de cookies de navegador o tracking por píxel. Este enfoque recupera la señal de medición que iOS14 destruyó para las herramientas dependientes del píxel. Obtienes CAC y ROAS precisos por canal, por campaña y por creativo — incluso en un entorno sin cookies.",
+            a: "Velur utiliza un modelo de atribución de primera parte, es decir, nos apoyamos en señales del lado del servidor, tus datos de conversión de Shopify y Klaviyo, y atribución modelada en lugar de cookies de navegador o tracking por píxel. Este enfoque recupera la señal de medición que iOS14 destruyó para las herramientas dependientes del píxel. Obtienes CAC y ROAS precisos por canal, por campaña y por creativo, incluso en un entorno sin cookies.",
           },
           {
             q: "¿Cuál es la diferencia entre el ROAS combinado y el ROAS por canal?",
-            a: "El ROAS por canal — lo que reportan Meta, Google y TikTok — es autoinformado. Cada plataforma se atribuye el mérito de la conversión, lo que genera triple contabilización y cifras infladas. El ROAS combinado es tu gasto publicitario total dividido entre tus ingresos totales — el único número que no se puede manipular. Velur te muestra ambos: el ROAS combinado como verdad absoluta, y el ROAS por canal con el contexto adecuado. Cuando divergen significativamente, Velur lo señala y explica por qué.",
+            a: "El ROAS por canal, lo que reportan Meta, Google y TikTok, es autoinformado. Cada plataforma se atribuye el mérito de la conversión, lo que genera triple contabilización y cifras infladas. El ROAS combinado es tu gasto publicitario total dividido entre tus ingresos totales, el único número que no se puede manipular. Velur te muestra ambos: el ROAS combinado como verdad absoluta, y el ROAS por canal con el contexto adecuado. Cuando divergen significativamente, Velur lo señala y explica por qué.",
           },
           {
             q: "¿Cómo modela Velur la atribución entre email y canales de pago?",
-            a: "Velur asigna ingresos a los puntos de contacto que realmente influyeron en la conversión, usando un modelo basado en tus señales de primera parte — datos de pedidos de Shopify, activadores de flujos de Klaviyo e inversión en plataformas publicitarias. A diferencia de los modelos de último clic (que dan todo el crédito al último punto de contacto) o los modelos reportados por plataformas (sesgados hacia sus propios canales), el modelo de Velur es neutro y se construye sobre lo que tus clientes realmente hicieron.",
+            a: "Velur asigna ingresos a los puntos de contacto que realmente influyeron en la conversión, usando un modelo basado en tus señales de primera parte, datos de pedidos de Shopify, activadores de flujos de Klaviyo e inversión en plataformas publicitarias. A diferencia de los modelos de último clic (que dan todo el crédito al último punto de contacto) o los modelos reportados por plataformas (sesgados hacia sus propios canales), el modelo de Velur es neutro y se construye sobre lo que tus clientes realmente hicieron.",
           },
           {
             q: "¿Puede Velur reemplazar mi suscripción a Triple Whale o Northbeam?",
-            a: "Para la mayoría de las marcas DTC, sí. Velur cubre los mismos casos de uso de atribución — atribución multitoque, datos propios, análisis de rendimiento creativo — más la inteligencia de cohortes, LTV y suscripciones que las herramientas de atribución no ofrecen. Si gastas más de 400 €/mes en soluciones puntuales de atribución, Velur suele amortizarse solo por la consolidación.",
+            a: "Para la mayoría de las marcas DTC, sí. Velur cubre los mismos casos de uso de atribución, atribución multitoque, datos propios, análisis de rendimiento creativo, más la inteligencia de cohortes, LTV y suscripciones que las herramientas de atribución no ofrecen. Si gastas más de 400 €/mes en soluciones puntuales de atribución, Velur suele amortizarse solo por la consolidación.",
           },
         ],
       },
@@ -764,19 +826,19 @@ const es: typeof en = {
         items: [
           {
             q: "¿Con qué plataformas se conecta Velur?",
-            a: "Velur se integra actualmente con: Shopify (pedidos, productos, clientes), Klaviyo (flujos de email, segmentos, atribución de ingresos), Meta Ads (inversión, creatividades, nivel de campaña), Google Ads (búsqueda, shopping, Performance Max), TikTok Ads (creatividades, campaña), Recharge (MRR de suscripciones, abandono, datos de cohortes) y Stripe (datos de pagos y suscripciones). Añadimos nuevas integraciones regularmente — si usas una plataforma que no aparece aquí, contáctanos y te diremos nuestra hoja de ruta.",
+            a: "Velur se integra actualmente con: Shopify (pedidos, productos, clientes), Klaviyo (flujos de email, segmentos, atribución de ingresos), Meta Ads (inversión, creatividades, nivel de campaña), Google Ads (búsqueda, shopping, Performance Max), TikTok Ads (creatividades, campaña), Recharge (MRR de suscripciones, abandono, datos de cohortes) y Stripe (datos de pagos y suscripciones). Añadimos nuevas integraciones regularmente, si usas una plataforma que no aparece aquí, contáctanos y te diremos nuestra hoja de ruta.",
           },
           {
             q: "¿Cuánto tiempo se tarda en estar operativo?",
-            a: "La mayoría de las marcas están activas en 48 horas tras conectar su stack. No se requiere ingeniería de datos por tu parte — autentificas cada integración a través del flujo de conexión de Velur, y nosotros nos encargamos del modelado de datos, la normalización y la capa de inteligencia. Tu primer informe de ingresos diario llega a la mañana siguiente de conectar tus datos.",
+            a: "La mayoría de las marcas están activas en 48 horas tras conectar su stack. No se requiere ingeniería de datos por tu parte, autentificas cada integración a través del flujo de conexión de Velur, y nosotros nos encargamos del modelado de datos, la normalización y la capa de inteligencia. Tu primer informe de ingresos diario llega a la mañana siguiente de conectar tus datos.",
           },
           {
             q: "¿Necesito un desarrollador o ingeniero de datos para usar Velur?",
-            a: "No. Velur está diseñado para fundadores de marcas DTC, responsables de crecimiento y directores de marketing — no para equipos de datos. Conectar tus integraciones lleva unos 15 minutos y no requiere conocimientos técnicos. Si alguna vez has conectado una integración de Klaviyo, ya sabes cómo configurar Velur.",
+            a: "No. Velur está diseñado para fundadores de marcas DTC, responsables de crecimiento y directores de marketing, no para equipos de datos. Conectar tus integraciones lleva unos 15 minutos y no requiere conocimientos técnicos. Si alguna vez has conectado una integración de Klaviyo, ya sabes cómo configurar Velur.",
           },
           {
             q: "¿Funciona Velur con Shopify Plus o solo con Shopify estándar?",
-            a: "Velur funciona con todos los planes de Shopify — Estándar, Avanzado y Plus. Para marcas Plus, también conectamos tu canal mayorista B2B, los datos de Markets y cualquier automatización personalizada de Shopify Flow que afecte a la atribución de ingresos.",
+            a: "Velur funciona con todos los planes de Shopify, Estándar, Avanzado y Plus. Para marcas Plus, también conectamos tu canal mayorista B2B, los datos de Markets y cualquier automatización personalizada de Shopify Flow que afecte a la atribución de ingresos.",
           },
         ],
       },
@@ -785,19 +847,19 @@ const es: typeof en = {
         items: [
           {
             q: "¿Qué son las cohortes de comportamiento y en qué se diferencian del RFM?",
-            a: "El RFM (Recencia, Frecuencia, Valor Monetario) agrupa a los clientes por cuándo compraron por última vez, con qué frecuencia y cuánto — un punto de partida útil, pero que no te dice nada sobre por qué se comportan así. Las cohortes de comportamiento en Velur agrupan a los clientes por canal de adquisición, primer producto comprado, tipo de suscripción y señales conductuales — y modelan su LTV previsto a 12 meses por segmento. La diferencia: el RFM te dice lo que hicieron los clientes. Las cohortes de comportamiento te dicen qué clientes vale la pena adquirir más y cuáles están consumiendo tu CAC sin aportar valor.",
+            a: "El RFM (Recencia, Frecuencia, Valor Monetario) agrupa a los clientes por cuándo compraron por última vez, con qué frecuencia y cuánto, un punto de partida útil, pero que no te dice nada sobre por qué se comportan así. Las cohortes de comportamiento en Velur agrupan a los clientes por canal de adquisición, primer producto comprado, tipo de suscripción y señales conductuales, y modelan su LTV previsto a 12 meses por segmento. La diferencia: el RFM te dice lo que hicieron los clientes. Las cohortes de comportamiento te dicen qué clientes vale la pena adquirir más y cuáles están consumiendo tu CAC sin aportar valor.",
           },
           {
             q: "¿Cómo modela Velur el LTV y qué precisión tiene?",
-            a: "El modelo de LTV de Velur se construye sobre tus datos históricos reales de cohortes — no en benchmarks del sector ni medias generales. Usamos análisis de supervivencia sobre tus curvas de retención para proyectar el LTV a 12 y 24 meses por segmento. La precisión mejora con el tiempo a medida que se acumulan más datos de cohortes. Para marcas con más de 12 meses de historial en Shopify, el modelo suele ser preciso dentro de un margen del 8–12% respecto al LTV realizado.",
+            a: "El modelo de LTV de Velur se construye sobre tus datos históricos reales de cohortes, no en benchmarks del sector ni medias generales. Usamos análisis de supervivencia sobre tus curvas de retención para proyectar el LTV a 12 y 24 meses por segmento. La precisión mejora con el tiempo a medida que se acumulan más datos de cohortes. Para marcas con más de 12 meses de historial en Shopify, el modelo suele ser preciso dentro de un margen del 8–12% respecto al LTV realizado.",
           },
           {
             q: "¿Dónde están mis datos realmente? ¿Quién tiene acceso a ellos?",
-            a: "Velur procesa tus datos para generar inteligencia e informes. No vendemos tus datos, no los compartimos con otras marcas ni los usamos para entrenar modelos compartidos. Tus datos de ingresos son tuyos — siempre. Operamos bajo acuerdos de tratamiento de datos conformes con el RGPD y almacenamos los datos en infraestructura con sede en la UE por defecto.",
+            a: "Velur procesa tus datos para generar inteligencia e informes. No vendemos tus datos, no los compartimos con otras marcas ni los usamos para entrenar modelos compartidos. Tus datos de ingresos son tuyos, siempre. Operamos bajo acuerdos de tratamiento de datos conformes con el RGPD y almacenamos los datos en infraestructura con sede en la UE por defecto.",
           },
           {
             q: "¿Cómo gestiona Velur las métricas de suscripción de forma diferente a las marcas de compra única?",
-            a: "Velur dispone de una capa de inteligencia de suscripciones dedicada para marcas con Recharge y Stripe Billing. Esto incluye seguimiento de MRR, curvas de retención de cohortes de suscripción, señales predictivas de abandono y LTV por plan — métricas que las herramientas de análisis de e-commerce estándar ignoran o tratan incorrectamente. Para marcas híbridas (suscripción + DTC), Velur modela ambas líneas de ingresos y muestra su interacción: qué clientes DTC se convierten en suscriptores y a qué margen.",
+            a: "Velur dispone de una capa de inteligencia de suscripciones dedicada para marcas con Recharge y Stripe Billing. Esto incluye seguimiento de MRR, curvas de retención de cohortes de suscripción, señales predictivas de abandono y LTV por plan, métricas que las herramientas de análisis de e-commerce estándar ignoran o tratan incorrectamente. Para marcas híbridas (suscripción + DTC), Velur modela ambas líneas de ingresos y muestra su interacción: qué clientes DTC se convierten en suscriptores y a qué margen.",
           },
         ],
       },
@@ -806,19 +868,19 @@ const es: typeof en = {
         items: [
           {
             q: "¿Cómo funciona el precio?",
-            a: "El precio de Velur depende de los módulos que actives y la escala de ingresos de tu marca. No publicamos tarifas por usuario ni contratos anuales de partida. La mejor forma de entender qué costaría Velur para tu situación específica es una demo de 15 minutos — te damos el precio exacto antes de que tomes ninguna decisión. Sin el típico 'contacta con ventas' sin respuesta.",
+            a: "El precio de Velur depende de los módulos que actives y la escala de ingresos de tu marca. No publicamos tarifas por usuario ni contratos anuales de partida. La mejor forma de entender qué costaría Velur para tu situación específica es una demo de 15 minutos, te damos el precio exacto antes de que tomes ninguna decisión. Sin el típico 'contacta con ventas' sin respuesta.",
           },
           {
             q: "¿Para qué tamaño de marca está diseñado Velur?",
-            a: "Velur está diseñado para marcas DTC y de suscripción con ingresos anuales de entre 500.000 € y 50 millones €. Por debajo de ese umbral, la capa de inteligencia no compensa aún el coste — una buena configuración de Shopify y Klaviyo te servirá mejor, y te lo diremos con honestidad. Por encima de 50 millones €, probablemente ya tienes un equipo de datos interno y podemos hablar de acuerdos enterprise. El punto óptimo son marcas en crecimiento rápido que han superado las hojas de cálculo pero aún no pueden justificar una contratación de datos a tiempo completo.",
+            a: "Velur está diseñado para marcas DTC y de suscripción con ingresos anuales de entre 500.000 € y 50 millones €. Por debajo de ese umbral, la capa de inteligencia no compensa aún el coste, una buena configuración de Shopify y Klaviyo te servirá mejor, y te lo diremos con honestidad. Por encima de 50 millones €, probablemente ya tienes un equipo de datos interno y podemos hablar de acuerdos enterprise. El punto óptimo son marcas en crecimiento rápido que han superado las hojas de cálculo pero aún no pueden justificar una contratación de datos a tiempo completo.",
           },
           {
             q: "¿Hay un plazo mínimo de contrato?",
-            a: "Sin contratos anuales, sin plazo mínimo. Velur funciona mes a mes. Ganamos tu suscripción siendo útiles cada día — no bloqueándote en un contrato del que te arrepientes. Si no te está aportando inteligencia accionable, deberías cancelar. Preferimos recuperarte cuando lo hayamos ganado a retenerte cuando no es el caso.",
+            a: "Sin contratos anuales, sin plazo mínimo. Velur funciona mes a mes. Ganamos tu suscripción siendo útiles cada día, no bloqueándote en un contrato del que te arrepientes. Si no te está aportando inteligencia accionable, deberías cancelar. Preferimos recuperarte cuando lo hayamos ganado a retenerte cuando no es el caso.",
           },
           {
             q: "¿Hay un período de prueba gratuito?",
-            a: "Ofrecemos un piloto de 14 días para marcas DTC cualificadas. Durante el piloto, tu stack se conecta completamente, tus primeros informes de ingresos se ponen en marcha y ves exactamente lo que Velur muestra para tu negocio — no en un entorno de demo con datos genéricos. Al cabo de 14 días, decides si continuar. No se requiere tarjeta de crédito para iniciar el piloto.",
+            a: "Ofrecemos un piloto de 14 días para marcas DTC cualificadas. Durante el piloto, tu stack se conecta completamente, tus primeros informes de ingresos se ponen en marcha y ves exactamente lo que Velur muestra para tu negocio, no en un entorno de demo con datos genéricos. Al cabo de 14 días, decides si continuar. No se requiere tarjeta de crédito para iniciar el piloto.",
           },
         ],
       },

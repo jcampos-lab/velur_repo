@@ -14,6 +14,7 @@ export default function Header() {
 
   const NAV_LINKS = [
     { label: t.header.nav.platform, href: "/services" },
+    { label: t.header.nav.studio,   href: "/studio"   },
     { label: t.header.nav.company,  href: "/company"  },
     { label: t.header.nav.faq,      href: "/faq"      },
   ];
@@ -28,42 +29,38 @@ export default function Header() {
     <>
       <header
         ref={headerRef}
-        className={`fixed top-0 left-0 right-0 z-50 h-20 border-b border-line transition-all duration-200 ${
+        className={`fixed top-0 left-0 right-0 z-50 h-16 md:h-[68px] border-b border-line transition-all duration-200 ${
           scrolled
             ? "bg-paper/85 backdrop-blur-md"
             : "bg-paper"
         }`}
       >
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12 h-full flex items-center justify-between gap-6">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 h-full flex items-center justify-between gap-6">
 
-          {/* Logo — black in light mode, white in dark mode */}
-          <Link href="/" className="flex items-center gap-3 shrink-0" aria-label="Velur home">
-            <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur mark" width={42} height={42} className="shrink-0 dark:hidden" />
-            <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur"       width={108} height={27} className="shrink-0 dark:hidden" />
-            <Image src="/logos/Velur_Icon_Logo_Transparent_White.png" alt="Velur mark" width={42} height={42} className="shrink-0 hidden dark:block" />
-            <Image src="/logos/Velur_Copy_Logo_Transparent_White.png" alt="velur"       width={108} height={27} className="shrink-0 hidden dark:block" />
+          <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="Velur home">
+            <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur mark" width={22} height={22} className="shrink-0 dark:hidden" />
+            <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur"       width={56} height={14} className="shrink-0 dark:hidden" />
+            <Image src="/logos/Velur_Icon_Logo_Transparent_White.png" alt="Velur mark" width={22} height={22} className="shrink-0 hidden dark:block" />
+            <Image src="/logos/Velur_Copy_Logo_Transparent_White.png" alt="velur"       width={56} height={14} className="shrink-0 hidden dark:block" />
           </Link>
 
-          {/* Nav */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+          <nav className="hidden md:flex items-center gap-7" aria-label="Main navigation">
             {NAV_LINKS.map(link => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-sans font-medium text-base text-ink hover:text-amber transition-colors duration-150"
+                className="font-sans font-medium text-[14.5px] text-ink hover:text-amber transition-colors duration-150"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          {/* Right actions */}
-          <div className="flex items-center gap-3 shrink-0">
-            {/* Language toggle */}
+          <div className="flex items-center gap-2 md:gap-3 shrink-0">
             <button
               onClick={() => setLang(lang === "en" ? "es" : "en")}
               aria-label="Change language"
-              className="hidden md:flex items-center gap-1 font-mono text-xs text-muted hover:text-ink transition-colors duration-150 border border-line rounded-full px-3 py-1.5"
+              className="hidden md:flex items-center gap-1 font-mono text-[11px] text-muted hover:text-ink transition-colors duration-150 border border-line rounded-full px-2.5 py-1"
             >
               <span className={lang === "en" ? "text-ink font-semibold" : ""}>EN</span>
               <span className="text-line">/</span>
@@ -72,7 +69,7 @@ export default function Header() {
             <ThemeToggle />
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center gap-2 bg-ink text-paper font-sans font-medium text-base px-6 py-3 rounded-full hover:bg-amber transition-colors duration-200"
+              className="hidden md:inline-flex items-center gap-1.5 bg-ink text-paper font-sans font-medium text-[13.5px] px-4 py-2 rounded-full hover:bg-amber transition-colors duration-200"
             >
               {t.header.cta} <span aria-hidden>→</span>
             </Link>
@@ -81,23 +78,22 @@ export default function Header() {
               aria-label="Open menu"
               onClick={() => setMenuOpen(true)}
             >
-              <span className="block w-6 h-px bg-ink" />
-              <span className="block w-6 h-px bg-ink" />
-              <span className="block w-4 h-px bg-ink" />
+              <span className="block w-5 h-px bg-ink" />
+              <span className="block w-5 h-px bg-ink" />
+              <span className="block w-3.5 h-px bg-ink" />
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile overlay nav */}
       {menuOpen && (
         <div className="fixed inset-0 z-[100] bg-paper flex flex-col">
-          <div className="flex items-center justify-between px-6 h-20 border-b border-line">
-            <Link href="/" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
-              <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur mark" width={42} height={42} className="dark:hidden" />
-              <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur"       width={108} height={27} className="dark:hidden" />
-              <Image src="/logos/Velur_Icon_Logo_Transparent_White.png" alt="Velur mark" width={42} height={42} className="hidden dark:block" />
-              <Image src="/logos/Velur_Copy_Logo_Transparent_White.png" alt="velur"       width={108} height={27} className="hidden dark:block" />
+          <div className="flex items-center justify-between px-5 h-16 border-b border-line">
+            <Link href="/" className="flex items-center gap-2" onClick={() => setMenuOpen(false)}>
+              <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur mark" width={22} height={22} className="dark:hidden" />
+              <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur"       width={56} height={14} className="dark:hidden" />
+              <Image src="/logos/Velur_Icon_Logo_Transparent_White.png" alt="Velur mark" width={22} height={22} className="hidden dark:block" />
+              <Image src="/logos/Velur_Copy_Logo_Transparent_White.png" alt="velur"       width={56} height={14} className="hidden dark:block" />
             </Link>
             <button
               onClick={() => setMenuOpen(false)}

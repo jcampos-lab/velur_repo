@@ -65,7 +65,7 @@ export default function WaitlistForm() {
       </button>
 
       {state === "error" && (
-        <p className="font-mono text-xs text-red-500">Something went wrong — try again or email us at hello@velur.io</p>
+        <p className="font-mono text-xs text-red-500">Something went wrong, try again or email us at hello@velur.io</p>
       )}
 
       <p className="font-mono text-xs text-muted">{c.formNote}</p>

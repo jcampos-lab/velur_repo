@@ -27,11 +27,11 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Velur — Revenue Intelligence for DTC Brands",
+  title: "Velur · Revenue Intelligence for DTC Brands",
   description:
     "Velur turns your Shopify, Klaviyo, and Meta data into the three numbers that decide your next quarter. No new dashboard. No new SaaS bill.",
   openGraph: {
-    title: "Velur — Revenue Intelligence for DTC Brands",
+    title: "Velur · Revenue Intelligence for DTC Brands",
     description:
       "Velur turns your Shopify, Klaviyo, and Meta data into the three numbers that decide your next quarter.",
     url: "https://velur.io",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Velur — Revenue Intelligence for DTC Brands",
+    title: "Velur · Revenue Intelligence for DTC Brands",
     description:
       "Velur turns your Shopify, Klaviyo, and Meta data into the three numbers that decide your next quarter.",
     images: ["https://velur.io/og-image.png"],

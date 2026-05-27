@@ -51,7 +51,7 @@ export default function DataPipelineFlow() {
       style={{ animation: "fadeSlideUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.15s both" }}
     >
       <p className="font-mono text-[10px] uppercase tracking-widest text-muted mb-5">
-        Your Analytics Stack — Built Once, Owned Forever
+        Your Analytics Stack, Built Once, Owned Forever
       </p>
 
       <svg viewBox={`0 0 ${VBW} ${VBH}`} className="w-full overflow-visible" aria-hidden>
@@ -95,7 +95,7 @@ export default function DataPipelineFlow() {
         {/* Bus → Warehouse */}
         <Arr x1={BUS_X} y={CONV_Y} x2={WH_X} delay="0.65s" />
 
-        {/* Warehouse (amber accent — the core node) */}
+        {/* Warehouse (amber accent, the core node) */}
         <g style={{ animation: "fadeSlideUp 0.4s ease 0.55s both" }}>
           <rect
             x={WH_X} y={SY[0]} width={WH_W} height={WH_H} rx={8}

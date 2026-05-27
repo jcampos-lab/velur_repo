@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Imprint — Velur",
+  title: "Imprint · Velur",
   description: "Legal notice and contact information for Velur.",
 };
 

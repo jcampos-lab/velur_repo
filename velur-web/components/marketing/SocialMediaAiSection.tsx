@@ -1,149 +1,99 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-
-type Tool = { name: string; role: string };
-
-const ANALYTICS: Tool[] = [
-  { name: "Shopify",   role: "orders + margin"          },
-  { name: "Klaviyo",   role: "flows + LTV signals"      },
-  { name: "Meta Ads",  role: "spend + creative tags"    },
-  { name: "TikTok Ads",role: "spend + saves"            },
-  { name: "GA4",       role: "sessions + funnels"       },
-  { name: "Postgres",  role: "your warehouse, if any"   },
-];
-
-const CREATIVE_AI: Tool[] = [
-  { name: "Claude",      role: "email + brand copy"      },
-  { name: "ChatGPT",     role: "ad angles + briefs"      },
-  { name: "MidJourney",  role: "static creative"          },
-  { name: "Flux",        role: "stylized visuals"        },
-  { name: "Higgsfield",  role: "video + reels"            },
-  { name: "Leonardo AI", role: "motion + iterations"     },
-];
-
-function Tile({ tool, index, prefersReduced }: { tool: Tool; index: number; prefersReduced: boolean | null }) {
-  return (
-    <motion.div
-      initial={prefersReduced ? {} : { opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{
-        duration: 0.45,
-        delay: prefersReduced ? 0 : index * 0.05,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      whileHover={prefersReduced ? undefined : { y: -2 }}
-      className="rounded-xl border border-line bg-paper px-4 py-3.5 hover:border-amber transition-colors"
-    >
-      <p className="font-sans font-semibold text-ink text-[14px] leading-tight">{tool.name}</p>
-      <p className="font-sans text-[12px] text-ink/55 mt-1">{tool.role}</p>
-    </motion.div>
-  );
-}
+import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 export default function SocialMediaAiSection() {
   const prefersReduced = useReducedMotion();
+  const { t } = useLanguage();
+  const copy = t.twoProducts;
 
   return (
     <section className="bg-paper py-14 md:py-20">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div className="max-w-[1440px] mx-auto px-5 md:px-10">
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end mb-10 md:mb-14">
-          <div className="lg:col-span-7 max-w-2xl">
-            <p className="font-sans text-ink/55 text-[13px] mb-2">
-              Analytics + creative AI
-            </p>
-            <h2
-              className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em]"
-              style={{ fontSize: "clamp(24px, 3.4vw, 40px)" }}
-            >
-              Two halves of the same job.
-            </h2>
-          </div>
-          <p className="lg:col-span-5 font-sans text-base text-ink/70 leading-relaxed">
-            Velur reads your data <em className="not-italic font-medium">and</em> helps you use AI tools where they actually pay off. They are different jobs. We keep them honest by treating them that way.
+        <div className="mb-8 md:mb-12 max-w-2xl">
+          <p className="font-sans text-ink/55 text-[13px] mb-2">
+            {copy.label}
+          </p>
+          <h2
+            className="font-sans font-bold text-ink leading-[1.1] tracking-[-0.025em]"
+            style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
+          >
+            {copy.heading}
+          </h2>
+          <p className="font-sans text-base text-ink/70 leading-relaxed mt-3">
+            {copy.subhead}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
 
+          {/* Revenue Intelligence card */}
           <motion.div
-            initial={prefersReduced ? {} : { opacity: 0, y: 24 }}
+            initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-2xl border border-line bg-cream p-6 md:p-7"
+            whileHover={prefersReduced ? undefined : { y: -3 }}
+            className="rounded-2xl border border-line bg-cream overflow-hidden flex flex-col"
           >
-            <div className="flex items-center gap-2 mb-5">
-              <span className="inline-flex w-7 h-7 rounded-full bg-amber items-center justify-center">
-                <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-                  <path d="M2 11 L5 7 L8 9 L12 3" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-              <p className="font-mono text-[11px] tracking-[0.16em] text-amber uppercase">
-                Analytics
+            <div className="h-28 md:h-32 bg-gradient-to-br from-[#FF5B1A] via-[#FF7A3D] to-[#FFB088] relative flex items-end p-4">
+              <p className="font-mono text-[10.5px] tracking-[0.18em] text-white/90 uppercase">
+                {copy.riLabel}
               </p>
             </div>
-            <h3
-              className="font-sans font-bold text-ink leading-tight tracking-[-0.02em] mb-3"
-              style={{ fontSize: "clamp(18px, 1.7vw, 24px)" }}
-            >
-              Read the stack. Explain the why.
-            </h3>
-            <p className="font-sans text-[15px] text-ink/70 leading-relaxed mb-6">
-              We pull from your existing tools, reconcile what they disagree about, and send one daily brief that tells you what actually moved revenue.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5">
-              {ANALYTICS.map((tool, i) => (
-                <Tile key={tool.name} tool={tool} index={i} prefersReduced={prefersReduced} />
-              ))}
+            <div className="p-5 md:p-7 flex flex-col gap-3 flex-1">
+              <h3 className="font-sans font-bold text-ink text-[19px] md:text-[22px] leading-tight tracking-[-0.02em]">
+                {copy.riHeading}
+              </h3>
+              <p className="font-sans text-[14.5px] text-ink/70 leading-relaxed flex-1">
+                {copy.riBody}
+              </p>
+              <Link
+                href="/services"
+                className="font-sans font-medium text-[14px] text-amber hover:underline underline-offset-4 mt-2"
+              >
+                {copy.riCta}
+              </Link>
             </div>
           </motion.div>
 
+          {/* AI Studio card */}
           <motion.div
-            initial={prefersReduced ? {} : { opacity: 0, y: 24 }}
+            initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-2xl border border-line bg-cream p-6 md:p-7"
+            whileHover={prefersReduced ? undefined : { y: -3 }}
+            className="rounded-2xl border border-line bg-cream overflow-hidden flex flex-col"
           >
-            <div className="flex items-center gap-2 mb-5">
-              <span className="inline-flex w-7 h-7 rounded-full bg-ink items-center justify-center">
-                <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-                  <path d="M7 1.5 L8.4 5.6 L12.5 7 L8.4 8.4 L7 12.5 L5.6 8.4 L1.5 7 L5.6 5.6 Z" fill="white" />
-                </svg>
-              </span>
-              <p className="font-mono text-[11px] tracking-[0.16em] text-ink uppercase">
-                Creative AI
+            <div className="h-28 md:h-32 bg-gradient-to-br from-[#1A1A1A] via-[#2B2B2B] to-[#4A4A4A] relative flex items-end p-4">
+              <p className="font-mono text-[10.5px] tracking-[0.18em] text-white/90 uppercase">
+                {copy.studioLabel}
               </p>
             </div>
-            <h3
-              className="font-sans font-bold text-ink leading-tight tracking-[-0.02em] mb-3"
-              style={{ fontSize: "clamp(18px, 1.7vw, 24px)" }}
-            >
-              Put the tools to work, on purpose.
-            </h3>
-            <p className="font-sans text-[15px] text-ink/70 leading-relaxed mb-6">
-              We help you fold generative AI into the parts of your business where it pays. Copy, ad creative, video, brand visuals, and tie the output back to what actually sold.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5">
-              {CREATIVE_AI.map((tool, i) => (
-                <Tile key={tool.name} tool={tool} index={i} prefersReduced={prefersReduced} />
-              ))}
+            <div className="p-5 md:p-7 flex flex-col gap-3 flex-1">
+              <h3 className="font-sans font-bold text-ink text-[19px] md:text-[22px] leading-tight tracking-[-0.02em]">
+                {copy.studioHeading}
+              </h3>
+              <p className="font-sans text-[14.5px] text-ink/70 leading-relaxed flex-1">
+                {copy.studioBody}
+              </p>
+              <Link
+                href="/studio"
+                className="font-sans font-medium text-[14px] text-amber hover:underline underline-offset-4 mt-2"
+              >
+                {copy.studioCta}
+              </Link>
             </div>
           </motion.div>
         </div>
 
-        <motion.p
-          initial={prefersReduced ? {} : { opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="font-sans text-sm md:text-base text-ink/65 leading-relaxed mt-8 md:mt-10 max-w-2xl"
-        >
-          Same brief, two perspectives. Some customers come for the analytics. Some come because their TikToks aren&apos;t converting. Most stay because both happen on one screen.
-        </motion.p>
+        <p className="font-sans text-sm md:text-base text-ink/65 leading-relaxed mt-6 md:mt-8 max-w-3xl">
+          {copy.footnote}
+        </p>
       </div>
     </section>
   );

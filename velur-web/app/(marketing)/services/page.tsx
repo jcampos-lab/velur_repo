@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ServicesContent from "@/components/pages/ServicesContent";
 
 export const metadata: Metadata = {
-  title: "Platform — Velur",
+  title: "Platform · Velur",
   description:
-    "Revenue intelligence for DTC brands. Pulse, Attribution, and Cohort & LTV intelligence — unified in one platform.",
+    "Revenue intelligence for DTC brands. Pulse, Attribution, and Cohort & LTV intelligence, unified in one platform.",
 };
 
 export default function PlatformPage() {
