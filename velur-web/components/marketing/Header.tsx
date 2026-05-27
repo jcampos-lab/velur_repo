@@ -3,22 +3,23 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
-const NAV_LINKS = [
-  { label: "Platform",  href: "/services" },
-  { label: "Company",   href: "/company"  },
-  { label: "Blog",      href: "/blog"     },
-];
-
 export default function Header() {
-  const headerRef = useRef<HTMLElement>(null);
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { lang, setLang } = useLanguage();
+  const headerRef   = useRef<HTMLElement>(null);
+  const [scrolled,  setScrolled]  = useState(false);
+  const [menuOpen,  setMenuOpen]  = useState(false);
+  const { t, lang, setLang } = useLanguage();
+
+  const NAV_LINKS = [
+    { label: t.header.nav.platform,     href: "/services"      },
+    { label: t.header.nav.caseStudies,  href: "/case-studies"  },
+    { label: t.header.nav.company,      href: "/company"       },
+  ];
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -27,47 +28,56 @@ export default function Header() {
     <>
       <header
         ref={headerRef}
-        className={`sticky top-0 z-50 h-[72px] transition-colors duration-200 ${
-          scrolled ? "bg-cream/90 backdrop-blur-md border-b border-line" : "bg-cream"
+        className={`fixed top-0 left-0 right-0 z-50 h-20 border-b border-line transition-all duration-200 ${
+          scrolled
+            ? "bg-paper/85 backdrop-blur-md"
+            : "bg-paper"
         }`}
       >
-        <div className="max-w-[1440px] mx-auto px-6 md:px-10 h-full flex items-center justify-between gap-6">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 h-full flex items-center justify-between gap-6">
 
-          <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="Velur home">
-            <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="" width={28} height={28} className="dark:hidden" />
-            <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur" width={78} height={20} className="dark:hidden" />
-            <Image src="/logos/Velur_Icon_Logo_Transparent_White.png" alt="" width={28} height={28} className="hidden dark:block" />
-            <Image src="/logos/Velur_Copy_Logo_Transparent_White.png" alt="velur" width={78} height={20} className="hidden dark:block" />
+          {/* Logo — black in light mode, white in dark mode */}
+          <Link href="/" className="flex items-center gap-3 shrink-0" aria-label="Velur home">
+            <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur mark" width={42} height={42} className="shrink-0 dark:hidden" />
+            <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur"       width={108} height={27} className="shrink-0 dark:hidden" />
+            <Image src="/logos/Velur_Icon_Logo_Transparent_White.png" alt="Velur mark" width={42} height={42} className="shrink-0 hidden dark:block" />
+            <Image src="/logos/Velur_Copy_Logo_Transparent_White.png" alt="velur"       width={108} height={27} className="shrink-0 hidden dark:block" />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2" aria-label="Main">
+          {/* Nav */}
+          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
             {NAV_LINKS.map(link => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-sans text-[15px] text-ink/80 hover:text-ink transition-colors"
+                className="font-sans font-medium text-base text-ink hover:text-amber transition-colors duration-150"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
+          {/* Right actions */}
           <div className="flex items-center gap-3 shrink-0">
-            <Link
-              href="/contact"
-              className="hidden md:inline-flex items-center bg-amber text-white font-sans font-semibold text-[15px] px-5 py-2.5 rounded-md hover:bg-ink transition-colors"
-            >
-              Request access
-            </Link>
+            {/* Language toggle */}
             <button
               onClick={() => setLang(lang === "en" ? "es" : "en")}
               aria-label="Change language"
-              className="hidden md:inline-flex items-center font-sans text-[14px] text-ink/70 hover:text-ink pl-3 border-l border-line transition-colors"
+              className="hidden md:flex items-center gap-1 font-mono text-xs text-muted hover:text-ink transition-colors duration-150 border border-line rounded-full px-3 py-1.5"
             >
-              {lang === "en" ? "ES" : "EN"}
+              <span className={lang === "en" ? "text-ink font-semibold" : ""}>EN</span>
+              <span className="text-line">/</span>
+              <span className={lang === "es" ? "text-ink font-semibold" : ""}>ES</span>
             </button>
+            <ThemeToggle />
+            <Link
+              href="/contact"
+              className="hidden md:inline-flex items-center gap-2 bg-ink text-paper font-sans font-medium text-base px-6 py-3 rounded-full hover:bg-amber transition-colors duration-200"
+            >
+              {t.header.cta} <span aria-hidden>→</span>
+            </Link>
             <button
-              className="md:hidden flex flex-col gap-[5px] p-2"
+              className="md:hidden flex flex-col gap-1.5 p-2"
               aria-label="Open menu"
               onClick={() => setMenuOpen(true)}
             >
@@ -79,14 +89,15 @@ export default function Header() {
         </div>
       </header>
 
+      {/* Mobile overlay nav */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[100] bg-cream flex flex-col">
-          <div className="flex items-center justify-between px-6 h-[72px] border-b border-line">
-            <Link href="/" className="flex items-center gap-2.5" onClick={() => setMenuOpen(false)}>
-              <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="" width={28} height={28} className="dark:hidden" />
-              <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur" width={78} height={20} className="dark:hidden" />
-              <Image src="/logos/Velur_Icon_Logo_Transparent_White.png" alt="" width={28} height={28} className="hidden dark:block" />
-              <Image src="/logos/Velur_Copy_Logo_Transparent_White.png" alt="velur" width={78} height={20} className="hidden dark:block" />
+        <div className="fixed inset-0 z-[100] bg-paper flex flex-col">
+          <div className="flex items-center justify-between px-6 h-20 border-b border-line">
+            <Link href="/" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
+              <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur mark" width={42} height={42} className="dark:hidden" />
+              <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur"       width={108} height={27} className="dark:hidden" />
+              <Image src="/logos/Velur_Icon_Logo_Transparent_White.png" alt="Velur mark" width={42} height={42} className="hidden dark:block" />
+              <Image src="/logos/Velur_Copy_Logo_Transparent_White.png" alt="velur"       width={108} height={27} className="hidden dark:block" />
             </Link>
             <button
               onClick={() => setMenuOpen(false)}
@@ -94,8 +105,8 @@ export default function Header() {
               className="w-9 h-9 flex items-center justify-center text-ink"
             >
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                <line x1="1" y1="1" x2="17" y2="17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                <line x1="17" y1="1" x2="1" y2="17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                <line x1="1" y1="1" x2="17" y2="17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="17" y1="1" x2="1" y2="17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
               </svg>
             </button>
           </div>
@@ -113,13 +124,13 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-6 inline-flex items-center justify-center bg-amber text-white font-sans font-semibold text-base px-6 py-3.5 rounded-md"
+              className="mt-6 inline-flex items-center justify-center gap-2 bg-ink text-paper font-sans font-medium text-base px-6 py-3.5 rounded-full"
             >
-              Request access
+              {t.header.cta} →
             </Link>
             <button
               onClick={() => setLang(lang === "en" ? "es" : "en")}
-              className="mt-4 font-sans text-sm text-muted text-left"
+              className="mt-4 font-mono text-sm text-muted text-left"
             >
               {lang === "en" ? "Cambiar a Español" : "Switch to English"}
             </button>
