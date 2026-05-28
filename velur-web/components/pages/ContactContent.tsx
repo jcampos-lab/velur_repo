@@ -30,7 +30,7 @@ export default function ContactContent() {
             >
               {c.h1a} {c.h1b}
             </h1>
-            <p className="font-sans text-ink/75 text-base md:text-lg leading-relaxed max-w-2xl">
+            <p className="font-sans text-paper/75 text-base md:text-lg leading-relaxed max-w-2xl">
               {c.subhead}
             </p>
           </motion.div>

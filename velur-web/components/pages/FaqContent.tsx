@@ -78,7 +78,7 @@ export default function FaqContent() {
             >
               {f.h1a} {f.h1b}
             </h1>
-            <p className="font-sans text-ink/75 text-base md:text-lg leading-relaxed max-w-2xl">
+            <p className="font-sans text-paper/75 text-base md:text-lg leading-relaxed max-w-2xl">
               {f.subhead}
             </p>
           </motion.div>
@@ -158,7 +158,7 @@ export default function FaqContent() {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-ink text-paper font-sans font-semibold text-[14.5px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors"
+                className="inline-flex items-center gap-2 bg-ink text-paper font-sans font-semibold text-[14.5px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
               >
                 {f.contactBtn}
               </Link>

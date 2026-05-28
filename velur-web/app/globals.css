@@ -1,46 +1,38 @@
 @import "tailwindcss";
 
-/* Velur runs on a Framer-style dark canvas. One mode, monochrome surfaces,
-   sky-blue as the only chromatic signal, gradient spotlight cards for
-   warmth. Tokens follow the front-matter spec in DESIGN.md. */
+/* Velur palette
+   - Platinum         #ECECEC — page background
+   - Carbon Black     #1E1B18 — text + dark feature cards
+   - International Klein Blue  #1831B0 — primary accent (CTAs, eyebrows)
+   - Blue Slate       #57627C — secondary card surface
+   - Silver           #B7B6B7 — neutral, borders, decorative
+*/
 
 @theme {
-  /* ─── Anchor surfaces ─────────────────────────────────────────────── */
-  --color-paper:      #0E0E0E;   /* CANVAS — page background */
-  --color-cream:      #0E0E0E;   /* alias for canvas, used on section bg */
-  --color-stone:      #1A1A1A;   /* SURFACE-1 — default card */
-  --color-alabaster:  #242424;   /* SURFACE-2 — featured card / lift */
-  --color-ink:        #FFFFFF;   /* PRIMARY — text + white pill bg */
-  --color-line:       #2A2A2A;   /* hairline border */
-  --color-line-soft:  #1F1F1F;   /* softer divider */
-  --color-muted:      #999999;   /* INK-MUTED — secondary text */
+  /* ─── Surfaces ────────────────────────────────────────────────────── */
+  --color-paper:      #FFFFFF;   /* white inner cards + button labels */
+  --color-cream:      #ECECEC;   /* PLATINUM — page background */
+  --color-stone:      #E2E2E2;   /* subtle section background */
+  --color-alabaster:  #F4F4F4;   /* very light surface */
+  --color-ink:        #1E1B18;   /* CARBON BLACK — primary text + dark cards */
+  --color-line:       #D4D4D4;   /* SILVER-tinted hairline */
+  --color-muted:      #6E6E6E;   /* secondary text */
   --color-positive:   #1F7A4D;   /* semantic green */
 
-  /* ─── Single chromatic accent (Sky Blue) ──────────────────────────── */
-  /* Token name stays `amber` so existing utility classes keep working,
-     value is now Framer's accent blue. Use it sparingly: links, focus
-     rings, eyebrow labels, accent dots. Never as a brand fill. */
-  --color-amber:       #0099FF;
-  --color-amber-tint:  #0F2E45;
-  --color-amber-deep:  #0077DD;
+  /* ─── Brand accent (International Klein Blue) ─────────────────────── */
+  /* Token name stays `amber` so existing utilities keep working, the
+     underlying hex is now Klein Blue. Pairs with white text on Klein
+     Blue backgrounds. */
+  --color-amber:       #1831B0;
+  --color-amber-tint:  #DDE4FB;   /* light wash for badges */
+  --color-amber-deep:  #102080;   /* darker variant for hover/active */
 
-  /* ─── Brand surfaces — repurposed as surface lifts ────────────────── */
-  --color-brand-brown:  #1A1A1A;   /* now surface-1 (was warm dark brown) */
-  --color-brand-slate:  #242424;   /* now surface-2 */
-  --color-brand-beige:  #2E2E2E;   /* slight further lift */
-  --color-brand-sky:    #1A1A1A;   /* now surface-1 */
+  /* ─── Brand surfaces ──────────────────────────────────────────────── */
+  --color-brand-brown:  #1E1B18;   /* Carbon Black — dark feature cards */
+  --color-brand-slate:  #57627C;   /* Blue Slate — secondary cards */
+  --color-brand-beige:  #B7B6B7;   /* Silver — neutral cards */
+  --color-brand-sky:    #1831B0;   /* Klein Blue — bold spotlight card */
 
-  /* ─── Gradient spotlight stops (signature device) ─────────────────── */
-  --color-gradient-violet-from:   #7A3FC7;
-  --color-gradient-violet-to:     #3F1F8A;
-  --color-gradient-magenta-from:  #C73FA0;
-  --color-gradient-magenta-to:    #6B1E54;
-  --color-gradient-orange-from:   #E89E4C;
-  --color-gradient-orange-to:     #B86628;
-  --color-gradient-coral-from:    #E85F7A;
-  --color-gradient-coral-to:      #B0394E;
-
-  /* ─── Typography ──────────────────────────────────────────────────── */
   --font-sans:  var(--font-bricolage), sans-serif;
   --font-serif: var(--font-fraunces), serif;
   --font-mono:  var(--font-jetbrains), monospace;
@@ -50,7 +42,7 @@
 html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
-  background-color: var(--color-paper);
+  background-color: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-bricolage), sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -58,24 +50,18 @@ body {
   font-feature-settings: "cv01", "cv05", "cv09", "cv11", "ss03", "ss07", "dlig";
 }
 
-::selection { background: #0099FF; color: #FFFFFF; }
+::selection { background: #1831B0; color: #FFFFFF; }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-paper); }
+::-webkit-scrollbar-track { background: var(--color-cream); }
 ::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-muted); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-ink); }
 
 :focus-visible {
-  outline: 2px solid #0099FF;
+  outline: 2px solid #1831B0;
   outline-offset: 3px;
   border-radius: 4px;
 }
-
-/* ─── Gradient spotlight card utility classes ──────────────────────── */
-.gradient-violet  { background: radial-gradient(ellipse at 30% 30%, var(--color-gradient-violet-from),  var(--color-gradient-violet-to)  120%); }
-.gradient-magenta { background: radial-gradient(ellipse at 30% 30%, var(--color-gradient-magenta-from), var(--color-gradient-magenta-to) 120%); }
-.gradient-orange  { background: radial-gradient(ellipse at 30% 30%, var(--color-gradient-orange-from),  var(--color-gradient-orange-to)  120%); }
-.gradient-coral   { background: radial-gradient(ellipse at 30% 30%, var(--color-gradient-coral-from),   var(--color-gradient-coral-to)   120%); }
 
 /* ─── Marquee ─────────────────────────────────────────────────────── */
 @keyframes marquee {

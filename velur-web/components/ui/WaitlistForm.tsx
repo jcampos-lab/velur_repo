@@ -59,7 +59,7 @@ export default function WaitlistForm() {
       <button
         type="submit"
         disabled={state === "loading"}
-        className="inline-flex items-center justify-center gap-2 bg-ink text-paper font-sans font-medium text-base px-6 py-4 rounded-full hover:bg-amber hover:text-ink transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="inline-flex items-center justify-center gap-2 bg-ink text-paper font-sans font-medium text-base px-6 py-4 rounded-full hover:bg-amber hover:text-paper transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {state === "loading" ? "Sending…" : c.formBtn}
       </button>

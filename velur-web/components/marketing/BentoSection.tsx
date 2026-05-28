@@ -227,7 +227,7 @@ function StatCard({ value, label, suffix = "", prefix = "" }: {
 }) {
   return (
     <div className="h-full flex flex-col justify-between">
-      <p className="font-sans text-ink/60 text-[13px] leading-tight">
+      <p className="font-sans text-paper/60 text-[13px] leading-tight">
         {label}
       </p>
       <p className="font-sans font-bold text-paper leading-none tracking-tight"

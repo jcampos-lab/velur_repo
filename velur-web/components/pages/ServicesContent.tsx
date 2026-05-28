@@ -28,14 +28,14 @@ function HeroCard() {
             >
               The platform that ties your stack to revenue.
             </h1>
-            <p className="font-sans text-ink/75 leading-relaxed text-[15px] md:text-[16px] max-w-md">
+            <p className="font-sans text-paper/75 leading-relaxed text-[15px] md:text-[16px] max-w-md">
               Shopify, Klaviyo, Meta, TikTok and Google Ads connected to one daily brief. We tell you what actually moved money last night, in plain English, before your team is even online.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors"
+              className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
             >
               Book a call
             </Link>
@@ -64,7 +64,7 @@ function HeroCard() {
             <p className="font-sans font-bold text-ink text-[16px] leading-tight mt-2">
               Net revenue up 12% week-over-week.
             </p>
-            <p className="font-sans text-[12px] text-ink/70 leading-snug mt-2">
+            <p className="font-sans text-[12px] text-paper/70 leading-snug mt-2">
               TikTok creator drove 38% of the lift. Klaviyo win-back flow underperformed — pause variant B.
             </p>
           </div>
@@ -253,12 +253,12 @@ export default function ServicesContent() {
                 >
                   Live in fourteen days. Owned by you on day fifteen.
                 </h2>
-                <p className="font-sans text-ink/75 leading-relaxed mt-5 text-[15px] md:text-[16px] max-w-md">
+                <p className="font-sans text-paper/75 leading-relaxed mt-5 text-[15px] md:text-[16px] max-w-md">
                   We handle the integrations and the backfill. Your team needs an OAuth approval and twenty minutes on a Wednesday.
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors"
+                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
                 >
                   Book a discovery call
                 </Link>
@@ -272,7 +272,7 @@ export default function ServicesContent() {
                     <p className="font-sans font-bold text-paper text-[16px] leading-tight mb-2">
                       {step.title}
                     </p>
-                    <p className="font-sans text-[13.5px] text-ink/65 leading-relaxed">
+                    <p className="font-sans text-[13.5px] text-paper/65 leading-relaxed">
                       {step.body}
                     </p>
                   </div>
@@ -287,7 +287,7 @@ export default function ServicesContent() {
       <section className="bg-cream pb-14 md:pb-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="mb-8 md:mb-10 max-w-2xl">
-            <p className="font-sans text-ink/55 text-[13px] mb-2">
+            <p className="font-sans text-paper/55 text-[13px] mb-2">
               Who this is for
             </p>
             <h2
@@ -364,7 +364,7 @@ export default function ServicesContent() {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center bg-amber text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-paper hover:text-ink transition-colors self-start md:self-auto"
+                className="inline-flex items-center bg-amber text-paper font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-paper hover:text-ink transition-colors self-start md:self-auto"
               >
                 Book a call
               </Link>

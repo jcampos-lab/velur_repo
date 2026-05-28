@@ -70,7 +70,7 @@ export default function ThreeThingsSection() {
                 </span>
                 <span
                   className={`font-mono text-[11px] ${
-                    row.tone === "text-paper" ? "text-ink/45" : "text-ink/40"
+                    row.tone === "text-paper" ? "text-paper/45" : "text-paper/40"
                   }`}
                 >
                   0{i + 1}
@@ -84,7 +84,7 @@ export default function ThreeThingsSection() {
               </h3>
               <p
                 className={`font-sans text-[14.5px] leading-relaxed ${
-                  row.tone === "text-paper" ? "text-ink/75" : "text-ink/70"
+                  row.tone === "text-paper" ? "text-paper/75" : "text-paper/70"
                 }`}
               >
                 {row.body}

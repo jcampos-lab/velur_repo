@@ -124,7 +124,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row flex-wrap gap-3">
             <MagneticButton
               href="/contact"
-              className="bg-ink text-paper rounded-full px-6 py-3.5 font-sans font-medium text-base hover:bg-amber hover:text-ink transition-colors duration-200"
+              className="bg-ink text-paper rounded-full px-6 py-3.5 font-sans font-medium text-base hover:bg-amber hover:text-paper transition-colors duration-200"
               strength={0.35}
             >
               {t.hero.ctaPrimary}

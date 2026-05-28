@@ -14,7 +14,7 @@ function FeaturedCourse() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="rounded-3xl bg-stone text-paper overflow-hidden"
+      className="rounded-3xl bg-brand-brown text-paper overflow-hidden"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 items-stretch min-h-[400px]">
         <div className="p-7 md:p-12 flex flex-col justify-between gap-8">
@@ -28,13 +28,13 @@ function FeaturedCourse() {
             >
               Branded AI Editing Course
             </h3>
-            <p className="font-sans text-ink/75 leading-relaxed text-[15px] md:text-[16px] max-w-md">
+            <p className="font-sans text-paper/75 leading-relaxed text-[15px] md:text-[16px] max-w-md">
               The exact workflow we use to ship video and image creative for Cami Lab Studio. Higgsfield prompt structure, MidJourney recipes, Claude voice prompts, and the brief that holds them all together.
             </p>
           </div>
           <Link
             href="/contact"
-            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors"
+            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
           >
             Learn more →
           </Link>
@@ -50,7 +50,7 @@ function FeaturedCourse() {
               Chapter 04
             </p>
             <div>
-              <p className="font-mono text-[10px] tracking-[0.16em] text-ink/55 uppercase mb-1">
+              <p className="font-mono text-[10px] tracking-[0.16em] text-paper/55 uppercase mb-1">
                 Lesson
               </p>
               <p className="font-sans font-bold text-paper text-[20px] leading-tight">
@@ -97,12 +97,12 @@ function GuideAndPacks() {
           >
             Velur AI Starter Guide
           </h3>
-          <p className="font-sans text-ink/80 leading-relaxed text-[14.5px] md:text-[15.5px]">
+          <p className="font-sans text-paper/80 leading-relaxed text-[14.5px] md:text-[15.5px]">
             How to generate aesthetic, brand-consistent images and short clips using AI. Written for small-business owners who want to skip the trial-and-error and ship usable assets on day one.
           </p>
           <Link
             href="/contact"
-            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors"
+            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
           >
             Learn more →
           </Link>
@@ -172,18 +172,18 @@ function GuideAndPacks() {
         {/* Pack stack mock */}
         <div className="relative flex-1 min-h-[180px] md:min-h-[220px]">
           <div className="absolute left-1/2 -translate-x-1/2 bottom-4 flex items-end gap-[-20px]">
-            <div className="w-[130px] aspect-[3/4] bg-stone text-paper rounded-lg shadow-2xl p-3 -rotate-6 -mr-6">
+            <div className="w-[130px] aspect-[3/4] bg-brand-brown text-paper rounded-lg shadow-2xl p-3 -rotate-6 -mr-6">
               <p className="font-sans font-bold text-[12px] leading-tight">100+ Beauty Shots</p>
-              <p className="font-serif italic text-[10px] text-ink/70 mt-0.5">Prompt Pack</p>
+              <p className="font-serif italic text-[10px] text-paper/70 mt-0.5">Prompt Pack</p>
               <div className="mt-2 grid grid-cols-2 gap-1">
                 {Array.from({ length: 4 }).map((_, i) => (
                   <div key={i} className="aspect-square rounded-sm bg-gradient-to-br from-[#D0FFB0] to-[#57627C] opacity-90" />
                 ))}
               </div>
             </div>
-            <div className="w-[130px] aspect-[3/4] bg-stone text-paper rounded-lg shadow-2xl p-3 rotate-3 relative z-10">
+            <div className="w-[130px] aspect-[3/4] bg-brand-brown text-paper rounded-lg shadow-2xl p-3 rotate-3 relative z-10">
               <p className="font-sans font-bold text-[12px] leading-tight">100+ Spa & Studio</p>
-              <p className="font-serif italic text-[10px] text-ink/70 mt-0.5">Prompt Pack</p>
+              <p className="font-serif italic text-[10px] text-paper/70 mt-0.5">Prompt Pack</p>
               <div className="mt-2 grid grid-cols-2 gap-1">
                 {Array.from({ length: 4 }).map((_, i) => (
                   <div key={i} className="aspect-square rounded-sm bg-gradient-to-br from-[#D9CFB9] to-[#6E6E6E] opacity-90" />
@@ -515,7 +515,7 @@ export default function StudioContent() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center bg-ink text-paper font-sans font-medium text-[14.5px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors"
+              className="inline-flex items-center bg-ink text-paper font-sans font-medium text-[14.5px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
             >
               Book a discovery call
             </Link>
@@ -567,7 +567,7 @@ export default function StudioContent() {
       {/* What's in the system */}
       <section className="bg-cream py-14 md:py-20 border-b border-line">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="rounded-3xl bg-stone text-paper p-8 md:p-12 lg:p-16">
+          <div className="rounded-3xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-5">
                 <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-4">
@@ -579,12 +579,12 @@ export default function StudioContent() {
                 >
                   A creative system built to find your winning angles and scale them.
                 </h2>
-                <p className="font-sans text-ink/75 leading-relaxed mt-5 text-[15px] md:text-[16px]">
+                <p className="font-sans text-paper/75 leading-relaxed mt-5 text-[15px] md:text-[16px]">
                   Three weeks of structured work, then ongoing support. Designed for small teams who need to ship faster than their competitors can.
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors"
+                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
                 >
                   Book a discovery call
                 </Link>
@@ -602,7 +602,7 @@ export default function StudioContent() {
                     <p className="font-sans font-bold text-paper text-[16px] leading-tight mb-2">
                       {step.title}
                     </p>
-                    <p className="font-sans text-[13.5px] text-ink/65 leading-relaxed">
+                    <p className="font-sans text-[13.5px] text-paper/65 leading-relaxed">
                       {step.body}
                     </p>
                   </div>
@@ -670,7 +670,7 @@ export default function StudioContent() {
       {/* Closing CTA */}
       <section className="bg-cream py-14 md:py-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="rounded-3xl bg-stone text-paper p-8 md:p-12 lg:p-16">
+          <div className="rounded-3xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
               <div className="max-w-2xl">
                 <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-3">
@@ -685,7 +685,7 @@ export default function StudioContent() {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-ink transition-colors self-start md:self-auto"
+                className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors self-start md:self-auto"
               >
                 Book a discovery call
               </Link>
