@@ -287,7 +287,7 @@ export default function ServicesContent() {
       <section className="bg-cream pb-14 md:pb-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="mb-8 md:mb-10 max-w-2xl">
-            <p className="font-sans text-paper/55 text-[13px] mb-2">
+            <p className="font-sans text-ink/55 text-[13px] mb-2">
               Who this is for
             </p>
             <h2

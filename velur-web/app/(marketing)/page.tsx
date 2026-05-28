@@ -5,9 +5,9 @@ import BenchmarkGrid          from "@/components/marketing/BenchmarkGrid";
 import ThreeThingsSection     from "@/components/marketing/ThreeThingsSection";
 import SocialMediaAiSection   from "@/components/marketing/SocialMediaAiSection";
 import CtaSection             from "@/components/marketing/CtaSection";
-import CohortHeatmap          from "@/components/illustrations/CohortHeatmap";
-import LtvLineChart           from "@/components/illustrations/LtvLineChart";
+import CreativeBarRace        from "@/components/illustrations/CreativeBarRace";
 import AttributionDonut       from "@/components/illustrations/AttributionDonut";
+import ActivityCalendar       from "@/components/illustrations/ActivityCalendar";
 
 export default function HomePage() {
   return (
@@ -20,28 +20,27 @@ export default function HomePage() {
       {/* Bento dashboard */}
       <BentoSection />
 
-      {/* Interactive LTV chart, boxed */}
+      {/* Creative performance bar race, the AI Studio measurement story */}
       <section className="bg-cream py-14 md:py-20 border-b border-line overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="rounded-3xl bg-paper border border-line p-6 md:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-center">
               <div className="lg:col-span-4">
                 <p className="font-sans text-ink/55 text-[13px] mb-2">
-                  How customers compound
+                  Which creative actually sold
                 </p>
                 <h2
                   className="font-sans font-bold text-ink leading-[1.1] tracking-[-0.025em] mb-3"
                   style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}
                 >
-                  Behavioral cohorts pay back twice as hard.
+                  Every asset, every week, ranked by margin.
                 </h2>
                 <p className="font-sans text-[15px] text-ink/70 leading-relaxed">
-                  Compare three segmentation strategies side by side. Scrub across twelve months and watch the gap widen. That is the lift you are leaving on the table with broadcast targeting.
+                  We tag every Higgsfield reel, MidJourney still, TikTok post and Claude email when it ships. Then we follow the dollars. The leaderboard reshuffles itself in front of you.
                 </p>
               </div>
-              {/* LTV chart: desktop only */}
-              <div className="hidden lg:block lg:col-span-8">
-                <LtvLineChart />
+              <div className="lg:col-span-8">
+                <CreativeBarRace />
               </div>
             </div>
           </div>
@@ -49,9 +48,9 @@ export default function HomePage() {
       </section>
 
       {/* Attribution donut, desktop only */}
-      <section className="hidden lg:block bg-cream py-14 md:py-20 border-b border-line overflow-hidden">
+      <section className="hidden lg:block bg-paper py-14 md:py-20 border-b border-line overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="rounded-3xl bg-paper border border-line p-6 md:p-10 lg:p-12">
+          <div className="rounded-3xl bg-cream border border-line p-6 md:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-center">
               <div className="lg:col-span-4">
                 <p className="font-sans text-ink/55 text-[13px] mb-2">
@@ -75,27 +74,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Cohort heatmap, desktop only, boxed */}
-      <section className="hidden lg:block bg-paper py-14 md:py-20 border-b border-line overflow-hidden">
+      {/* Daily order activity calendar, desktop only */}
+      <section className="hidden lg:block bg-cream py-14 md:py-20 border-b border-line overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="rounded-3xl bg-cream border border-line p-6 md:p-10 lg:p-12">
+          <div className="rounded-3xl bg-paper border border-line p-6 md:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-center">
-              <div className="lg:col-span-4 lg:order-2">
+              <div className="lg:col-span-4">
                 <p className="font-sans text-ink/55 text-[13px] mb-2">
-                  What we analyze
+                  Daily rhythm
                 </p>
                 <h2
                   className="font-sans font-bold text-ink leading-[1.1] tracking-[-0.025em] mb-3"
                   style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}
                 >
-                  Every cohort. Every month.
+                  Every order, every day, six months back.
                 </h2>
                 <p className="font-sans text-[15px] text-ink/70 leading-relaxed">
-                  Retention curves quietly tell you which customers are worth acquiring twice, and which campaigns to stop paying for. Hover any cell to see what it really means.
+                  GitHub-style calendar so you spot weekday troughs, weekend spikes and that one Wednesday a creator post broke your inbox. Hover any cell for the exact count.
                 </p>
               </div>
-              <div className="lg:col-span-8 lg:order-1">
-                <CohortHeatmap />
+              <div className="lg:col-span-8">
+                <ActivityCalendar />
               </div>
             </div>
           </div>

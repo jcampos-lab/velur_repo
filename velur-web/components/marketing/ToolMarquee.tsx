@@ -3,13 +3,13 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 const ROW_A = [
-  "Shopify", "Klaviyo", "Meta Ads", "TikTok Ads", "Google Ads",
-  "GA4", "Postgres", "BigQuery", "Snowflake", "Stripe",
+  "Higgsfield", "MidJourney", "Claude", "ChatGPT", "Flux",
+  "Leonardo AI", "Runway", "Pika", "Suno", "ElevenLabs",
 ];
 
 const ROW_B = [
-  "Claude", "ChatGPT", "MidJourney", "Higgsfield", "Flux",
-  "Leonardo AI", "Runway", "Pika", "Suno", "ElevenLabs",
+  "Shopify", "Klaviyo", "Meta Ads", "TikTok Ads", "Google Ads",
+  "GA4", "Stripe", "Postgres", "BigQuery", "Snowflake",
 ];
 
 function Row({
@@ -45,13 +45,13 @@ function Row({
             key={`${name}-${i}`}
             className={`shrink-0 inline-flex items-center gap-2 rounded-full border px-4 py-2 font-sans font-medium text-[13.5px] ${
               highlight
-                ? "border-amber/40 bg-amber/[0.06] text-ink"
-                : "border-line bg-paper text-ink/80"
+                ? "border-amber/40 bg-amber/[0.08] text-ink"
+                : "border-line bg-paper text-ink/85"
             }`}
           >
             <span
               className={`block w-1.5 h-1.5 rounded-full ${
-                highlight ? "bg-amber" : "bg-ink/35"
+                highlight ? "bg-amber" : "bg-ink/40"
               }`}
             />
             {name}
@@ -73,20 +73,20 @@ export default function ToolMarquee() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 md:gap-8 mb-7 md:mb-9">
           <div className="max-w-2xl">
             <p className="font-sans text-ink/55 text-[13px] mb-2">
-              The stack we plug into
+              The stack we run on
             </p>
             <h2
               className="font-sans font-bold text-ink leading-[1.1] tracking-[-0.025em]"
               style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}
             >
-              Twenty tools. One read-only layer. No new dashboards.
+              AI tools that ship the work. Data tools that prove it paid off.
             </h2>
           </div>
         </div>
 
         <div className="space-y-3 md:space-y-4">
-          <Row items={ROW_A} />
-          <Row items={ROW_B} reverse highlight />
+          <Row items={ROW_A} highlight />
+          <Row items={ROW_B} reverse />
         </div>
       </div>
     </section>

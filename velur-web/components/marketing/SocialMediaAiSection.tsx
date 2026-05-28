@@ -30,19 +30,32 @@ export default function SocialMediaAiSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
 
-          {/* Revenue Intelligence card */}
+          {/* AI Studio card — the active product, leads the row */}
           <motion.div
             initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             whileHover={prefersReduced ? undefined : { y: -3 }}
-            className="rounded-2xl border border-line bg-cream overflow-hidden flex flex-col"
+            className="rounded-2xl border border-line bg-paper overflow-hidden flex flex-col"
           >
-            <div className="h-28 md:h-32 bg-gradient-to-br from-[#57627C] via-[#7884A0] to-[#D0FFB0] relative flex items-end p-4">
-              <p className="font-mono text-[10.5px] tracking-[0.18em] text-white/90 uppercase">
-                {copy.riLabel}
-              </p>
+            <div className="h-32 md:h-36 relative flex items-end p-4 overflow-hidden bg-brand-brown">
+              <div
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(circle at 25% 35%, rgba(24,49,176,0.55), transparent 55%), radial-gradient(circle at 80% 75%, rgba(199,63,160,0.30), transparent 55%)",
+                }}
+              />
+              <div className="relative flex items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-positive/25 text-positive font-mono text-[10px] font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-positive pulse-dot" /> live
+                </span>
+                <p className="font-mono text-[10.5px] tracking-[0.18em] text-white/85 uppercase">
+                  {copy.riLabel}
+                </p>
+              </div>
             </div>
             <div className="p-5 md:p-7 flex flex-col gap-3 flex-1">
               <h3 className="font-sans font-bold text-ink text-[19px] md:text-[22px] leading-tight tracking-[-0.02em]">
@@ -52,7 +65,7 @@ export default function SocialMediaAiSection() {
                 {copy.riBody}
               </p>
               <Link
-                href="/services"
+                href="/studio"
                 className="font-sans font-medium text-[14px] text-amber hover:underline underline-offset-4 mt-2"
               >
                 {copy.riCta}
@@ -60,19 +73,32 @@ export default function SocialMediaAiSection() {
             </div>
           </motion.div>
 
-          {/* AI Studio card */}
+          {/* Revenue Intelligence card — quietly in build */}
           <motion.div
             initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             whileHover={prefersReduced ? undefined : { y: -3 }}
-            className="rounded-2xl border border-line bg-cream overflow-hidden flex flex-col"
+            className="rounded-2xl border border-line bg-paper overflow-hidden flex flex-col"
           >
-            <div className="h-28 md:h-32 bg-gradient-to-br from-[#1A1A1A] via-[#2B2B2B] to-[#4A4A4A] relative flex items-end p-4">
-              <p className="font-mono text-[10.5px] tracking-[0.18em] text-white/90 uppercase">
-                {copy.studioLabel}
-              </p>
+            <div className="h-32 md:h-36 relative flex items-end p-4 overflow-hidden bg-brand-slate">
+              <div
+                aria-hidden
+                className="absolute inset-0 opacity-50"
+                style={{
+                  backgroundImage:
+                    "repeating-linear-gradient(45deg, rgba(255,255,255,0.06), rgba(255,255,255,0.06) 8px, transparent 8px, transparent 16px)",
+                }}
+              />
+              <div className="relative flex items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/15 text-white font-mono text-[10px] font-semibold uppercase tracking-wider">
+                  In build
+                </span>
+                <p className="font-mono text-[10.5px] tracking-[0.18em] text-white/85 uppercase">
+                  {copy.studioLabel}
+                </p>
+              </div>
             </div>
             <div className="p-5 md:p-7 flex flex-col gap-3 flex-1">
               <h3 className="font-sans font-bold text-ink text-[19px] md:text-[22px] leading-tight tracking-[-0.02em]">
@@ -82,7 +108,7 @@ export default function SocialMediaAiSection() {
                 {copy.studioBody}
               </p>
               <Link
-                href="/studio"
+                href="/services"
                 className="font-sans font-medium text-[14px] text-amber hover:underline underline-offset-4 mt-2"
               >
                 {copy.studioCta}
