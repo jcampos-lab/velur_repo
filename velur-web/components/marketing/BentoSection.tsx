@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import KpiDashboardChart from "@/components/illustrations/KpiDashboardChart";
@@ -22,10 +22,10 @@ const DOTS: Dot[] = [
 ];
 
 const CHANNEL_COLOR: Record<string, string> = {
-  tiktok:    "#1A1A1A",
-  klaviyo:   "#57627C",
-  meta:      "#0866FF",
-  google:    "#F9AB00",
+  tiktok:    "#1E1B18",
+  klaviyo:   "#1831B0",
+  meta:      "#57627C",
+  google:    "#B7B6B7",
   affiliate: "#6E6E6E",
 };
 
@@ -52,103 +52,151 @@ function CorrelationChart() {
         </p>
       </div>
 
-      <svg
-        viewBox={`0 0 ${W} ${H}`}
-        className="w-full overflow-visible flex-1"
-        role="img"
-        aria-label="Spend vs margin scatter plot"
-      >
-        {[0, 25, 50, 75, 100].map(t => (
-          <line
-            key={`vx-${t}`}
-            x1={xFor(t)} y1={PAD.t} x2={xFor(t)} y2={H - PAD.b}
-            strokeWidth="0.5" opacity="0.35"
-            style={{ stroke: "var(--color-line)" }}
-          />
-        ))}
-        {[0, 20, 40, 60].map(t => (
-          <line
-            key={`hy-${t}`}
-            x1={PAD.l} y1={yFor(t)} x2={W - PAD.r} y2={yFor(t)}
-            strokeWidth="0.5" opacity="0.35"
-            style={{ stroke: "var(--color-line)" }}
-          />
-        ))}
-
-        <motion.line
-          x1={xFor(8)} y1={yFor(58)} x2={xFor(92)} y2={yFor(12)}
-          stroke="#57627C" strokeWidth="1.4" strokeDasharray="4 4" opacity="0.55"
-          initial={prefersReduced ? {} : { pathLength: 0, opacity: 0 }}
-          whileInView={{ pathLength: 1, opacity: 0.55 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.5 }}
-        />
-
-        <text x={PAD.l - 6} y={yFor(0) + 4} textAnchor="end" fontSize="9"
-          fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
-          0%
-        </text>
-        <text x={PAD.l - 6} y={yFor(60) + 4} textAnchor="end" fontSize="9"
-          fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
-          60%
-        </text>
-        <text x={xFor(0)} y={H - PAD.b + 14} textAnchor="start" fontSize="9"
-          fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
-          $0 spend
-        </text>
-        <text x={xFor(100)} y={H - PAD.b + 14} textAnchor="end" fontSize="9"
-          fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
-          $20K spend
-        </text>
-
-        {DOTS.map((d, i) => {
-          const isHover = hover === d;
-          const dim = hover && hover !== d;
-          return (
-            <motion.circle
-              key={d.label}
-              cx={xFor(d.x)} cy={yFor(d.y)}
-              r={isHover ? 7 : 5}
-              fill={CHANNEL_COLOR[d.channel]}
-              stroke="var(--color-paper)"
-              strokeWidth="1.6"
-              style={{
-                cursor: "pointer",
-                opacity: dim ? 0.25 : 1,
-                transition: "opacity 200ms ease, r 200ms ease",
-              }}
-              initial={prefersReduced ? {} : { scale: 0, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: dim ? 0.25 : 1 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                duration: 0.4,
-                delay: prefersReduced ? 0 : 0.3 + i * 0.06,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              onMouseEnter={() => setHover(d)}
-              onMouseLeave={() => setHover(null)}
+      <div className="relative flex-1">
+        <svg
+          viewBox={`0 0 ${W} ${H}`}
+          className="w-full overflow-visible h-full"
+          role="img"
+          aria-label="Spend vs margin scatter plot"
+        >
+          {[0, 25, 50, 75, 100].map(t => (
+            <line
+              key={`vx-${t}`}
+              x1={xFor(t)} y1={PAD.t} x2={xFor(t)} y2={H - PAD.b}
+              strokeWidth="0.5" opacity="0.35"
+              style={{ stroke: "var(--color-line)" }}
             />
-          );
-        })}
-      </svg>
+          ))}
+          {[0, 20, 40, 60].map(t => (
+            <line
+              key={`hy-${t}`}
+              x1={PAD.l} y1={yFor(t)} x2={W - PAD.r} y2={yFor(t)}
+              strokeWidth="0.5" opacity="0.35"
+              style={{ stroke: "var(--color-line)" }}
+            />
+          ))}
 
-      <div className="mt-2 min-h-[36px] flex items-center">
-        {hover ? (
-          <motion.p
-            key={hover.label}
-            initial={{ opacity: 0, y: 3 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.18 }}
-            className="font-sans text-[12px] text-ink"
-          >
-            <span className="inline-block w-2 h-2 rounded-full mr-1.5 align-middle" style={{ background: CHANNEL_COLOR[hover.channel] }} />
-            <span className="font-semibold">{hover.label}</span>
-            <span className="text-ink/55">  ·  {hover.y}% margin at ${Math.round(hover.x * 200).toLocaleString()} spend</span>
-          </motion.p>
-        ) : (
-          <p className="font-sans text-[12px] text-ink/55">Hover any dot for the campaign detail.</p>
-        )}
+          <motion.line
+            x1={xFor(8)} y1={yFor(58)} x2={xFor(92)} y2={yFor(12)}
+            stroke="#1831B0" strokeWidth="1.4" strokeDasharray="4 4" opacity="0.5"
+            initial={prefersReduced ? {} : { pathLength: 0, opacity: 0 }}
+            whileInView={{ pathLength: 1, opacity: 0.5 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, delay: 0.5 }}
+          />
+
+          <text x={PAD.l - 6} y={yFor(0) + 4} textAnchor="end" fontSize="9"
+            fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
+            0%
+          </text>
+          <text x={PAD.l - 6} y={yFor(60) + 4} textAnchor="end" fontSize="9"
+            fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
+            60%
+          </text>
+          <text x={xFor(0)} y={H - PAD.b + 14} textAnchor="start" fontSize="9"
+            fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
+            $0 spend
+          </text>
+          <text x={xFor(100)} y={H - PAD.b + 14} textAnchor="end" fontSize="9"
+            fontFamily="var(--font-jetbrains)" style={{ fill: "var(--color-muted)" }}>
+            $20K spend
+          </text>
+
+          {DOTS.map((d, i) => {
+            const isHover = hover === d;
+            const dim = hover && hover !== d;
+            return (
+              <g key={d.label}>
+                {isHover && (
+                  <motion.circle
+                    cx={xFor(d.x)} cy={yFor(d.y)}
+                    r="14"
+                    fill={CHANNEL_COLOR[d.channel]}
+                    fillOpacity="0.18"
+                    animate={prefersReduced ? {} : { r: [12, 16, 12] }}
+                    transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                )}
+                <motion.circle
+                  cx={xFor(d.x)} cy={yFor(d.y)}
+                  r={isHover ? 7 : 5}
+                  fill={CHANNEL_COLOR[d.channel]}
+                  stroke="var(--color-paper)"
+                  strokeWidth="1.8"
+                  style={{
+                    cursor: "pointer",
+                    opacity: dim ? 0.25 : 1,
+                    transition: "opacity 200ms ease, r 200ms ease",
+                  }}
+                  initial={prefersReduced ? {} : { scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: dim ? 0.25 : 1 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{
+                    duration: 0.4,
+                    delay: prefersReduced ? 0 : 0.3 + i * 0.06,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  onMouseEnter={() => setHover(d)}
+                  onMouseLeave={() => setHover(null)}
+                />
+              </g>
+            );
+          })}
+        </svg>
+
+        {/* Floating tooltip card positioned over the hovered dot */}
+        <AnimatePresence>
+          {hover && (
+            <motion.div
+              key={hover.label}
+              initial={{ opacity: 0, y: 6, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 6, scale: 0.96 }}
+              transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute pointer-events-none rounded-xl bg-ink text-paper shadow-2xl border border-line/20 px-3.5 py-2.5 min-w-[180px] z-10"
+              style={{
+                left:
+                  hover.x > 65
+                    ? `calc(${(xFor(hover.x) / W) * 100}% - 200px)`
+                    : `calc(${(xFor(hover.x) / W) * 100}% + 12px)`,
+                top: `calc(${(yFor(hover.y) / H) * 100}% - 50px)`,
+              }}
+            >
+              <div className="flex items-center gap-2 mb-1.5">
+                <span
+                  className="inline-block w-2 h-2 rounded-full"
+                  style={{ background: CHANNEL_COLOR[hover.channel] }}
+                />
+                <span className="font-sans font-semibold text-paper text-[12.5px]">
+                  {hover.label}
+                </span>
+              </div>
+              <div className="flex items-baseline gap-3">
+                <div>
+                  <p className="font-mono text-[9.5px] tracking-[0.14em] text-paper/55 uppercase">
+                    Margin
+                  </p>
+                  <p className="font-sans font-bold text-paper text-[14px] tabular-nums">
+                    {hover.y}%
+                  </p>
+                </div>
+                <div>
+                  <p className="font-mono text-[9.5px] tracking-[0.14em] text-paper/55 uppercase">
+                    Spend
+                  </p>
+                  <p className="font-sans font-bold text-paper text-[14px] tabular-nums">
+                    ${Math.round(hover.x * 200).toLocaleString()}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
+
+      <p className="font-sans text-[11.5px] text-ink/55 mt-2 min-h-[20px]">
+        {hover ? "" : "Hover any dot for campaign detail."}
+      </p>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useMemo, useRef, useState } from "react";
 import NumberTicker from "@/components/motion/NumberTicker";
 
@@ -9,6 +9,7 @@ type Metric = {
   label: string;
   format: "currency" | "percent" | "ratio";
   series: number[];
+  color: string;
 };
 
 function gen(seed: number, len: number, base: number, vol: number, trend: number): number[] {
@@ -24,9 +25,9 @@ function gen(seed: number, len: number, base: number, vol: number, trend: number
 
 const DAYS = 28;
 const METRICS: Metric[] = [
-  { key: "revenue", label: "Net revenue",         format: "currency", series: gen(11, DAYS, 18000, 4800, 240) },
-  { key: "roas",    label: "Blended ROAS",        format: "ratio",    series: gen(31, DAYS, 2.6,   0.45, 0.012) },
-  { key: "margin",  label: "Contribution margin", format: "percent",  series: gen(47, DAYS, 38,    4.5,  0.08)  },
+  { key: "revenue", label: "Net revenue",         format: "currency", color: "#1831B0", series: gen(11, DAYS, 18000, 4800, 240) },
+  { key: "roas",    label: "Blended ROAS",        format: "ratio",    color: "#57627C", series: gen(31, DAYS, 2.6,   0.45, 0.012) },
+  { key: "margin",  label: "Contribution margin", format: "percent",  color: "#1F7A4D", series: gen(47, DAYS, 38,    4.5,  0.08)  },
 ];
 
 const W = 320;
@@ -121,7 +122,7 @@ function Sparkline({
         d={d}
         fill="none"
         stroke={color}
-        strokeWidth="2"
+        strokeWidth="2.2"
         strokeLinecap="round"
         strokeLinejoin="round"
         initial={prefersReduced ? {} : { pathLength: 0 }}
@@ -140,15 +141,24 @@ function Sparkline({
             stroke="var(--color-ink)"
             strokeWidth="0.7"
             strokeDasharray="2 2"
-            opacity="0.4"
+            opacity="0.45"
+          />
+          <motion.circle
+            cx={points[hoverIdx][0]}
+            cy={points[hoverIdx][1]}
+            r="18"
+            fill={color}
+            fillOpacity="0.12"
+            animate={{ r: [16, 20, 16] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
           />
           <circle
             cx={points[hoverIdx][0]}
             cy={points[hoverIdx][1]}
-            r="4"
+            r="4.5"
             fill={color}
             stroke="var(--color-paper)"
-            strokeWidth="1.6"
+            strokeWidth="2"
           />
         </>
       )}
@@ -158,13 +168,11 @@ function Sparkline({
 
 function KpiCard({
   metric,
-  color,
   hoverIdx,
   setHoverIdx,
   index,
 }: {
   metric: Metric;
-  color: string;
   hoverIdx: number | null;
   setHoverIdx: (i: number | null) => void;
   index: number;
@@ -186,14 +194,15 @@ function KpiCard({
         delay: prefersReduced ? 0 : 0.1 + index * 0.1,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="bg-paper border border-line rounded-2xl p-5 flex flex-col gap-3"
+      whileHover={prefersReduced ? undefined : { y: -2 }}
+      className="bg-paper border border-line rounded-2xl p-5 flex flex-col gap-3 transition-shadow hover:shadow-[0_20px_50px_-30px_rgba(0,0,0,0.18)]"
     >
       <div className="flex items-start justify-between">
         <div>
           <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase mb-1.5">
             {metric.label}
           </p>
-          <p className="font-sans font-bold text-ink text-[22px] tracking-tight leading-none">
+          <p className="font-sans font-bold text-ink text-[22px] tracking-tight leading-none tabular-nums">
             {hoverIdx != null ? (
               formatValue(shown, metric)
             ) : metric.format === "currency" ? (
@@ -206,8 +215,8 @@ function KpiCard({
           </p>
         </div>
         <span
-          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold ${
-            positive ? "bg-amber/10 text-amber" : "bg-muted/10 text-muted"
+          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold tabular-nums ${
+            positive ? "bg-amber/10 text-amber" : "bg-muted/15 text-muted"
           }`}
         >
           {positive ? "▲" : "▼"} {Math.abs(delta).toFixed(1)}%
@@ -218,13 +227,15 @@ function KpiCard({
         series={series}
         hoverIdx={hoverIdx}
         setHoverIdx={setHoverIdx}
-        color={color}
+        color={metric.color}
         id={metric.key}
       />
 
       <div className="flex items-center justify-between font-mono text-[9.5px] tracking-wide text-muted">
         <span>Day 1</span>
-        <span className="text-ink/70">{hoverIdx != null ? `Day ${hoverIdx + 1}` : "Today"}</span>
+        <span className="text-ink/70 tabular-nums">
+          {hoverIdx != null ? `Day ${hoverIdx + 1}` : "Today"}
+        </span>
         <span>Day {DAYS}</span>
       </div>
     </motion.div>
@@ -234,27 +245,73 @@ function KpiCard({
 export default function KpiDashboardChart() {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
 
+  // Build a single hovered-day summary for the floating tooltip card.
+  const summary = useMemo(() => {
+    if (hoverIdx == null) return null;
+    return METRICS.map(m => ({
+      label: m.label,
+      color: m.color,
+      value: formatValue(m.series[hoverIdx], m),
+    }));
+  }, [hoverIdx]);
+
   return (
-    <div className="bg-stone border border-line rounded-2xl p-5 md:p-6">
+    <div className="bg-stone border border-line rounded-2xl p-5 md:p-6 relative">
       <div className="flex items-center justify-between mb-5 gap-3 flex-wrap">
         <div>
           <p className="font-sans font-semibold text-ink text-[15px] leading-tight">
             Live brief preview
           </p>
           <p className="font-sans text-[12.5px] text-ink/55">
-            Last 28 days. Hover to scrub the date.
+            Last 28 days. Hover anywhere to scrub the date.
           </p>
         </div>
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-positive/10 text-positive font-mono text-[10px] font-semibold">
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-positive/15 text-positive font-mono text-[10px] font-semibold">
           <span className="w-1.5 h-1.5 rounded-full bg-positive pulse-dot" /> live
         </span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-        <KpiCard metric={METRICS[0]} color="#57627C" hoverIdx={hoverIdx} setHoverIdx={setHoverIdx} index={0} />
-        <KpiCard metric={METRICS[1]} color="#1A1A1A" hoverIdx={hoverIdx} setHoverIdx={setHoverIdx} index={1} />
-        <KpiCard metric={METRICS[2]} color="#1F7A4D" hoverIdx={hoverIdx} setHoverIdx={setHoverIdx} index={2} />
+        {METRICS.map((m, i) => (
+          <KpiCard key={m.key} metric={m} hoverIdx={hoverIdx} setHoverIdx={setHoverIdx} index={i} />
+        ))}
       </div>
+
+      {/* Floating summary tooltip that hovers above the dashboard */}
+      <AnimatePresence>
+        {summary && hoverIdx != null && (
+          <motion.div
+            key="summary"
+            initial={{ opacity: 0, y: 4, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 4, scale: 0.96 }}
+            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            className="hidden md:flex absolute pointer-events-none -top-4 right-6 rounded-xl bg-ink text-paper shadow-2xl border border-line/20 px-3.5 py-2.5 gap-4"
+          >
+            <div className="flex flex-col">
+              <span className="font-mono text-[9.5px] tracking-[0.16em] text-paper/55 uppercase mb-1">
+                Day
+              </span>
+              <span className="font-sans font-bold text-paper text-[14px] tabular-nums">
+                {hoverIdx + 1}
+              </span>
+            </div>
+            <div className="border-l border-paper/15 pl-4 flex items-center gap-4">
+              {summary.map(s => (
+                <div key={s.label} className="flex flex-col">
+                  <span className="font-mono text-[9.5px] tracking-[0.10em] text-paper/55 uppercase mb-0.5 flex items-center gap-1.5">
+                    <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: s.color }} />
+                    {s.label.split(" ")[0]}
+                  </span>
+                  <span className="font-sans font-bold text-paper text-[13px] tabular-nums">
+                    {s.value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

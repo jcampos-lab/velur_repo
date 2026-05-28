@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 const COHORTS = [
   { label: "Jan", values: [100, 68, 52, 41, 35, 31] as (number | null)[] },
@@ -20,21 +20,33 @@ const CG = 5;
 const LX = 44;
 const TY = 30;
 
-function amberAt(v: number): string {
+/* Klein Blue ramp: lightest tint at 30%, full Klein at 100%. */
+function kleinAt(v: number): string {
   const t = v / 100;
-  const g = Math.round(232 - 141 * t);
-  const b = Math.round(220 - 194 * t);
-  return `rgb(255,${g},${b})`;
+  // Interpolate from #DDE4FB (light tint) at t=0.3 to #1831B0 at t=1
+  // Lerp R/G/B between (221,228,251) and (24,49,176)
+  const lerp = (a: number, b: number) => Math.round(a + (b - a) * t);
+  const r = lerp(221, 24);
+  const g = lerp(228, 49);
+  const b = lerp(251, 176);
+  return `rgb(${r},${g},${b})`;
 }
 
 const VBW = LX + PERIODS.length * (CW + CG) - CG + 12;
 const VBH = TY + COHORTS.length * (CH + CG) - CG + 20;
 
-type Hover = { cohort: string; period: string; value: number } | null;
+type Hover = {
+  cohort: string;
+  period: string;
+  value: number;
+  cx: number;          // viewBox x
+  cy: number;          // viewBox y
+} | null;
 
 export default function CohortHeatmap() {
   const prefersReduced = useReducedMotion();
   const [hover, setHover] = useState<Hover>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
     <motion.div
@@ -42,25 +54,30 @@ export default function CohortHeatmap() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="border border-line bg-stone rounded-2xl p-5 md:p-6 select-none"
+      className="border border-line bg-paper rounded-2xl p-5 md:p-6 select-none relative"
     >
-      <div className="flex items-center justify-between mb-5 gap-3 flex-wrap">
-        <p className="font-sans font-semibold text-ink text-[15px] leading-tight">
-          Cohort retention. Hover any cell.
-        </p>
+      <div className="flex items-center justify-between mb-4 gap-3 flex-wrap">
+        <div>
+          <p className="font-sans font-semibold text-ink text-[15px] leading-tight">
+            Cohort retention
+          </p>
+          <p className="font-sans text-[12.5px] text-ink/55 mt-0.5">
+            Six monthly cohorts, six months of retention. Hover any cell.
+          </p>
+        </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">
-            <span className="block w-6 h-3 rounded-sm" style={{ background: "rgb(255,232,220)" }} />
-            <span className="font-mono text-[9px] text-muted">30%</span>
+            <span className="block w-6 h-3 rounded-sm" style={{ background: "#DDE4FB" }} />
+            <span className="font-mono text-[9.5px] text-muted">30%</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="block w-6 h-3 rounded-sm bg-amber" />
-            <span className="font-mono text-[9px] text-muted">100%</span>
+            <span className="font-mono text-[9.5px] text-muted">100%</span>
           </div>
         </div>
       </div>
 
-      <div className="relative">
+      <div ref={containerRef} className="relative">
         <svg
           viewBox={`0 0 ${VBW} ${VBH}`}
           className="w-full overflow-visible"
@@ -107,7 +124,7 @@ export default function CohortHeatmap() {
                       y={cy}
                       width={CW}
                       height={CH}
-                      rx={4}
+                      rx={5}
                       initial={prefersReduced ? {} : { opacity: 0, y: 6 }}
                       whileInView={{ opacity: 0.4, y: 0 }}
                       viewport={{ once: true, margin: "-50px" }}
@@ -128,7 +145,13 @@ export default function CohortHeatmap() {
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.35, delay, ease: [0.16, 1, 0.3, 1] }}
                     onMouseEnter={() =>
-                      setHover({ cohort: cohort.label, period: PERIODS[j], value: val })
+                      setHover({
+                        cohort: cohort.label,
+                        period: PERIODS[j],
+                        value: val,
+                        cx: cx + CW / 2,
+                        cy: cy + CH / 2,
+                      })
                     }
                     onMouseLeave={() => setHover(null)}
                     style={{ cursor: "pointer" }}
@@ -138,10 +161,10 @@ export default function CohortHeatmap() {
                       y={cy}
                       width={CW}
                       height={CH}
-                      rx={4}
-                      fill={amberAt(val)}
+                      rx={5}
+                      fill={kleinAt(val)}
                       style={{
-                        filter: hover && !isHovered ? "saturate(0.55) opacity(0.55)" : undefined,
+                        filter: hover && !isHovered ? "saturate(0.45) opacity(0.55)" : undefined,
                         transition: "filter 200ms ease",
                       }}
                     />
@@ -151,20 +174,20 @@ export default function CohortHeatmap() {
                         y={cy - 1}
                         width={CW + 2}
                         height={CH + 2}
-                        rx={5}
+                        rx={6}
                         fill="none"
                         stroke="var(--color-ink)"
-                        strokeWidth="1.4"
+                        strokeWidth="1.6"
                       />
                     )}
                     <text
                       x={cx + CW / 2}
                       y={cy + CH / 2 + 4}
                       textAnchor="middle"
-                      fontSize="10"
-                      fontWeight="600"
+                      fontSize="10.5"
+                      fontWeight="700"
                       fontFamily="var(--font-jetbrains)"
-                      fill={val > 55 ? "#FFFFFF" : "#1A1A1A"}
+                      fill={val > 55 ? "#FFFFFF" : "#1E1B18"}
                       style={{ pointerEvents: "none" }}
                     >
                       {val}%
@@ -176,25 +199,42 @@ export default function CohortHeatmap() {
           ))}
         </svg>
 
-        {/* Hover detail panel */}
-        <div className="mt-4 h-[44px] flex items-center">
-          {hover ? (
-            <motion.p
+        {/* Floating tooltip card positioned over the hovered cell */}
+        <AnimatePresence>
+          {hover && (
+            <motion.div
               key={`${hover.cohort}-${hover.period}`}
-              initial={{ opacity: 0, y: 4 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.18 }}
-              className="font-sans text-[12px] tracking-wide text-ink"
+              initial={{ opacity: 0, y: 6, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 6, scale: 0.96 }}
+              transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute pointer-events-none rounded-xl bg-ink text-paper shadow-2xl border border-line/20 px-3.5 py-3 min-w-[220px] z-10"
+              style={{
+                left: `calc(${(hover.cx / VBW) * 100}% - 110px)`,
+                top:  `calc(${(hover.cy / VBH) * 100}% - 110px)`,
+              }}
             >
-              <span className="text-ink/55">{hover.cohort} cohort, {hover.period}.</span>{" "}
-              <span className="font-semibold">{hover.value}% still active.</span> That is the share of customers acquired that month who came back to buy {hover.period === "M1" ? "the next month" : `${hover.period.replace("M", "")} months later`}.
-            </motion.p>
-          ) : (
-            <p className="font-sans text-[12px] tracking-wide text-ink/55">
-              Hover a cell to see what it means in plain English.
-            </p>
+              <div className="flex items-center justify-between gap-3 mb-2">
+                <span className="font-mono text-[10px] tracking-[0.16em] text-paper/55 uppercase">
+                  {hover.cohort} cohort
+                </span>
+                <span className="font-mono text-[10px] tracking-[0.14em] text-amber uppercase">
+                  {hover.period}
+                </span>
+              </div>
+              <p className="font-sans font-bold text-paper text-[18px] leading-none mb-1 tabular-nums">
+                {hover.value}% active
+              </p>
+              <p className="font-sans text-[12px] text-paper/70 leading-snug">
+                That is the share of customers acquired that month who came back to buy{" "}
+                {hover.period === "M1"
+                  ? "the next month"
+                  : `${hover.period.replace("M", "")} months later`}
+                .
+              </p>
+            </motion.div>
           )}
-        </div>
+        </AnimatePresence>
       </div>
     </motion.div>
   );
