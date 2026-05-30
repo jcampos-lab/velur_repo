@@ -114,7 +114,7 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-6 inline-flex items-center justify-center gap-2 bg-ink text-paper font-sans font-medium text-base px-6 py-3.5 rounded-full"
+              className="mt-6 inline-flex items-center justify-center gap-2 bg-ink text-paper font-sans font-medium text-base px-6 py-3.5 rounded-lg"
             >
               {t.header.cta} →
             </Link>

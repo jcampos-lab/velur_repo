@@ -56,7 +56,7 @@ export default function AnimatedPipelineSection() {
 
         <div
           ref={containerRef}
-          className="relative bg-cream border border-line rounded-3xl px-4 sm:px-8 md:px-14 py-10 md:py-14 overflow-hidden"
+          className="relative bg-cream border border-line rounded-2xl px-4 sm:px-8 md:px-14 py-10 md:py-14 overflow-hidden"
           style={{ minHeight: 520 }}
         >
           {/* Soft amber halo behind the hub */}

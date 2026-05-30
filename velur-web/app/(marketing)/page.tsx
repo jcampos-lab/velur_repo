@@ -23,7 +23,7 @@ export default function HomePage() {
       {/* Creative performance bar race, the AI Studio measurement story */}
       <section className="bg-cream py-14 md:py-20 border-b border-line overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="rounded-3xl bg-paper border border-line p-6 md:p-10 lg:p-12">
+          <div className="rounded-2xl bg-paper border border-line p-6 md:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-center">
               <div className="lg:col-span-4">
                 <p className="font-sans text-ink/55 text-[13px] mb-2">
@@ -50,7 +50,7 @@ export default function HomePage() {
       {/* Attribution donut, desktop only */}
       <section className="hidden lg:block bg-paper py-14 md:py-20 border-b border-line overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="rounded-3xl bg-cream border border-line p-6 md:p-10 lg:p-12">
+          <div className="rounded-2xl bg-cream border border-line p-6 md:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-center">
               <div className="lg:col-span-4">
                 <p className="font-sans text-ink/55 text-[13px] mb-2">
@@ -77,7 +77,7 @@ export default function HomePage() {
       {/* Daily order activity calendar, desktop only */}
       <section className="hidden lg:block bg-cream py-14 md:py-20 border-b border-line overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="rounded-3xl bg-paper border border-line p-6 md:p-10 lg:p-12">
+          <div className="rounded-2xl bg-paper border border-line p-6 md:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-center">
               <div className="lg:col-span-4">
                 <p className="font-sans text-ink/55 text-[13px] mb-2">

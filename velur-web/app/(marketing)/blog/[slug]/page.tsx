@@ -81,7 +81,7 @@ export default async function BlogPostPage({ params }: Props) {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 font-sans font-medium text-sm bg-ink text-paper px-6 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors duration-200"
+            className="inline-flex items-center gap-2 font-sans font-medium text-sm bg-ink text-paper px-6 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors duration-200"
           >
             Book a demo →
           </Link>

@@ -19,7 +19,7 @@ export default function ContactContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-3xl bg-brand-brown text-paper p-7 md:p-12 lg:p-16"
+            className="rounded-2xl bg-brand-brown text-paper p-7 md:p-12 lg:p-16"
           >
             <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-5">
               {c.label}
@@ -47,7 +47,7 @@ export default function ContactContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-7 rounded-3xl bg-paper border border-line p-6 md:p-8"
+              className="lg:col-span-7 rounded-2xl bg-paper border border-line p-6 md:p-8"
             >
               <WaitlistForm />
             </motion.div>
@@ -57,7 +57,7 @@ export default function ContactContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-5 rounded-3xl bg-brand-beige border border-line p-6 md:p-8 flex flex-col gap-6"
+              className="lg:col-span-5 rounded-2xl bg-brand-beige border border-line p-6 md:p-8 flex flex-col gap-6"
             >
               <div>
                 <p className="font-mono text-[11px] tracking-[0.16em] text-amber uppercase mb-3 font-semibold">

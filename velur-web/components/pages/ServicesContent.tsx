@@ -14,7 +14,7 @@ function HeroCard() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="rounded-3xl bg-brand-brown text-paper overflow-hidden"
+      className="rounded-2xl bg-brand-brown text-paper overflow-hidden"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 items-stretch min-h-[420px]">
         <div className="p-7 md:p-12 flex flex-col justify-between gap-8">
@@ -35,13 +35,13 @@ function HeroCard() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
+              className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
             >
               Book a call
             </Link>
             <Link
               href="#how"
-              className="inline-flex items-center bg-transparent text-paper border border-ink/30 font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-ink/10 transition-colors"
+              className="inline-flex items-center bg-transparent text-paper border border-ink/30 font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-ink/10 transition-colors"
             >
               How it works
             </Link>
@@ -163,7 +163,7 @@ function ModuleCard({ m, i, prefersReduced }: { m: Module; i: number; prefersRed
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.55, delay: prefersReduced ? 0 : i * 0.08, ease: [0.16, 1, 0.3, 1] }}
       whileHover={prefersReduced ? undefined : { y: -3 }}
-      className={`rounded-3xl ${m.bg} ${dark ? "text-paper" : "text-ink"} border ${dark ? "border-transparent" : "border-line"} p-7 md:p-9 flex flex-col gap-5`}
+      className={`rounded-2xl ${m.bg} ${dark ? "text-paper" : "text-ink"} border ${dark ? "border-transparent" : "border-line"} p-7 md:p-9 flex flex-col gap-5`}
     >
       <p className={`font-mono text-[10.5px] tracking-[0.18em] uppercase ${m.accent}`}>
         {m.label}
@@ -241,7 +241,7 @@ export default function ServicesContent() {
       {/* How it works strip, dark wrapper */}
       <section id="how" className="bg-cream pb-14 md:pb-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="rounded-3xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
+          <div className="rounded-2xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-5">
                 <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-4">
@@ -258,7 +258,7 @@ export default function ServicesContent() {
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
+                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
                 >
                   Book a discovery call
                 </Link>
@@ -298,7 +298,7 @@ export default function ServicesContent() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="rounded-3xl bg-paper border border-line p-6 md:p-8">
+            <div className="rounded-2xl bg-paper border border-line p-6 md:p-8">
               <div className="flex items-center gap-2 mb-5">
                 <span className="inline-block w-2 h-2 rounded-full bg-positive" />
                 <p className="font-mono text-[11px] tracking-[0.16em] text-positive uppercase font-semibold">
@@ -318,7 +318,7 @@ export default function ServicesContent() {
               </ul>
             </div>
 
-            <div className="rounded-3xl bg-stone border border-line p-6 md:p-8">
+            <div className="rounded-2xl bg-stone border border-line p-6 md:p-8">
               <div className="flex items-center gap-2 mb-5">
                 <span className="inline-block w-2 h-2 rounded-full bg-muted" />
                 <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase font-semibold">
@@ -344,7 +344,7 @@ export default function ServicesContent() {
       {/* Closing CTA */}
       <section className="bg-cream pb-14 md:pb-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="rounded-3xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16 relative overflow-hidden">
+          <div className="rounded-2xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16 relative overflow-hidden">
             <div
               aria-hidden
               className="absolute -top-20 -right-20 w-[420px] h-[420px] pointer-events-none"
@@ -364,7 +364,7 @@ export default function ServicesContent() {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center bg-amber text-paper font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-paper hover:text-ink transition-colors self-start md:self-auto"
+                className="inline-flex items-center bg-amber text-paper font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-paper hover:text-ink transition-colors self-start md:self-auto"
               >
                 Book a call
               </Link>

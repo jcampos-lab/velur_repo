@@ -1,37 +1,58 @@
 @import "tailwindcss";
 
-/* Velur palette
-   - Platinum         #ECECEC — page background
-   - Carbon Black     #1E1B18 — text + dark feature cards
-   - International Klein Blue  #1831B0 — primary accent (CTAs, eyebrows)
-   - Blue Slate       #57627C — secondary card surface
-   - Silver           #B7B6B7 — neutral, borders, decorative
+/* Velur palette, Cal.com-style
+   - Canvas: pure white #ffffff
+   - Primary: near-black #111111 for type + every primary CTA
+   - Brand accent: #3b82f6 reserved for inline links, focus, the rare badge
+     (never as a primary fill)
+   - Surface lift: white → surface-soft (#f8f9fa) → surface-card (#f5f5f5)
+   - Dark surface: #101010 reserved for the footer and the single dark
+     feature card per page
+
+   Cal.com negative rules respected:
+   - Primary CTAs use ink, never the accent blue
+   - Card radius caps at 16px (rounded-2xl)
+   - One dark feature card per page maximum
 */
 
 @theme {
   /* ─── Surfaces ────────────────────────────────────────────────────── */
   --color-paper:      #FFFFFF;   /* white inner cards + button labels */
-  --color-cream:      #ECECEC;   /* PLATINUM — page background */
-  --color-stone:      #E2E2E2;   /* subtle section background */
-  --color-alabaster:  #F4F4F4;   /* very light surface */
-  --color-ink:        #1E1B18;   /* CARBON BLACK — primary text + dark cards */
-  --color-line:       #D4D4D4;   /* SILVER-tinted hairline */
-  --color-muted:      #6E6E6E;   /* secondary text */
-  --color-positive:   #1F7A4D;   /* semantic green */
+  --color-cream:      #FFFFFF;   /* CANVAS — page background */
+  --color-stone:      #F5F5F5;   /* SURFACE-CARD — feature cards, badges */
+  --color-alabaster:  #F8F9FA;   /* SURFACE-SOFT — nav-pill, soft section bg */
+  --color-ink:        #111111;   /* PRIMARY — text + primary CTA bg */
+  --color-line:       #E5E7EB;   /* hairline */
+  --color-line-soft:  #F3F4F6;   /* barely-visible divider */
+  --color-muted:      #6B7280;   /* secondary text */
+  --color-muted-soft: #898989;   /* tertiary text */
+  --color-positive:   #10B981;   /* semantic success */
+  --color-warning:    #F59E0B;
+  --color-error:      #EF4444;
 
-  /* ─── Brand accent (International Klein Blue) ─────────────────────── */
-  /* Token name stays `amber` so existing utilities keep working, the
-     underlying hex is now Klein Blue. Pairs with white text on Klein
-     Blue backgrounds. */
-  --color-amber:       #1831B0;
-  --color-amber-tint:  #DDE4FB;   /* light wash for badges */
-  --color-amber-deep:  #102080;   /* darker variant for hover/active */
+  /* ─── Brand accent (rare blue) ────────────────────────────────────── */
+  /* Token name stays `amber` so existing utilities keep working, value
+     is now Cal.com's brand-accent blue. Use it for inline links, focus,
+     selection, the rare badge — never as a primary fill. */
+  --color-amber:       #3B82F6;
+  --color-amber-tint:  #DBEAFE;
+  --color-amber-deep:  #2563EB;
 
   /* ─── Brand surfaces ──────────────────────────────────────────────── */
-  --color-brand-brown:  #1E1B18;   /* Carbon Black — dark feature cards */
-  --color-brand-slate:  #57627C;   /* Blue Slate — secondary cards */
-  --color-brand-beige:  #B7B6B7;   /* Silver — neutral cards */
-  --color-brand-sky:    #1831B0;   /* Klein Blue — bold spotlight card */
+  /* brand-brown is the SINGLE dark surface, used for the footer + at most
+     one feature card per page (typically the hero or featured pricing).
+     brand-slate also resolves to the dark surface so existing dark cards
+     keep working without text-contrast bugs. */
+  --color-brand-brown:  #101010;
+  --color-brand-slate:  #101010;
+  --color-brand-beige:  #F5F5F5;   /* light surface-card variant */
+  --color-brand-sky:    #3B82F6;   /* rare accent-blue surface */
+
+  /* ─── Badge pastels (rare, for avatar fills + category chips) ───── */
+  --color-badge-orange:  #FB923C;
+  --color-badge-pink:    #EC4899;
+  --color-badge-violet:  #8B5CF6;
+  --color-badge-emerald: #34D399;
 
   --font-sans:  var(--font-bricolage), sans-serif;
   --font-serif: var(--font-fraunces), serif;
@@ -50,7 +71,7 @@ body {
   font-feature-settings: "cv01", "cv05", "cv09", "cv11", "ss03", "ss07", "dlig";
 }
 
-::selection { background: #1831B0; color: #FFFFFF; }
+::selection { background: #3B82F6; color: #FFFFFF; }
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--color-cream); }
@@ -58,7 +79,7 @@ body {
 ::-webkit-scrollbar-thumb:hover { background: var(--color-ink); }
 
 :focus-visible {
-  outline: 2px solid #1831B0;
+  outline: 2px solid #3B82F6;
   outline-offset: 3px;
   border-radius: 4px;
 }

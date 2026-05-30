@@ -27,7 +27,7 @@ export default function CtaSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-3xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16 overflow-hidden relative"
+          className="rounded-2xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16 overflow-hidden relative"
         >
           {/* Soft amber glow */}
           <div
@@ -56,7 +56,7 @@ export default function CtaSection({
             </div>
             <Link
               href={buttonHref}
-              className="inline-flex items-center bg-amber text-paper font-sans font-semibold text-[14.5px] px-5 py-3 rounded-full hover:bg-paper hover:text-ink transition-colors self-start md:self-auto"
+              className="inline-flex items-center bg-amber text-paper font-sans font-semibold text-[14.5px] px-5 py-3 rounded-lg hover:bg-paper hover:text-ink transition-colors self-start md:self-auto"
             >
               {copy.btn}
             </Link>

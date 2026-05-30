@@ -14,7 +14,7 @@ function FeaturedCourse() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="rounded-3xl bg-brand-brown text-paper overflow-hidden"
+      className="rounded-2xl bg-brand-brown text-paper overflow-hidden"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 items-stretch min-h-[400px]">
         <div className="p-7 md:p-12 flex flex-col justify-between gap-8">
@@ -34,7 +34,7 @@ function FeaturedCourse() {
           </div>
           <Link
             href="/contact"
-            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
+            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
           >
             Learn more →
           </Link>
@@ -88,7 +88,7 @@ function GuideAndPacks() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-        className="rounded-3xl bg-[#3F5772] text-paper overflow-hidden flex flex-col"
+        className="rounded-2xl bg-[#3F5772] text-paper overflow-hidden flex flex-col"
       >
         <div className="p-7 md:p-9 flex flex-col gap-5">
           <h3
@@ -102,7 +102,7 @@ function GuideAndPacks() {
           </p>
           <Link
             href="/contact"
-            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
+            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
           >
             Learn more →
           </Link>
@@ -141,7 +141,7 @@ function GuideAndPacks() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-        className="rounded-3xl bg-[#EFE9DE] text-ink overflow-hidden flex flex-col"
+        className="rounded-2xl bg-[#EFE9DE] text-ink overflow-hidden flex flex-col"
       >
         <div className="p-7 md:p-9 flex flex-col gap-5">
           <h3
@@ -156,13 +156,13 @@ function GuideAndPacks() {
           <div className="flex flex-wrap gap-2">
             <Link
               href="#packs"
-              className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[13.5px] px-4 py-2.5 rounded-full hover:bg-ink hover:text-paper transition-colors"
+              className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[13.5px] px-4 py-2.5 rounded-lg hover:bg-ink hover:text-paper transition-colors"
             >
               Spa pack
             </Link>
             <Link
               href="#packs"
-              className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[13.5px] px-4 py-2.5 rounded-full hover:bg-ink hover:text-paper transition-colors"
+              className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[13.5px] px-4 py-2.5 rounded-lg hover:bg-ink hover:text-paper transition-colors"
             >
               DTC pack
             </Link>
@@ -451,7 +451,7 @@ function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="rounded-3xl bg-paper border border-line overflow-hidden">
+    <div className="rounded-2xl bg-paper border border-line overflow-hidden">
       {FAQS.map((f, i) => {
         const isOpen = open === i;
         return (
@@ -515,13 +515,13 @@ export default function StudioContent() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center bg-ink text-paper font-sans font-medium text-[14.5px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
+              className="inline-flex items-center bg-ink text-paper font-sans font-medium text-[14.5px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
             >
               Book a discovery call
             </Link>
             <Link
               href="#packs"
-              className="inline-flex items-center bg-paper text-ink border border-line font-sans font-medium text-[14.5px] px-5 py-3 rounded-full hover:bg-ink hover:text-paper hover:border-ink transition-colors"
+              className="inline-flex items-center bg-paper text-ink border border-line font-sans font-medium text-[14.5px] px-5 py-3 rounded-lg hover:bg-ink hover:text-paper hover:border-ink transition-colors"
             >
               See the prompt packs
             </Link>
@@ -567,7 +567,7 @@ export default function StudioContent() {
       {/* What's in the system */}
       <section className="bg-cream py-14 md:py-20 border-b border-line">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="rounded-3xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
+          <div className="rounded-2xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-5">
                 <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-4">
@@ -584,7 +584,7 @@ export default function StudioContent() {
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
+                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
                 >
                   Book a discovery call
                 </Link>
@@ -670,7 +670,7 @@ export default function StudioContent() {
       {/* Closing CTA */}
       <section className="bg-cream py-14 md:py-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="rounded-3xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
+          <div className="rounded-2xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
               <div className="max-w-2xl">
                 <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-3">
@@ -685,7 +685,7 @@ export default function StudioContent() {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors self-start md:self-auto"
+                className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors self-start md:self-auto"
               >
                 Book a discovery call
               </Link>

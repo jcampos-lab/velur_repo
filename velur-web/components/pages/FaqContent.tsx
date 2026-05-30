@@ -67,7 +67,7 @@ export default function FaqContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-3xl bg-brand-brown text-paper p-7 md:p-12 lg:p-16"
+            className="rounded-2xl bg-brand-brown text-paper p-7 md:p-12 lg:p-16"
           >
             <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-5">
               {f.label}
@@ -113,7 +113,7 @@ export default function FaqContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.5, delay: ci * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                  className="rounded-3xl bg-paper border border-line overflow-hidden"
+                  className="rounded-2xl bg-paper border border-line overflow-hidden"
                 >
                   <div className="px-6 md:px-8 pt-6 md:pt-7 pb-2">
                     <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase">
@@ -143,7 +143,7 @@ export default function FaqContent() {
       {/* Still have questions */}
       <section className="bg-cream pb-14 md:pb-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="rounded-3xl bg-brand-beige border border-line p-7 md:p-12">
+          <div className="rounded-2xl bg-brand-beige border border-line p-7 md:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
               <div className="max-w-2xl">
                 <h2
@@ -158,7 +158,7 @@ export default function FaqContent() {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-ink text-paper font-sans font-semibold text-[14.5px] px-5 py-3 rounded-full hover:bg-amber hover:text-paper transition-colors"
+                className="inline-flex items-center gap-2 bg-ink text-paper font-sans font-semibold text-[14.5px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
               >
                 {f.contactBtn}
               </Link>
