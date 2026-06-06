@@ -3,10 +3,10 @@ export type Lang = "en" | "es";
 const en = {
   header: {
     nav: { platform: "Platform", studio: "AI Studio", caseStudies: "Case Studies", company: "Company", faq: "FAQ" },
-    cta: "Request a demo",
+    cta: "Join the waitlist",
     signin: "Sign in",
-    announcement: "Velur Revenue Intelligence is in private beta.",
-    announcementLink: "Request access →",
+    announcement: "Velur is shipping. New seats opening soon.",
+    announcementLink: "Join the waitlist →",
   },
   footer: {
     tagline: "Revenue intelligence for high-growth DTC and subscription brands.",
@@ -22,7 +22,7 @@ const en = {
     line1: "Revenue,",
     line2: "before it moves.",
     subhead: "Velur unifies pipeline, billing, product-usage and CRM signals into one console — so revenue teams see what's changing, and act before it costs them.",
-    ctaPrimary: "Request a demo",
+    ctaPrimary: "Join the waitlist",
     ctaSecondary: "Explore the platform",
     thesisLabel: "The thesis",
     thesis: "The number you report should be the number you trust. Velur reconciles every revenue source on a single timeline, so a board-ready forecast is one click — not one week.",
@@ -52,7 +52,7 @@ const en = {
     rows: [
       { heading: "You'll own everything we build.", body: "Every SQL file, every dashboard config, every data model, in your repositories, under your name, from day one. Cancel tomorrow and nothing breaks, nothing disappears, nothing gets held hostage." },
       { heading: "You'll understand every number.", body: "No black boxes, no \"trust the algorithm.\" Every metric we surface comes with a plain-English explanation of what moved and why. Our job is to make you feel like a data native, not dependent on us." },
-      { heading: "You'll be live in 14 days.", body: "From first call to first dashboard. No six-month implementations, no data engineering team required on your side. We handle the build end to end. Day 15, you have the keys." },
+      { heading: "You ship from day one.", body: "Velur is already running for the brands we onboard. Connect your stack, pick the modules, and your first revenue brief is on the schedule. No six-month build, no data engineering team required on your side. You hold the keys to everything from the start." },
     ],
   },
   receipts: {
@@ -61,7 +61,7 @@ const en = {
     stats: [
       { label: "Years our founding team has spent inside DTC and subscription data stacks", caption: "Across high-growth brands in apparel, consumables, and subscription" },
       { label: "DTC and subscription brands our team has worked with directly", caption: "Building the analytics infrastructure behind how they operate every day" },
-      { label: "Hours is our target from waitlist to your first revenue intelligence briefing", caption: "No data engineering team needed on your side" },
+      { label: "Days from onboarding to your first revenue intelligence briefing", caption: "No data engineering team needed on your side" },
     ],
   },
   caseStudies: {
@@ -78,7 +78,7 @@ const en = {
     featuredSource: "Klaviyo State of Email Marketing, 2025",
     impactBar: [
       { num: "+23%",    label: "Average LTV uplift from cohort analytics" },
-      { num: "14 days", label: "From early access to your first revenue briefing" },
+      { num: "1 brief", label: "From onboarding to your first revenue briefing" },
       { num: "2.5×",    label: "Revenue growth advantage for data-native brands" },
     ],
     implicationHeading: "First-party data is now the only data you can trust.",
@@ -480,7 +480,7 @@ const en = {
     eyebrow: "Get started",
     heading: "See your own revenue in Velur.",
     body: "We'll walk you through a console wired to your stack — pipeline, billing, usage and CRM, on one timeline.",
-    ctaPrimary: "Request a demo",
+    ctaPrimary: "Join the waitlist",
     ctaSecondary: "Read the docs",
   },
   footerKit: {
@@ -500,10 +500,10 @@ const en = {
 const es: typeof en = {
   header: {
     nav: { platform: "Plataforma", studio: "AI Studio", caseStudies: "Casos de Éxito", company: "Empresa", faq: "FAQ" },
-    cta: "Solicitar una demo",
+    cta: "Unirse a la lista",
     signin: "Entrar",
-    announcement: "Velur Revenue Intelligence está en beta privada.",
-    announcementLink: "Solicitar acceso →",
+    announcement: "Velur está activo. Próximamente abrimos nuevos cupos.",
+    announcementLink: "Unirse a la lista →",
   },
   footer: {
     tagline: "Inteligencia de ingresos para marcas DTC y de suscripción en alto crecimiento.",
@@ -519,7 +519,7 @@ const es: typeof en = {
     line1: "Los ingresos,",
     line2: "antes de que se muevan.",
     subhead: "Velur unifica pipeline, facturación, uso de producto y CRM en una sola consola — para que los equipos vean lo que cambia, y actúen antes de que cueste.",
-    ctaPrimary: "Solicitar una demo",
+    ctaPrimary: "Unirse a la lista",
     ctaSecondary: "Explorar la plataforma",
     thesisLabel: "La tesis",
     thesis: "El número que reportas debería ser el número en el que confías. Velur reconcilia cada fuente de ingresos en una sola línea de tiempo — un forecast listo para el board en un clic, no en una semana.",
@@ -977,7 +977,7 @@ const es: typeof en = {
     eyebrow: "Empezar",
     heading: "Ve tus propios ingresos en Velur.",
     body: "Te guiamos por una consola conectada a tu stack — pipeline, facturación, uso y CRM, en una sola línea de tiempo.",
-    ctaPrimary: "Solicitar una demo",
+    ctaPrimary: "Unirse a la lista",
     ctaSecondary: "Leer la documentación",
   },
   footerKit: {

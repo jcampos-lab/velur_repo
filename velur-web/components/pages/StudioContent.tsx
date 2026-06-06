@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
+import { PROMPT_PACKS, countPrompts } from "@/lib/promptPacks";
 
 /* ───────── Featured course ─────────────────────────────────────────── */
 
@@ -197,67 +198,55 @@ function GuideAndPacks() {
   );
 }
 
-/* ───────── Prompt pack grid ────────────────────────────────────────── */
-
-type Pack = {
-  title: string;
-  count: string;
-  /** Flat solid background — strictly from the new system palette. */
-  surface: string;
-  /** Text + eyebrow colors for this surface. */
-  textOnDark: boolean;
-};
-
-const PACKS: Pack[] = [
-  { title: "Spa & Studio", count: "100+ prompts", surface: "bg-stone",            textOnDark: false },
-  { title: "Beauty Shots", count: "100+ prompts", surface: "bg-signal-green-300", textOnDark: false },
-  { title: "DTC Products", count: "100+ prompts", surface: "bg-velur-ink",        textOnDark: true  },
-  { title: "Hospitality",  count:  "80+ prompts", surface: "bg-midnight",         textOnDark: true  },
-  { title: "Reel Hooks",   count: "50+ scripts",  surface: "bg-coral",            textOnDark: true  },
-  { title: "Email Voice",  count: "50+ prompts",  surface: "bg-signal-green",     textOnDark: true  },
-];
+/* ───────── Prompt pack grid ──────────────────────────────────────────
+   Cards pull from lib/promptPacks.ts so the count + slug stay in sync
+   with the actual pack data (no hand-maintained "100+ prompts" copy). */
 
 function PackGrid() {
   const prefersReduced = useReducedMotion();
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-      {PACKS.map((p, i) => (
-        <motion.div
-          key={p.title}
-          initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{
-            duration: 0.5,
-            delay: prefersReduced ? 0 : i * 0.06,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-          whileHover={prefersReduced ? undefined : { y: -3 }}
-          className="rounded-2xl bg-paper border border-line overflow-hidden flex flex-col"
-        >
-          {/* Solid color block — no grid overlay, no gradient, no decoration.
-              Just surface + count + title, minimalist. */}
-          <div className={`aspect-[5/4] ${p.surface} relative p-6 flex flex-col justify-end`}>
-            <p className={`font-mono text-[10px] tracking-[0.18em] uppercase ${p.textOnDark ? "text-on-dark-muted" : "text-ink/60"}`}>
-              {p.count}
-            </p>
-            <p className={`font-sans font-semibold text-[24px] leading-tight tracking-[-0.01em] mt-1 ${p.textOnDark ? "text-on-dark" : "text-ink-strong"}`}>
-              {p.title}
-            </p>
-          </div>
-          <div className="p-5 flex flex-col gap-3">
-            <p className="font-sans text-[14px] text-ink/70 leading-relaxed">
-              Tested on real clients. Edit the brand notes at the top, paste into your AI tool of choice, ship the asset.
-            </p>
+      {PROMPT_PACKS.map((p, i) => {
+        const count = countPrompts(p);
+        return (
+          <motion.div
+            key={p.slug}
+            initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{
+              duration: 0.5,
+              delay: prefersReduced ? 0 : i * 0.06,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            whileHover={prefersReduced ? undefined : { y: -3 }}
+            className="rounded-2xl bg-paper border border-line overflow-hidden flex flex-col"
+          >
             <Link
-              href="/contact"
-              className="self-start font-sans font-semibold text-[13.5px] text-action-blue hover:underline underline-offset-4"
+              href={`/studio/packs/${p.slug}`}
+              className="flex flex-col h-full"
             >
-              Request access →
+              {/* Solid surface block — no grid overlay, no gradient. */}
+              <div className={`aspect-[5/4] ${p.surface} relative p-6 flex flex-col justify-end`}>
+                <p className={`font-mono text-[10px] tracking-[0.18em] uppercase ${p.textOnDark ? "text-on-dark-muted" : "text-ink/60"}`}>
+                  {count} prompts
+                </p>
+                <p className={`font-sans font-semibold text-[24px] leading-tight tracking-[-0.01em] mt-1 ${p.textOnDark ? "text-on-dark" : "text-ink-strong"}`}>
+                  {p.title}
+                </p>
+              </div>
+              <div className="p-5 flex flex-col gap-3 flex-1">
+                <p className="font-sans text-[14px] text-ink/70 leading-relaxed flex-1">
+                  {p.tagline}
+                </p>
+                <span className="self-start font-sans font-semibold text-[13.5px] text-action-blue group-hover:underline underline-offset-4">
+                  See the pack →
+                </span>
+              </div>
             </Link>
-          </div>
-        </motion.div>
-      ))}
+          </motion.div>
+        );
+      })}
     </div>
   );
 }
@@ -447,7 +436,7 @@ const FAQS = [
   },
   {
     q: "What if I do not like the first assets?",
-    a: "We iterate together on the first batch. The Discovery Call exists exactly so we can both decide if the fit is right before any money changes hands.",
+    a: "We iterate together on the first batch. The first kickoff exists exactly so we can both decide if the fit is right before any money changes hands.",
   },
 ];
 
@@ -521,7 +510,7 @@ export default function StudioContent() {
               href="/contact"
               className="inline-flex items-center bg-ink text-paper font-sans font-medium text-[14.5px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
             >
-              Book a discovery call
+              Join the waitlist
             </Link>
             <Link
               href="#packs"
@@ -590,7 +579,7 @@ export default function StudioContent() {
                   href="/contact"
                   className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
                 >
-                  Book a discovery call
+                  Join the waitlist
                 </Link>
               </div>
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -691,7 +680,7 @@ export default function StudioContent() {
                 href="/contact"
                 className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors self-start md:self-auto"
               >
-                Book a discovery call
+                Join the waitlist
               </Link>
             </div>
           </div>

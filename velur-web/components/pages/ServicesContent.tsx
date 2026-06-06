@@ -37,7 +37,7 @@ function HeroCard() {
               href="/contact"
               className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
             >
-              Book a call
+              Join the waitlist
             </Link>
             <Link
               href="#how"
@@ -194,10 +194,10 @@ function ModuleCard({ m, i, prefersReduced }: { m: Module; i: number; prefersRed
 /* ─── Onboarding strip ─────────────────────────────────────────────────── */
 
 const STEPS = [
-  { label: "Day 1",  title: "Plug in your stack.",      body: "Shopify, Klaviyo, Meta, TikTok, plus whichever AI tools you actually use. OAuth or read-only keys." },
-  { label: "Day 3",  title: "We backfill 18 months.",   body: "Orders, sessions, ad spend, creative metadata, email events. So your first brief is not reading a week of noise." },
-  { label: "Day 7",  title: "First brief lands.",       body: "One paragraph, three numbers, two recommendations. If it is wrong, you reply and we recalibrate the next day." },
-  { label: "Day 14", title: "You own the keys.",        body: "Every SQL model, every dashboard, every score function in your repo, under your name. Cancel anytime." },
+  { label: "Step 01", title: "Plug in your stack.",      body: "Shopify, Klaviyo, Meta, TikTok, plus whichever AI tools you actually use. OAuth or read-only keys." },
+  { label: "Step 02", title: "We backfill 18 months.",   body: "Orders, sessions, ad spend, creative metadata, email events. So your first brief is not reading a week of noise." },
+  { label: "Step 03", title: "First brief lands.",       body: "One paragraph, three numbers, two recommendations. If it is wrong, you reply and we recalibrate the next day." },
+  { label: "Step 04", title: "You own the keys.",        body: "Every SQL model, every dashboard, every score function in your repo, under your name. Cancel anytime." },
 ];
 
 /* ─── Page ─────────────────────────────────────────────────────────────── */
@@ -251,16 +251,16 @@ export default function ServicesContent() {
                   className="font-sans font-bold leading-[1.05] tracking-[-0.025em]"
                   style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
                 >
-                  Live in fourteen days. Owned by you on day fifteen.
+                  Velur is live. Onboarding the next cohort.
                 </h2>
                 <p className="font-sans text-paper/75 leading-relaxed mt-5 text-[15px] md:text-[16px] max-w-md">
-                  We handle the integrations and the backfill. Your team needs an OAuth approval and twenty minutes on a Wednesday.
+                  We handle the integrations and the backfill. Your team needs an OAuth approval and twenty minutes on a Wednesday. Join the waitlist and we&apos;ll reach out when the next seat opens.
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
+                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-stone transition-colors"
                 >
-                  Book a discovery call
+                  Join the waitlist
                 </Link>
               </div>
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -359,14 +359,14 @@ export default function ServicesContent() {
                   className="font-sans font-bold leading-[1.05] tracking-[-0.025em]"
                   style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
                 >
-                  Plug in your stack. Get the first brief in seven days.
+                  Plug in your stack. Get on the schedule.
                 </h3>
               </div>
               <Link
                 href="/contact"
                 className="inline-flex items-center bg-amber text-paper font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-paper hover:text-ink transition-colors self-start md:self-auto"
               >
-                Book a call
+                Join the waitlist
               </Link>
             </div>
           </div>

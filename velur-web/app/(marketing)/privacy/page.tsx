@@ -44,9 +44,9 @@ export default function PrivacyPage() {
           <div>
             <h2 className="font-sans font-bold text-xl mb-3">2. What data we collect</h2>
             <p>
-              This website does not collect personal data by default. There are no email
-              sign-up forms or user accounts. If you book a call via our Cal.com embed,
-              Cal.com processes your booking data under their own privacy policy.
+              This website does not collect personal data by default, beyond the email
+              you enter in the waitlist form. Waitlist submissions are stored by Velur
+              for the sole purpose of contacting you when a seat opens.
             </p>
           </div>
 
