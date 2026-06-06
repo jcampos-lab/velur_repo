@@ -98,43 +98,43 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Massive bottom wordmark — mark + "Velur" pinned to the LEFT
-          edge of the footer (under the newsletter column), extending
-          past the right edge of the viewport with a soft mask-image
-          fade so the letters dissolve into the velur-ink canvas.
-          Px Grotesk only ships Regular, so we thicken the letterforms
-          with a same-color stroke painted BEHIND the fill. */}
+      {/* Bottom wordmark — mark + "Velur" pinned to the LEFT edge of
+          the footer (under the newsletter column). The mark stays at
+          its smaller proportion; only the wordmark gets sized up.
+          A soft mask-image fade dissolves the right edge into the
+          velur-ink canvas. Px Grotesk only ships Regular, so we
+          thicken the letterforms with a same-color stroke behind. */}
       <div
         className="relative mt-12 md:mt-16 select-none pointer-events-none overflow-hidden"
         style={{
           margin: "56px 0 0",
           paddingLeft: "var(--gutter)",
           paddingRight: 0,
-          /* The disappearing-into-the-void fade — opaque through the
-             first ~60%, then a soft dissolve. Both prefixed for Safari. */
+          /* Fade holds full opacity through 72%, dissolves through
+             90%, fully transparent at 100%. Both prefixed for Safari. */
           WebkitMaskImage:
-            "linear-gradient(to right, #000 0%, #000 58%, rgba(0,0,0,0.55) 82%, transparent 100%)",
+            "linear-gradient(to right, #000 0%, #000 72%, rgba(0,0,0,0.55) 90%, transparent 100%)",
           maskImage:
-            "linear-gradient(to right, #000 0%, #000 58%, rgba(0,0,0,0.55) 82%, transparent 100%)",
+            "linear-gradient(to right, #000 0%, #000 72%, rgba(0,0,0,0.55) 90%, transparent 100%)",
         }}
         aria-hidden="true"
       >
-        <div className="flex items-center justify-start gap-[2vw] flex-nowrap">
+        <div className="flex items-center justify-start gap-[1.5vw] flex-nowrap">
           <Image
             src="/logos/velur-mark-white.png"
             alt=""
-            width={800}
-            height={800}
+            width={400}
+            height={400}
             priority={false}
             className="h-auto shrink-0"
-            style={{ width: "clamp(128px, 22vw, 360px)" }}
+            style={{ width: "clamp(64px, 11vw, 180px)" }}
           />
           <span
-            className="leading-[0.85] tracking-[-0.045em] text-[#F4F1E8] whitespace-nowrap"
+            className="leading-[0.85] tracking-[-0.04em] text-[#F4F1E8] whitespace-nowrap"
             style={{
               fontFamily: "'Px Grotesk', Inter, system-ui, sans-serif",
               fontWeight: 400,
-              fontSize: "clamp(14rem, 48vw, 44rem)",
+              fontSize: "clamp(9rem, 30vw, 26rem)",
               /* Subtle faux-bold — just enough to lift Px Grotesk Regular
                  at display size without going slab. */
               WebkitTextStroke: "0.022em #F4F1E8",
