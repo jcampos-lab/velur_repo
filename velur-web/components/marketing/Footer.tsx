@@ -108,7 +108,7 @@ export default function Footer() {
         style={{ margin: "56px auto 0", paddingLeft: "var(--gutter)", paddingRight: "var(--gutter)" }}
         aria-hidden="true"
       >
-        <div className="flex items-center justify-center gap-[2vw]">
+        <div className="flex items-center justify-center gap-[1.5vw]">
           <Image
             src="/logos/velur-mark-white.png"
             alt=""
@@ -116,15 +116,17 @@ export default function Footer() {
             height={600}
             priority={false}
             className="h-auto shrink-0"
-            style={{ width: "clamp(96px, 17vw, 320px)" }}
+            style={{ width: "clamp(64px, 11vw, 180px)" }}
           />
           <span
-            className="leading-[0.85] tracking-[-0.05em] text-[#F4F1E8]"
+            className="leading-[0.85] tracking-[-0.04em] text-[#F4F1E8]"
             style={{
               fontFamily: "'Px Grotesk', Inter, system-ui, sans-serif",
               fontWeight: 400,
-              fontSize: "clamp(10rem, 38vw, 40rem)",
-              WebkitTextStroke: "0.06em #F4F1E8",
+              fontSize: "clamp(7rem, 24vw, 22rem)",
+              /* Subtle faux-bold — just enough to lift Px Grotesk Regular
+                 at display size without going slab. */
+              WebkitTextStroke: "0.022em #F4F1E8",
               paintOrder: "stroke fill",
               fontSynthesisWeight: "auto",
             }}
