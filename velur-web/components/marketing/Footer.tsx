@@ -17,8 +17,8 @@ export default function Footer() {
 
   return (
     <footer
-      className="bg-velur-ink text-on-dark"
-      style={{ padding: "var(--section-y-tight) var(--gutter) 40px" }}
+      className="bg-velur-ink text-on-dark overflow-hidden"
+      style={{ padding: "var(--section-y-tight) var(--gutter) 24px" }}
     >
       <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
         <div
@@ -95,6 +95,37 @@ export default function Footer() {
               </Link>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Massive bottom wordmark — mark + "Velur" filling the footer width
+          (Retool-style). The brand font Px Grotesk only ships Regular, so
+          we use Bricolage Grotesque at 800 here for the proper thick
+          display weight. Stays on velur-ink with the on-dark cream color. */}
+      <div
+        className="relative mt-12 md:mt-16 select-none pointer-events-none"
+        style={{ maxWidth: "var(--container-wide)", margin: "48px auto 0" }}
+        aria-hidden="true"
+      >
+        <div className="flex items-center justify-center gap-[3vw] md:gap-[2.5vw] px-2 md:px-4">
+          <Image
+            src="/logos/velur-mark-white.png"
+            alt=""
+            width={400}
+            height={400}
+            priority={false}
+            className="w-[14vw] max-w-[200px] h-auto shrink-0"
+          />
+          <span
+            className="leading-none tracking-[-0.04em] text-[#F4F1E8]"
+            style={{
+              fontFamily: "var(--font-bricolage), 'Px Grotesk', Inter, system-ui, sans-serif",
+              fontWeight: 800,
+              fontSize: "clamp(8rem, 28vw, 28rem)",
+            }}
+          >
+            Velur
+          </span>
         </div>
       </div>
     </footer>
