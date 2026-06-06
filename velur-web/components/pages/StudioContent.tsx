@@ -40,33 +40,33 @@ function FeaturedCourse() {
           </Link>
         </div>
 
-        {/* Preview area: stacked abstract panels */}
-        <div className="relative bg-gradient-to-br from-[#3D1E10] via-[#2A1206] to-[#1A0A03] overflow-hidden hidden md:block">
-          <div className="absolute inset-0 opacity-50" style={{
-            backgroundImage: "radial-gradient(circle at 30% 40%, rgba(208,255,176,0.4), transparent 50%), radial-gradient(circle at 80% 80%, rgba(208,255,176,0.3), transparent 50%)",
+        {/* Preview area — Signal Green band, system palette only */}
+        <div className="relative bg-signal-green overflow-hidden hidden md:block">
+          <div className="absolute inset-0 opacity-60" style={{
+            backgroundImage: "radial-gradient(circle at 30% 40%, rgba(79,183,141,0.45), transparent 55%), radial-gradient(circle at 80% 80%, rgba(31,95,224,0.18), transparent 55%)",
           }} />
-          <div className="absolute top-12 left-8 right-12 bottom-8 rounded-xl bg-gradient-to-br from-[#5B3522] to-[#3D1E10] border border-amber/20 p-5 flex flex-col justify-between shadow-2xl">
-            <p className="font-mono text-[10px] tracking-[0.18em] text-amber/80 uppercase">
+          <div className="absolute top-12 left-8 right-12 bottom-8 rounded-xl bg-velur-ink border border-ink-700 p-5 flex flex-col justify-between shadow-2xl">
+            <p className="font-mono text-[10px] tracking-[0.18em] text-signal-green-300 uppercase">
               Chapter 04
             </p>
             <div>
-              <p className="font-mono text-[10px] tracking-[0.16em] text-paper/55 uppercase mb-1">
+              <p className="font-mono text-[10px] tracking-[0.16em] text-on-dark-muted uppercase mb-1">
                 Lesson
               </p>
-              <p className="font-sans font-bold text-paper text-[20px] leading-tight">
+              <p className="font-sans font-semibold text-on-dark text-[20px] leading-tight">
                 AI Content Creation
               </p>
             </div>
           </div>
-          <div className="absolute -bottom-6 -right-6 w-40 h-28 rounded-xl bg-gradient-to-br from-paper/95 to-paper/85 backdrop-blur-sm border border-line/30 p-3 rotate-[6deg] shadow-2xl">
-            <p className="font-mono text-[9px] tracking-[0.18em] text-ink/55 uppercase">
+          <div className="absolute -bottom-6 -right-6 w-40 h-28 rounded-xl bg-canvas border border-hairline p-3 rotate-[6deg] shadow-2xl">
+            <p className="font-mono text-[9px] tracking-[0.18em] text-slate uppercase">
               Reel Prompt
             </p>
             <div className="mt-1.5 space-y-1">
-              <div className="h-1 bg-ink/15 rounded-full w-full" />
-              <div className="h-1 bg-ink/15 rounded-full w-3/4" />
-              <div className="h-1 bg-amber/60 rounded-full w-5/6" />
-              <div className="h-1 bg-ink/15 rounded-full w-2/3" />
+              <div className="h-1 bg-hairline rounded-full w-full" />
+              <div className="h-1 bg-hairline rounded-full w-3/4" />
+              <div className="h-1 bg-signal-green rounded-full w-5/6" />
+              <div className="h-1 bg-hairline rounded-full w-2/3" />
             </div>
           </div>
         </div>
@@ -199,13 +199,22 @@ function GuideAndPacks() {
 
 /* ───────── Prompt pack grid ────────────────────────────────────────── */
 
-const PACKS = [
-  { title: "Spa & Studio",  count: "100+ prompts", tone: "from-stone to-[#8B7E66]",            textOnDark: false },
-  { title: "Beauty Shots",  count: "100+ prompts", tone: "from-signal-green-300 to-signal-green", textOnDark: true  },
-  { title: "DTC Products",  count: "100+ prompts", tone: "from-ink-700 to-velur-ink",          textOnDark: true  },
-  { title: "Hospitality",   count:  "80+ prompts", tone: "from-midnight-700 to-midnight",      textOnDark: true  },
-  { title: "Reel Hooks",    count: "50+ scripts",  tone: "from-coral to-[#C04A2F]",            textOnDark: true  },
-  { title: "Email Voice",   count: "50+ prompts",  tone: "from-signal-green to-[#063123]",     textOnDark: true  },
+type Pack = {
+  title: string;
+  count: string;
+  /** Flat solid background — strictly from the new system palette. */
+  surface: string;
+  /** Text + eyebrow colors for this surface. */
+  textOnDark: boolean;
+};
+
+const PACKS: Pack[] = [
+  { title: "Spa & Studio", count: "100+ prompts", surface: "bg-stone",            textOnDark: false },
+  { title: "Beauty Shots", count: "100+ prompts", surface: "bg-signal-green-300", textOnDark: false },
+  { title: "DTC Products", count: "100+ prompts", surface: "bg-velur-ink",        textOnDark: true  },
+  { title: "Hospitality",  count:  "80+ prompts", surface: "bg-midnight",         textOnDark: true  },
+  { title: "Reel Hooks",   count: "50+ scripts",  surface: "bg-coral",            textOnDark: true  },
+  { title: "Email Voice",  count: "50+ prompts",  surface: "bg-signal-green",     textOnDark: true  },
 ];
 
 function PackGrid() {
@@ -226,20 +235,15 @@ function PackGrid() {
           whileHover={prefersReduced ? undefined : { y: -3 }}
           className="rounded-2xl bg-paper border border-line overflow-hidden flex flex-col"
         >
-          <div className={`aspect-[5/4] bg-gradient-to-br ${p.tone} relative p-5 flex items-end`}>
-            <div className="grid grid-cols-3 gap-1.5 absolute top-5 right-5 left-5 opacity-30">
-              {Array.from({ length: 9 }).map((_, j) => (
-                <div key={j} className={`aspect-square rounded-sm ${p.textOnDark ? "bg-white/40" : "bg-ink/30"}`} />
-              ))}
-            </div>
-            <div className="relative">
-              <p className={`font-mono text-[10px] tracking-[0.18em] uppercase ${p.textOnDark ? "text-white/80" : "text-ink/60"}`}>
-                {p.count}
-              </p>
-              <p className={`font-sans font-bold text-[22px] leading-tight mt-1 ${p.textOnDark ? "text-white" : "text-ink"}`}>
-                {p.title}
-              </p>
-            </div>
+          {/* Solid color block — no grid overlay, no gradient, no decoration.
+              Just surface + count + title, minimalist. */}
+          <div className={`aspect-[5/4] ${p.surface} relative p-6 flex flex-col justify-end`}>
+            <p className={`font-mono text-[10px] tracking-[0.18em] uppercase ${p.textOnDark ? "text-on-dark-muted" : "text-ink/60"}`}>
+              {p.count}
+            </p>
+            <p className={`font-sans font-semibold text-[24px] leading-tight tracking-[-0.01em] mt-1 ${p.textOnDark ? "text-on-dark" : "text-ink-strong"}`}>
+              {p.title}
+            </p>
           </div>
           <div className="p-5 flex flex-col gap-3">
             <p className="font-sans text-[14px] text-ink/70 leading-relaxed">
@@ -247,7 +251,7 @@ function PackGrid() {
             </p>
             <Link
               href="/contact"
-              className="self-start font-sans font-semibold text-[13.5px] text-amber hover:underline underline-offset-4"
+              className="self-start font-sans font-semibold text-[13.5px] text-action-blue hover:underline underline-offset-4"
             >
               Request access →
             </Link>
