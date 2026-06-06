@@ -1,31 +1,10 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Fraunces, JetBrains_Mono } from "next/font/google";
 import { LanguageProvider } from "@/lib/i18n/LanguageProvider";
 import "./globals.css";
 
 /* Px Grotesk is loaded as @font-face from /public/fonts in globals.css.
-   These Google fonts remain as graceful fallbacks while Px Grotesk swaps in. */
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  style: ["normal"],
-  display: "swap",
-});
-
-const jetbrains = JetBrains_Mono({
-  variable: "--font-jetbrains",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-});
+   No Google-font fallbacks — the brand intentionally runs on a single
+   typeface (mono is a system stack). */
 
 export const metadata: Metadata = {
   title: "Velur · Revenue Intelligence for small businesses",
@@ -54,10 +33,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${bricolage.variable} ${fraunces.variable} ${jetbrains.variable} h-full`}
-    >
+    <html lang="en" className="h-full">
       <body className="min-h-full antialiased">
         <LanguageProvider>{children}</LanguageProvider>
       </body>

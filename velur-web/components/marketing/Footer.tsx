@@ -98,30 +98,35 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Massive bottom wordmark — mark + "Velur" filling the footer width
-          (Retool-style). The brand font Px Grotesk only ships Regular, so
-          we use Bricolage Grotesque at 800 here for the proper thick
-          display weight. Stays on velur-ink with the on-dark cream color. */}
+      {/* Massive bottom wordmark — mark + "Velur" filling the viewport
+          width (Retool-style). Px Grotesk only ships Regular, so we
+          thicken the letterforms with a same-color stroke painted
+          BEHIND the fill — faux-bold for the brand font.
+          paint-order keeps the stroke from eating inner counters. */}
       <div
         className="relative mt-12 md:mt-16 select-none pointer-events-none"
-        style={{ maxWidth: "var(--container-wide)", margin: "48px auto 0" }}
+        style={{ margin: "56px auto 0", paddingLeft: "var(--gutter)", paddingRight: "var(--gutter)" }}
         aria-hidden="true"
       >
-        <div className="flex items-center justify-center gap-[3vw] md:gap-[2.5vw] px-2 md:px-4">
+        <div className="flex items-center justify-center gap-[2vw]">
           <Image
             src="/logos/velur-mark-white.png"
             alt=""
-            width={400}
-            height={400}
+            width={600}
+            height={600}
             priority={false}
-            className="w-[14vw] max-w-[200px] h-auto shrink-0"
+            className="h-auto shrink-0"
+            style={{ width: "clamp(96px, 17vw, 320px)" }}
           />
           <span
-            className="leading-none tracking-[-0.04em] text-[#F4F1E8]"
+            className="leading-[0.85] tracking-[-0.05em] text-[#F4F1E8]"
             style={{
-              fontFamily: "var(--font-bricolage), 'Px Grotesk', Inter, system-ui, sans-serif",
-              fontWeight: 800,
-              fontSize: "clamp(8rem, 28vw, 28rem)",
+              fontFamily: "'Px Grotesk', Inter, system-ui, sans-serif",
+              fontWeight: 400,
+              fontSize: "clamp(10rem, 38vw, 40rem)",
+              WebkitTextStroke: "0.06em #F4F1E8",
+              paintOrder: "stroke fill",
+              fontSynthesisWeight: "auto",
             }}
           >
             Velur
