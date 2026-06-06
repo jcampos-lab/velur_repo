@@ -21,13 +21,16 @@
  */
 
 export type PromptTool = "MidJourney" | "Higgsfield" | "Claude" | "ChatGPT";
+export type Lang = "en" | "es";
 
 export type Prompt = {
   /** One-line title shown on the prompt card. */
   title: string;
   /** Which tool this prompt is written for. */
   tool: PromptTool;
-  /** The actual prompt — paste-ready, with [BRACKETED] variables. */
+  /** The actual prompt — paste-ready, with [BRACKETED] variables.
+      Stays in English because MidJourney / Higgsfield / Claude
+      produce noticeably better results with English prompts. */
   body: string;
   /** Optional one-line note on when to reach for this prompt. */
   note?: string;

@@ -4,9 +4,15 @@ import CtaSection from "@/components/marketing/CtaSection";
 import FounderSection from "@/components/marketing/FounderSection";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
+const HEADINGS = {
+  en: { opinions: "Built on a small set of opinions.", believe: "What we believe." },
+  es: { opinions: "Construido sobre un conjunto pequeño de convicciones.", believe: "Lo que creemos." },
+} as const;
+
 export default function CompanyContent() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const c = t.company;
+  const h = HEADINGS[lang];
 
   return (
     <>
@@ -42,7 +48,7 @@ export default function CompanyContent() {
               className="font-sans font-bold text-ink leading-[1.1] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
             >
-              Built on a small set of opinions.
+              {h.opinions}
             </h2>
           </div>
           <div className="card-group grid grid-cols-1 lg:grid-cols-3 gap-3 md:gap-4">
@@ -106,7 +112,7 @@ export default function CompanyContent() {
               className="font-sans font-bold text-ink leading-[1.1] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
             >
-              What we believe.
+              {h.believe}
             </h2>
           </div>
           <div className="card-group grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">

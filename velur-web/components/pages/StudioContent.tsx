@@ -3,11 +3,234 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
-import { PROMPT_PACKS, countPrompts } from "@/lib/promptPacks";
+import { PROMPT_PACKS, countPrompts, type Lang as PackLang } from "@/lib/promptPacks";
+import { packTitle, packTagline } from "@/lib/promptPacksEs";
+import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
-/* ───────── Featured course ─────────────────────────────────────────── */
+/* ─── Per-page strings (Castilian Spanish for ES) ─────────────────── */
+const COPY = {
+  en: {
+    hero: {
+      eyebrow: "Velur AI Studio",
+      h1Lead: "Learn to use AI to grow your ",
+      h1Italic: "small business",
+      body: "Hands-on systems that turn Higgsfield, Claude, ChatGPT and MidJourney into real revenue, not novelty posts. Built by a founder who runs a real small business on the same playbook.",
+      cta1: "Join the waitlist",
+      cta2: "See the prompt packs",
+    },
+    course: {
+      eyebrow: "Flagship course",
+      title: "Branded AI Editing Course",
+      body: "The exact workflow we use to ship video and image creative for Cami Lab Studio. Higgsfield prompt structure, MidJourney recipes, Claude voice prompts, and the brief that holds them all together.",
+      cta: "Learn more →",
+      mockChapter: "Chapter 04",
+      mockLesson: "Lesson",
+      mockLessonTitle: "AI Content Creation",
+      mockMicro: "Reel Prompt",
+    },
+    guide: {
+      title: "Velur AI Starter Guide",
+      body: "How to generate aesthetic, brand-consistent images and short clips using AI. Written for small-business owners who want to skip the trial-and-error and ship usable assets on day one.",
+      cta: "Learn more →",
+      bookTitle1: "Branded AI",
+      bookTitle2: "Guide",
+      bookCaption: "Mobile editing playbook",
+    },
+    packsCard: {
+      title: "Prompt Packs",
+      body: "Field-tested prompts for the categories we actually work in. Spa, beauty, hospitality, DTC products. Drop them straight into MidJourney or Higgsfield and edit from there.",
+      chip1: "Spa pack",
+      chip2: "DTC pack",
+      mockCount: "100+",
+      mockLabel: "Prompt Pack",
+    },
+    packGridSection: {
+      eyebrow: "Prompt packs",
+      heading: "Field-tested prompts for the categories we actually work in.",
+      body: "Drop them into MidJourney, Higgsfield or Claude. Edit the brand notes at the top. Ship the asset.",
+      promptsSuffix: "prompts",
+      seePack: "See the pack →",
+    },
+    system: {
+      eyebrow: "The AI Creative System",
+      heading: "A creative system built to find your winning angles and scale them.",
+      body: "Three weeks of structured work, then ongoing support. Designed for small teams who need to ship faster than their competitors can.",
+      cta: "Join the waitlist",
+      weeks: [
+        { label: "Week 01", title: "Customer Research", body: "We map your customer, your competitors, and the angles winning in your category right now." },
+        { label: "Week 02", title: "Creative Strategy", body: "We map your content needs across organic, paid and email, then write the briefs that drive each one." },
+        { label: "Week 03", title: "AI Production",     body: "We help you produce, edit and ship the first batch using your stack: Higgsfield, MidJourney, Claude, ChatGPT." },
+      ],
+    },
+    testimonials: {
+      eyebrow: "From clients",
+      heading: "What it looks like in real businesses.",
+      items: [
+        { quote: "We finally post on a rhythm without burning out. The AI workflow gives us three weeks' worth of usable creative in an afternoon.",   name: "Camila",   role: "Spa owner, Cami Lab Studio" },
+        { quote: "Replaced our product shoot for two collections. The MidJourney recipes alone paid for the whole engagement in week one.",            name: "Marc R.",  role: "DTC apparel owner" },
+        { quote: "I went from staring at Higgsfield wondering what to type to publishing reels that actually book appointments.",                     name: "Sara V.",  role: "Clinic owner" },
+        { quote: "Alex actually picks up the phone. That alone made him different from every other agency we talked to.",                            name: "Diego T.", role: "Coffee subscription founder" },
+        { quote: "The prompt packs cut our brief-to-asset time by 70%. Our designer finally has time to actually design.",                            name: "Nora P.",  role: "Brand lead, beauty startup" },
+        { quote: "We had no in-house creative team. Now we ship better content than agencies five times our size.",                                  name: "Lars F.",  role: "E-commerce founder" },
+      ],
+    },
+    fit: {
+      eyebrow: "Who this is for",
+      heading: "Honest about the fit.",
+      yesLabel: "This is for you if",
+      noLabel: "This is not for you if",
+      yes: [
+        "You run a small business or DTC brand and you do most of the marketing yourself",
+        "You already use AI tools but want a system that produces consistent, on-brand output",
+        "You need creative that books appointments or sells products, not awards",
+        "You want a real human to talk to, not a Slack bot",
+      ],
+      no: [
+        "You are looking for a generic AI consultant with no industry focus",
+        "You expect 10,000 follower growth in a week without paying for ads",
+        "You want to outsource your brand identity to a model with zero input",
+        "You need a 100-person agency relationship for enterprise work",
+      ],
+    },
+    faq: {
+      eyebrow: "Frequently asked",
+      heading: "Curious? Let's clear things up.",
+      items: [
+        { q: "Does this actually look professional or like obvious AI?",     a: "Both have happened. The packs and the course teach you how to control output so it looks like real photography, with brand-consistent props, lighting, and composition. The first attempts will look AI. By week two they shouldn't." },
+        { q: "Can I use this material to train AI?",                         a: "No. The prompts and templates are licensed for your direct use, not as training data for other models. We are a small team and we ask that you respect this." },
+        { q: "What if I do not match the categories you cover?",             a: "Reach out. We have shipped work for spa, beauty, jewelry, hospitality, DTC apparel, food and drink, and coffee subscriptions. If your niche is close to one of those, we can adapt the prompt structure on a call." },
+        { q: "How long does it take to see results?",                        a: "Most clients ship their first usable asset on day one with the starter guide. Real revenue impact, defined as a campaign that pays for itself, typically lands within four to six weeks." },
+        { q: "Do I need to be technical?",                                   a: "No. If you can copy and paste, and if you have credit on Higgsfield or MidJourney, you have everything you need." },
+        { q: "What if I do not like the first assets?",                      a: "We iterate together on the first batch. The first kickoff exists exactly so we can both decide if the fit is right before any money changes hands." },
+      ],
+    },
+    closing: {
+      eyebrow: "Ready when you are",
+      heading: "Tell us about the business. We will reply with a plan.",
+      cta: "Join the waitlist",
+    },
+  },
+  es: {
+    hero: {
+      eyebrow: "Velur AI Studio",
+      h1Lead: "Aprende a usar la IA para hacer crecer tu ",
+      h1Italic: "pequeño negocio",
+      body: "Sistemas prácticos que convierten Higgsfield, Claude, ChatGPT y MidJourney en ingresos reales, no en posts decorativos. Hecho por un fundador que gestiona un pequeño negocio real con el mismo manual.",
+      cta1: "Unirse a la lista",
+      cta2: "Ver los prompt packs",
+    },
+    course: {
+      eyebrow: "Curso insignia",
+      title: "Curso de edición con IA de marca",
+      body: "El flujo exacto con el que lanzamos vídeo e imagen para Cami Lab Studio. Estructura de prompts en Higgsfield, recetas en MidJourney, prompts de voz en Claude, y el brief que lo une todo.",
+      cta: "Saber más →",
+      mockChapter: "Capítulo 04",
+      mockLesson: "Lección",
+      mockLessonTitle: "Creación de contenido con IA",
+      mockMicro: "Prompt de reel",
+    },
+    guide: {
+      title: "Guía Velur de iniciación a la IA",
+      body: "Cómo generar imágenes y clips cortos estéticos y consistentes con tu marca usando IA. Escrita para fundadores de pequeños negocios que quieren saltarse las pruebas y errores y lanzar activos útiles desde el primer día.",
+      cta: "Saber más →",
+      bookTitle1: "Guía de IA",
+      bookTitle2: "de marca",
+      bookCaption: "Manual de edición móvil",
+    },
+    packsCard: {
+      title: "Prompt Packs",
+      body: "Prompts probados en clientes reales para las categorías en las que trabajamos: spa, belleza, hostelería y productos DTC. Pégalos directamente en MidJourney o Higgsfield y edita desde ahí.",
+      chip1: "Pack Spa",
+      chip2: "Pack DTC",
+      mockCount: "100+",
+      mockLabel: "Prompt Pack",
+    },
+    packGridSection: {
+      eyebrow: "Prompt packs",
+      heading: "Prompts probados sobre el terreno para las categorías en las que trabajamos.",
+      body: "Pégalos en MidJourney, Higgsfield o Claude. Edita las notas de marca de arriba. Lanza el activo.",
+      promptsSuffix: "prompts",
+      seePack: "Ver el pack →",
+    },
+    system: {
+      eyebrow: "El sistema creativo con IA",
+      heading: "Un sistema creativo diseñado para encontrar tus ángulos ganadores y escalarlos.",
+      body: "Tres semanas de trabajo estructurado, después soporte continuo. Diseñado para equipos pequeños que necesitan ir más rápido que sus competidores.",
+      cta: "Unirse a la lista",
+      weeks: [
+        { label: "Semana 01", title: "Investigación de cliente",  body: "Mapeamos a tu cliente, a tu competencia y los ángulos que están ganando en tu categoría ahora mismo." },
+        { label: "Semana 02", title: "Estrategia creativa",        body: "Mapeamos tus necesidades de contenido en orgánico, paid y email, y escribimos los briefs que mueven cada uno." },
+        { label: "Semana 03", title: "Producción con IA",          body: "Te ayudamos a producir, editar y lanzar la primera tanda con tu stack: Higgsfield, MidJourney, Claude, ChatGPT." },
+      ],
+    },
+    testimonials: {
+      eyebrow: "Lo dicen los clientes",
+      heading: "Cómo se ve en negocios de verdad.",
+      items: [
+        { quote: "Por fin publicamos con ritmo sin quemarnos. El flujo con IA nos da tres semanas de creatividad útil en una tarde.",                             name: "Camila",   role: "Dueña de spa, Cami Lab Studio" },
+        { quote: "Reemplazó nuestra sesión de producto para dos colecciones. Solo las recetas de MidJourney pagaron todo el proyecto la primera semana.",         name: "Marc R.",  role: "Dueño de marca DTC de moda" },
+        { quote: "Pasé de mirar Higgsfield sin saber qué escribir a publicar reels que realmente reservan citas.",                                                name: "Sara V.",  role: "Dueña de clínica" },
+        { quote: "Alex coge el teléfono de verdad. Solo eso lo distinguió de cualquier otra agencia con la que hablamos.",                                        name: "Diego T.", role: "Fundador de suscripción de café" },
+        { quote: "Los prompt packs nos recortaron un 70% el tiempo de brief a activo. Nuestra diseñadora por fin tiene tiempo de diseñar de verdad.",             name: "Nora P.",  role: "Directora de marca, startup de belleza" },
+        { quote: "No teníamos equipo creativo interno. Ahora lanzamos mejor contenido que agencias cinco veces más grandes.",                                     name: "Lars F.",  role: "Fundador de e-commerce" },
+      ],
+    },
+    fit: {
+      eyebrow: "Para quién es esto",
+      heading: "Honestos sobre el encaje.",
+      yesLabel: "Esto es para ti si",
+      noLabel: "Esto no es para ti si",
+      yes: [
+        "Llevas un pequeño negocio o marca DTC y haces tú mismo la mayor parte del marketing",
+        "Ya usas herramientas de IA pero quieres un sistema que produzca un output consistente y on-brand",
+        "Necesitas creatividad que reserve citas o venda productos, no que gane premios",
+        "Quieres hablar con una persona de verdad, no con un bot de Slack",
+      ],
+      no: [
+        "Buscas un consultor de IA genérico sin foco de industria",
+        "Esperas crecer 10.000 seguidores en una semana sin pagar anuncios",
+        "Quieres delegar tu identidad de marca a un modelo sin aportar nada",
+        "Necesitas una relación de agencia de 100 personas para trabajo enterprise",
+      ],
+    },
+    faq: {
+      eyebrow: "Preguntas frecuentes",
+      heading: "¿Con dudas? Vamos a aclararlo.",
+      items: [
+        { q: "¿Esto va a parecer profesional o se va a notar que es IA?",                          a: "Las dos cosas han pasado. Los packs y el curso te enseñan a controlar el output para que parezca fotografía real, con props, iluminación y composición consistentes con tu marca. Los primeros intentos parecerán IA. En la segunda semana ya no deberían." },
+        { q: "¿Puedo usar este material para entrenar IA?",                                       a: "No. Los prompts y plantillas están licenciados para tu uso directo, no como datos de entrenamiento para otros modelos. Somos un equipo pequeño y te pedimos que lo respetes." },
+        { q: "¿Y si mi sector no encaja con las categorías que cubrís?",                          a: "Escríbenos. Hemos lanzado trabajo para spa, belleza, joyería, hostelería, moda DTC, comida y bebida, y suscripciones de café. Si tu nicho está cerca de alguno, podemos adaptar la estructura de prompts en una llamada." },
+        { q: "¿Cuánto tarda en verse resultados?",                                                a: "La mayoría de clientes lanza su primer activo útil el primer día con la guía de iniciación. El impacto real en ingresos, definido como una campaña que se paga sola, suele llegar entre la cuarta y la sexta semana." },
+        { q: "¿Tengo que tener conocimientos técnicos?",                                          a: "No. Si sabes copiar y pegar, y tienes crédito en Higgsfield o MidJourney, tienes todo lo que necesitas." },
+        { q: "¿Y si no me gustan los primeros activos?",                                          a: "Iteramos juntos sobre la primera tanda. El kickoff inicial existe precisamente para que ambos decidamos si encaja antes de que cambie dinero de manos." },
+      ],
+    },
+    closing: {
+      eyebrow: "Cuando estés listo",
+      heading: "Cuéntanos sobre el negocio. Te respondemos con un plan.",
+      cta: "Unirse a la lista",
+    },
+  },
+} as const;
 
-function FeaturedCourse() {
+type Lang = keyof typeof COPY;
+type Copy = typeof COPY.en | typeof COPY.es;
+
+/* ─── Testimonial avatar colours (system palette only) ──────────── */
+const AVATAR_BG = [
+  "#0B3D2E", // signal-green
+  "#0A1A2F", // midnight
+  "#1F5FE0", // action-blue
+  "#101316", // velur-ink
+  "#4FB78D", // signal-green-300
+  "#FF6B4A", // coral
+];
+
+const INITIALS = ["C", "M", "S", "D", "N", "L"];
+
+/* ─── Featured course ─────────────────────────────────────────── */
+
+function FeaturedCourse({ c }: { c: Copy["course"] }) {
   const prefersReduced = useReducedMotion();
   return (
     <motion.div
@@ -20,48 +243,48 @@ function FeaturedCourse() {
       <div className="grid grid-cols-1 md:grid-cols-2 items-stretch min-h-[400px]">
         <div className="p-7 md:p-12 flex flex-col justify-between gap-8">
           <div>
-            <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-4">
-              Flagship course
+            <p className="font-mono text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-4">
+              {c.eyebrow}
             </p>
             <h3
               className="font-sans font-bold leading-[1.05] tracking-[-0.02em] mb-5"
               style={{ fontSize: "clamp(26px, 3.4vw, 40px)" }}
             >
-              Branded AI Editing Course
+              {c.title}
             </h3>
-            <p className="font-sans text-paper/75 leading-relaxed text-[15px] md:text-[16px] max-w-md">
-              The exact workflow we use to ship video and image creative for Cami Lab Studio. Higgsfield prompt structure, MidJourney recipes, Claude voice prompts, and the brief that holds them all together.
+            <p className="font-sans text-on-dark-muted leading-relaxed text-[15px] md:text-[16px] max-w-md">
+              {c.body}
             </p>
           </div>
           <Link
             href="/contact"
-            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
+            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-stone transition-colors"
           >
-            Learn more →
+            {c.cta}
           </Link>
         </div>
 
-        {/* Preview area — Signal Green band, system palette only */}
+        {/* Preview area — Signal Green band */}
         <div className="relative bg-signal-green overflow-hidden hidden md:block">
           <div className="absolute inset-0 opacity-60" style={{
             backgroundImage: "radial-gradient(circle at 30% 40%, rgba(79,183,141,0.45), transparent 55%), radial-gradient(circle at 80% 80%, rgba(31,95,224,0.18), transparent 55%)",
           }} />
           <div className="absolute top-12 left-8 right-12 bottom-8 rounded-xl bg-velur-ink border border-ink-700 p-5 flex flex-col justify-between shadow-2xl">
             <p className="font-mono text-[10px] tracking-[0.18em] text-signal-green-300 uppercase">
-              Chapter 04
+              {c.mockChapter}
             </p>
             <div>
               <p className="font-mono text-[10px] tracking-[0.16em] text-on-dark-muted uppercase mb-1">
-                Lesson
+                {c.mockLesson}
               </p>
               <p className="font-sans font-semibold text-on-dark text-[20px] leading-tight">
-                AI Content Creation
+                {c.mockLessonTitle}
               </p>
             </div>
           </div>
           <div className="absolute -bottom-6 -right-6 w-40 h-28 rounded-xl bg-canvas border border-hairline p-3 rotate-[6deg] shadow-2xl">
             <p className="font-mono text-[9px] tracking-[0.18em] text-slate uppercase">
-              Reel Prompt
+              {c.mockMicro}
             </p>
             <div className="mt-1.5 space-y-1">
               <div className="h-1 bg-hairline rounded-full w-full" />
@@ -76,13 +299,18 @@ function FeaturedCourse() {
   );
 }
 
-/* ───────── Two cards: Guide + Prompt Packs ─────────────────────────── */
+/* ─── Guide + Packs card pair ─────────────────────────────────── */
 
-function GuideAndPacks() {
+function GuideAndPacks({
+  guide,
+  packs,
+}: {
+  guide: Copy["guide"];
+  packs: Copy["packsCard"];
+}) {
   const prefersReduced = useReducedMotion();
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-
       {/* Guide */}
       <motion.div
         initial={prefersReduced ? {} : { opacity: 0, y: 24 }}
@@ -96,16 +324,16 @@ function GuideAndPacks() {
             className="font-sans font-bold leading-[1.05] tracking-[-0.02em]"
             style={{ fontSize: "clamp(24px, 2.8vw, 36px)" }}
           >
-            Velur AI Starter Guide
+            {guide.title}
           </h3>
-          <p className="font-sans text-paper/80 leading-relaxed text-[14.5px] md:text-[15.5px]">
-            How to generate aesthetic, brand-consistent images and short clips using AI. Written for small-business owners who want to skip the trial-and-error and ship usable assets on day one.
+          <p className="font-sans text-on-dark-muted leading-relaxed text-[14.5px] md:text-[15.5px]">
+            {guide.body}
           </p>
           <Link
             href="/contact"
-            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
+            className="self-start inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-stone transition-colors"
           >
-            Learn more →
+            {guide.cta}
           </Link>
         </div>
 
@@ -114,7 +342,7 @@ function GuideAndPacks() {
           <div className="absolute left-1/2 -translate-x-1/2 bottom-6 w-[140px] md:w-[170px] aspect-[3/4] bg-paper rounded-lg shadow-2xl overflow-hidden">
             <div className="bg-stone p-3 flex flex-col gap-1.5 h-full">
               <p className="font-sans font-bold text-ink text-[14px] leading-tight">
-                Branded AI<br />Guide
+                {guide.bookTitle1}<br />{guide.bookTitle2}
               </p>
               <div className="mt-2 grid grid-cols-3 gap-1 flex-1">
                 {Array.from({ length: 9 }).map((_, i) => (
@@ -129,7 +357,7 @@ function GuideAndPacks() {
                 ))}
               </div>
               <p className="font-mono text-[7px] text-ink/45 tracking-wider uppercase mt-1">
-                Mobile editing playbook
+                {guide.bookCaption}
               </p>
             </div>
           </div>
@@ -149,23 +377,23 @@ function GuideAndPacks() {
             className="font-sans font-bold leading-[1.05] tracking-[-0.02em]"
             style={{ fontSize: "clamp(24px, 2.8vw, 36px)" }}
           >
-            Prompt Packs
+            {packs.title}
           </h3>
           <p className="font-sans text-ink/70 leading-relaxed text-[14.5px] md:text-[15.5px]">
-            Field-tested prompts for the categories we actually work in. Spa, beauty, hospitality, DTC products. Drop them straight into MidJourney or Higgsfield and edit from there.
+            {packs.body}
           </p>
           <div className="flex flex-wrap gap-2">
             <Link
               href="#packs"
               className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[13.5px] px-4 py-2.5 rounded-lg hover:bg-ink hover:text-paper transition-colors"
             >
-              Spa pack
+              {packs.chip1}
             </Link>
             <Link
               href="#packs"
               className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[13.5px] px-4 py-2.5 rounded-lg hover:bg-ink hover:text-paper transition-colors"
             >
-              DTC pack
+              {packs.chip2}
             </Link>
           </div>
         </div>
@@ -174,8 +402,8 @@ function GuideAndPacks() {
         <div className="relative flex-1 min-h-[180px] md:min-h-[220px]">
           <div className="absolute left-1/2 -translate-x-1/2 bottom-4 flex items-end gap-[-20px]">
             <div className="w-[130px] aspect-[3/4] bg-brand-brown text-paper rounded-lg shadow-2xl p-3 -rotate-6 -mr-6">
-              <p className="font-sans font-bold text-[12px] leading-tight">100+ Beauty Shots</p>
-              <p className="font-serif italic text-[10px] text-paper/70 mt-0.5">Prompt Pack</p>
+              <p className="font-sans font-bold text-[12px] leading-tight">{packs.mockCount} Beauty Shots</p>
+              <p className="font-mono text-[10px] text-on-dark-muted mt-0.5">{packs.mockLabel}</p>
               <div className="mt-2 grid grid-cols-2 gap-1">
                 {Array.from({ length: 4 }).map((_, i) => (
                   <div key={i} className="aspect-square rounded-sm bg-gradient-to-br from-signal-green-300 to-signal-green opacity-90" />
@@ -183,8 +411,8 @@ function GuideAndPacks() {
               </div>
             </div>
             <div className="w-[130px] aspect-[3/4] bg-brand-brown text-paper rounded-lg shadow-2xl p-3 rotate-3 relative z-10">
-              <p className="font-sans font-bold text-[12px] leading-tight">100+ Spa & Studio</p>
-              <p className="font-serif italic text-[10px] text-paper/70 mt-0.5">Prompt Pack</p>
+              <p className="font-sans font-bold text-[12px] leading-tight">{packs.mockCount} Spa &amp; Studio</p>
+              <p className="font-mono text-[10px] text-on-dark-muted mt-0.5">{packs.mockLabel}</p>
               <div className="mt-2 grid grid-cols-2 gap-1">
                 {Array.from({ length: 4 }).map((_, i) => (
                   <div key={i} className="aspect-square rounded-sm bg-gradient-to-br from-stone to-slate opacity-90" />
@@ -198,11 +426,9 @@ function GuideAndPacks() {
   );
 }
 
-/* ───────── Prompt pack grid ──────────────────────────────────────────
-   Cards pull from lib/promptPacks.ts so the count + slug stay in sync
-   with the actual pack data (no hand-maintained "100+ prompts" copy). */
+/* ─── Prompt pack grid (real packs from lib/promptPacks) ──────── */
 
-function PackGrid() {
+function PackGrid({ s, lang }: { s: Copy["packGridSection"]; lang: PackLang }) {
   const prefersReduced = useReducedMotion();
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
@@ -214,33 +440,25 @@ function PackGrid() {
             initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{
-              duration: 0.5,
-              delay: prefersReduced ? 0 : i * 0.06,
-              ease: [0.16, 1, 0.3, 1],
-            }}
+            transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.06, ease: [0.16, 1, 0.3, 1] }}
             whileHover={prefersReduced ? undefined : { y: -3 }}
             className="rounded-2xl bg-paper border border-line overflow-hidden flex flex-col"
           >
-            <Link
-              href={`/studio/packs/${p.slug}`}
-              className="flex flex-col h-full"
-            >
-              {/* Solid surface block — no grid overlay, no gradient. */}
+            <Link href={`/studio/packs/${p.slug}`} className="flex flex-col h-full">
               <div className={`aspect-[5/4] ${p.surface} relative p-6 flex flex-col justify-end`}>
                 <p className={`font-mono text-[10px] tracking-[0.18em] uppercase ${p.textOnDark ? "text-on-dark-muted" : "text-ink/60"}`}>
-                  {count} prompts
+                  {count} {s.promptsSuffix}
                 </p>
                 <p className={`font-sans font-semibold text-[24px] leading-tight tracking-[-0.01em] mt-1 ${p.textOnDark ? "text-on-dark" : "text-ink-strong"}`}>
-                  {p.title}
+                  {packTitle(p, lang)}
                 </p>
               </div>
               <div className="p-5 flex flex-col gap-3 flex-1">
                 <p className="font-sans text-[14px] text-ink/70 leading-relaxed flex-1">
-                  {p.tagline}
+                  {packTagline(p, lang)}
                 </p>
                 <span className="self-start font-sans font-semibold text-[13.5px] text-action-blue group-hover:underline underline-offset-4">
-                  See the pack →
+                  {s.seePack}
                 </span>
               </div>
             </Link>
@@ -251,68 +469,19 @@ function PackGrid() {
   );
 }
 
-/* ───────── Testimonials ────────────────────────────────────────────── */
+/* ─── Testimonials ────────────────────────────────────────────── */
 
-const TESTIMONIALS = [
-  {
-    quote: "We finally post on a rhythm without burning out. The AI workflow gives us three week's worth of usable creative in an afternoon.",
-    name: "Camila",
-    role: "Spa owner, Cami Lab Studio",
-    initial: "C",
-    bg: "#0B3D2E",  /* signal-green */
-  },
-  {
-    quote: "Replaced our product shoot for two collections. The MidJourney recipes alone paid for the whole engagement in week one.",
-    name: "Marc R.",
-    role: "DTC apparel owner",
-    initial: "M",
-    bg: "#0A1A2F",  /* midnight */
-  },
-  {
-    quote: "I went from staring at Higgsfield wondering what to type to publishing reels that actually book appointments.",
-    name: "Sara V.",
-    role: "Clinic owner",
-    initial: "S",
-    bg: "#1F5FE0",  /* action-blue */
-  },
-  {
-    quote: "Alex actually picks up the phone. That alone made him different from every other agency we talked to.",
-    name: "Diego T.",
-    role: "Coffee subscription founder",
-    initial: "D",
-    bg: "#101316",  /* velur-ink */
-  },
-  {
-    quote: "The prompt packs cut our brief-to-asset time by 70%. Our designer finally has time to actually design.",
-    name: "Nora P.",
-    role: "Brand lead, beauty startup",
-    initial: "N",
-    bg: "#4FB78D",  /* signal-green-300 */
-  },
-  {
-    quote: "We had no business in-house creative team. Now we ship better content than agencies five times our size.",
-    name: "Lars F.",
-    role: "E-commerce founder",
-    initial: "L",
-    bg: "#FF6B4A",  /* coral */
-  },
-];
-
-function Testimonials() {
+function Testimonials({ items }: { items: Copy["testimonials"]["items"] }) {
   const prefersReduced = useReducedMotion();
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-      {TESTIMONIALS.map((t, i) => (
+      {items.map((t, i) => (
         <motion.div
-          key={t.name}
+          key={t.name + i}
           initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
-          transition={{
-            duration: 0.5,
-            delay: prefersReduced ? 0 : i * 0.05,
-            ease: [0.16, 1, 0.3, 1],
-          }}
+          transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.05, ease: [0.16, 1, 0.3, 1] }}
           className="rounded-2xl bg-paper border border-line p-5 md:p-6 flex flex-col gap-4"
         >
           <p className="font-sans text-[14.5px] text-ink leading-relaxed flex-1">
@@ -321,9 +490,9 @@ function Testimonials() {
           <div className="flex items-center gap-3">
             <span
               className="inline-flex w-9 h-9 rounded-full items-center justify-center text-white font-sans font-bold text-[13px]"
-              style={{ background: t.bg }}
+              style={{ background: AVATAR_BG[i % AVATAR_BG.length] }}
             >
-              {t.initial}
+              {INITIALS[i % INITIALS.length]}
             </span>
             <div>
               <p className="font-sans font-semibold text-ink text-[14px] leading-tight">{t.name}</p>
@@ -336,23 +505,9 @@ function Testimonials() {
   );
 }
 
-/* ───────── Fit comparison ──────────────────────────────────────────── */
+/* ─── Fit comparison ──────────────────────────────────────────── */
 
-const GOOD_FIT = [
-  "You run a small business or DTC brand and you do most of the marketing yourself",
-  "You already use AI tools but want a system that produces consistent, on-brand output",
-  "You need creative that books appointments or sells products, not awards",
-  "You want a real human to talk to, not a Slack bot",
-];
-
-const NOT_FOR = [
-  "You are looking for a generic AI consultant with no industry focus",
-  "You expect 10,000 follower growth in a week without paying for ads",
-  "You want to outsource your brand identity to a model with zero input",
-  "You need a 100-person agency relationship for enterprise work",
-];
-
-function FitSection() {
+function FitSection({ f }: { f: Copy["fit"] }) {
   const prefersReduced = useReducedMotion();
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -364,13 +519,13 @@ function FitSection() {
         className="rounded-2xl bg-paper border border-line p-6 md:p-8"
       >
         <div className="flex items-center gap-2 mb-5">
-          <span className="inline-block w-2 h-2 rounded-full bg-positive" />
-          <p className="font-mono text-[11px] tracking-[0.16em] text-positive uppercase font-semibold">
-            This is for you if
+          <span className="inline-block w-2 h-2 rounded-full bg-success" />
+          <p className="font-mono text-[11px] tracking-[0.16em] text-success uppercase font-semibold">
+            {f.yesLabel}
           </p>
         </div>
         <ul className="space-y-3">
-          {GOOD_FIT.map((g, i) => (
+          {f.yes.map((g, i) => (
             <li key={i} className="flex items-start gap-3">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mt-1 shrink-0">
                 <circle cx="8" cy="8" r="8" fill="#0E8A5F" opacity="0.12" />
@@ -390,13 +545,13 @@ function FitSection() {
         className="rounded-2xl bg-stone border border-line p-6 md:p-8"
       >
         <div className="flex items-center gap-2 mb-5">
-          <span className="inline-block w-2 h-2 rounded-full bg-muted" />
-          <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase font-semibold">
-            This is not for you if
+          <span className="inline-block w-2 h-2 rounded-full bg-muted-slate" />
+          <p className="font-mono text-[11px] tracking-[0.16em] text-muted-slate uppercase font-semibold">
+            {f.noLabel}
           </p>
         </div>
         <ul className="space-y-3">
-          {NOT_FOR.map((n, i) => (
+          {f.no.map((n, i) => (
             <li key={i} className="flex items-start gap-3">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mt-1 shrink-0">
                 <circle cx="8" cy="8" r="8" fill="#8A8F98" opacity="0.12" />
@@ -411,44 +566,16 @@ function FitSection() {
   );
 }
 
-/* ───────── FAQ ─────────────────────────────────────────────────────── */
+/* ─── FAQ accordion ───────────────────────────────────────────── */
 
-const FAQS = [
-  {
-    q: "Does this actually look professional or like obvious AI?",
-    a: "Both have happened. The packs and the course teach you how to control output so it looks like real photography, with brand-consistent props, lighting, and composition. The first attempts will look AI. By week two they shouldn't.",
-  },
-  {
-    q: "Can I use this material to train AI?",
-    a: "No. The prompts and templates are licensed for your direct use, not as training data for other models. We are a small team and we ask that you respect this.",
-  },
-  {
-    q: "What if I do not match the categories you cover?",
-    a: "Reach out. We have shipped work for spa, beauty, jewelry, hospitality, DTC apparel, food and drink, and coffee subscriptions. If your niche is close to one of those, we can adapt the prompt structure on a call.",
-  },
-  {
-    q: "How long does it take to see results?",
-    a: "Most clients ship their first usable asset on day one with the starter guide. Real revenue impact, defined as a campaign that pays for itself, typically lands within four to six weeks.",
-  },
-  {
-    q: "Do I need to be technical?",
-    a: "No. If you can copy and paste, and if you have credit on Higgsfield or MidJourney, you have everything you need.",
-  },
-  {
-    q: "What if I do not like the first assets?",
-    a: "We iterate together on the first batch. The first kickoff exists exactly so we can both decide if the fit is right before any money changes hands.",
-  },
-];
-
-function Faq() {
+function Faq({ items }: { items: Copy["faq"]["items"] }) {
   const [open, setOpen] = useState<number | null>(0);
-
   return (
     <div className="rounded-2xl bg-paper border border-line overflow-hidden">
-      {FAQS.map((f, i) => {
+      {items.map((f, i) => {
         const isOpen = open === i;
         return (
-          <div key={i} className={i < FAQS.length - 1 ? "border-b border-line" : ""}>
+          <div key={i} className={i < items.length - 1 ? "border-b border-line" : ""}>
             <button
               onClick={() => setOpen(isOpen ? null : i)}
               className="w-full flex items-center justify-between gap-6 px-6 md:px-8 py-5 md:py-6 text-left"
@@ -484,39 +611,42 @@ function Faq() {
   );
 }
 
-/* ───────── Page ────────────────────────────────────────────────────── */
+/* ─── Page ────────────────────────────────────────────────────── */
 
 export default function StudioContent() {
+  const { lang } = useLanguage();
+  const c: Copy = COPY[lang as Lang];
+
   return (
     <>
       {/* Hero */}
       <section className="bg-cream pt-12 md:pt-16 pb-12 md:pb-16">
         <div className="max-w-[1100px] mx-auto px-5 md:px-10 text-center">
-          <p className="font-mono text-[11px] tracking-[0.18em] text-amber uppercase mb-6">
-            Velur AI Studio
+          <p className="font-mono text-[11px] tracking-[0.18em] text-signal-green uppercase mb-6">
+            {c.hero.eyebrow}
           </p>
           <h1
             className="font-sans font-bold text-ink leading-[1.02] tracking-[-0.025em] mb-6"
             style={{ fontSize: "clamp(30px, 5vw, 64px)" }}
           >
-            Learn to use AI to grow your{" "}
-            <span className="font-serif italic font-normal text-ink/60">small business</span>
+            {c.hero.h1Lead}
+            <span className="font-serif italic font-normal text-ink/60">{c.hero.h1Italic}</span>
           </h1>
           <p className="font-sans text-base md:text-lg text-ink/70 leading-relaxed max-w-2xl mx-auto">
-            Hands-on systems that turn Higgsfield, Claude, ChatGPT and MidJourney into real revenue, not novelty posts. Built by a founder who runs a real small business on the same playbook.
+            {c.hero.body}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center bg-ink text-paper font-sans font-medium text-[14.5px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
+              className="inline-flex items-center bg-ink text-paper font-sans font-medium text-[14.5px] px-5 py-3 rounded-lg hover:bg-ink-700 transition-colors"
             >
-              Join the waitlist
+              {c.hero.cta1}
             </Link>
             <Link
               href="#packs"
               className="inline-flex items-center bg-paper text-ink border border-line font-sans font-medium text-[14.5px] px-5 py-3 rounded-lg hover:bg-ink hover:text-paper hover:border-ink transition-colors"
             >
-              See the prompt packs
+              {c.hero.cta2}
             </Link>
           </div>
         </div>
@@ -525,14 +655,14 @@ export default function StudioContent() {
       {/* Featured course card */}
       <section className="bg-cream pb-12 md:pb-16">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <FeaturedCourse />
+          <FeaturedCourse c={c.course} />
         </div>
       </section>
 
       {/* Guide + Prompt Packs cards */}
       <section className="bg-cream pb-12 md:pb-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <GuideAndPacks />
+          <GuideAndPacks guide={c.guide} packs={c.packsCard} />
         </div>
       </section>
 
@@ -541,61 +671,57 @@ export default function StudioContent() {
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="mb-8 md:mb-12 max-w-2xl">
             <p className="font-sans text-ink/55 text-[13px] mb-2">
-              Prompt packs
+              {c.packGridSection.eyebrow}
             </p>
             <h2
               className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
             >
-              Field-tested prompts for the categories we actually work in.
+              {c.packGridSection.heading}
             </h2>
             <p className="font-sans text-base text-ink/70 leading-relaxed mt-3">
-              Drop them into MidJourney, Higgsfield or Claude. Edit the brand notes at the top. Ship the asset.
+              {c.packGridSection.body}
             </p>
           </div>
-          <PackGrid />
+          <PackGrid s={c.packGridSection} lang={lang as PackLang} />
         </div>
       </section>
 
-      {/* What's in the system */}
+      {/* AI Creative System */}
       <section className="bg-cream py-14 md:py-20 border-b border-line">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="rounded-2xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-5">
-                <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-4">
-                  The AI Creative System
+                <p className="font-mono text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-4">
+                  {c.system.eyebrow}
                 </p>
                 <h2
                   className="font-sans font-bold leading-[1.05] tracking-[-0.025em]"
                   style={{ fontSize: "clamp(24px, 3vw, 38px)" }}
                 >
-                  A creative system built to find your winning angles and scale them.
+                  {c.system.heading}
                 </h2>
-                <p className="font-sans text-paper/75 leading-relaxed mt-5 text-[15px] md:text-[16px]">
-                  Three weeks of structured work, then ongoing support. Designed for small teams who need to ship faster than their competitors can.
+                <p className="font-sans text-on-dark-muted leading-relaxed mt-5 text-[15px] md:text-[16px]">
+                  {c.system.body}
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors"
+                  className="mt-7 inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-stone transition-colors"
                 >
-                  Join the waitlist
+                  {c.system.cta}
                 </Link>
               </div>
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {[
-                  { label: "Week 01", title: "Customer Research", body: "We map your customer, your competitors, and the angles winning in your category right now." },
-                  { label: "Week 02", title: "Creative Strategy", body: "We map your content needs across organic, paid and email, then write the briefs that drive each one." },
-                  { label: "Week 03", title: "AI Production", body: "We help you produce, edit and ship the first batch using your stack: Higgsfield, MidJourney, Claude, ChatGPT." },
-                ].map(step => (
-                  <div key={step.label} className="rounded-2xl bg-ink/[0.06] border border-ink/15 p-5">
-                    <p className="font-mono text-[10px] tracking-[0.16em] text-amber uppercase mb-3">
+                {c.system.weeks.map(step => (
+                  <div key={step.label} className="rounded-2xl bg-on-dark/[0.06] border border-on-dark/15 p-5">
+                    <p className="font-mono text-[10px] tracking-[0.16em] text-signal-green-300 uppercase mb-3">
                       {step.label}
                     </p>
-                    <p className="font-sans font-bold text-paper text-[16px] leading-tight mb-2">
+                    <p className="font-sans font-semibold text-paper text-[16px] leading-tight mb-2">
                       {step.title}
                     </p>
-                    <p className="font-sans text-[13.5px] text-paper/65 leading-relaxed">
+                    <p className="font-sans text-[13.5px] text-on-dark-muted leading-relaxed">
                       {step.body}
                     </p>
                   </div>
@@ -610,17 +736,15 @@ export default function StudioContent() {
       <section className="bg-paper py-14 md:py-20 border-b border-line">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="mb-8 md:mb-12 max-w-2xl">
-            <p className="font-sans text-ink/55 text-[13px] mb-2">
-              From clients
-            </p>
+            <p className="font-sans text-ink/55 text-[13px] mb-2">{c.testimonials.eyebrow}</p>
             <h2
               className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
             >
-              What it looks like in real businesses.
+              {c.testimonials.heading}
             </h2>
           </div>
-          <Testimonials />
+          <Testimonials items={c.testimonials.items} />
         </div>
       </section>
 
@@ -628,17 +752,15 @@ export default function StudioContent() {
       <section className="bg-cream py-14 md:py-20 border-b border-line">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="mb-8 md:mb-12 max-w-2xl">
-            <p className="font-sans text-ink/55 text-[13px] mb-2">
-              Who this is for
-            </p>
+            <p className="font-sans text-ink/55 text-[13px] mb-2">{c.fit.eyebrow}</p>
             <h2
               className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
             >
-              Honest about the fit.
+              {c.fit.heading}
             </h2>
           </div>
-          <FitSection />
+          <FitSection f={c.fit} />
         </div>
       </section>
 
@@ -646,17 +768,15 @@ export default function StudioContent() {
       <section className="bg-paper py-14 md:py-20 border-b border-line">
         <div className="max-w-[1100px] mx-auto px-5 md:px-10">
           <div className="mb-8 md:mb-12 max-w-2xl">
-            <p className="font-sans text-ink/55 text-[13px] mb-2">
-              Frequently asked
-            </p>
+            <p className="font-sans text-ink/55 text-[13px] mb-2">{c.faq.eyebrow}</p>
             <h2
               className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
             >
-              Curious? Let&apos;s clear things up.
+              {c.faq.heading}
             </h2>
           </div>
-          <Faq />
+          <Faq items={c.faq.items} />
         </div>
       </section>
 
@@ -666,21 +786,21 @@ export default function StudioContent() {
           <div className="rounded-2xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
               <div className="max-w-2xl">
-                <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-3">
-                  Ready when you are
+                <p className="font-mono text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-3">
+                  {c.closing.eyebrow}
                 </p>
                 <h3
                   className="font-sans font-bold leading-[1.05] tracking-[-0.025em]"
                   style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
                 >
-                  Tell us about the business. We will reply with a plan.
+                  {c.closing.heading}
                 </h3>
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-amber hover:text-paper transition-colors self-start md:self-auto"
+                className="inline-flex items-center bg-paper text-ink font-sans font-semibold text-[14px] px-5 py-3 rounded-lg hover:bg-stone transition-colors self-start md:self-auto"
               >
-                Join the waitlist
+                {c.closing.cta}
               </Link>
             </div>
           </div>
