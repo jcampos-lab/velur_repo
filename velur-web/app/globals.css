@@ -1,90 +1,288 @@
 @import "tailwindcss";
 
-/* Velur palette, Cal.com-style
-   - Canvas: pure white #ffffff
-   - Primary: near-black #111111 for type + every primary CTA
-   - Brand accent: #3b82f6 reserved for inline links, focus, the rare badge
-     (never as a primary fill)
-   - Surface lift: white → surface-soft (#f8f9fa) → surface-card (#f5f5f5)
-   - Dark surface: #101010 reserved for the footer and the single dark
-     feature card per page
+/* ============================================================
+   Velur — Official Design System (handoff bundle 2026-06-06)
+   ------------------------------------------------------------
+   White is the default canvas. Color arrives in deliberate moments:
+   full-width Signal Green or Midnight product bands, Coral for
+   editorial taxonomy ONLY (chips, footer markers), Action Blue for
+   links. Revenue semantics (green up / red down) are first-class.
 
-   Cal.com negative rules respected:
-   - Primary CTAs use ink, never the accent blue
-   - Card radius caps at 16px (rounded-2xl)
-   - One dark feature card per page maximum
-*/
+   Voice: "controlled, not speculative." Bloomberg-terminal legibility
+   meets editorial restraint. Mostly flat, no decorative gradients,
+   thin hairlines, monumental tight display type.
+
+   Token names from the previous palette (paper/cream/ink/amber/
+   stone/line/muted/brand-*) are preserved so existing utility
+   classes resolve to the new values without refactoring every
+   component. New tokens (signal-green, midnight, coral,
+   ink-strong, action-blue, revenue-up/down, etc.) live alongside.
+   ============================================================ */
 
 @theme {
-  /* ─── Surfaces ────────────────────────────────────────────────────── */
-  --color-paper:      #FFFFFF;   /* white inner cards + button labels */
-  --color-cream:      #FFFFFF;   /* CANVAS — page background */
-  --color-stone:      #F5F5F5;   /* SURFACE-CARD — feature cards, badges */
-  --color-alabaster:  #F8F9FA;   /* SURFACE-SOFT — nav-pill, soft section bg */
-  --color-ink:        #111111;   /* PRIMARY — text + primary CTA bg */
-  --color-line:       #E5E7EB;   /* hairline */
-  --color-line-soft:  #F3F4F6;   /* barely-visible divider */
-  --color-muted:      #6B7280;   /* secondary text */
-  --color-muted-soft: #898989;   /* tertiary text */
-  --color-positive:   #10B981;   /* semantic success */
-  --color-warning:    #F59E0B;
-  --color-error:      #EF4444;
+  /* ─── Surfaces ────────────────────────────────────────────────── */
+  --color-canvas:       #FFFFFF;
+  --color-paper:        #FFFFFF;
+  --color-cream:        #FFFFFF;
+  --color-stone:        #EFECE6;
+  --color-stone-200:    #F6F4EF;
+  --color-alabaster:    #F6F4EF;
+  --color-wash-green:   #E9F6EE;
+  --color-wash-blue:    #EEF3FF;
+  --color-card-border:  #F1F1F0;
 
-  /* ─── Brand accent (rare blue) ────────────────────────────────────── */
-  /* Token name stays `amber` so existing utilities keep working, value
-     is now Cal.com's brand-accent blue. Use it for inline links, focus,
-     selection, the rare badge — never as a primary fill. */
-  --color-amber:       #3B82F6;
-  --color-amber-tint:  #DBEAFE;
-  --color-amber-deep:  #2563EB;
+  /* ─── Brand & ink ─────────────────────────────────────────────── */
+  --color-velur-black:  #000000;
+  --color-velur-ink:    #101316;
+  --color-ink-700:      #25292E;
+  --color-ink-600:      #3A3F46;
+  --color-ink:          #1A1D21;
+  --color-ink-strong:   #101316;
 
-  /* ─── Brand surfaces ──────────────────────────────────────────────── */
-  /* brand-brown is the SINGLE dark surface, used for the footer + at most
-     one feature card per page (typically the hero or featured pricing).
-     brand-slate also resolves to the dark surface so existing dark cards
-     keep working without text-contrast bugs. */
-  --color-brand-brown:  #101010;
-  --color-brand-slate:  #101010;
-  --color-brand-beige:  #F5F5F5;   /* light surface-card variant */
-  --color-brand-sky:    #3B82F6;   /* rare accent-blue surface */
+  /* ─── Signature product bands ─────────────────────────────────── */
+  --color-signal-green:     #0B3D2E;
+  --color-signal-green-700: #0F4F3B;
+  --color-signal-green-300: #4FB78D;
+  --color-midnight:         #0A1A2F;
+  --color-midnight-700:     #112742;
 
-  /* ─── Badge pastels (rare, for avatar fills + category chips) ───── */
+  /* ─── Accents ─────────────────────────────────────────────────── */
+  --color-action-blue:      #1F5FE0;
+  --color-action-blue-700:  #1546A8;
+  --color-coral:            #FF6B4A;
+  --color-coral-soft:       #FFB3A1;
+  --color-coral-wash:       #FFF1EC;
+
+  /* ─── amber legacy alias → action-blue ───────────────────────── */
+  --color-amber:       #1F5FE0;
+  --color-amber-tint:  #EEF3FF;
+  --color-amber-deep:  #1546A8;
+
+  /* ─── Text colors ─────────────────────────────────────────────── */
+  --color-slate:        #6B7078;
+  --color-muted-slate:  #8A8F98;
+  --color-muted:        #6B7078;
+  --color-muted-soft:   #8A8F98;
+  --color-on-dark:      #FFFFFF;
+  --color-on-dark-muted:#AAB2BD;
+
+  /* ─── Rules & borders ─────────────────────────────────────────── */
+  --color-hairline:     #DCDDE0;
+  --color-line:         #DCDDE0;
+  --color-border-light: #E6E8EB;
+  --color-line-soft:    #E6E8EB;
+
+  /* ─── Semantic ────────────────────────────────────────────────── */
+  --color-focus:        #3B6FE5;
+  --color-success:      #0E8A5F;
+  --color-success-wash: #E7F6EF;
+  --color-warning:      #B8740A;
+  --color-warning-wash: #FBF2E2;
+  --color-error:        #C0392B;
+  --color-error-wash:   #FBECEA;
+  --color-positive:     #0E8A5F;
+
+  /* ─── Revenue / data-viz ──────────────────────────────────────── */
+  --color-revenue-up:        #0E8A5F;
+  --color-revenue-up-soft:   #D7F0E4;
+  --color-revenue-down:      #C0392B;
+  --color-revenue-down-soft: #F7E2DF;
+  --color-revenue-flat:      #8A8F98;
+  --color-chart-1:           #0B3D2E;
+  --color-chart-2:           #1F5FE0;
+  --color-chart-3:           #FF6B4A;
+  --color-chart-4:           #4FB78D;
+  --color-chart-5:           #8A8F98;
+  --color-chart-grid:        #ECECEF;
+
+  /* ─── Brand surface aliases (legacy utility compatibility) ───── */
+  --color-brand-brown:  #101316;
+  --color-brand-slate:  #0A1A2F;
+  --color-brand-beige:  #EFECE6;
+  --color-brand-sky:    #1F5FE0;
+  --color-brand-green:  #0B3D2E;
+  --color-brand-coral:  #FF6B4A;
+
+  /* ─── Badge pastels (legacy) ──────────────────────────────────── */
   --color-badge-orange:  #FB923C;
   --color-badge-pink:    #EC4899;
   --color-badge-violet:  #8B5CF6;
   --color-badge-emerald: #34D399;
 
-  --font-sans:  var(--font-bricolage), sans-serif;
-  --font-serif: var(--font-fraunces), serif;
-  --font-mono:  var(--font-jetbrains), monospace;
+  /* ─── Typography ──────────────────────────────────────────────── */
+  --font-sans:    "Px Grotesk", var(--font-bricolage), "Inter", Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Px Grotesk", var(--font-bricolage), "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-serif:   var(--font-fraunces), serif;
 }
+
+/* ─── Px Grotesk @font-face — monoweight master, mapped to 400-700 */
+@font-face {
+  font-family: "Px Grotesk";
+  src: url("/fonts/PxGrotesk-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Px Grotesk";
+  src: url("/fonts/PxGrotesk-Regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Px Grotesk";
+  src: url("/fonts/PxGrotesk-Regular.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Px Grotesk";
+  src: url("/fonts/PxGrotesk-Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Velur runtime tokens (radii, spacing, type-scale, elevation) */
+:root {
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   16px;
+  --radius-lg:   22px;
+  --radius-xl:   30px;
+  --radius-pill: 32px;
+  --radius-full: 9999px;
+
+  --container-max:   1280px;
+  --container-wide:  1440px;
+  --container-text:  720px;
+  --gutter:          clamp(20px, 5vw, 80px);
+  --section-y:       clamp(64px, 10vw, 160px);
+  --section-y-tight: clamp(48px, 6vw, 96px);
+
+  --bar-h: 36px;
+  --nav-h: 72px;
+
+  --type-hero-size:  clamp(3.25rem, 7vw, 6rem);
+  --type-hero-lh:    1.0;
+  --type-hero-track: -0.02em;
+
+  --type-display-size:  clamp(2.75rem, 5.4vw, 4.5rem);
+  --type-display-lh:    1.0;
+  --type-display-track: -0.02em;
+
+  --type-section-display-size:  clamp(2.25rem, 4.5vw, 3.75rem);
+  --type-section-display-lh:    1.02;
+  --type-section-display-track: -0.02em;
+
+  --type-section-size:  clamp(2rem, 3.6vw, 3rem);
+  --type-section-lh:    1.2;
+  --type-section-track: -0.01em;
+
+  --type-mono-size:  0.8125rem;
+  --type-mono-track: 0.06em;
+
+  --elevation-flat:       none;
+  --elevation-bordered:   0 0 0 1px #E6E8EB;
+  --elevation-media:      0 12px 32px -12px rgba(16, 19, 22, 0.18);
+  --elevation-overlay:    0 24px 64px -16px rgba(16, 19, 22, 0.24);
+  --elevation-dark-panel: 0 16px 40px -16px rgba(0, 0, 0, 0.55);
+
+  --focus-ring: rgba(59, 111, 229, 0.35);
+  --border-dark: rgba(255, 255, 255, 0.14);
+}
+
+/* ============================================================
+   Base / element defaults
+   ============================================================ */
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
 
-body {
-  background-color: var(--color-cream);
-  color: var(--color-ink);
-  font-family: var(--font-bricolage), sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: "cv01", "cv05", "cv09", "cv11", "ss03", "ss07", "dlig";
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
-::selection { background: #3B82F6; color: #FFFFFF; }
+body {
+  margin: 0;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--color-ink-strong);
+  margin: 0;
+  text-wrap: balance;
+}
+
+p { margin: 0; text-wrap: pretty; }
+
+::selection { background: var(--color-coral); color: #FFFFFF; }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-cream); }
-::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 999px; }
+::-webkit-scrollbar-track { background: var(--color-canvas); }
+::-webkit-scrollbar-thumb { background: var(--color-hairline); border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-ink); }
 
 :focus-visible {
-  outline: 2px solid #3B82F6;
-  outline-offset: 3px;
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
   border-radius: 4px;
 }
 
-/* ─── Marquee ─────────────────────────────────────────────────────── */
+/* ─── Velur type role utilities ─────────────────────────────────── */
+.velur-hero {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-hero-size);
+  line-height: var(--type-hero-lh);
+  letter-spacing: var(--type-hero-track);
+}
+.velur-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-display-size);
+  line-height: var(--type-display-lh);
+  letter-spacing: var(--type-display-track);
+}
+.velur-section-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-section-display-size);
+  line-height: var(--type-section-display-lh);
+  letter-spacing: var(--type-section-display-track);
+}
+.velur-section {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-section-size);
+  line-height: var(--type-section-lh);
+  letter-spacing: var(--type-section-track);
+}
+.velur-mono {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-size);
+  line-height: 1.4;
+  letter-spacing: var(--type-mono-track);
+  text-transform: uppercase;
+}
+
+/* ─── Marquee (kept for legacy tool strips, rarely used now) ──── */
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -92,44 +290,7 @@ body {
 .marquee-track { animation: marquee 60s linear infinite; will-change: transform; }
 .marquee-track:hover { animation-play-state: paused; }
 
-/* ─── Status dot ──────────────────────────────────────────────────── */
-@keyframes pulse-dot {
-  0%, 100% { opacity: 0.5; transform: scale(0.9); }
-  50%       { opacity: 1;   transform: scale(1.1); }
-}
-.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
-
-/* ─── Chart animations ─────────────────────────────────────────────── */
-@keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes drawChartLine { to { stroke-dashoffset: 0; } }
-@keyframes dotPop {
-  from { opacity: 0; transform: scale(0); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-/* ─── Marketing card hover group ──────────────────────────────────── */
-.marketing-card {
-  transition:
-    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    filter     0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity    0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.3s ease,
-    border-color     0.3s ease;
-  position: relative;
-  will-change: transform, filter;
-  z-index: 1;
-}
-.card-group:hover .marketing-card:not(:hover) {
-  filter: blur(2.5px);
-  opacity: 0.5;
-  transform: scale(0.97);
-}
-.marketing-card:hover { transform: scale(1.02); z-index: 10; }
-
-/* ─── Reduced motion ──────────────────────────────────────────────── */
+/* ─── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration:       0.01ms !important;

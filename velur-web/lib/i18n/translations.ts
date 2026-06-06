@@ -3,7 +3,10 @@ export type Lang = "en" | "es";
 const en = {
   header: {
     nav: { platform: "Platform", studio: "AI Studio", caseStudies: "Case Studies", company: "Company", faq: "FAQ" },
-    cta: "Join waitlist",
+    cta: "Request a demo",
+    signin: "Sign in",
+    announcement: "Velur Revenue Intelligence is in private beta.",
+    announcementLink: "Request access →",
   },
   footer: {
     tagline: "Revenue intelligence for high-growth DTC and subscription brands.",
@@ -15,17 +18,17 @@ const en = {
     quote: "Numbers are the only language that doesn't lie.",
   },
   hero: {
-    pill: "AI Studio · shipping now · Revenue Intelligence in build",
-    line1: "AI Studio.",
-    line2: "Built for small business.",
-    subhead: "We help small businesses turn Higgsfield, MidJourney, Claude and ChatGPT into actual revenue. Hands-on creative work, paired with the analytics platform we are quietly building in the background.",
-    ctaPrimary: "Book a discovery call →",
-    ctaSecondary: "See AI Studio ↓",
+    pill: "Revenue Intelligence",
+    line1: "Revenue,",
+    line2: "before it moves.",
+    subhead: "Velur unifies pipeline, billing, product-usage and CRM signals into one console — so revenue teams see what's changing, and act before it costs them.",
+    ctaPrimary: "Request a demo",
+    ctaSecondary: "Explore the platform",
     thesisLabel: "The thesis",
-    thesis: "Small businesses do not need another dashboard. They need someone to put AI to work where it pays for itself, then measure what worked. AI Studio is that work today. Revenue Intelligence is the platform behind it tomorrow.",
-    cyclePre: "We turn",
-    cyclePost: "into actual revenue.",
-    cycleWords: ["Higgsfield reels", "MidJourney visuals", "Claude copy", "TikTok hooks", "Klaviyo flows", "Meta creative"],
+    thesis: "The number you report should be the number you trust. Velur reconciles every revenue source on a single timeline, so a board-ready forecast is one click — not one week.",
+    cyclePre: "Reconcile",
+    cyclePost: "into one revenue truth.",
+    cycleWords: ["Salesforce pipeline", "Stripe billing", "HubSpot signals", "NetSuite ledgers", "product usage events", "renewals & expansion"],
   },
   benchmarkGrid: {
     sectionLeft: "01 / THE PROOF",
@@ -442,12 +445,65 @@ const en = {
       },
     ],
   },
+
+  /* ─── New homepage sections (post Design-System rewrite) ───── */
+  trustStrip: {
+    caption: "Trusted by revenue teams at fast-growing companies",
+    brands: ["NORTHWIND", "ATLAS", "BRIAR & CO", "CEDAR", "MERIDIAN", "OAKLINE"],
+  },
+  capabilities: [
+    { key: "signals",  h: "Signals",  b: "Pipeline, billing, product usage and CRM — reconciled into one revenue truth." },
+    { key: "forecast", h: "Forecast", b: "Roll-ups you can trust, with the assumptions and movements made explicit." },
+    { key: "risk",     h: "Risk",     b: "Surface the accounts that need attention before a renewal quietly slips." },
+  ],
+  capabilitiesLearnMore: "Learn more",
+  proofBand: {
+    eyebrow: "Proof",
+    heading: "The number you report should be the number you trust.",
+    body: "Velur reconciles every source on a single timeline, so a board-ready forecast is one click — not one week.",
+    cta: "See how it works",
+    stats: [
+      { label: "Faster close",      value: "8×",    caption: "vs. spreadsheets" },
+      { label: "Forecast accuracy", value: "96%",   delta: 9 },
+      { label: "Sources unified",   value: "40+",   caption: "out of the box" },
+      { label: "Time to value",     value: "2 wks", caption: "median" },
+    ],
+  },
+  aiStudio: {
+    eyebrow: "Also from Velur",
+    heading: "AI Studio — creative work, shipped.",
+    body: "While Revenue Intelligence is in private beta, our team puts Higgsfield, MidJourney, Claude and ChatGPT to work for small businesses. Hands-on creative production, paired with the analytics platform we're quietly building behind it.",
+    cta: "See AI Studio",
+    tools: ["Higgsfield", "MidJourney", "Claude", "ChatGPT", "Klaviyo", "Meta"],
+  },
+  ctaBand: {
+    eyebrow: "Get started",
+    heading: "See your own revenue in Velur.",
+    body: "We'll walk you through a console wired to your stack — pipeline, billing, usage and CRM, on one timeline.",
+    ctaPrimary: "Request a demo",
+    ctaSecondary: "Read the docs",
+  },
+  footerKit: {
+    eyebrow: "Revenue moves fast",
+    heading: "See it before it slips.",
+    placeholder: "you@company.com",
+    cols: [
+      { h: "Platform",  links: ["Revenue console", "Forecast", "Signals", "Integrations"] },
+      { h: "Company",   links: ["About", "Customers", "Careers", "Security"] },
+      { h: "Resources", links: ["Blog", "Docs", "Changelog", "Status"] },
+    ],
+    copyright: "© 2026 Velur, Inc.",
+    legal: ["Privacy", "Terms", "SOC 2"],
+  },
 };
 
 const es: typeof en = {
   header: {
     nav: { platform: "Plataforma", studio: "AI Studio", caseStudies: "Casos de Éxito", company: "Empresa", faq: "FAQ" },
-    cta: "Unirse a la lista",
+    cta: "Solicitar una demo",
+    signin: "Entrar",
+    announcement: "Velur Revenue Intelligence está en beta privada.",
+    announcementLink: "Solicitar acceso →",
   },
   footer: {
     tagline: "Inteligencia de ingresos para marcas DTC y de suscripción en alto crecimiento.",
@@ -459,17 +515,17 @@ const es: typeof en = {
     quote: "Los números son el único lenguaje que no miente.",
   },
   hero: {
-    pill: "AI Studio · disponible hoy · Revenue Intelligence en desarrollo",
-    line1: "AI Studio.",
-    line2: "Para pequeños negocios.",
-    subhead: "Ayudamos a pequeños negocios a convertir Higgsfield, MidJourney, Claude y ChatGPT en ingresos reales. Trabajo creativo de la mano, junto con la plataforma de analítica que estamos construyendo en segundo plano.",
-    ctaPrimary: "Reservar una llamada →",
-    ctaSecondary: "Ver AI Studio ↓",
+    pill: "Revenue Intelligence",
+    line1: "Los ingresos,",
+    line2: "antes de que se muevan.",
+    subhead: "Velur unifica pipeline, facturación, uso de producto y CRM en una sola consola — para que los equipos vean lo que cambia, y actúen antes de que cueste.",
+    ctaPrimary: "Solicitar una demo",
+    ctaSecondary: "Explorar la plataforma",
     thesisLabel: "La tesis",
-    thesis: "Los pequeños negocios no necesitan otro dashboard. Necesitan a alguien que ponga la IA a trabajar donde sí paga, y que mida lo que funcionó. AI Studio es ese trabajo hoy. Revenue Intelligence es la plataforma detrás, mañana.",
-    cyclePre: "Convertimos",
-    cyclePost: "en ingresos reales.",
-    cycleWords: ["reels de Higgsfield", "visuales de MidJourney", "copy de Claude", "hooks de TikTok", "flujos de Klaviyo", "creativos de Meta"],
+    thesis: "El número que reportas debería ser el número en el que confías. Velur reconcilia cada fuente de ingresos en una sola línea de tiempo — un forecast listo para el board en un clic, no en una semana.",
+    cyclePre: "Reconcilia",
+    cyclePost: "en una sola verdad de ingresos.",
+    cycleWords: ["pipeline de Salesforce", "facturación de Stripe", "señales de HubSpot", "libros de NetSuite", "eventos de uso de producto", "renovaciones y expansión"],
   },
   benchmarkGrid: {
     sectionLeft: "01 / LA EVIDENCIA",
@@ -885,6 +941,56 @@ const es: typeof en = {
         ],
       },
     ],
+  },
+
+  /* ─── Nuevas secciones del homepage (rediseño Design System) ─ */
+  trustStrip: {
+    caption: "Equipos de revenue de empresas de alto crecimiento confían en Velur",
+    brands: ["NORTHWIND", "ATLAS", "BRIAR & CO", "CEDAR", "MERIDIAN", "OAKLINE"],
+  },
+  capabilities: [
+    { key: "signals",  h: "Señales",  b: "Pipeline, facturación, uso de producto y CRM — reconciliados en una sola verdad de ingresos." },
+    { key: "forecast", h: "Forecast", b: "Roll-ups en los que puedes confiar, con los supuestos y movimientos explícitos." },
+    { key: "risk",     h: "Riesgo",   b: "Detecta las cuentas que necesitan atención antes de que una renovación se escape." },
+  ],
+  capabilitiesLearnMore: "Saber más",
+  proofBand: {
+    eyebrow: "Evidencia",
+    heading: "El número que reportas debería ser el número en el que confías.",
+    body: "Velur reconcilia cada fuente en una sola línea de tiempo — un forecast listo para el board en un clic, no en una semana.",
+    cta: "Ver cómo funciona",
+    stats: [
+      { label: "Cierre más rápido",   value: "8×",    caption: "vs. hojas de cálculo" },
+      { label: "Precisión del forecast", value: "96%", delta: 9 },
+      { label: "Fuentes unificadas",  value: "40+",   caption: "de serie" },
+      { label: "Time-to-value",       value: "2 sem", caption: "mediana" },
+    ],
+  },
+  aiStudio: {
+    eyebrow: "También de Velur",
+    heading: "AI Studio — trabajo creativo, enviado.",
+    body: "Mientras Revenue Intelligence está en beta privada, nuestro equipo pone Higgsfield, MidJourney, Claude y ChatGPT a trabajar para pequeños negocios. Producción creativa de la mano, junto con la plataforma analítica que estamos construyendo detrás.",
+    cta: "Ver AI Studio",
+    tools: ["Higgsfield", "MidJourney", "Claude", "ChatGPT", "Klaviyo", "Meta"],
+  },
+  ctaBand: {
+    eyebrow: "Empezar",
+    heading: "Ve tus propios ingresos en Velur.",
+    body: "Te guiamos por una consola conectada a tu stack — pipeline, facturación, uso y CRM, en una sola línea de tiempo.",
+    ctaPrimary: "Solicitar una demo",
+    ctaSecondary: "Leer la documentación",
+  },
+  footerKit: {
+    eyebrow: "Los ingresos se mueven rápido",
+    heading: "Velo antes de que se escape.",
+    placeholder: "tu@empresa.com",
+    cols: [
+      { h: "Plataforma", links: ["Consola de ingresos", "Forecast", "Señales", "Integraciones"] },
+      { h: "Empresa",    links: ["Sobre nosotros", "Clientes", "Empleo", "Seguridad"] },
+      { h: "Recursos",   links: ["Blog", "Documentación", "Changelog", "Estado"] },
+    ],
+    copyright: "© 2026 Velur, Inc.",
+    legal: ["Privacidad", "Términos", "SOC 2"],
   },
 };
 

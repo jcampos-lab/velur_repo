@@ -153,7 +153,7 @@ export default function CompanyContent() {
         </div>
       </section>
 
-      <CtaSection variant="company" />
+      <CtaSection />
     </>
   );
 }

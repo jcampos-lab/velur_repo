@@ -57,14 +57,14 @@ function HeroCard() {
                 "radial-gradient(circle at 30% 30%, rgba(208,255,176,0.35), transparent 50%), radial-gradient(circle at 75% 75%, rgba(208,255,176,0.25), transparent 50%)",
             }}
           />
-          <div className="absolute top-10 left-8 right-12 rounded-xl bg-ink/95 backdrop-blur-sm border border-line/20 p-5 shadow-2xl">
-            <p className="font-mono text-[9.5px] tracking-[0.18em] text-amber uppercase">
+          <div className="absolute top-10 left-8 right-12 rounded-xl bg-velur-ink/95 backdrop-blur-sm border border-on-dark/20 p-5 shadow-2xl">
+            <p className="font-mono text-[9.5px] tracking-[0.18em] text-signal-green-300 uppercase">
               Today&apos;s brief · 08:02
             </p>
-            <p className="font-sans font-bold text-ink text-[16px] leading-tight mt-2">
+            <p className="font-sans font-semibold text-on-dark text-[16px] leading-tight mt-2">
               Net revenue up 12% week-over-week.
             </p>
-            <p className="font-sans text-[12px] text-paper/70 leading-snug mt-2">
+            <p className="font-sans text-[12px] text-on-dark-muted leading-snug mt-2">
               TikTok creator drove 38% of the lift. Klaviyo win-back flow underperformed — pause variant B.
             </p>
           </div>

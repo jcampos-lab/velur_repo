@@ -1,21 +1,28 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { ButtonLink } from "@/components/velur/Button";
 
+/**
+ * Velur — Marketing Header
+ * Three-zone bar (mark left · menu center · CTA right) following the
+ * design system's marketing nav pattern. Frosted-white sticky nav,
+ * 72px tall, optional announcement bar above for product news.
+ */
 export default function Header() {
-  const headerRef   = useRef<HTMLElement>(null);
-  const [scrolled,  setScrolled]  = useState(false);
-  const [menuOpen,  setMenuOpen]  = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [annOpen, setAnnOpen] = useState(true);
   const { t, lang, setLang } = useLanguage();
 
   const NAV_LINKS = [
     { label: t.header.nav.platform, href: "/services" },
-    { label: t.header.nav.studio,   href: "/studio"   },
-    { label: t.header.nav.company,  href: "/company"  },
-    { label: t.header.nav.faq,      href: "/faq"      },
+    { label: t.header.nav.studio,   href: "/studio" },
+    { label: t.header.nav.company,  href: "/company" },
+    { label: t.header.nav.faq,      href: "/faq" },
   ];
 
   useEffect(() => {
@@ -26,49 +33,90 @@ export default function Header() {
 
   return (
     <>
-      <header
-        ref={headerRef}
-        className={`fixed top-0 left-0 right-0 z-50 h-16 md:h-[68px] transition-all duration-200 ${
-          scrolled
-            ? "bg-paper/85 backdrop-blur-md border-b border-line"
-            : "bg-paper"
-        }`}
-      >
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 h-full flex items-center justify-between gap-6">
+      {/* Announcement bar — full-width black strip per AnnouncementBar spec */}
+      {annOpen && (
+        <div
+          className="relative bg-velur-black text-white text-[13px] flex items-center justify-center px-11 py-2"
+          style={{ minHeight: "var(--bar-h)" }}
+        >
+          <span className="text-center">
+            {t.header.announcement}{" "}
+            <Link
+              href="/services"
+              className="text-white underline underline-offset-2 ml-2"
+            >
+              {t.header.announcementLink}
+            </Link>
+          </span>
+          <button
+            type="button"
+            aria-label="Dismiss announcement"
+            onClick={() => setAnnOpen(false)}
+            className="absolute right-3.5 top-1/2 -translate-y-1/2 inline-flex text-white opacity-80 hover:opacity-100"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              <path d="M3 3l8 8M11 3l-8 8" />
+            </svg>
+          </button>
+        </div>
+      )}
 
-          <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="Velur home">
-            <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur mark" width={22} height={22} className="shrink-0" />
-            <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur"       width={56} height={14} className="shrink-0" />
+      <header
+        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-200 ${
+          scrolled
+            ? "bg-canvas/85 backdrop-blur-[10px] backdrop-saturate-[160%] border-b border-border-light"
+            : "bg-canvas"
+        }`}
+        style={{ height: "var(--nav-h)" }}
+      >
+        <div className="max-w-[1440px] mx-auto h-full flex items-center justify-between gap-6 px-5 md:px-10">
+          {/* Mark left */}
+          <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="Velur home">
+            <Image
+              src="/logos/velur-mark-black.png"
+              alt=""
+              width={26}
+              height={26}
+              className="shrink-0"
+            />
+            <span className="font-display text-[22px] tracking-[-0.02em] text-ink-strong">
+              Velur
+            </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-7" aria-label="Main navigation">
-            {NAV_LINKS.map(link => (
+          {/* Menu center */}
+          <nav className="hidden md:flex items-center gap-7 mx-auto" aria-label="Main navigation">
+            {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-sans font-medium text-[14.5px] text-ink hover:text-amber transition-colors duration-150"
+                className="font-sans text-[15px] text-ink hover:text-ink-strong transition-colors duration-150"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="flex items-center gap-2 md:gap-3 shrink-0">
+          {/* CTA right */}
+          <div className="flex items-center gap-3 md:gap-5 shrink-0">
             <button
               onClick={() => setLang(lang === "en" ? "es" : "en")}
               aria-label="Change language"
-              className="hidden md:flex items-center gap-1 font-mono text-[11px] text-muted hover:text-ink transition-colors duration-150 border border-line rounded-full px-2.5 py-1"
+              className="hidden md:flex items-center gap-1 font-mono text-[11px] tracking-[0.04em] text-slate hover:text-ink transition-colors duration-150"
             >
-              <span className={lang === "en" ? "text-ink font-semibold" : ""}>EN</span>
-              <span className="text-line">/</span>
-              <span className={lang === "es" ? "text-ink font-semibold" : ""}>ES</span>
+              <span className={lang === "en" ? "text-ink-strong" : ""}>EN</span>
+              <span className="text-hairline">/</span>
+              <span className={lang === "es" ? "text-ink-strong" : ""}>ES</span>
             </button>
             <Link
-              href="/contact"
-              className="hidden md:inline-flex items-center gap-1.5 bg-ink text-paper font-sans font-medium text-[13.5px] px-4 py-2 rounded-full hover:bg-amber hover:text-paper transition-colors duration-200"
+              href="#"
+              className="hidden md:inline-block font-sans text-[15px] text-ink hover:text-ink-strong transition-colors duration-150"
             >
-              {t.header.cta} <span aria-hidden>→</span>
+              {t.header.signin}
             </Link>
+            <ButtonLink href="/contact" variant="primary" size="sm" className="hidden md:inline-flex">
+              {t.header.cta}
+            </ButtonLink>
             <button
               className="md:hidden flex flex-col gap-1.5 p-2"
               aria-label="Open menu"
@@ -83,11 +131,11 @@ export default function Header() {
       </header>
 
       {menuOpen && (
-        <div className="fixed inset-0 z-[100] bg-paper flex flex-col">
-          <div className="flex items-center justify-between px-5 h-16 border-b border-line">
-            <Link href="/" className="flex items-center gap-2" onClick={() => setMenuOpen(false)}>
-              <Image src="/logos/Velur_Icon_Logo_Transparent_Black.png" alt="Velur mark" width={22} height={22} />
-              <Image src="/logos/Velur_Copy_Logo_Transparent_Black.png" alt="velur"       width={56} height={14} />
+        <div className="fixed inset-0 z-[100] bg-canvas flex flex-col">
+          <div className="flex items-center justify-between px-5 h-16 border-b border-border-light">
+            <Link href="/" className="flex items-center gap-2.5" onClick={() => setMenuOpen(false)}>
+              <Image src="/logos/velur-mark-black.png" alt="" width={24} height={24} />
+              <span className="font-display text-[20px] tracking-[-0.02em] text-ink-strong">Velur</span>
             </Link>
             <button
               onClick={() => setMenuOpen(false)}
@@ -95,18 +143,18 @@ export default function Header() {
               className="w-9 h-9 flex items-center justify-center text-ink"
             >
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                <line x1="1" y1="1" x2="17" y2="17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-                <line x1="17" y1="1" x2="1" y2="17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="1" y1="1" x2="17" y2="17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                <line x1="17" y1="1" x2="1" y2="17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
               </svg>
             </button>
           </div>
           <nav className="flex flex-col gap-1 p-5">
-            {NAV_LINKS.map(link => (
+            {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="font-sans font-semibold text-lg text-ink py-3.5 border-b border-line"
+                className="font-sans text-lg text-ink-strong py-3.5 border-b border-border-light"
               >
                 {link.label}
               </Link>
@@ -114,13 +162,13 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-6 inline-flex items-center justify-center gap-2 bg-ink text-paper font-sans font-medium text-base px-6 py-3.5 rounded-lg"
+              className="mt-6 inline-flex items-center justify-center gap-2 bg-velur-ink text-canvas font-medium text-base px-6 py-3.5 rounded-[32px]"
             >
-              {t.header.cta} →
+              {t.header.cta}
             </Link>
             <button
               onClick={() => setLang(lang === "en" ? "es" : "en")}
-              className="mt-4 font-mono text-sm text-muted text-left"
+              className="mt-4 font-mono text-sm text-slate text-left"
             >
               {lang === "en" ? "Cambiar a Español" : "Switch to English"}
             </button>

@@ -1,67 +1,44 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import Link from "next/link";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { ButtonLink } from "@/components/velur/Button";
 
-type CtaVariant = "default" | "platform" | "company" | "caseStudies";
-
-type CtaSectionProps = {
-  variant?: CtaVariant;
-  buttonHref?: string;
-};
-
-export default function CtaSection({
-  variant = "default",
-  buttonHref = "/contact",
-}: CtaSectionProps) {
+/**
+ * Velur — Closing CTA band
+ * Midnight (#0a1a2f) full-width band per design system: dark navy is
+ * used for "security & finance" contexts, which a Revenue Intelligence
+ * CTA naturally is. Monumental display heading + primary onDark pill.
+ */
+export default function CtaSection() {
   const { t } = useLanguage();
-  const copy = t.cta[variant];
-  const prefersReduced = useReducedMotion();
+  const c = t.ctaBand;
 
   return (
-    <section className="bg-cream py-14 md:py-20">
-      <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-        <motion.div
-          initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-2xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16 overflow-hidden relative"
-        >
-          {/* Soft amber glow */}
-          <div
-            aria-hidden
-            className="absolute -top-32 -right-20 w-[420px] h-[420px] pointer-events-none"
-            style={{
-              background: "radial-gradient(circle, rgba(208,255,176,0.25), transparent 65%)",
-              filter: "blur(20px)",
-            }}
-          />
-
-          <div className="relative grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
-            <div className="max-w-2xl">
-              <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-3">
-                Ready when you are
-              </p>
-              <p className="font-sans font-medium text-paper/65 leading-[1.2] tracking-[-0.01em] mb-3 text-[15px] md:text-[17px]">
-                {copy.h1}
-              </p>
-              <h3
-                className="font-sans font-bold leading-[1.05] tracking-[-0.025em]"
-                style={{ fontSize: "clamp(24px, 3.4vw, 44px)" }}
-              >
-                {copy.h2}
-              </h3>
-            </div>
-            <Link
-              href={buttonHref}
-              className="inline-flex items-center bg-amber text-paper font-sans font-semibold text-[14.5px] px-5 py-3 rounded-lg hover:bg-paper hover:text-ink transition-colors self-start md:self-auto"
-            >
-              {copy.btn}
-            </Link>
-          </div>
-        </motion.div>
+    <section
+      className="bg-midnight text-on-dark"
+      style={{ padding: "var(--section-y) var(--gutter)" }}
+    >
+      <div
+        className="text-center"
+        style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}
+      >
+        <div className="mb-5">
+          <span className="font-mono text-[13px] uppercase tracking-[0.06em] text-action-blue">
+            {c.eyebrow}
+          </span>
+        </div>
+        <h2 className="velur-section-display text-white mb-5">{c.heading}</h2>
+        <p className="font-sans text-[18px] leading-[1.5] text-on-dark-muted max-w-[44ch] mx-auto mb-9">
+          {c.body}
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-6">
+          <ButtonLink href="/contact" variant="primary" tone="onDark" size="lg">
+            {c.ctaPrimary}
+          </ButtonLink>
+          <ButtonLink href="/services" variant="secondary" tone="onDark" size="md">
+            {c.ctaSecondary}
+          </ButtonLink>
+        </div>
       </div>
     </section>
   );

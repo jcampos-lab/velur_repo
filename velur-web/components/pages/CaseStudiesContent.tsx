@@ -194,7 +194,7 @@ export default function CaseStudiesContent() {
         </div>
       </section>
 
-      <CtaSection variant="caseStudies" />
+      <CtaSection />
     </>
   );
 }

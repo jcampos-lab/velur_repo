@@ -1,108 +1,102 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
+/**
+ * Velur — Marketing Footer
+ * Signature dark newsletter footer per ui_kits/marketing/Chrome.jsx.
+ * Velur-ink (#101316) bg, coral editorial eyebrow, monumental claim,
+ * underlined newsletter form, 3-column link list, bottom legal strip.
+ */
 export default function Footer() {
   const { t } = useLanguage();
-
-  const PAGES = [
-    { label: t.footer.links.platform, href: "/services" },
-    { label: t.footer.links.studio,   href: "/studio"   },
-    { label: t.footer.links.company,  href: "/company"  },
-    { label: t.footer.links.faq,      href: "/faq"      },
-    { label: t.footer.links.contact,  href: "/contact"  },
-  ];
-
-  const CONNECT = [
-    { label: "LinkedIn",       href: "https://linkedin.com/company/velur" },
-    { label: "X / Twitter",    href: "https://x.com/velur_io"             },
-    { label: "hello@velur.io", href: "mailto:hello@velur.io"              },
-  ];
-
-  const LEGAL = [
-    { label: t.footer.links.privacy, href: "/privacy" },
-    { label: t.footer.links.terms,   href: "/terms"   },
-    { label: t.footer.links.imprint, href: "/imprint" },
-  ];
+  const f = t.footerKit;
 
   return (
-    <footer className="bg-cream border-t border-line overflow-hidden">
+    <footer
+      className="bg-velur-ink text-on-dark"
+      style={{ padding: "var(--section-y-tight) var(--gutter) 40px" }}
+    >
+      <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+        <div
+          className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 pb-12"
+          style={{ borderBottom: "1px solid var(--border-dark)" }}
+        >
+          {/* Newsletter column */}
+          <div>
+            <div className="font-mono text-[12px] uppercase tracking-[0.06em] text-coral">
+              {f.eyebrow}
+            </div>
+            <h3 className="font-display text-[28px] leading-[1.1] tracking-[-0.01em] text-white mt-3 mb-4 max-w-[16ch]">
+              {f.heading}
+            </h3>
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="flex items-center gap-2.5 pb-2.5 max-w-[340px]"
+              style={{ borderBottom: "1px solid var(--border-dark)" }}
+            >
+              <input
+                placeholder={f.placeholder}
+                className="flex-1 bg-transparent border-none outline-none text-white font-sans text-[15px] placeholder:text-on-dark-muted"
+              />
+              <button
+                aria-label="Subscribe"
+                type="submit"
+                className="bg-transparent border-none cursor-pointer text-white inline-flex"
+              >
+                <ArrowRight size={18} strokeWidth={1.5} />
+              </button>
+            </form>
+          </div>
 
-      {/* Link columns */}
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 pt-14 md:pt-20 pb-8 md:pb-12">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
-          <FooterCol title={t.footer.cols.pages}   links={PAGES}   />
-          <FooterCol title={t.footer.cols.connect} links={CONNECT} external />
-          <FooterCol title={t.footer.cols.legal}   links={LEGAL}   />
+          {f.cols.map((c) => (
+            <div key={c.h}>
+              <div className="text-sm text-white mb-3.5">{c.h}</div>
+              <ul className="list-none p-0 m-0 flex flex-col gap-2.5">
+                {c.links.map((l) => (
+                  <li key={l}>
+                    <Link
+                      href="#"
+                      className="text-sm text-muted-slate hover:text-white no-underline transition-colors"
+                    >
+                      {l}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom strip */}
+        <div className="flex flex-wrap justify-between items-center gap-3 pt-6">
+          <div className="flex items-center gap-2.5">
+            <Image
+              src="/logos/velur-mark-white.png"
+              alt=""
+              width={20}
+              height={20}
+            />
+            <span className="font-sans text-[12px] text-muted-slate">
+              {f.copyright}
+            </span>
+          </div>
+          <div className="flex gap-5">
+            {f.legal.map((l) => (
+              <Link
+                key={l}
+                href="#"
+                className="text-[12px] text-muted-slate hover:text-white no-underline"
+              >
+                {l}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
-
-      {/* Copyright row */}
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 border-t border-line py-5 flex flex-wrap items-center justify-between gap-3">
-        <p className="font-mono text-[11px] text-muted tracking-widest uppercase">
-          &copy; {new Date().getFullYear()} VELUR. All rights reserved.
-        </p>
-        <p className="font-mono text-[11px] text-muted tracking-widest uppercase">
-          velur.io
-        </p>
-      </div>
-
-      {/* Full-screen wordmark, desktop only, fades out at top + bottom */}
-      <div
-        className="hidden md:flex w-full select-none pointer-events-none items-end justify-center overflow-hidden"
-        aria-hidden
-        style={{
-          WebkitMaskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,1) 65%, rgba(0,0,0,0.4) 100%)",
-          maskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,1) 65%, rgba(0,0,0,0.4) 100%)",
-        }}
-      >
-        <p
-          className="font-sans font-extrabold text-ink leading-[0.8] tracking-[-0.06em] text-center"
-          style={{
-            fontSize: "calc(100vw / 2.45)",
-            lineHeight: 0.8,
-            marginBottom: "-0.08em",
-            width: "100%",
-          }}
-        >
-          velur
-        </p>
-      </div>
     </footer>
-  );
-}
-
-function FooterCol({
-  title,
-  links,
-  external = false,
-}: {
-  title: string;
-  links: { label: string; href: string }[];
-  external?: boolean;
-}) {
-  return (
-    <div>
-      <p className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-muted mb-4 md:mb-5">
-        {title}
-      </p>
-      <ul className="space-y-2 md:space-y-3">
-        {links.map(link => (
-          <li key={link.href}>
-            <Link
-              href={link.href}
-              target={external ? "_blank" : undefined}
-              rel={external    ? "noopener noreferrer" : undefined}
-              className="font-sans text-[14px] md:text-[15px] text-ink hover:text-amber transition-colors duration-150 leading-snug"
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }
