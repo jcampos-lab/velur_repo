@@ -261,7 +261,7 @@ const en = {
     label: "Velur AI Studio",
     h1: "We help small businesses turn AI into revenue.",
     subhead: "The same goal as Revenue Intelligence, a different toolkit. Velur AI Studio is the marketing side of the work: websites, creative, campaigns, social, branding. We use AI where it earns its keep and a human everywhere else.",
-    ctaPrimary: "Book an intro call",
+    ctaPrimary: "Join the waitlist",
     ctaSecondary: "See the templates",
     toolsLabel: "The tools we lean on",
     toolsHeading: "Four AI products that actually ship work.",
@@ -272,7 +272,7 @@ const en = {
     templatesSubhead: "Plug-and-play documents we use with real clients. Reply to the email and we will send you the file.",
     ctaLabel: "Working with us",
     ctaHeading: "Tell us about the business. We will reply with a plan.",
-    ctaButton: "Start a conversation",
+    ctaButton: "Join the waitlist",
   },
   company: {
     label: "COMPANY · HOW WE THINK",
@@ -312,7 +312,7 @@ const en = {
     label: "WAITLIST · EARLY ACCESS",
     h1a: "Be first.",
     h1b: "Get in before we launch.",
-    subhead: "We are in development. Leave your email and we'll reach out personally when we're ready for early partners, with a founder rate locked in.",
+    subhead: "Velur is live and onboarding the next cohort. Leave your email and we'll reach out personally when the next seat opens, with a founder rate locked in.",
     whatToExpect: "WHAT HAPPENS NEXT",
     timeline: [
       { time: "01", text: "We confirm your spot on the waitlist within 24 hours" },
@@ -518,7 +518,7 @@ const es: typeof en = {
     pill: "Revenue Intelligence",
     line1: "Los ingresos,",
     line2: "antes de que se muevan.",
-    subhead: "Velur unifica pipeline, facturación, uso de producto y CRM en una sola consola — para que los equipos vean lo que cambia, y actúen antes de que cueste.",
+    subhead: "Velur unifica las señales de pipeline, facturación, uso de producto y CRM en una sola consola — para que los equipos de ingresos vean qué está cambiando, y actúen antes de que les cueste.",
     ctaPrimary: "Unirse a la lista",
     ctaSecondary: "Explorar la plataforma",
     thesisLabel: "La tesis",
@@ -549,7 +549,7 @@ const es: typeof en = {
     rows: [
       { heading: "Todo lo que construimos es tuyo.", body: "Cada archivo SQL, cada configuración de dashboard, cada modelo de datos, en tus repositorios, bajo tu nombre, desde el primer día. Cancela mañana y nada se rompe, nada desaparece, nada queda retenido." },
       { heading: "Entenderás cada número.", body: "Sin cajas negras, sin «confía en el algoritmo». Cada métrica que mostramos viene con una explicación en lenguaje claro de qué se ha movido y por qué. Nuestro trabajo es que te sientas nativo en datos, no dependiente de nosotros." },
-      { heading: "Estarás activo en 14 días.", body: "De la primera llamada al primer dashboard. Sin implementaciones de seis meses, sin equipo de ingeniería de datos de tu parte. Nosotros nos encargamos del desarrollo de principio a fin. El día 15, tienes las llaves." },
+      { heading: "Activo desde el primer día.", body: "Velur ya está en marcha para las marcas que onboardeamos. Conecta tu stack, elige los módulos y tu primer informe de ingresos queda agendado. Sin proyectos de seis meses, sin equipo de ingeniería de datos de tu parte. Tienes las llaves de todo desde el principio." },
     ],
   },
   receipts: {
@@ -558,7 +558,7 @@ const es: typeof en = {
     stats: [
       { label: "Años que nuestro equipo fundador lleva dentro de stacks de datos DTC y suscripción", caption: "En marcas de alto crecimiento en moda, gran consumo y suscripción" },
       { label: "Marcas DTC y de suscripción con las que ha trabajado directamente nuestro equipo", caption: "Construyendo la infraestructura analítica que sustenta cómo operan cada día" },
-      { label: "Horas es nuestro objetivo desde la lista de espera hasta tu primer informe de inteligencia", caption: "Sin necesidad de equipo de ingeniería de datos en tu lado" },
+      { label: "Días desde el onboarding hasta tu primer informe de inteligencia de ingresos", caption: "Sin necesidad de equipo de ingeniería de datos en tu lado" },
     ],
   },
   caseStudies: {
@@ -575,7 +575,7 @@ const es: typeof en = {
     featuredSource: "Klaviyo State of Email Marketing, 2025",
     impactBar: [
       { num: "+23%",    label: "Mejora media de LTV gracias a la analítica de cohortes" },
-      { num: "14 días", label: "Desde el acceso anticipado hasta tu primer informe de ingresos" },
+      { num: "1 informe", label: "Desde el onboarding hasta tu primer informe de ingresos" },
       { num: "2.5×",    label: "Ventaja de crecimiento de ingresos para marcas data-native" },
     ],
     implicationHeading: "Los datos propios son ahora los únicos datos en los que puedes confiar.",
@@ -663,10 +663,10 @@ const es: typeof en = {
     ],
   },
   cta: {
-    default:     { h1: "El número que decide tu trimestre",                            h2: "ya está en tus datos.",          meta: "Gratis · Sin tarjeta · Precio de acceso temprano al lanzamiento", btn: "Unirse a la lista →" },
-    platform:    { h1: "Accede antes del lanzamiento a la capa de inteligencia",       h2: "de ingresos para DTC.",          meta: "Gratis · Sin tarjeta · Precio de acceso temprano al lanzamiento", btn: "Unirse a la lista →" },
-    company:     { h1: "Lo estamos construyendo para marcas como la tuya.",            h2: "Entra antes del lanzamiento.",   meta: "Gratis · Sin tarjeta · Tarifa fundadora garantizada al registrarse", btn: "Unirse a la lista →" },
-    caseStudies: { h1: "Tus números ya cuentan la historia.",                          h2: "Estamos construyendo el lector.", meta: "Gratis · Sin tarjeta · Precio de acceso temprano al lanzamiento", btn: "Unirse a la lista →" },
+    default:     { h1: "La respuesta ya está en tus datos.",                      h2: "Te ayudamos a encontrarla.",                  meta: "Sin tarjeta · Tarifa de acceso anticipado garantizada al registrarse", btn: "Unirse a la lista →" },
+    platform:    { h1: "Acceso anticipado a la capa de inteligencia",             h2: "que las marcas DTC llevan tiempo esperando.",  meta: "Sin tarjeta · Tarifa de acceso anticipado garantizada al registrarse", btn: "Unirse a la lista →" },
+    company:     { h1: "Construimos para marcas que se toman los datos en serio.", h2: "Entra antes del lanzamiento.",                meta: "Sin tarjeta · Tarifa fundadora garantizada al registrarse",              btn: "Unirse a la lista →" },
+    caseStudies: { h1: "Tus datos ya tienen la historia.",                        h2: "Estamos construyendo el motor que la lee.",    meta: "Sin tarjeta · Tarifa de acceso anticipado garantizada al registrarse", btn: "Unirse a la lista →" },
   },
   services: {
     label: "PLATAFORMA · LO QUE HACEMOS",
@@ -681,7 +681,7 @@ const es: typeof en = {
       {
         label: "PULSO DE INGRESOS",
         heading: "Tu informe de ingresos diario, explicado.",
-        body: "Cada mañana, mostramos tus ingresos netos, MRR de suscripciones, ROAS combinado y margen de contribución, con una nota analítica de IA que explica por qué se movieron las cifras. Sin pestañas que abrir. Sin hojas de cálculo que reconciliar.",
+        body: "Cada mañana, mostramos tus ingresos netos, MRR de suscripciones, ROAS combinado y margen de contribución, con una nota analítica de IA que explica por qué se movieron las cifras. Sin pestañas que abrir. Sin hojas de cálculo que reconciliar. Solo claridad.",
         includes: [
           "Seguimiento de ingresos netos y MRR en tiempo real",
           "Desglose por canal: Shopify · D2C · Mayorista · Amazon",
@@ -758,7 +758,7 @@ const es: typeof en = {
     label: "Velur AI Studio",
     h1: "Ayudamos a pequeños negocios a convertir la IA en ingresos.",
     subhead: "El mismo objetivo que Revenue Intelligence, con otras herramientas. Velur AI Studio es el lado de marketing del trabajo: webs, creatividad, campañas, redes sociales y marca. Usamos IA donde aporta valor y a una persona en todo lo demás.",
-    ctaPrimary: "Reservar una llamada",
+    ctaPrimary: "Unirse a la lista",
     ctaSecondary: "Ver las plantillas",
     toolsLabel: "Las herramientas con las que trabajamos",
     toolsHeading: "Cuatro productos de IA que entregan trabajo real.",
@@ -769,7 +769,7 @@ const es: typeof en = {
     templatesSubhead: "Documentos listos para usar que aplicamos con clientes reales. Respóndenos al correo y te enviamos el archivo.",
     ctaLabel: "Trabajar con nosotros",
     ctaHeading: "Cuéntanos sobre tu negocio. Te respondemos con un plan.",
-    ctaButton: "Empezar la conversación",
+    ctaButton: "Unirse a la lista",
   },
   company: {
     label: "EMPRESA · CÓMO PENSAMOS",
@@ -809,7 +809,7 @@ const es: typeof en = {
     label: "LISTA DE ESPERA · ACCESO ANTICIPADO",
     h1a: "Sé el primero.",
     h1b: "Entra antes del lanzamiento.",
-    subhead: "Estamos en desarrollo. Deja tu email y nos ponemos en contacto personalmente cuando estemos listos para los primeros partners, con una tarifa fundadora garantizada.",
+    subhead: "Velur está activo y onboardeando la próxima cohorte. Deja tu email y nos ponemos en contacto personalmente cuando se abra el siguiente cupo, con una tarifa fundadora garantizada.",
     whatToExpect: "QUÉ PASA DESPUÉS",
     timeline: [
       { time: "01", text: "Confirmamos tu plaza en la lista de espera en menos de 24 horas" },
@@ -822,7 +822,7 @@ const es: typeof en = {
     response: "Respondemos en 24 horas, días laborables.",
     iframeTitle: "Únete a la lista de espera de Velur",
     formPlaceholder: "tu@email.com",
-    formBtn: "Unirme a la lista →",
+    formBtn: "Unirse a la lista →",
     formSuccess: "Estás en la lista. Te escribimos pronto.",
     formNote: "Sin spam. Solo un mensaje cuando estemos listos para ti.",
   },
@@ -852,7 +852,7 @@ const es: typeof en = {
           },
           {
             q: "¿Puede Velur reemplazar mis herramientas de análisis actuales?",
-            a: "Para la mayoría de las marcas DTC, sí · Velur está diseñado para consolidar el stack de análisis que has acumulado con el tiempo. Si usas Triple Whale, Northbeam, una herramienta de cohortes separada y hojas de cálculo manuales en paralelo, Velur las reemplaza a todas. Las marcas suelen ahorrar entre 1.500 y 2.500 €/mes en suscripciones SaaS al consolidar en Velur. La única herramienta que no reemplazamos es la analítica nativa de Shopify, que complementamos en lugar de duplicar.",
+            a: "Para la mayoría de las marcas DTC, sí. Velur está diseñado para consolidar el stack de análisis que has acumulado con el tiempo. Si usas Triple Whale, una herramienta de cohortes separada y hojas de cálculo manuales en paralelo, Velur las reemplaza todas. La única herramienta que no reemplazamos: la analítica nativa de Shopify, que complementamos en lugar de duplicar.",
           },
         ],
       },
@@ -873,7 +873,7 @@ const es: typeof en = {
           },
           {
             q: "¿Puede Velur reemplazar mi suscripción a Triple Whale o Northbeam?",
-            a: "Para la mayoría de las marcas DTC, sí. Velur cubre los mismos casos de uso de atribución, atribución multitoque, datos propios, análisis de rendimiento creativo, más la inteligencia de cohortes, LTV y suscripciones que las herramientas de atribución no ofrecen. Si gastas más de 400 €/mes en soluciones puntuales de atribución, Velur suele amortizarse solo por la consolidación.",
+            a: "Para la mayoría de las marcas DTC, sí. Velur cubre los mismos casos de uso de atribución, atribución multitoque, datos propios, análisis de rendimiento creativo, más la inteligencia de cohortes, LTV y suscripciones que las herramientas de atribución por sí solas no ofrecen.",
           },
         ],
       },
@@ -890,7 +890,7 @@ const es: typeof en = {
           },
           {
             q: "¿Necesito un desarrollador o ingeniero de datos para usar Velur?",
-            a: "No. Velur está diseñado para fundadores de marcas DTC, responsables de crecimiento y directores de marketing, no para equipos de datos. Conectar tus integraciones lleva unos 15 minutos y no requiere conocimientos técnicos. Si alguna vez has conectado una integración de Klaviyo, ya sabes cómo configurar Velur.",
+            a: "No. Velur está diseñado para fundadores de marcas DTC, responsables de crecimiento y directores de marketing, no para equipos de datos. Conectar tus integraciones lleva minutos y no requiere conocimientos técnicos. La persona que toma las decisiones de ingresos puede usarlo directamente, sin intermediario técnico.",
           },
           {
             q: "¿Funciona Velur con Shopify Plus o solo con Shopify estándar?",
@@ -907,7 +907,7 @@ const es: typeof en = {
           },
           {
             q: "¿Cómo modela Velur el LTV y qué precisión tiene?",
-            a: "El modelo de LTV de Velur se construye sobre tus datos históricos reales de cohortes, no en benchmarks del sector ni medias generales. Usamos análisis de supervivencia sobre tus curvas de retención para proyectar el LTV a 12 y 24 meses por segmento. La precisión mejora con el tiempo a medida que se acumulan más datos de cohortes. Para marcas con más de 12 meses de historial en Shopify, el modelo suele ser preciso dentro de un margen del 8–12% respecto al LTV realizado.",
+            a: "El modelo de LTV de Velur se construye sobre tus datos históricos reales de cohortes, no en benchmarks del sector ni medias generales. Usamos análisis de supervivencia sobre tus curvas de retención para proyectar el LTV a 12 y 24 meses por segmento. La precisión mejora con el tiempo a medida que se acumulan más datos de cohortes. También mostramos los intervalos de confianza para que nunca trabajes con una falsa precisión.",
           },
           {
             q: "¿Dónde están mis datos realmente? ¿Quién tiene acceso a ellos?",
@@ -915,7 +915,7 @@ const es: typeof en = {
           },
           {
             q: "¿Cómo gestiona Velur las métricas de suscripción de forma diferente a las marcas de compra única?",
-            a: "Velur dispone de una capa de inteligencia de suscripciones dedicada para marcas con Recharge y Stripe Billing. Esto incluye seguimiento de MRR, curvas de retención de cohortes de suscripción, señales predictivas de abandono y LTV por plan, métricas que las herramientas de análisis de e-commerce estándar ignoran o tratan incorrectamente. Para marcas híbridas (suscripción + DTC), Velur modela ambas líneas de ingresos y muestra su interacción: qué clientes DTC se convierten en suscriptores y a qué margen.",
+            a: "Velur dispone de una capa de inteligencia de suscripciones dedicada para marcas con Recharge y Stripe Billing. Cubre seguimiento de MRR, curvas de retención de cohortes de suscripción, señales predictivas de abandono y LTV por plan. Para marcas híbridas (suscripción + DTC), Velur modela ambas líneas de ingresos y muestra su interacción: qué clientes DTC se convierten en suscriptores, y a qué margen.",
           },
         ],
       },
@@ -924,7 +924,7 @@ const es: typeof en = {
         items: [
           {
             q: "¿Cómo funciona el precio?",
-            a: "El precio de Velur depende de los módulos que actives y la escala de ingresos de tu marca. No publicamos tarifas por usuario ni contratos anuales de partida. La mejor forma de entender qué costaría Velur para tu situación específica es una demo de 15 minutos, te damos el precio exacto antes de que tomes ninguna decisión. Sin el típico 'contacta con ventas' sin respuesta.",
+            a: "El precio depende de los módulos que actives y la escala de ingresos de tu marca. Los partners de acceso anticipado obtienen una tarifa fundadora bloqueada de forma permanente, el mejor precio que ofreceremos. No publicamos tarifas por usuario ni contratos anuales de partida. Únete a la lista de espera y te explicaremos el precio exacto antes de que tomes ninguna decisión.",
           },
           {
             q: "¿Para qué tamaño de marca está diseñado Velur?",
@@ -935,8 +935,8 @@ const es: typeof en = {
             a: "Sin contratos anuales, sin plazo mínimo. Velur funciona mes a mes. Ganamos tu suscripción siendo útiles cada día, no bloqueándote en un contrato del que te arrepientes. Si no te está aportando inteligencia accionable, deberías cancelar. Preferimos recuperarte cuando lo hayamos ganado a retenerte cuando no es el caso.",
           },
           {
-            q: "¿Hay un período de prueba gratuito?",
-            a: "Ofrecemos un piloto de 14 días para marcas DTC cualificadas. Durante el piloto, tu stack se conecta completamente, tus primeros informes de ingresos se ponen en marcha y ves exactamente lo que Velur muestra para tu negocio, no en un entorno de demo con datos genéricos. Al cabo de 14 días, decides si continuar. No se requiere tarjeta de crédito para iniciar el piloto.",
+            q: "¿Qué significa exactamente el acceso anticipado?",
+            a: "Los partners de acceso anticipado son las primeras marcas que onboardeamos. Obtienes una tarifa fundadora bloqueada de forma permanente, prioridad en el onboarding y acceso directo a nosotros durante la configuración. Nos ponemos en contacto personalmente cuando estemos listos, sin drip automatizado, sin embudo de ventas. Solo una conversación.",
           },
         ],
       },

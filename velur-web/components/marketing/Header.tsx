@@ -108,12 +108,6 @@ export default function Header() {
               <span className="text-hairline">/</span>
               <span className={lang === "es" ? "text-ink-strong" : ""}>ES</span>
             </button>
-            <Link
-              href="#"
-              className="hidden md:inline-block font-sans text-[15px] text-ink hover:text-ink-strong transition-colors duration-150"
-            >
-              {t.header.signin}
-            </Link>
             <ButtonLink href="/contact" variant="primary" size="sm" className="hidden md:inline-flex">
               {t.header.cta}
             </ButtonLink>

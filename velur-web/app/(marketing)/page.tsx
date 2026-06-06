@@ -1,5 +1,4 @@
 import HeroSection      from "@/components/marketing/HeroSection";
-import TrustStrip       from "@/components/marketing/TrustStrip";
 import CapabilityGrid   from "@/components/marketing/CapabilityGrid";
 import DarkProofBand    from "@/components/marketing/DarkProofBand";
 import AiStudioCallout  from "@/components/marketing/AiStudioCallout";
@@ -21,7 +20,6 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <TrustStrip />
       <CapabilityGrid />
       <DarkProofBand />
       <AiStudioCallout />
