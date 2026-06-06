@@ -88,7 +88,7 @@ function GuideAndPacks() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-        className="rounded-2xl bg-[#3F5772] text-paper overflow-hidden flex flex-col"
+        className="rounded-2xl bg-midnight text-on-dark overflow-hidden flex flex-col"
       >
         <div className="p-7 md:p-9 flex flex-col gap-5">
           <h3
@@ -121,7 +121,7 @@ function GuideAndPacks() {
                     key={i}
                     className="rounded-sm"
                     style={{
-                      background: i % 4 === 0 ? "#57627C" : i % 3 === 0 ? "#1A1A1A" : "#D9D6CF",
+                      background: i % 4 === 0 ? "#1F5FE0" : i % 3 === 0 ? "#101316" : "#DCDDE0",
                       opacity: 0.85,
                     }}
                   />
@@ -141,7 +141,7 @@ function GuideAndPacks() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-        className="rounded-2xl bg-[#EFE9DE] text-ink overflow-hidden flex flex-col"
+        className="rounded-2xl bg-stone text-ink overflow-hidden flex flex-col"
       >
         <div className="p-7 md:p-9 flex flex-col gap-5">
           <h3
@@ -177,7 +177,7 @@ function GuideAndPacks() {
               <p className="font-serif italic text-[10px] text-paper/70 mt-0.5">Prompt Pack</p>
               <div className="mt-2 grid grid-cols-2 gap-1">
                 {Array.from({ length: 4 }).map((_, i) => (
-                  <div key={i} className="aspect-square rounded-sm bg-gradient-to-br from-[#D0FFB0] to-[#57627C] opacity-90" />
+                  <div key={i} className="aspect-square rounded-sm bg-gradient-to-br from-signal-green-300 to-signal-green opacity-90" />
                 ))}
               </div>
             </div>
@@ -186,7 +186,7 @@ function GuideAndPacks() {
               <p className="font-serif italic text-[10px] text-paper/70 mt-0.5">Prompt Pack</p>
               <div className="mt-2 grid grid-cols-2 gap-1">
                 {Array.from({ length: 4 }).map((_, i) => (
-                  <div key={i} className="aspect-square rounded-sm bg-gradient-to-br from-[#D9CFB9] to-[#6E6E6E] opacity-90" />
+                  <div key={i} className="aspect-square rounded-sm bg-gradient-to-br from-stone to-slate opacity-90" />
                 ))}
               </div>
             </div>
@@ -200,12 +200,12 @@ function GuideAndPacks() {
 /* ───────── Prompt pack grid ────────────────────────────────────────── */
 
 const PACKS = [
-  { title: "Spa & Studio",       count: "100+ prompts", tone: "from-[#D9CFB9] to-[#8B7E66]", textOnDark: false },
-  { title: "Beauty Shots",       count: "100+ prompts", tone: "from-[#D0FFB0] to-[#57627C]", textOnDark: true  },
-  { title: "DTC Products",       count: "100+ prompts", tone: "from-[#2A2A2A] to-[#0A0A0A]", textOnDark: true  },
-  { title: "Hospitality",        count:  "80+ prompts", tone: "from-[#3F5772] to-[#1F2B3A]", textOnDark: true  },
-  { title: "Reel Hooks",         count: "50+ scripts",  tone: "from-[#7C3AED] to-[#3F1F8A]", textOnDark: true  },
-  { title: "Email Voice",        count: "50+ prompts",  tone: "from-[#10A37F] to-[#0A6B53]", textOnDark: true  },
+  { title: "Spa & Studio",  count: "100+ prompts", tone: "from-stone to-[#8B7E66]",            textOnDark: false },
+  { title: "Beauty Shots",  count: "100+ prompts", tone: "from-signal-green-300 to-signal-green", textOnDark: true  },
+  { title: "DTC Products",  count: "100+ prompts", tone: "from-ink-700 to-velur-ink",          textOnDark: true  },
+  { title: "Hospitality",   count:  "80+ prompts", tone: "from-midnight-700 to-midnight",      textOnDark: true  },
+  { title: "Reel Hooks",    count: "50+ scripts",  tone: "from-coral to-[#C04A2F]",            textOnDark: true  },
+  { title: "Email Voice",   count: "50+ prompts",  tone: "from-signal-green to-[#063123]",     textOnDark: true  },
 ];
 
 function PackGrid() {
@@ -266,42 +266,42 @@ const TESTIMONIALS = [
     name: "Camila",
     role: "Spa owner, Cami Lab Studio",
     initial: "C",
-    bg: "#D0FFB0",
+    bg: "#0B3D2E",  /* signal-green */
   },
   {
     quote: "Replaced our product shoot for two collections. The MidJourney recipes alone paid for the whole engagement in week one.",
     name: "Marc R.",
     role: "DTC apparel owner",
     initial: "M",
-    bg: "#3F5772",
+    bg: "#0A1A2F",  /* midnight */
   },
   {
     quote: "I went from staring at Higgsfield wondering what to type to publishing reels that actually book appointments.",
     name: "Sara V.",
     role: "Clinic owner",
     initial: "S",
-    bg: "#57627C",
+    bg: "#1F5FE0",  /* action-blue */
   },
   {
     quote: "Alex actually picks up the phone. That alone made him different from every other agency we talked to.",
     name: "Diego T.",
     role: "Coffee subscription founder",
     initial: "D",
-    bg: "#2A1206",
+    bg: "#101316",  /* velur-ink */
   },
   {
     quote: "The prompt packs cut our brief-to-asset time by 70%. Our designer finally has time to actually design.",
     name: "Nora P.",
     role: "Brand lead, beauty startup",
     initial: "N",
-    bg: "#10A37F",
+    bg: "#4FB78D",  /* signal-green-300 */
   },
   {
     quote: "We had no business in-house creative team. Now we ship better content than agencies five times our size.",
     name: "Lars F.",
     role: "E-commerce founder",
     initial: "L",
-    bg: "#7C3AED",
+    bg: "#FF6B4A",  /* coral */
   },
 ];
 
@@ -380,8 +380,8 @@ function FitSection() {
           {GOOD_FIT.map((g, i) => (
             <li key={i} className="flex items-start gap-3">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mt-1 shrink-0">
-                <circle cx="8" cy="8" r="8" fill="#1F7A4D" opacity="0.12" />
-                <path d="M4.5 8.2 L7 10.5 L11.5 5.5" stroke="#1F7A4D" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                <circle cx="8" cy="8" r="8" fill="#0E8A5F" opacity="0.12" />
+                <path d="M4.5 8.2 L7 10.5 L11.5 5.5" stroke="#0E8A5F" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
               </svg>
               <span className="font-sans text-[14.5px] text-ink/85 leading-relaxed">{g}</span>
             </li>
@@ -406,8 +406,8 @@ function FitSection() {
           {NOT_FOR.map((n, i) => (
             <li key={i} className="flex items-start gap-3">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mt-1 shrink-0">
-                <circle cx="8" cy="8" r="8" fill="#6E6E6E" opacity="0.12" />
-                <path d="M5 5 L11 11 M11 5 L5 11" stroke="#6E6E6E" strokeWidth="1.6" strokeLinecap="round" />
+                <circle cx="8" cy="8" r="8" fill="#8A8F98" opacity="0.12" />
+                <path d="M5 5 L11 11 M11 5 L5 11" stroke="#8A8F98" strokeWidth="1.6" strokeLinecap="round" />
               </svg>
               <span className="font-sans text-[14.5px] text-ink/65 leading-relaxed">{n}</span>
             </li>

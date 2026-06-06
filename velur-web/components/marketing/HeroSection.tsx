@@ -38,9 +38,13 @@ export default function HeroSection() {
             <MonoLabel tone="green">{h.pill}</MonoLabel>
           </motion.div>
 
-          <motion.h1 {...fade(0.05)} className="velur-hero text-ink-strong mb-6">
-            {h.line1}{" "}
-            <span className="text-signal-green">{h.line2}</span>
+          <motion.h1
+            {...fade(0.05)}
+            className="velur-hero text-ink-strong mb-6"
+            style={{ textWrap: "pretty" }}
+          >
+            <span className="block">{h.line1}</span>
+            <span className="block text-signal-green">{h.line2}</span>
           </motion.h1>
 
           <motion.p

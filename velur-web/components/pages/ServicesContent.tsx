@@ -48,16 +48,16 @@ function HeroCard() {
           </div>
         </div>
 
-        {/* Right preview */}
-        <div className="relative bg-gradient-to-br from-[#3D1E10] via-[#2A1206] to-[#150701] overflow-hidden hidden md:block">
+        {/* Right preview — Signal Green band per Velur Design System */}
+        <div className="relative bg-signal-green overflow-hidden hidden md:block">
           <div
-            className="absolute inset-0 opacity-60"
+            className="absolute inset-0 opacity-70"
             style={{
               backgroundImage:
-                "radial-gradient(circle at 30% 30%, rgba(208,255,176,0.35), transparent 50%), radial-gradient(circle at 75% 75%, rgba(208,255,176,0.25), transparent 50%)",
+                "radial-gradient(circle at 30% 30%, rgba(79,183,141,0.35), transparent 55%), radial-gradient(circle at 78% 78%, rgba(31,95,224,0.18), transparent 55%)",
             }}
           />
-          <div className="absolute top-10 left-8 right-12 rounded-xl bg-velur-ink/95 backdrop-blur-sm border border-on-dark/20 p-5 shadow-2xl">
+          <div className="absolute top-10 left-8 right-12 rounded-xl bg-velur-ink/95 backdrop-blur-sm border border-ink-700 p-5 shadow-2xl">
             <p className="font-mono text-[9.5px] tracking-[0.18em] text-signal-green-300 uppercase">
               Today&apos;s brief · 08:02
             </p>
@@ -68,13 +68,13 @@ function HeroCard() {
               TikTok creator drove 38% of the lift. Klaviyo win-back flow underperformed — pause variant B.
             </p>
           </div>
-          <div className="absolute bottom-10 right-10 left-20 rounded-xl bg-[#1A1A1A] border border-amber/20 p-4 shadow-2xl">
-            <p className="font-mono text-[9px] tracking-[0.18em] text-amber uppercase mb-2">
+          <div className="absolute bottom-10 right-10 left-20 rounded-xl bg-velur-ink border border-ink-700 p-4 shadow-2xl">
+            <p className="font-mono text-[9px] tracking-[0.18em] text-signal-green-300 uppercase mb-2">
               ROAS, blended
             </p>
             <div className="flex items-baseline justify-between">
-              <p className="font-sans font-bold text-paper text-[24px] leading-none">3.14×</p>
-              <p className="font-mono text-[10px] text-positive">▲ 21.9%</p>
+              <p className="font-sans font-semibold text-on-dark text-[24px] leading-none">3.14×</p>
+              <p className="font-mono text-[10px] text-revenue-up">▲ 21.9%</p>
             </div>
           </div>
         </div>
@@ -163,25 +163,25 @@ function ModuleCard({ m, i, prefersReduced }: { m: Module; i: number; prefersRed
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.55, delay: prefersReduced ? 0 : i * 0.08, ease: [0.16, 1, 0.3, 1] }}
       whileHover={prefersReduced ? undefined : { y: -3 }}
-      className={`rounded-2xl ${m.bg} ${dark ? "text-paper" : "text-ink"} border ${dark ? "border-transparent" : "border-line"} p-7 md:p-9 flex flex-col gap-5`}
+      className={`rounded-2xl ${m.bg} ${dark ? "text-on-dark" : "text-ink"} border ${dark ? "border-transparent" : "border-line"} p-7 md:p-9 flex flex-col gap-5`}
     >
-      <p className={`font-mono text-[10.5px] tracking-[0.18em] uppercase ${m.accent}`}>
+      <p className={`font-mono text-[10.5px] tracking-[0.18em] uppercase ${dark ? "text-signal-green-300" : m.accent}`}>
         {m.label}
       </p>
       <h3
-        className="font-sans font-bold leading-[1.1] tracking-[-0.02em]"
+        className={`font-sans font-semibold leading-[1.1] tracking-[-0.02em] ${dark ? "text-on-dark" : "text-ink-strong"}`}
         style={{ fontSize: "clamp(20px, 2.2vw, 28px)" }}
       >
         {m.title}
       </h3>
-      <p className={`font-sans text-[14.5px] leading-relaxed ${dark ? "text-ink/75" : "text-ink/70"}`}>
+      <p className={`font-sans text-[14.5px] leading-relaxed ${dark ? "text-on-dark-muted" : "text-ink/70"}`}>
         {m.body}
       </p>
-      <ul className={`mt-2 space-y-2 ${dark ? "" : ""}`}>
+      <ul className="mt-2 space-y-2">
         {m.bullets.map(b => (
           <li key={b} className="flex items-start gap-2.5">
-            <span className="mt-2 inline-block w-1.5 h-1.5 rounded-full bg-amber shrink-0" />
-            <span className={`font-sans text-[13.5px] ${dark ? "text-ink/85" : "text-ink/85"}`}>
+            <span className={`mt-2 inline-block w-1.5 h-1.5 rounded-full shrink-0 ${dark ? "bg-signal-green-300" : "bg-action-blue"}`} />
+            <span className={`font-sans text-[13.5px] ${dark ? "text-on-dark/90" : "text-ink/85"}`}>
               {b}
             </span>
           </li>
@@ -309,8 +309,8 @@ export default function ServicesContent() {
                 {s.rightForItems.map((g, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mt-1 shrink-0">
-                      <circle cx="8" cy="8" r="8" fill="#1F7A4D" opacity="0.12" />
-                      <path d="M4.5 8.2 L7 10.5 L11.5 5.5" stroke="#1F7A4D" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                      <circle cx="8" cy="8" r="8" fill="#0E8A5F" opacity="0.12" />
+                      <path d="M4.5 8.2 L7 10.5 L11.5 5.5" stroke="#0E8A5F" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                     </svg>
                     <span className="font-sans text-[14.5px] text-ink/85 leading-relaxed">{g}</span>
                   </li>
@@ -329,8 +329,8 @@ export default function ServicesContent() {
                 {s.notRightForItems.map((n, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mt-1 shrink-0">
-                      <circle cx="8" cy="8" r="8" fill="#6E6E6E" opacity="0.12" />
-                      <path d="M5 5 L11 11 M11 5 L5 11" stroke="#6E6E6E" strokeWidth="1.6" strokeLinecap="round" />
+                      <circle cx="8" cy="8" r="8" fill="#8A8F98" opacity="0.12" />
+                      <path d="M5 5 L11 11 M11 5 L5 11" stroke="#8A8F98" strokeWidth="1.6" strokeLinecap="round" />
                     </svg>
                     <span className="font-sans text-[14.5px] text-ink/65 leading-relaxed">{n}</span>
                   </li>

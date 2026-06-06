@@ -166,8 +166,14 @@
   --bar-h: 36px;
   --nav-h: 72px;
 
-  --type-hero-size:  clamp(3.25rem, 7vw, 6rem);
-  --type-hero-lh:    1.0;
+  /* Slight cap on the upper bound vs the design spec's 6rem (96px),
+     because we split the hero across two explicit Block spans
+     (line1 = "Revenue," / line2 = "before it moves.") and the
+     longer line needs to fit in the 1.05fr column without re-wrapping
+     into 3 lines. 5.5rem keeps "before it moves." on one line at all
+     viewport widths above the lg breakpoint. */
+  --type-hero-size:  clamp(3rem, 6.4vw, 5.5rem);
+  --type-hero-lh:    1.02;
   --type-hero-track: -0.02em;
 
   --type-display-size:  clamp(2.75rem, 5.4vw, 4.5rem);
@@ -197,52 +203,61 @@
 
 /* ============================================================
    Base / element defaults
+   Wrapped in @layer base so Tailwind utility classes (text-white,
+   text-on-dark, etc.) can override the element defaults on dark
+   product bands. Without this layer, the naked h1-h6 rule wins
+   the cascade and every dark-band heading goes invisible.
    ============================================================ */
 
-* { box-sizing: border-box; }
+@layer base {
+  * { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
 
-body {
-  margin: 0;
-  background-color: var(--color-canvas);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-synthesis-weight: none;
-  text-rendering: optimizeLegibility;
-}
+  body {
+    margin: 0;
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  color: var(--color-ink-strong);
-  margin: 0;
-  text-wrap: balance;
-}
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    /* Headings inherit color from their parent surface, so dark bands
+       (text-on-dark, text-paper, text-white) just work. Default ink
+       color comes from <body>. */
+    color: inherit;
+    margin: 0;
+    text-wrap: balance;
+  }
 
-p { margin: 0; text-wrap: pretty; }
+  p { margin: 0; text-wrap: pretty; }
 
-::selection { background: var(--color-coral); color: #FFFFFF; }
+  ::selection { background: var(--color-coral); color: #FFFFFF; }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-canvas); }
-::-webkit-scrollbar-thumb { background: var(--color-hairline); border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-ink); }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--color-canvas); }
+  ::-webkit-scrollbar-thumb { background: var(--color-hairline); border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-ink); }
 
-:focus-visible {
-  outline: 2px solid var(--color-focus);
-  outline-offset: 2px;
-  border-radius: 4px;
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 }
 
 /* ─── Velur type role utilities ─────────────────────────────────── */
