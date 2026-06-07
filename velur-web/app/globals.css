@@ -117,32 +117,73 @@
   --font-mono:    ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 }
 
-/* ─── Px Grotesk @font-face — monoweight master, mapped to 400-700 */
+/* ─── Px Grotesk @font-face — full family ────────────────────────
+   Three real weights (Light / Regular / Bold) + italics, served as
+   WOFF2 with WOFF fallback. The previous bundle was a stripped
+   17KB Regular TTF that lacked extended Latin (ñ á é í ó ú ¿ ¡)
+   for Spanish. These ship the full glyph set. */
+
+/* Light 300 */
 @font-face {
   font-family: "Px Grotesk";
-  src: url("/fonts/PxGrotesk-Regular.ttf") format("truetype");
+  src: url("/fonts/Px-Grotesk-Light.woff2") format("woff2"),
+       url("/fonts/Px-Grotesk-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular 400 */
+@font-face {
+  font-family: "Px Grotesk";
+  src: url("/fonts/Px-Grotesk-Regular.woff2") format("woff2"),
+       url("/fonts/Px-Grotesk-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Px Grotesk";
-  src: url("/fonts/PxGrotesk-Regular.ttf") format("truetype");
+  src: url("/fonts/Px-Grotesk-Regular-Italic.woff2") format("woff2"),
+       url("/fonts/Px-Grotesk-Regular-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Bold 700 */
+@font-face {
+  font-family: "Px Grotesk";
+  src: url("/fonts/Px-Grotesk-Bold.woff2") format("woff2"),
+       url("/fonts/Px-Grotesk-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Px Grotesk";
+  src: url("/fonts/Px-Grotesk-Bold-Italic.woff2") format("woff2"),
+       url("/fonts/Px-Grotesk-Bold-Italic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* 500 + 600 map up to Bold so font-weight: 500/600 still renders
+   crisp instead of falling through to a synthesized mid-weight. */
+@font-face {
+  font-family: "Px Grotesk";
+  src: url("/fonts/Px-Grotesk-Bold.woff2") format("woff2"),
+       url("/fonts/Px-Grotesk-Bold.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Px Grotesk";
-  src: url("/fonts/PxGrotesk-Regular.ttf") format("truetype");
+  src: url("/fonts/Px-Grotesk-Bold.woff2") format("woff2"),
+       url("/fonts/Px-Grotesk-Bold.woff") format("woff");
   font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Px Grotesk";
-  src: url("/fonts/PxGrotesk-Regular.ttf") format("truetype");
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -167,30 +208,70 @@
   --bar-h: 36px;
   --nav-h: 72px;
 
-  /* Slight cap on the upper bound vs the design spec's 6rem (96px),
-     because we split the hero across two explicit Block spans
-     (line1 = "Revenue," / line2 = "before it moves.") and the
-     longer line needs to fit in the 1.05fr column without re-wrapping
-     into 3 lines. 5.5rem keeps "before it moves." on one line at all
-     viewport widths above the lg breakpoint. */
-  --type-hero-size:  clamp(3rem, 6.4vw, 5.5rem);
-  --type-hero-lh:    1.02;
+  /* ============================================================
+     Type scale — Cohere hierarchy adapted to Px Grotesk.
+     ------------------------------------------------------------
+     Cohere principles applied here:
+     - Massive type used SPARINGLY — one oversized headline per
+       view, then the page settles into 16-24px UI copy.
+     - Display type is TIGHT — line-height 1.0, negative tracking.
+     - User direction: big headers (hero / display / section-
+       display / section) are BOLD. Card / feature / body stay
+       Regular so size + tracking carry the hierarchy from there.
+
+     Px equivalents at the upper clamp:
+       hero            96px / line 1.00 / track -0.02em (~−1.92px)
+       display         72px / line 1.00 / track -0.02em (~−1.44px)
+       section-display 60px / line 1.00 / track -0.02em (~−1.20px)
+       section         48px / line 1.20 / track -0.01em (~−0.48px)
+       card-heading    32px / line 1.20 / track -0.01em (~−0.32px)
+       feature         24px / line 1.30 / track 0
+       body-lg         18px / line 1.40 / track 0
+       body            16px / line 1.50 / track 0
+       button          14px / line 1.71 / track 0  (semibold)
+       mono-label      14px / line 1.40 / track 0.02em (~+0.28px)
+       micro           12px / line 1.40 / track 0
+     ============================================================ */
+
+  /* Hero — single biggest headline on a page, near-bold, tight. */
+  --type-hero-size:  clamp(3rem, 7vw, 6rem);
+  --type-hero-lh:    1.0;
   --type-hero-track: -0.02em;
 
   --type-display-size:  clamp(2.75rem, 5.4vw, 4.5rem);
   --type-display-lh:    1.0;
   --type-display-track: -0.02em;
 
-  --type-section-display-size:  clamp(2.25rem, 4.5vw, 3.75rem);
-  --type-section-display-lh:    1.02;
+  --type-section-display-size:  clamp(2.25rem, 4.4vw, 3.75rem);
+  --type-section-display-lh:    1.0;
   --type-section-display-track: -0.02em;
 
   --type-section-size:  clamp(2rem, 3.6vw, 3rem);
   --type-section-lh:    1.2;
   --type-section-track: -0.01em;
 
-  --type-mono-size:  0.8125rem;
-  --type-mono-track: 0.06em;
+  --type-card-heading-size:  2rem;        /* 32px */
+  --type-card-heading-lh:    1.2;
+  --type-card-heading-track: -0.01em;
+
+  --type-feature-size:  1.5rem;           /* 24px */
+  --type-feature-lh:    1.3;
+  --type-feature-track: 0;
+
+  --type-body-lg-size:  1.125rem;         /* 18px */
+  --type-body-lg-lh:    1.4;
+
+  --type-body-size:  1rem;                /* 16px */
+  --type-body-lh:    1.5;
+
+  --type-button-size:  0.875rem;          /* 14px */
+  --type-button-lh:    1.71;
+
+  --type-mono-size:  0.875rem;            /* 14px */
+  --type-mono-track: 0.02em;              /* +0.28px at 14px */
+
+  --type-micro-size: 0.75rem;             /* 12px */
+  --type-micro-lh:   1.4;
 
   --elevation-flat:       none;
   --elevation-bordered:   0 0 0 1px #E6E8EB;
@@ -230,13 +311,21 @@
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* We now ship Light + Regular + Bold real masters, so synthesis
+       can stay off — no faked bolds, no faked italics. */
     font-synthesis-weight: none;
+    font-synthesis-style: none;
     text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    font-weight: 400;
+    /* Big headers default to Bold per the Cohere pairing — sets the
+       baseline so any naked h1/h2/h3 reads as a header. Component
+       utilities (velur-hero / velur-display / velur-section-display /
+       velur-section) re-assert weight: 700; smaller heading roles
+       (card-heading / feature) can override down to 500/400. */
+    font-weight: 700;
     /* Headings inherit color from their parent surface, so dark bands
        (text-on-dark, text-paper, text-white) just work. Default ink
        color comes from <body>. */
@@ -261,34 +350,69 @@
   }
 }
 
-/* ─── Velur type role utilities ─────────────────────────────────── */
+/* ─── Velur type role utilities ───────────────────────────────────
+   Big headers (hero / display / section-display / section) are BOLD
+   per the user's direction. Card-heading + feature stay 500/400 so
+   size and tracking carry the hierarchy from there down. */
 .velur-hero {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
   font-size: var(--type-hero-size);
   line-height: var(--type-hero-lh);
   letter-spacing: var(--type-hero-track);
 }
 .velur-display {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
   font-size: var(--type-display-size);
   line-height: var(--type-display-lh);
   letter-spacing: var(--type-display-track);
 }
 .velur-section-display {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
   font-size: var(--type-section-display-size);
   line-height: var(--type-section-display-lh);
   letter-spacing: var(--type-section-display-track);
 }
 .velur-section {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
   font-size: var(--type-section-size);
   line-height: var(--type-section-lh);
   letter-spacing: var(--type-section-track);
+}
+.velur-card-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--type-card-heading-size);
+  line-height: var(--type-card-heading-lh);
+  letter-spacing: var(--type-card-heading-track);
+}
+.velur-feature {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--type-feature-size);
+  line-height: var(--type-feature-lh);
+  letter-spacing: var(--type-feature-track);
+}
+.velur-body-lg {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--type-body-lg-size);
+  line-height: var(--type-body-lg-lh);
+}
+.velur-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-lh);
+}
+.velur-button {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--type-button-size);
+  line-height: var(--type-button-lh);
 }
 .velur-mono {
   font-family: var(--font-mono);
@@ -296,6 +420,12 @@
   line-height: 1.4;
   letter-spacing: var(--type-mono-track);
   text-transform: uppercase;
+}
+.velur-micro {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--type-micro-size);
+  line-height: var(--type-micro-lh);
 }
 
 /* ─── Marquee (kept for legacy tool strips, rarely used now) ──── */
