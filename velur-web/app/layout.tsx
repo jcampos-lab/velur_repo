@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
+import { Hanken_Grotesk } from "next/font/google";
 import { LanguageProvider } from "@/lib/i18n/LanguageProvider";
 import "./globals.css";
 
-/* Px Grotesk is loaded as @font-face from /public/fonts in globals.css.
-   No Google-font fallbacks — the brand intentionally runs on a single
-   typeface (mono is a system stack). */
+/* Px Grotesk (display) loads as @font-face from /public/fonts in globals.css.
+   Hanken Grotesk (body / small UI copy) pairs with it — open-source humanist
+   grotesque designed as a counterpart to Unica77 / Söhne, full Latin Extended
+   coverage so Spanish accents render correctly. */
+const hanken = Hanken_Grotesk({
+  variable: "--font-hanken",
+  subsets: ["latin", "latin-ext"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Velur · Revenue Intelligence for small businesses",
@@ -33,7 +41,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className={`${hanken.variable} h-full`}>
       <body className="min-h-full antialiased">
         <LanguageProvider>{children}</LanguageProvider>
       </body>

@@ -110,10 +110,12 @@
   --color-badge-emerald: #34D399;
 
   /* ─── Typography ──────────────────────────────────────────────── */
-  /* Brand intentionally runs on a single typeface — Px Grotesk only.
-     System sans fallbacks while the @font-face TTF is loading. */
-  --font-sans:    "Px Grotesk", "Inter", Arial, ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Px Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Pairing: Px Grotesk for display (the brand voice — carved, tight),
+     Hanken Grotesk for body / small UI copy (humanist grotesque with
+     refined terminals, designed as an open-source Unica77 counterpart).
+     Mono is a system stack. */
+  --font-sans:    var(--font-hanken), "Inter", Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Px Grotesk", var(--font-hanken), "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono:    ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 }
 
@@ -169,24 +171,11 @@
   font-display: swap;
 }
 
-/* 500 + 600 map up to Bold so font-weight: 500/600 still renders
-   crisp instead of falling through to a synthesized mid-weight. */
-@font-face {
-  font-family: "Px Grotesk";
-  src: url("/fonts/Px-Grotesk-Bold.woff2") format("woff2"),
-       url("/fonts/Px-Grotesk-Bold.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Px Grotesk";
-  src: url("/fonts/Px-Grotesk-Bold.woff2") format("woff2"),
-       url("/fonts/Px-Grotesk-Bold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
+/* 500 + 600 intentionally NOT remapped to Bold — Px Grotesk doesn't
+   ship a medium master, and the previous remap made naked
+   font-weight: 500 render at Bold (too heavy). With no @font-face
+   for 500/600 the browser falls through to the closest available
+   weight, which is 400 Regular — that's the look we want. */
 
 /* ─── Velur runtime tokens (radii, spacing, type-scale, elevation) */
 :root {
@@ -320,12 +309,12 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    /* Big headers default to Bold per the Cohere pairing — sets the
-       baseline so any naked h1/h2/h3 reads as a header. Component
-       utilities (velur-hero / velur-display / velur-section-display /
-       velur-section) re-assert weight: 700; smaller heading roles
-       (card-heading / feature) can override down to 500/400. */
-    font-weight: 700;
+    /* Headings default to Regular (400). Per the Cohere principle:
+       "Avoid heavy bold weights. Size, spacing, and surface contrast
+       do most of the hierarchy work." Px Grotesk Regular at hero
+       scale (96px) with -0.02em tracking carries enough presence
+       without going bold. */
+    font-weight: 400;
     /* Headings inherit color from their parent surface, so dark bands
        (text-on-dark, text-paper, text-white) just work. Default ink
        color comes from <body>. */
@@ -351,40 +340,42 @@
 }
 
 /* ─── Velur type role utilities ───────────────────────────────────
-   Big headers (hero / display / section-display / section) are BOLD
-   per the user's direction. Card-heading + feature stay 500/400 so
-   size and tracking carry the hierarchy from there down. */
+   All headers Regular (400). Cohere look comes from tight tracking,
+   tight line-height, and surface contrast — NOT from bold weight.
+   Body / small copy uses Hanken Grotesk via --font-sans, which has
+   the refined humanist terminals that pair with Px Grotesk's
+   carved display. */
 .velur-hero {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 400;
   font-size: var(--type-hero-size);
   line-height: var(--type-hero-lh);
   letter-spacing: var(--type-hero-track);
 }
 .velur-display {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 400;
   font-size: var(--type-display-size);
   line-height: var(--type-display-lh);
   letter-spacing: var(--type-display-track);
 }
 .velur-section-display {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 400;
   font-size: var(--type-section-display-size);
   line-height: var(--type-section-display-lh);
   letter-spacing: var(--type-section-display-track);
 }
 .velur-section {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 400;
   font-size: var(--type-section-size);
   line-height: var(--type-section-lh);
   letter-spacing: var(--type-section-track);
 }
 .velur-card-heading {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 400;
   font-size: var(--type-card-heading-size);
   line-height: var(--type-card-heading-lh);
   letter-spacing: var(--type-card-heading-track);
