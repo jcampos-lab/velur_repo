@@ -25,7 +25,7 @@ export default function ContactContent() {
               {c.label}
             </p>
             <h1
-              className="font-sans font-bold leading-[1.05] tracking-[-0.025em] mb-5 max-w-3xl"
+              className="font-sans font-normal leading-[1.05] tracking-[-0.025em] mb-5 max-w-3xl"
               style={{ fontSize: "clamp(26px, 4vw, 48px)" }}
             >
               {c.h1a} {c.h1b}

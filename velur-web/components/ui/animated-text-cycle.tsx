@@ -46,7 +46,7 @@ export default function AnimatedTextCycle({
         style={{ visibility: "hidden" }}
       >
         {words.map((word, i) => (
-          <span key={i} className={`font-bold ${className}`}>
+          <span key={i} className={`font-normal ${className}`}>
             {word}
           </span>
         ))}
@@ -63,7 +63,7 @@ export default function AnimatedTextCycle({
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={currentIndex}
-            className={`inline-block font-bold ${className}`}
+            className={`inline-block font-normal ${className}`}
             initial={{ y: -10, opacity: 0 }}
             animate={{ y: 0,   opacity: 1, transition: { duration: 0.35, ease: "easeOut" } }}
             exit={{    y: 10,  opacity: 0, transition: { duration: 0.2,  ease: "easeIn"  } }}

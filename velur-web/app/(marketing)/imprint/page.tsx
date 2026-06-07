@@ -22,7 +22,7 @@ export default function ImprintPage() {
         </p>
 
         <h1
-          className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em] mb-8"
+          className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em] mb-8"
           style={{ fontSize: "clamp(26px, 3.4vw, 40px)" }}
         >
           Imprint
@@ -30,7 +30,7 @@ export default function ImprintPage() {
 
         <div className="space-y-8 font-sans text-base text-ink leading-relaxed">
           <div>
-            <h2 className="font-sans font-bold text-xl mb-3">Responsible for this website</h2>
+            <h2 className="font-sans font-normal text-xl mb-3">Responsible for this website</h2>
             <p className="font-mono text-sm text-muted leading-loose">
               Velur<br />
               Barcelona, Spain<br />
@@ -40,7 +40,7 @@ export default function ImprintPage() {
           </div>
 
           <div>
-            <h2 className="font-sans font-bold text-xl mb-3">Dispute resolution</h2>
+            <h2 className="font-sans font-normal text-xl mb-3">Dispute resolution</h2>
             <p>
               The European Commission provides a platform for online dispute resolution (ODR):{" "}
               <a
@@ -57,7 +57,7 @@ export default function ImprintPage() {
           </div>
 
           <div>
-            <h2 className="font-sans font-bold text-xl mb-3">Content liability</h2>
+            <h2 className="font-sans font-normal text-xl mb-3">Content liability</h2>
             <p>
               The content of this website has been created with care. However, we cannot
               guarantee the accuracy, completeness, or timeliness of the information. As a

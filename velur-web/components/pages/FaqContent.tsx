@@ -73,7 +73,7 @@ export default function FaqContent() {
               {f.label}
             </p>
             <h1
-              className="font-sans font-bold leading-[1.05] tracking-[-0.025em] mb-5 max-w-3xl"
+              className="font-sans font-normal leading-[1.05] tracking-[-0.025em] mb-5 max-w-3xl"
               style={{ fontSize: "clamp(26px, 4vw, 48px)" }}
             >
               {f.h1a} {f.h1b}
@@ -147,7 +147,7 @@ export default function FaqContent() {
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
               <div className="max-w-2xl">
                 <h2
-                  className="font-sans font-bold text-ink leading-[1.1] tracking-[-0.025em] mb-3"
+                  className="font-sans font-normal text-ink leading-[1.1] tracking-[-0.025em] mb-3"
                   style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
                 >
                   {f.stillHaveQuestions}

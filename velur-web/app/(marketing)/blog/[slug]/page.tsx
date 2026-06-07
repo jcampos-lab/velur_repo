@@ -59,7 +59,7 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
 
             <h1
-              className="font-sans font-bold text-ink leading-[1.1] tracking-[-0.025em] mb-5"
+              className="font-sans font-normal text-ink leading-[1.1] tracking-[-0.025em] mb-5"
               style={{ fontSize: "clamp(24px, 3.4vw, 40px)" }}
             >
               {post.title}

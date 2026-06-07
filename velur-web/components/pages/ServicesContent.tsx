@@ -211,7 +211,7 @@ function HeroCard({ c, m }: { c: Copy; m: Copy["mock"] }) {
               {c.hero.eyebrow}
             </p>
             <h1
-              className="font-sans font-bold leading-[1.05] tracking-[-0.025em] mb-5"
+              className="font-sans font-normal leading-[1.05] tracking-[-0.025em] mb-5"
               style={{ fontSize: "clamp(28px, 4vw, 56px)" }}
             >
               {c.hero.h1}
@@ -304,7 +304,7 @@ function ModuleCard({ m, i, prefersReduced }: { m: Module; i: number; prefersRed
         {m.label}
       </p>
       <h3
-        className={`font-sans font-semibold leading-[1.1] tracking-[-0.02em] ${dark ? "text-on-dark" : "text-ink-strong"}`}
+        className={`font-sans font-normal leading-[1.1] tracking-[-0.02em] ${dark ? "text-on-dark" : "text-ink-strong"}`}
         style={{ fontSize: "clamp(20px, 2.2vw, 28px)" }}
       >
         {m.title}
@@ -356,7 +356,7 @@ export default function ServicesContent() {
           <div className="mb-8 md:mb-10 max-w-2xl">
             <p className="font-sans text-ink/55 text-[13px] mb-2">{c.platform.eyebrow}</p>
             <h2
-              className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em]"
+              className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 38px)" }}
             >
               {c.platform.heading}
@@ -380,7 +380,7 @@ export default function ServicesContent() {
                   {c.onboard.eyebrow}
                 </p>
                 <h2
-                  className="font-sans font-bold leading-[1.05] tracking-[-0.025em]"
+                  className="font-sans font-normal leading-[1.05] tracking-[-0.025em]"
                   style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
                 >
                   {c.onboard.heading}
@@ -421,7 +421,7 @@ export default function ServicesContent() {
           <div className="mb-8 md:mb-10 max-w-2xl">
             <p className="font-sans text-ink/55 text-[13px] mb-2">{c.fit.eyebrow}</p>
             <h2
-              className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em]"
+              className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 38px)" }}
             >
               {c.fit.heading}
@@ -486,7 +486,7 @@ export default function ServicesContent() {
                   {c.closing.eyebrow}
                 </p>
                 <h3
-                  className="font-sans font-bold leading-[1.05] tracking-[-0.025em]"
+                  className="font-sans font-normal leading-[1.05] tracking-[-0.025em]"
                   style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
                 >
                   {c.closing.heading}

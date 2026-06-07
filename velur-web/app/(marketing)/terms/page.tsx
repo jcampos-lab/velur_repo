@@ -22,7 +22,7 @@ export default function TermsPage() {
         </p>
 
         <h1
-          className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em] mb-8"
+          className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em] mb-8"
           style={{ fontSize: "clamp(26px, 3.4vw, 40px)" }}
         >
           Terms of Service
@@ -34,7 +34,7 @@ export default function TermsPage() {
           </p>
 
           <div>
-            <h2 className="font-sans font-bold text-xl mb-3">1. Agreement</h2>
+            <h2 className="font-sans font-normal text-xl mb-3">1. Agreement</h2>
             <p>
               By using velur.io, you agree to these terms. If you don&apos;t agree, please
               don&apos;t use the site. These terms govern your use of this website only, not
@@ -43,7 +43,7 @@ export default function TermsPage() {
           </div>
 
           <div>
-            <h2 className="font-sans font-bold text-xl mb-3">2. Use of this site</h2>
+            <h2 className="font-sans font-normal text-xl mb-3">2. Use of this site</h2>
             <p>
               You may browse this site for your own informational purposes. You may not
               scrape, reproduce, or redistribute the content without written permission.
@@ -51,7 +51,7 @@ export default function TermsPage() {
           </div>
 
           <div>
-            <h2 className="font-sans font-bold text-xl mb-3">3. Content</h2>
+            <h2 className="font-sans font-normal text-xl mb-3">3. Content</h2>
             <p>
               All content on this site, text, statistics, and design, is the property
               of Velur unless otherwise attributed. Statistics sourced from third parties
@@ -60,7 +60,7 @@ export default function TermsPage() {
           </div>
 
           <div>
-            <h2 className="font-sans font-bold text-xl mb-3">4. Disclaimer</h2>
+            <h2 className="font-sans font-normal text-xl mb-3">4. Disclaimer</h2>
             <p>
               This website is provided for informational purposes. Industry statistics
               and benchmarks are sourced from public research and provided in good faith.
@@ -69,7 +69,7 @@ export default function TermsPage() {
           </div>
 
           <div>
-            <h2 className="font-sans font-bold text-xl mb-3">5. Contact</h2>
+            <h2 className="font-sans font-normal text-xl mb-3">5. Contact</h2>
             <p>
               Questions?{" "}
               <a href="mailto:hello@velur.io" className="text-amber hover:underline">

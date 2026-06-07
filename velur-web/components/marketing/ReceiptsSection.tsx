@@ -71,7 +71,7 @@ function StatColumn({
     >
       <span
         ref={numberRef}
-        className="font-mono font-bold text-white leading-none"
+        className="font-mono font-normal text-white leading-none"
         style={{ fontSize: "clamp(64px, 10vw, 144px)", letterSpacing: "-0.03em" }}
       >
         {num.prefix}0{num.suffix}

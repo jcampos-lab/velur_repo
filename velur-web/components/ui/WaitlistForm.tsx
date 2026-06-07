@@ -32,7 +32,7 @@ export default function WaitlistForm() {
     return (
       <div className="border border-line bg-paper rounded-2xl p-10 flex flex-col gap-4">
         <span className="font-mono text-xs text-amber uppercase tracking-widest">✓ Done</span>
-        <p className="font-sans font-bold text-ink text-2xl leading-snug">{c.formSuccess}</p>
+        <p className="font-sans font-normal text-ink text-2xl leading-snug">{c.formSuccess}</p>
         <p className="font-mono text-xs text-muted">{c.formNote}</p>
       </div>
     );

@@ -31,7 +31,7 @@ export default function CaseStudiesContent() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5 flex flex-col gap-6">
               <h1
-                className="font-sans font-bold text-ink leading-[0.95] tracking-[-0.04em]"
+                className="font-sans font-normal text-ink leading-[0.95] tracking-[-0.04em]"
                 style={{ fontSize: "clamp(40px, 5.5vw, 80px)" }}
               >
                 {cs.h1a}
@@ -57,7 +57,7 @@ export default function CaseStudiesContent() {
                 {featured.category}
               </span>
               <span
-                className="font-mono font-bold text-ink leading-none"
+                className="font-mono font-normal text-ink leading-none"
                 style={{ fontSize: "clamp(72px, 10vw, 128px)", letterSpacing: "-0.03em" }}
               >
                 {featured.metric}
@@ -68,7 +68,7 @@ export default function CaseStudiesContent() {
             </div>
             <div className="lg:col-span-8 flex flex-col gap-6">
               <h2
-                className="font-sans font-bold text-ink leading-tight tracking-[-0.03em]"
+                className="font-sans font-normal text-ink leading-tight tracking-[-0.03em]"
                 style={{ fontSize: "clamp(22px, 3vw, 40px)" }}
               >
                 {featured.headline}
@@ -101,13 +101,13 @@ export default function CaseStudiesContent() {
                   <span className="font-mono text-xs text-muted">{r.metricLabel}</span>
                 </div>
                 <span
-                  className="font-mono font-bold text-ink leading-none"
+                  className="font-mono font-normal text-ink leading-none"
                   style={{ fontSize: "clamp(40px, 5vw, 64px)", letterSpacing: "-0.03em" }}
                 >
                   {r.metric}
                 </span>
                 <div className="flex flex-col gap-3 flex-1">
-                  <h3 className="font-sans font-semibold text-ink text-lg leading-snug">{r.headline}</h3>
+                  <h3 className="font-sans font-normal text-ink text-lg leading-snug">{r.headline}</h3>
                   <p className="font-sans text-base text-muted leading-relaxed">{r.body}</p>
                 </div>
                 <div className="border-t border-line pt-4">
@@ -153,7 +153,7 @@ export default function CaseStudiesContent() {
             {cs.impactBar.map((s, i) => (
               <div key={i} className="px-0 md:px-12 first:pl-0 last:pr-0 py-10 md:py-0 flex flex-col gap-3">
                 <span
-                  className="font-mono font-bold text-white dark:text-ink leading-none"
+                  className="font-mono font-normal text-white dark:text-ink leading-none"
                   style={{ fontSize: "clamp(40px, 6vw, 80px)", letterSpacing: "-0.03em" }}
                 >
                   {s.num}
@@ -172,7 +172,7 @@ export default function CaseStudiesContent() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-6">
               <h2
-                className="font-sans font-bold text-ink leading-tight tracking-[-0.04em]"
+                className="font-sans font-normal text-ink leading-tight tracking-[-0.04em]"
                 style={{ fontSize: "clamp(28px, 4vw, 56px)" }}
               >
                 {cs.implicationHeading}

@@ -123,7 +123,7 @@ export default function LtvLineChart() {
           <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
             Lift vs RFM at M12
           </span>
-          <span className="font-sans font-bold text-amber text-[28px] leading-none tracking-tight tabular-nums">
+          <span className="font-sans font-normal text-amber text-[28px] leading-none tracking-tight tabular-nums">
             +{liftPct}%
           </span>
         </div>
@@ -328,7 +328,7 @@ export default function LtvLineChart() {
               <p className="font-mono text-[9.5px] tracking-[0.16em] text-paper/55 uppercase mb-1.5">
                 Month
               </p>
-              <p className="font-sans font-bold text-paper text-[15px] tracking-tight mb-2">
+              <p className="font-sans font-normal text-paper text-[15px] tracking-tight mb-2">
                 {MONTHS[hoverIdx]} · acquired customers
               </p>
               <div className="flex flex-col gap-1.5">
@@ -341,7 +341,7 @@ export default function LtvLineChart() {
                     <span className="font-sans text-[11.5px] text-paper/70 flex-1">
                       {s.label}
                     </span>
-                    <span className="font-sans font-bold text-paper text-[12px] tabular-nums">
+                    <span className="font-sans font-normal text-paper text-[12px] tabular-nums">
                       ${s.values[hoverIdx]}
                     </span>
                   </div>

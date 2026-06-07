@@ -23,7 +23,7 @@ export default function CompanyContent() {
             {c.label}
           </p>
           <h1
-            className="font-sans font-bold text-ink leading-[1.05] tracking-[-0.025em] mb-6 max-w-4xl"
+            className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em] mb-6 max-w-4xl"
             style={{ fontSize: "clamp(28px, 4.4vw, 56px)" }}
           >
             {c.h1a} {c.h1b}
@@ -45,7 +45,7 @@ export default function CompanyContent() {
               {c.whyLabel}
             </p>
             <h2
-              className="font-sans font-bold text-ink leading-[1.1] tracking-[-0.025em]"
+              className="font-sans font-normal text-ink leading-[1.1] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
             >
               {h.opinions}
@@ -56,7 +56,7 @@ export default function CompanyContent() {
               <div key={item.num} className="marketing-card bg-paper border border-line rounded-2xl p-6 md:p-8 flex flex-col gap-4">
                 <span className="font-mono text-[11px] tracking-[0.16em] text-amber uppercase">{item.num}</span>
                 <h3
-                  className="font-sans font-bold text-ink leading-tight tracking-[-0.02em]"
+                  className="font-sans font-normal text-ink leading-tight tracking-[-0.02em]"
                   style={{ fontSize: "clamp(17px, 1.5vw, 22px)" }}
                 >
                   {item.heading}
@@ -109,7 +109,7 @@ export default function CompanyContent() {
               {c.beliefsLabel}
             </p>
             <h2
-              className="font-sans font-bold text-ink leading-[1.1] tracking-[-0.025em]"
+              className="font-sans font-normal text-ink leading-[1.1] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
             >
               {h.believe}
@@ -136,7 +136,7 @@ export default function CompanyContent() {
               {c.roadmapLabel}
             </p>
             <h2
-              className="font-sans font-bold text-ink leading-[1.1] tracking-[-0.025em]"
+              className="font-sans font-normal text-ink leading-[1.1] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
             >
               {c.roadmapHeading}
