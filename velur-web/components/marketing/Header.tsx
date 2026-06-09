@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
@@ -9,11 +9,18 @@ import { ButtonLink } from "@/components/velur/Button";
 /**
  * Velur — Marketing Header
  * Three-zone bar (mark left · menu center · CTA right) following the
- * design system's marketing nav pattern. Frosted-white sticky nav,
+ * design system's marketing nav pattern. Liquid-glass sticky nav,
  * 72px tall, optional announcement bar above for product news.
+ *
+ * Liquid glass treatment (always on, not just on scroll):
+ *   - 55% white tint that shows the content behind
+ *   - 24px backdrop blur + 180% saturate — strong enough to feel
+ *     like Apple's Liquid Glass surface, refined enough to stay
+ *     readable as the nav
+ *   - 1px inner-top highlight (white 55%) suggests a reflection
+ *   - 1px bottom hairline (border-light at 50%) anchors the edge
  */
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [annOpen, setAnnOpen] = useState(true);
   const { t, lang, setLang } = useLanguage();
@@ -25,12 +32,6 @@ export default function Header() {
     { label: t.header.nav.company,  href: "/company" },
     { label: t.header.nav.faq,      href: "/faq" },
   ];
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <>
@@ -63,12 +64,19 @@ export default function Header() {
       )}
 
       <header
-        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-200 ${
-          scrolled
-            ? "bg-canvas/85 backdrop-blur-[10px] backdrop-saturate-[160%] border-b border-border-light"
-            : "bg-canvas"
-        }`}
-        style={{ height: "var(--nav-h)" }}
+        className="sticky top-0 left-0 right-0 z-50"
+        style={{
+          height: "var(--nav-h)",
+          /* Liquid glass — translucent tint + strong backdrop blur
+             so content scrolling behind the nav refracts through it. */
+          backgroundColor: "rgba(255, 255, 255, 0.55)",
+          backdropFilter: "blur(24px) saturate(180%)",
+          WebkitBackdropFilter: "blur(24px) saturate(180%)",
+          /* Two-line edge: a soft top highlight (reflection) and a
+             very faint bottom hairline (anchor to the page). */
+          boxShadow:
+            "inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 1px 0 rgba(220, 221, 224, 0.5)",
+        }}
       >
         <div className="max-w-[1440px] mx-auto h-full flex items-center justify-between gap-6 px-5 md:px-10">
           {/* Mark left */}
