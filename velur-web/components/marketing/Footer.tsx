@@ -10,7 +10,25 @@ import { useLanguage } from "@/lib/i18n/LanguageProvider";
  * Signature dark newsletter footer per ui_kits/marketing/Chrome.jsx.
  * Velur-ink (#101316) bg, coral editorial eyebrow, monumental claim,
  * underlined newsletter form, 3-column link list, bottom legal strip.
+ *
+ * Link resolution rule
+ * --------------------
+ * Most footer column labels are aspirational nav targets that don't
+ * have real pages yet. We render those as non-clickable <span>s so
+ * we don't ship dead "#" links to crawlers or users. Anything in
+ * KNOWN_LINKS resolves to a real route and renders as a real <Link>.
  */
+const KNOWN_LINKS: Record<string, string> = {
+  // English labels
+  "AI Studio": "/studio",
+  "Blog":      "/blog",
+  "Privacy":   "/privacy",
+  "Terms":     "/terms",
+  // Spanish labels
+  "Privacidad": "/privacy",
+  "Términos":   "/terms",
+};
+
 export default function Footer() {
   const { t } = useLanguage();
   const f = t.footerKit;
@@ -56,16 +74,23 @@ export default function Footer() {
             <div key={c.h}>
               <div className="text-sm text-white mb-3.5">{c.h}</div>
               <ul className="list-none p-0 m-0 flex flex-col gap-2.5">
-                {c.links.map((l) => (
-                  <li key={l}>
-                    <Link
-                      href="#"
-                      className="text-sm text-muted-slate hover:text-white no-underline transition-colors"
-                    >
-                      {l}
-                    </Link>
-                  </li>
-                ))}
+                {c.links.map((l) => {
+                  const href = KNOWN_LINKS[l];
+                  return (
+                    <li key={l}>
+                      {href ? (
+                        <Link
+                          href={href}
+                          className="text-sm text-muted-slate hover:text-white no-underline transition-colors"
+                        >
+                          {l}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-muted-slate">{l}</span>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -85,15 +110,22 @@ export default function Footer() {
             </span>
           </div>
           <div className="flex gap-5">
-            {f.legal.map((l) => (
-              <Link
-                key={l}
-                href="#"
-                className="text-[12px] text-muted-slate hover:text-white no-underline"
-              >
-                {l}
-              </Link>
-            ))}
+            {f.legal.map((l) => {
+              const href = KNOWN_LINKS[l];
+              return href ? (
+                <Link
+                  key={l}
+                  href={href}
+                  className="text-[12px] text-muted-slate hover:text-white no-underline"
+                >
+                  {l}
+                </Link>
+              ) : (
+                <span key={l} className="text-[12px] text-muted-slate">
+                  {l}
+                </span>
+              );
+            })}
           </div>
         </div>
       </div>

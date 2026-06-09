@@ -1,5 +1,6 @@
 "use client";
 
+import type React from "react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { StatCard } from "@/components/velur/StatCard";
 import { MetricDelta } from "@/components/velur/MetricDelta";
@@ -52,16 +53,29 @@ export default function DarkProofBand() {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          {(p.stats as Stat[]).map((s, i) => (
-            <StatCard
-              key={i}
-              surface="navy"
-              label={s.label}
-              value={s.value}
-              delta={typeof s.delta === "number" ? <MetricDelta value={s.delta} suffix="pts" size="sm" /> : undefined}
-              caption={s.caption}
-            />
-          ))}
+          {(p.stats as Stat[]).map((s, i) => {
+            /* Integration list is a multi-segment string, not a single
+               display number — render it smaller via font-sans so the
+               vendor names stay legible inside the StatCard's value slot. */
+            const isList = s.label === "Integrations" || s.label === "Integraciones";
+            const value: React.ReactNode = isList ? (
+              <span className="font-sans text-[14px] leading-[1.4] tracking-[-0.005em] block">
+                {s.value}
+              </span>
+            ) : (
+              s.value
+            );
+            return (
+              <StatCard
+                key={i}
+                surface="navy"
+                label={s.label}
+                value={value}
+                delta={typeof s.delta === "number" ? <MetricDelta value={s.delta} suffix="pts" size="sm" /> : undefined}
+                caption={s.caption}
+              />
+            );
+          })}
         </div>
       </div>
     </section>

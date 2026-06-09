@@ -18,9 +18,10 @@ export default function Header() {
   const [annOpen, setAnnOpen] = useState(true);
   const { t, lang, setLang } = useLanguage();
 
+  /* AI Studio intentionally NOT in the top nav — it lives in the
+     footer only. The top nav stays focused on Platform, Company, FAQ. */
   const NAV_LINKS = [
     { label: t.header.nav.platform, href: "/services" },
-    { label: t.header.nav.studio,   href: "/studio" },
     { label: t.header.nav.company,  href: "/company" },
     { label: t.header.nav.faq,      href: "/faq" },
   ];

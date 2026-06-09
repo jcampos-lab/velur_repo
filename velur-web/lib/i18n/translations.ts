@@ -465,7 +465,7 @@ const en = {
     stats: [
       { label: "Faster close",      value: "8×",    caption: "vs. spreadsheets" },
       { label: "Forecast accuracy", value: "96%",   delta: 9 },
-      { label: "Sources unified",   value: "40+",   caption: "out of the box" },
+      { label: "Integrations",      value: "Shopify · Klaviyo · Meta · TikTok · Stripe · Recharge", caption: "first-party stack" },
       { label: "Time to value",     value: "2 wks", caption: "median" },
     ],
   },
@@ -488,12 +488,12 @@ const en = {
     heading: "See it before it slips.",
     placeholder: "you@company.com",
     cols: [
-      { h: "Platform",  links: ["Revenue console", "Forecast", "Signals", "Integrations"] },
+      { h: "Platform",  links: ["AI Studio", "Revenue console", "Forecast", "Signals", "Integrations"] },
       { h: "Company",   links: ["About", "Customers", "Careers", "Security"] },
       { h: "Resources", links: ["Blog", "Docs", "Changelog", "Status"] },
     ],
     copyright: "© 2026 Velur, Inc.",
-    legal: ["Privacy", "Terms", "SOC 2"],
+    legal: ["Privacy", "Terms"],
   },
 };
 
@@ -962,7 +962,7 @@ const es: typeof en = {
     stats: [
       { label: "Cierre más rápido",   value: "8×",    caption: "vs. hojas de cálculo" },
       { label: "Precisión del forecast", value: "96%", delta: 9 },
-      { label: "Fuentes unificadas",  value: "40+",   caption: "de serie" },
+      { label: "Integraciones",       value: "Shopify · Klaviyo · Meta · TikTok · Stripe · Recharge", caption: "stack de primera parte" },
       { label: "Time-to-value",       value: "2 sem", caption: "mediana" },
     ],
   },
@@ -985,12 +985,12 @@ const es: typeof en = {
     heading: "Velo antes de que se escape.",
     placeholder: "tu@empresa.com",
     cols: [
-      { h: "Plataforma", links: ["Consola de ingresos", "Forecast", "Señales", "Integraciones"] },
+      { h: "Plataforma", links: ["AI Studio", "Consola de ingresos", "Forecast", "Señales", "Integraciones"] },
       { h: "Empresa",    links: ["Sobre nosotros", "Clientes", "Empleo", "Seguridad"] },
       { h: "Recursos",   links: ["Blog", "Documentación", "Changelog", "Estado"] },
     ],
     copyright: "© 2026 Velur, Inc.",
-    legal: ["Privacidad", "Términos", "SOC 2"],
+    legal: ["Privacidad", "Términos"],
   },
 };
 
