@@ -22,7 +22,7 @@ export default function PrivacyPage() {
         </p>
 
         <h1
-          className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em] mb-8"
+          className="font-display font-normal text-ink leading-[1.05] tracking-[-0.025em] mb-8"
           style={{ fontSize: "clamp(26px, 3.4vw, 40px)" }}
         >
           Privacy Policy
@@ -34,7 +34,7 @@ export default function PrivacyPage() {
           </p>
 
           <div>
-            <h2 className="font-sans font-normal text-xl mb-3">1. Who we are</h2>
+            <h2 className="font-display font-normal text-xl mb-3">1. Who we are</h2>
             <p>
               Velur (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is a revenue intelligence practice based in Barcelona,
               Spain. We operate the website at velur.io. Contact: hello@velur.io
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
           </div>
 
           <div>
-            <h2 className="font-sans font-normal text-xl mb-3">2. What data we collect</h2>
+            <h2 className="font-display font-normal text-xl mb-3">2. What data we collect</h2>
             <p>
               This website does not collect personal data by default, beyond the email
               you enter in the waitlist form. Waitlist submissions are stored by Velur
@@ -51,7 +51,7 @@ export default function PrivacyPage() {
           </div>
 
           <div>
-            <h2 className="font-sans font-normal text-xl mb-3">3. Analytics</h2>
+            <h2 className="font-display font-normal text-xl mb-3">3. Analytics</h2>
             <p>
               We may use privacy-first analytics (no cookies, no cross-site tracking) to
               understand aggregate traffic. No personal data is collected or sold.
@@ -59,7 +59,7 @@ export default function PrivacyPage() {
           </div>
 
           <div>
-            <h2 className="font-sans font-normal text-xl mb-3">4. Third-party services</h2>
+            <h2 className="font-display font-normal text-xl mb-3">4. Third-party services</h2>
             <p>
               Our booking page embeds Cal.com. When you interact with it, their privacy
               policy applies. We do not share your data with any other third parties.
@@ -67,7 +67,7 @@ export default function PrivacyPage() {
           </div>
 
           <div>
-            <h2 className="font-sans font-normal text-xl mb-3">5. Your rights</h2>
+            <h2 className="font-display font-normal text-xl mb-3">5. Your rights</h2>
             <p>
               Under GDPR, you have the right to access, correct, or delete any personal
               data we hold. Contact us at{" "}
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
           </div>
 
           <div>
-            <h2 className="font-sans font-normal text-xl mb-3">6. Changes</h2>
+            <h2 className="font-display font-normal text-xl mb-3">6. Changes</h2>
             <p>
               We may update this policy. The &quot;last updated&quot; date above will always
               reflect the current version.

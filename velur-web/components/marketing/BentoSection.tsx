@@ -176,7 +176,7 @@ function CorrelationChart() {
                   <p className="font-mono text-[9.5px] tracking-[0.14em] text-paper/55 uppercase">
                     Margin
                   </p>
-                  <p className="font-sans font-normal text-paper text-[14px] tabular-nums">
+                  <p className="font-display font-normal text-paper text-[14px] tabular-nums">
                     {hover.y}%
                   </p>
                 </div>
@@ -184,7 +184,7 @@ function CorrelationChart() {
                   <p className="font-mono text-[9.5px] tracking-[0.14em] text-paper/55 uppercase">
                     Spend
                   </p>
-                  <p className="font-sans font-normal text-paper text-[14px] tabular-nums">
+                  <p className="font-display font-normal text-paper text-[14px] tabular-nums">
                     ${Math.round(hover.x * 200).toLocaleString()}
                   </p>
                 </div>
@@ -255,7 +255,7 @@ function MiniBrief() {
           Today&apos;s brief, 08:02
         </p>
       </div>
-      <p className="font-sans font-normal text-ink text-[17px] leading-snug tracking-[-0.015em] mb-3">
+      <p className="font-display font-normal text-ink text-[17px] leading-snug tracking-[-0.015em] mb-3">
         Net revenue up 12% week-over-week.
       </p>
       <p className="font-sans text-[13.5px] text-ink/80 leading-relaxed mb-3">
@@ -278,7 +278,7 @@ function StatCard({ value, label, suffix = "", prefix = "" }: {
       <p className="font-sans text-paper/60 text-[13px] leading-tight">
         {label}
       </p>
-      <p className="font-sans font-normal text-paper leading-none tracking-tight"
+      <p className="font-display font-normal text-paper leading-none tracking-tight"
         style={{ fontSize: "clamp(32px, 3vw, 44px)" }}>
         <NumberTicker value={value} prefix={prefix} suffix={suffix} duration={1.8} />
       </p>
@@ -298,7 +298,7 @@ export default function BentoSection() {
             How it feels
           </p>
           <h2
-            className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em]"
+            className="font-display font-normal text-ink leading-[1.05] tracking-[-0.025em]"
             style={{ fontSize: "clamp(24px, 3.4vw, 40px)" }}
           >
             One screen. One decision. Every interaction is hover-live.

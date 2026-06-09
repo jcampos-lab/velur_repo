@@ -43,7 +43,7 @@ export default function AnimatedPipelineSection() {
               Live flow
             </p>
             <h2
-              className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em]"
+              className="font-display font-normal text-ink leading-[1.05] tracking-[-0.025em]"
               style={{ fontSize: "clamp(24px, 3.4vw, 40px)" }}
             >
               Five sources in. One brief out.
@@ -137,7 +137,7 @@ export default function AnimatedPipelineSection() {
                 <p className="font-mono text-[9px] md:text-[10px] tracking-[0.22em] text-amber uppercase mb-2">
                   Velur
                 </p>
-                <p className="font-sans font-normal text-[16px] md:text-[19px] leading-[1.1]">
+                <p className="font-display font-normal text-[16px] md:text-[19px] leading-[1.1]">
                   Intelligence
                   <br />
                   layer

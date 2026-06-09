@@ -18,7 +18,7 @@ export default function SocialMediaAiSection() {
             {copy.label}
           </p>
           <h2
-            className="font-sans font-normal text-ink leading-[1.1] tracking-[-0.025em]"
+            className="font-display font-normal text-ink leading-[1.1] tracking-[-0.025em]"
             style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
           >
             {copy.heading}
@@ -58,7 +58,7 @@ export default function SocialMediaAiSection() {
               </div>
             </div>
             <div className="p-5 md:p-7 flex flex-col gap-3 flex-1">
-              <h3 className="font-sans font-normal text-ink text-[19px] md:text-[22px] leading-tight tracking-[-0.02em]">
+              <h3 className="font-display font-normal text-ink text-[19px] md:text-[22px] leading-tight tracking-[-0.02em]">
                 {copy.riHeading}
               </h3>
               <p className="font-sans text-[14.5px] text-ink/70 leading-relaxed flex-1">
@@ -101,7 +101,7 @@ export default function SocialMediaAiSection() {
               </div>
             </div>
             <div className="p-5 md:p-7 flex flex-col gap-3 flex-1">
-              <h3 className="font-sans font-normal text-ink text-[19px] md:text-[22px] leading-tight tracking-[-0.02em]">
+              <h3 className="font-display font-normal text-ink text-[19px] md:text-[22px] leading-tight tracking-[-0.02em]">
                 {copy.studioHeading}
               </h3>
               <p className="font-sans text-[14.5px] text-ink/70 leading-relaxed flex-1">

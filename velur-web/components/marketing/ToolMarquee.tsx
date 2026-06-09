@@ -76,7 +76,7 @@ export default function ToolMarquee() {
               The stack we run on
             </p>
             <h2
-              className="font-sans font-normal text-ink leading-[1.1] tracking-[-0.025em]"
+              className="font-display font-normal text-ink leading-[1.1] tracking-[-0.025em]"
               style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}
             >
               AI tools that ship the work. Data tools that prove it paid off.

@@ -70,7 +70,7 @@ export default function FounderSection() {
         <div className="mb-10 md:mb-12 max-w-2xl">
           <p className="font-sans text-ink/55 text-[13px] mb-2">{c.eyebrow}</p>
           <h2
-            className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em]"
+            className="font-display font-normal text-ink leading-[1.05] tracking-[-0.025em]"
             style={{ fontSize: "clamp(24px, 3.4vw, 40px)" }}
           >
             {c.h1Lead}
@@ -148,7 +148,7 @@ export default function FounderSection() {
                   <span className="font-mono text-[11px] text-slate">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="font-sans font-semibold text-ink text-[16px] leading-snug tracking-[-0.01em]">
+                  <h3 className="font-display font-normal text-ink text-[16px] leading-snug tracking-[-0.01em]">
                     {p.title}
                   </h3>
                 </div>

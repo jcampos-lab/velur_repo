@@ -202,7 +202,7 @@ function KpiCard({
           <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase mb-1.5">
             {metric.label}
           </p>
-          <p className="font-sans font-normal text-ink text-[22px] tracking-tight leading-none tabular-nums">
+          <p className="font-display font-normal text-ink text-[22px] tracking-tight leading-none tabular-nums">
             {hoverIdx != null ? (
               formatValue(shown, metric)
             ) : metric.format === "currency" ? (
@@ -292,7 +292,7 @@ export default function KpiDashboardChart() {
               <span className="font-mono text-[9.5px] tracking-[0.16em] text-paper/55 uppercase mb-1">
                 Day
               </span>
-              <span className="font-sans font-normal text-paper text-[14px] tabular-nums">
+              <span className="font-display font-normal text-paper text-[14px] tabular-nums">
                 {hoverIdx + 1}
               </span>
             </div>
@@ -303,7 +303,7 @@ export default function KpiDashboardChart() {
                     <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: s.color }} />
                     {s.label.split(" ")[0]}
                   </span>
-                  <span className="font-sans font-normal text-paper text-[13px] tabular-nums">
+                  <span className="font-display font-normal text-paper text-[13px] tabular-nums">
                     {s.value}
                   </span>
                 </div>

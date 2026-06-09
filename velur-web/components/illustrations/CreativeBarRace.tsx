@@ -165,7 +165,7 @@ export default function CreativeBarRace() {
               </div>
 
               {/* Value */}
-              <span className="font-sans font-normal text-ink text-[14px] tabular-nums text-right">
+              <span className="font-display font-normal text-ink text-[14px] tabular-nums text-right">
                 ${v.toLocaleString()}
               </span>
 

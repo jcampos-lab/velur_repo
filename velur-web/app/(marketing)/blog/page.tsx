@@ -30,7 +30,7 @@ export default function BlogPage() {
             Blog
           </p>
           <h1
-            className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em]"
+            className="font-display font-normal text-ink leading-[1.05] tracking-[-0.025em]"
             style={{ fontSize: "clamp(28px, 4.4vw, 56px)" }}
           >
             Ideas on analytics, strategy, and data.
@@ -80,7 +80,7 @@ export default function BlogPage() {
                     </span>
                   </div>
                   <h2
-                    className="font-sans font-normal text-ink leading-tight tracking-[-0.03em] group-hover:text-amber transition-colors"
+                    className="font-display font-normal text-ink leading-tight tracking-[-0.03em] group-hover:text-amber transition-colors"
                     style={{ fontSize: "clamp(24px, 3vw, 44px)" }}
                   >
                     {featured.title}
@@ -116,7 +116,7 @@ export default function BlogPage() {
                   </div>
 
                   <h3
-                    className="font-sans font-normal text-ink leading-snug tracking-[-0.02em] group-hover:text-amber transition-colors"
+                    className="font-display font-normal text-ink leading-snug tracking-[-0.02em] group-hover:text-amber transition-colors"
                     style={{ fontSize: "clamp(18px, 2vw, 24px)" }}
                   >
                     {post.title}

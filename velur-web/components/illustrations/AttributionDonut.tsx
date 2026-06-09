@@ -129,7 +129,7 @@ export default function AttributionDonut() {
                   transition={{ duration: 0.18 }}
                   className="text-center"
                 >
-                  <p className="font-sans font-normal text-ink text-[26px] leading-none tabular-nums">
+                  <p className="font-display font-normal text-ink text-[26px] leading-none tabular-nums">
                     {hover.share}%
                   </p>
                   <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase mt-1.5">
@@ -145,7 +145,7 @@ export default function AttributionDonut() {
                   transition={{ duration: 0.18 }}
                   className="text-center"
                 >
-                  <p className="font-sans font-normal text-ink text-[26px] leading-none tabular-nums">
+                  <p className="font-display font-normal text-ink text-[26px] leading-none tabular-nums">
                     $186K
                   </p>
                   <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase mt-1.5">

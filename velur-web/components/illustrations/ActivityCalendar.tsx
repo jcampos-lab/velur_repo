@@ -174,7 +174,7 @@ export default function ActivityCalendar() {
               <p className="font-mono text-[9.5px] tracking-[0.14em] text-paper/55 uppercase mb-0.5">
                 {hover.date}
               </p>
-              <p className="font-sans font-normal text-paper text-[15px] leading-none tabular-nums">
+              <p className="font-display font-normal text-paper text-[15px] leading-none tabular-nums">
                 {hover.orders} {hover.orders === 1 ? "order" : "orders"}
               </p>
             </motion.div>

@@ -37,7 +37,7 @@ export default function CapabilityGrid() {
           return (
             <div key={c.key} className="bg-canvas p-8">
               <Icon size={26} strokeWidth={1.4} className="text-signal-green" />
-              <h3 className="font-sans text-[24px] leading-[1.3] text-ink-strong mt-5 mb-2.5">
+              <h3 className="font-display text-[24px] leading-[1.3] text-ink-strong mt-5 mb-2.5">
                 {c.h}
               </h3>
               <p className="font-sans text-base leading-[1.5] text-ink mb-4">{c.b}</p>

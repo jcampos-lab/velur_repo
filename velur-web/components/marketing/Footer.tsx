@@ -20,13 +20,18 @@ import { useLanguage } from "@/lib/i18n/LanguageProvider";
  */
 const KNOWN_LINKS: Record<string, string> = {
   // English labels
-  "AI Studio": "/studio",
-  "Blog":      "/blog",
-  "Privacy":   "/privacy",
-  "Terms":     "/terms",
+  "AI Studio":    "/studio",
+  "Integrations": "/integrations",
+  "About":        "/company",
+  "Customers":    "/customers",
+  "Privacy":      "/privacy",
+  "Terms":        "/terms",
   // Spanish labels
-  "Privacidad": "/privacy",
-  "Términos":   "/terms",
+  "Integraciones":  "/integrations",
+  "Sobre nosotros": "/company",
+  "Clientes":       "/customers",
+  "Privacidad":     "/privacy",
+  "Términos":       "/terms",
 };
 
 export default function Footer() {
@@ -40,7 +45,7 @@ export default function Footer() {
     >
       <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
         <div
-          className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 pb-12"
+          className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr_1fr] gap-10 pb-12"
           style={{ borderBottom: "1px solid var(--border-dark)" }}
         >
           {/* Newsletter column */}

@@ -247,7 +247,7 @@ function FeaturedCourse({ c }: { c: Copy["course"] }) {
               {c.eyebrow}
             </p>
             <h3
-              className="font-sans font-normal leading-[1.05] tracking-[-0.02em] mb-5"
+              className="font-display font-normal leading-[1.05] tracking-[-0.02em] mb-5"
               style={{ fontSize: "clamp(26px, 3.4vw, 40px)" }}
             >
               {c.title}
@@ -277,7 +277,7 @@ function FeaturedCourse({ c }: { c: Copy["course"] }) {
               <p className="font-mono text-[10px] tracking-[0.16em] text-on-dark-muted uppercase mb-1">
                 {c.mockLesson}
               </p>
-              <p className="font-sans font-normal text-on-dark text-[20px] leading-tight">
+              <p className="font-display font-normal text-on-dark text-[20px] leading-tight">
                 {c.mockLessonTitle}
               </p>
             </div>
@@ -321,7 +321,7 @@ function GuideAndPacks({
       >
         <div className="p-7 md:p-9 flex flex-col gap-5">
           <h3
-            className="font-sans font-normal leading-[1.05] tracking-[-0.02em]"
+            className="font-display font-normal leading-[1.05] tracking-[-0.02em]"
             style={{ fontSize: "clamp(24px, 2.8vw, 36px)" }}
           >
             {guide.title}
@@ -341,7 +341,7 @@ function GuideAndPacks({
         <div className="relative flex-1 min-h-[180px] md:min-h-[220px] mt-2">
           <div className="absolute left-1/2 -translate-x-1/2 bottom-6 w-[140px] md:w-[170px] aspect-[3/4] bg-paper rounded-lg shadow-2xl overflow-hidden">
             <div className="bg-stone p-3 flex flex-col gap-1.5 h-full">
-              <p className="font-sans font-normal text-ink text-[14px] leading-tight">
+              <p className="font-display font-normal text-ink text-[14px] leading-tight">
                 {guide.bookTitle1}<br />{guide.bookTitle2}
               </p>
               <div className="mt-2 grid grid-cols-3 gap-1 flex-1">
@@ -374,7 +374,7 @@ function GuideAndPacks({
       >
         <div className="p-7 md:p-9 flex flex-col gap-5">
           <h3
-            className="font-sans font-normal leading-[1.05] tracking-[-0.02em]"
+            className="font-display font-normal leading-[1.05] tracking-[-0.02em]"
             style={{ fontSize: "clamp(24px, 2.8vw, 36px)" }}
           >
             {packs.title}
@@ -402,7 +402,7 @@ function GuideAndPacks({
         <div className="relative flex-1 min-h-[180px] md:min-h-[220px]">
           <div className="absolute left-1/2 -translate-x-1/2 bottom-4 flex items-end gap-[-20px]">
             <div className="w-[130px] aspect-[3/4] bg-brand-brown text-paper rounded-lg shadow-2xl p-3 -rotate-6 -mr-6">
-              <p className="font-sans font-normal text-[12px] leading-tight">{packs.mockCount} Beauty Shots</p>
+              <p className="font-display font-normal text-[12px] leading-tight">{packs.mockCount} Beauty Shots</p>
               <p className="font-mono text-[10px] text-on-dark-muted mt-0.5">{packs.mockLabel}</p>
               <div className="mt-2 grid grid-cols-2 gap-1">
                 {Array.from({ length: 4 }).map((_, i) => (
@@ -411,7 +411,7 @@ function GuideAndPacks({
               </div>
             </div>
             <div className="w-[130px] aspect-[3/4] bg-brand-brown text-paper rounded-lg shadow-2xl p-3 rotate-3 relative z-10">
-              <p className="font-sans font-normal text-[12px] leading-tight">{packs.mockCount} Spa &amp; Studio</p>
+              <p className="font-display font-normal text-[12px] leading-tight">{packs.mockCount} Spa &amp; Studio</p>
               <p className="font-mono text-[10px] text-on-dark-muted mt-0.5">{packs.mockLabel}</p>
               <div className="mt-2 grid grid-cols-2 gap-1">
                 {Array.from({ length: 4 }).map((_, i) => (
@@ -449,7 +449,7 @@ function PackGrid({ s, lang }: { s: Copy["packGridSection"]; lang: PackLang }) {
                 <p className={`font-mono text-[10px] tracking-[0.18em] uppercase ${p.textOnDark ? "text-on-dark-muted" : "text-ink/60"}`}>
                   {count} {s.promptsSuffix}
                 </p>
-                <p className={`font-sans font-normal text-[24px] leading-tight tracking-[-0.01em] mt-1 ${p.textOnDark ? "text-on-dark" : "text-ink-strong"}`}>
+                <p className={`font-display font-normal text-[24px] leading-tight tracking-[-0.01em] mt-1 ${p.textOnDark ? "text-on-dark" : "text-ink-strong"}`}>
                   {packTitle(p, lang)}
                 </p>
               </div>
@@ -489,7 +489,7 @@ function Testimonials({ items }: { items: Copy["testimonials"]["items"] }) {
           </p>
           <div className="flex items-center gap-3">
             <span
-              className="inline-flex w-9 h-9 rounded-full items-center justify-center text-white font-sans font-normal text-[13px]"
+              className="inline-flex w-9 h-9 rounded-full items-center justify-center text-white font-display font-normal text-[13px]"
               style={{ background: AVATAR_BG[i % AVATAR_BG.length] }}
             >
               {INITIALS[i % INITIALS.length]}
@@ -626,7 +626,7 @@ export default function StudioContent() {
             {c.hero.eyebrow}
           </p>
           <h1
-            className="font-sans font-normal text-ink leading-[1.02] tracking-[-0.025em] mb-6"
+            className="font-display font-normal text-ink leading-[1.02] tracking-[-0.025em] mb-6"
             style={{ fontSize: "clamp(30px, 5vw, 64px)" }}
           >
             {c.hero.h1Lead}
@@ -674,7 +674,7 @@ export default function StudioContent() {
               {c.packGridSection.eyebrow}
             </p>
             <h2
-              className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em]"
+              className="font-display font-normal text-ink leading-[1.05] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
             >
               {c.packGridSection.heading}
@@ -697,7 +697,7 @@ export default function StudioContent() {
                   {c.system.eyebrow}
                 </p>
                 <h2
-                  className="font-sans font-normal leading-[1.05] tracking-[-0.025em]"
+                  className="font-display font-normal leading-[1.05] tracking-[-0.025em]"
                   style={{ fontSize: "clamp(24px, 3vw, 38px)" }}
                 >
                   {c.system.heading}
@@ -738,7 +738,7 @@ export default function StudioContent() {
           <div className="mb-8 md:mb-12 max-w-2xl">
             <p className="font-sans text-ink/55 text-[13px] mb-2">{c.testimonials.eyebrow}</p>
             <h2
-              className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em]"
+              className="font-display font-normal text-ink leading-[1.05] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
             >
               {c.testimonials.heading}
@@ -754,7 +754,7 @@ export default function StudioContent() {
           <div className="mb-8 md:mb-12 max-w-2xl">
             <p className="font-sans text-ink/55 text-[13px] mb-2">{c.fit.eyebrow}</p>
             <h2
-              className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em]"
+              className="font-display font-normal text-ink leading-[1.05] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
             >
               {c.fit.heading}
@@ -770,7 +770,7 @@ export default function StudioContent() {
           <div className="mb-8 md:mb-12 max-w-2xl">
             <p className="font-sans text-ink/55 text-[13px] mb-2">{c.faq.eyebrow}</p>
             <h2
-              className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em]"
+              className="font-display font-normal text-ink leading-[1.05] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
             >
               {c.faq.heading}
@@ -790,7 +790,7 @@ export default function StudioContent() {
                   {c.closing.eyebrow}
                 </p>
                 <h3
-                  className="font-sans font-normal leading-[1.05] tracking-[-0.025em]"
+                  className="font-display font-normal leading-[1.05] tracking-[-0.025em]"
                   style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
                 >
                   {c.closing.heading}

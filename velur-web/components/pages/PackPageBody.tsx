@@ -166,7 +166,7 @@ export default function PackPageBody({ pack }: { pack: PromptPack }) {
                       className="rounded-[16px] bg-canvas border border-border-light p-6 md:p-7 flex flex-col gap-4"
                     >
                       <div className="flex items-start justify-between gap-3">
-                        <h3 className="font-sans font-normal text-ink-strong text-[17px] leading-tight tracking-[-0.005em]">
+                        <h3 className="font-display font-normal text-ink-strong text-[17px] leading-tight tracking-[-0.005em]">
                           {promptTitle(pack, gi, pi, l)}
                         </h3>
                         <span

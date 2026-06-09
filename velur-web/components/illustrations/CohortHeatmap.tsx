@@ -222,7 +222,7 @@ export default function CohortHeatmap() {
                   {hover.period}
                 </span>
               </div>
-              <p className="font-sans font-normal text-paper text-[18px] leading-none mb-1 tabular-nums">
+              <p className="font-display font-normal text-paper text-[18px] leading-none mb-1 tabular-nums">
                 {hover.value}% active
               </p>
               <p className="font-sans text-[12px] text-paper/70 leading-snug">

@@ -488,9 +488,8 @@ const en = {
     heading: "See it before it slips.",
     placeholder: "you@company.com",
     cols: [
-      { h: "Platform",  links: ["AI Studio", "Revenue console", "Forecast", "Signals", "Integrations"] },
-      { h: "Company",   links: ["About", "Customers", "Careers", "Security"] },
-      { h: "Resources", links: ["Blog", "Docs", "Changelog", "Status"] },
+      { h: "Platform", links: ["AI Studio", "Integrations"] },
+      { h: "Company",  links: ["About", "Customers"] },
     ],
     copyright: "© 2026 Velur, Inc.",
     legal: ["Privacy", "Terms"],
@@ -985,9 +984,8 @@ const es: typeof en = {
     heading: "Velo antes de que se escape.",
     placeholder: "tu@empresa.com",
     cols: [
-      { h: "Plataforma", links: ["AI Studio", "Consola de ingresos", "Forecast", "Señales", "Integraciones"] },
-      { h: "Empresa",    links: ["Sobre nosotros", "Clientes", "Empleo", "Seguridad"] },
-      { h: "Recursos",   links: ["Blog", "Documentación", "Changelog", "Estado"] },
+      { h: "Plataforma", links: ["AI Studio", "Integraciones"] },
+      { h: "Empresa",    links: ["Sobre nosotros", "Clientes"] },
     ],
     copyright: "© 2026 Velur, Inc.",
     legal: ["Privacidad", "Términos"],

@@ -37,7 +37,7 @@ export default function BenchmarkGrid() {
             What we read
           </p>
           <h2
-            className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em]"
+            className="font-display font-normal text-ink leading-[1.05] tracking-[-0.025em]"
             style={{ fontSize: "clamp(24px, 3.4vw, 40px)" }}
           >
             Four signals, one brief.
@@ -66,7 +66,7 @@ export default function BenchmarkGrid() {
                 </p>
               </div>
               <h3
-                className="font-sans font-normal text-ink leading-[1.15] tracking-[-0.02em]"
+                className="font-display font-normal text-ink leading-[1.15] tracking-[-0.02em]"
                 style={{ fontSize: "clamp(18px, 1.7vw, 24px)" }}
               >
                 {s.title}

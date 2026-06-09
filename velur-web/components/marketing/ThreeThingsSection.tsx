@@ -47,7 +47,7 @@ export default function ThreeThingsSection() {
             How we work
           </p>
           <h2
-            className="font-sans font-normal text-ink leading-[1.05] tracking-[-0.025em]"
+            className="font-display font-normal text-ink leading-[1.05] tracking-[-0.025em]"
             style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
           >
             Three things you can count on.
@@ -83,7 +83,7 @@ export default function ThreeThingsSection() {
                   </span>
                 </div>
                 <h3
-                  className="font-sans font-normal leading-[1.15] tracking-[-0.02em]"
+                  className="font-display font-normal leading-[1.15] tracking-[-0.02em]"
                   style={{ fontSize: "clamp(17px, 1.6vw, 22px)" }}
                 >
                   {row.heading}
