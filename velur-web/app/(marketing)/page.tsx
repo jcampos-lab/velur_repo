@@ -1,7 +1,6 @@
 import HeroSection      from "@/components/marketing/HeroSection";
 import CapabilityGrid   from "@/components/marketing/CapabilityGrid";
 import DarkProofBand    from "@/components/marketing/DarkProofBand";
-import AiStudioCallout  from "@/components/marketing/AiStudioCallout";
 import CtaSection       from "@/components/marketing/CtaSection";
 
 /**
@@ -10,11 +9,13 @@ import CtaSection       from "@/components/marketing/CtaSection";
  *
  * Rhythm follows ui_kits/marketing/Home.jsx:
  *   1. Hero (white canvas, copy left / ConsoleMock right)
- *   2. Trust strip (six brand names in mono)
- *   3. Capability grid (three columns joined by hairlines)
- *   4. Dark Signal-Green proof band (4 StatCards in navy)
- *   5. AI Studio secondary callout (warm stone Card)
- *   6. Midnight CTA close
+ *   2. Capability grid (three columns joined by hairlines)
+ *   3. Dark Signal-Green proof band (4 StatCards in navy)
+ *   4. Midnight CTA close
+ *
+ * Note: AI Studio is intentionally NOT on the homepage. It lives in
+ * the footer only (Platform column) and at /studio for visitors who
+ * navigate there.
  */
 export default function HomePage() {
   return (
@@ -22,7 +23,6 @@ export default function HomePage() {
       <HeroSection />
       <CapabilityGrid />
       <DarkProofBand />
-      <AiStudioCallout />
       <CtaSection />
     </>
   );

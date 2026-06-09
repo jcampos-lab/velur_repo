@@ -243,37 +243,9 @@ const en = {
       "You want a self-serve SaaS tool with no onboarding or configuration",
     ],
   },
-  twoProducts: {
-    label: "Velur today, and Velur soon",
-    heading: "The work we ship now. The platform we are building behind it.",
-    subhead: "AI Studio is what we sell today: hands-on creative work with Higgsfield, MidJourney, Claude and ChatGPT. Revenue Intelligence is the platform we are building behind every engagement, available to AI Studio clients first.",
-    riLabel: "AI Studio · live today",
-    riHeading: "Ship the creative. Run the campaign.",
-    riBody: "Web, assets, campaigns, social and branding for small businesses. Done with you, not at you. Same playbook we use on Cami Lab Studio in Florida.",
-    riCta: "Visit AI Studio →",
-    studioLabel: "Revenue Intelligence · in early access",
-    studioHeading: "The analytics layer that ties it all back to dollars.",
-    studioBody: "Shopify, Klaviyo, Meta, TikTok and GA4 connected to one daily brief. Available to AI Studio clients first, broader access opens this year.",
-    studioCta: "See the platform →",
-    footnote: "Most small businesses start with AI Studio. The ones already at six or seven figures usually want both.",
-  },
-  studio: {
-    label: "Velur AI Studio",
-    h1: "We help small businesses turn AI into revenue.",
-    subhead: "The same goal as Revenue Intelligence, a different toolkit. Velur AI Studio is the marketing side of the work: websites, creative, campaigns, social, branding. We use AI where it earns its keep and a human everywhere else.",
-    ctaPrimary: "Join the waitlist",
-    ctaSecondary: "See the templates",
-    toolsLabel: "The tools we lean on",
-    toolsHeading: "Four AI products that actually ship work.",
-    servicesLabel: "What we help with",
-    servicesHeading: "End-to-end, or just the piece you need.",
-    templatesLabel: "Free templates",
-    templatesHeading: "Resources for small businesses.",
-    templatesSubhead: "Plug-and-play documents we use with real clients. Reply to the email and we will send you the file.",
-    ctaLabel: "Working with us",
-    ctaHeading: "Tell us about the business. We will reply with a plan.",
-    ctaButton: "Join the waitlist",
-  },
+  /* twoProducts + studio i18n blocks removed — AI Studio body copy
+     no longer appears anywhere except the footer link label, which
+     uses the literal string "AI Studio" inside footerKit.cols. */
   company: {
     label: "COMPANY · HOW WE THINK",
     h1a: "Built on data.",
@@ -469,13 +441,9 @@ const en = {
       { label: "Time to value",     value: "2 wks", caption: "median" },
     ],
   },
-  aiStudio: {
-    eyebrow: "Also from Velur",
-    heading: "AI Studio — creative work, shipped.",
-    body: "While Revenue Intelligence is in private beta, our team puts Higgsfield, MidJourney, Claude and ChatGPT to work for small businesses. Hands-on creative production, paired with the analytics platform we're quietly building behind it.",
-    cta: "See AI Studio",
-    tools: ["Higgsfield", "MidJourney", "Claude", "ChatGPT", "Klaviyo", "Meta"],
-  },
+  /* aiStudio block removed — the homepage AiStudioCallout has been
+     deleted; the only surviving AI Studio mention is the footer
+     Platform-column link "AI Studio" → /studio. */
   ctaBand: {
     eyebrow: "Get started",
     heading: "See your own revenue in Velur.",
@@ -739,37 +707,8 @@ const es: typeof en = {
       "Quieres una herramienta SaaS de autoservicio sin onboarding ni configuración",
     ],
   },
-  twoProducts: {
-    label: "Velur hoy, y Velur pronto",
-    heading: "El trabajo que entregamos ahora. La plataforma que construimos detrás.",
-    subhead: "AI Studio es lo que vendemos hoy: trabajo creativo con Higgsfield, MidJourney, Claude y ChatGPT. Revenue Intelligence es la plataforma que estamos construyendo detrás de cada cliente, disponible primero para clientes de AI Studio.",
-    riLabel: "AI Studio · disponible hoy",
-    riHeading: "Lanza la creatividad. Corre la campaña.",
-    riBody: "Web, activos, campañas, redes sociales y marca para pequeños negocios. Contigo, no por ti. Mismo manual que usamos en Cami Lab Studio en Florida.",
-    riCta: "Visita AI Studio →",
-    studioLabel: "Revenue Intelligence · en acceso anticipado",
-    studioHeading: "La capa de analítica que conecta todo con los ingresos.",
-    studioBody: "Shopify, Klaviyo, Meta, TikTok y GA4 conectados en un briefing diario. Disponible primero para clientes de AI Studio, acceso más amplio este año.",
-    studioCta: "Ver la plataforma →",
-    footnote: "La mayoría de pequeños negocios empiezan con AI Studio. Los que ya están en seis o siete cifras suelen querer ambos.",
-  },
-  studio: {
-    label: "Velur AI Studio",
-    h1: "Ayudamos a pequeños negocios a convertir la IA en ingresos.",
-    subhead: "El mismo objetivo que Revenue Intelligence, con otras herramientas. Velur AI Studio es el lado de marketing del trabajo: webs, creatividad, campañas, redes sociales y marca. Usamos IA donde aporta valor y a una persona en todo lo demás.",
-    ctaPrimary: "Unirse a la lista",
-    ctaSecondary: "Ver las plantillas",
-    toolsLabel: "Las herramientas con las que trabajamos",
-    toolsHeading: "Cuatro productos de IA que entregan trabajo real.",
-    servicesLabel: "En qué te ayudamos",
-    servicesHeading: "De principio a fin, o solo la parte que necesitas.",
-    templatesLabel: "Plantillas gratuitas",
-    templatesHeading: "Recursos para pequeños negocios.",
-    templatesSubhead: "Documentos listos para usar que aplicamos con clientes reales. Respóndenos al correo y te enviamos el archivo.",
-    ctaLabel: "Trabajar con nosotros",
-    ctaHeading: "Cuéntanos sobre tu negocio. Te respondemos con un plan.",
-    ctaButton: "Unirse a la lista",
-  },
+  /* Bloques twoProducts + studio eliminados — la copy de AI Studio
+     solo vive ahora en el enlace del footer (columna Plataforma). */
   company: {
     label: "EMPRESA · CÓMO PENSAMOS",
     h1a: "Construido sobre datos.",
@@ -965,13 +904,9 @@ const es: typeof en = {
       { label: "Time-to-value",       value: "2 sem", caption: "mediana" },
     ],
   },
-  aiStudio: {
-    eyebrow: "También de Velur",
-    heading: "AI Studio — trabajo creativo, enviado.",
-    body: "Mientras Revenue Intelligence está en beta privada, nuestro equipo pone Higgsfield, MidJourney, Claude y ChatGPT a trabajar para pequeños negocios. Producción creativa de la mano, junto con la plataforma analítica que estamos construyendo detrás.",
-    cta: "Ver AI Studio",
-    tools: ["Higgsfield", "MidJourney", "Claude", "ChatGPT", "Klaviyo", "Meta"],
-  },
+  /* Bloque aiStudio eliminado — el AiStudioCallout del homepage se
+     ha borrado. La única mención de AI Studio que queda es el
+     enlace del footer en la columna Plataforma. */
   ctaBand: {
     eyebrow: "Empezar",
     heading: "Ve tus propios ingresos en Velur.",
