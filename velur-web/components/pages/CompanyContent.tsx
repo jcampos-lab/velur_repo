@@ -443,7 +443,7 @@ export default function CompanyContent() {
                 </Link>
                 <span className="text-line" aria-hidden>·</span>
                 <Link
-                  href="https://linkedin.com/in/alexander-campos"
+                  href="https://www.linkedin.com/in/juan-alexander-campos/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-sans text-[14.5px] text-ink/65 hover:text-ink transition-colors"

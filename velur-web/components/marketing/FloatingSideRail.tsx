@@ -3,13 +3,13 @@
 export default function FloatingSideRail() {
   return (
     <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center gap-3">
-      {/* LinkedIn */}
+      {/* Velur company LinkedIn */}
       <a
-        href="https://linkedin.com/company/velur"
+        href="https://www.linkedin.com/company/velur/"
         target="_blank"
         rel="noopener noreferrer"
         className="w-8 h-8 rounded-full border border-ink bg-paper flex items-center justify-center hover:bg-ink hover:text-paper transition-colors duration-200 group"
-        aria-label="LinkedIn"
+        aria-label="Velur on LinkedIn"
       >
         <span className="font-mono text-[10px] font-medium text-ink group-hover:text-paper transition-colors">in</span>
       </a>
