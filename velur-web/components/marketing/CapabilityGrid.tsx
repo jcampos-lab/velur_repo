@@ -11,6 +11,11 @@ import { useLanguage } from "@/lib/i18n/LanguageProvider";
  * Mirror of ui_kits/marketing/Home.jsx capability cards.
  */
 const iconMap = { signals: Activity, forecast: TrendingUp, risk: ShieldAlert };
+const artMap: Record<string, string> = {
+  signals: "/art/delta-signals.png",
+  forecast: "/art/delta-forecast.png",
+  risk: "/art/delta-risk.png",
+};
 
 export default function CapabilityGrid() {
   const { t } = useLanguage();
@@ -35,7 +40,20 @@ export default function CapabilityGrid() {
         {cells.map((c) => {
           const Icon = iconMap[c.key as keyof typeof iconMap] ?? Activity;
           return (
-            <div key={c.key} className="bg-canvas p-8">
+            <div key={c.key} className="bg-canvas">
+              {/* Capability artwork — delta motif matched to the concept
+                  (streams merging / paths fanning / one channel slipping). */}
+              <div className="relative aspect-[4/3] overflow-hidden" aria-hidden="true">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={artMap[c.key] ?? artMap.signals}
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="p-8">
               <Icon size={26} strokeWidth={1.4} className="text-signal-green" />
               <h3 className="font-display text-[24px] leading-[1.3] text-ink-strong mt-5 mb-2.5">
                 {c.h}
@@ -47,6 +65,7 @@ export default function CapabilityGrid() {
               >
                 {learnMore}
               </Link>
+              </div>
             </div>
           );
         })}

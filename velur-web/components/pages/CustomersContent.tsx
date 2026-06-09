@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { Check, X } from "lucide-react";
+import { ArtBand } from "@/components/velur/ArtBand";
 
 /* ─── Per-page strings (Castilian Spanish for ES) ─────────────────── */
 const COPY = {
@@ -187,6 +188,11 @@ export default function CustomersContent() {
             {c.subhead}
           </p>
         </div>
+      </section>
+
+      {/* Brand art band — spiral delta (every account converging on one console) */}
+      <section className="bg-canvas" style={{ padding: "var(--section-y-tight) 0 0" }}>
+        <ArtBand src="/art/delta-spiral.png" className="h-[220px] md:h-[340px] lg:h-[420px]" />
       </section>
 
       {/* Audience cards */}

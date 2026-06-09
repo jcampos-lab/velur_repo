@@ -2,12 +2,15 @@
 
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ButtonLink } from "@/components/velur/Button";
+import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
 
 /**
  * Velur — Closing CTA band
- * Midnight (#0a1a2f) full-width band per design system: dark navy is
- * used for "security & finance" contexts, which a Revenue Intelligence
- * CTA naturally is. Monumental display heading + primary onDark pill.
+ * Midnight (#0a1a2f) full-width band over the Y-confluence brand art
+ * (two rivers merging — the "every source onto one timeline" metaphor).
+ * Mobile renders the still, desktop the 8s loop; a midnight scrim keeps
+ * the centered copy at AA contrast. Monumental display heading + primary
+ * onDark pill.
  */
 export default function CtaSection() {
   const { t } = useLanguage();
@@ -15,11 +18,15 @@ export default function CtaSection() {
 
   return (
     <section
-      className="bg-midnight text-on-dark"
+      className="relative bg-midnight text-on-dark"
       style={{ padding: "var(--section-y) var(--gutter)" }}
     >
+      <ArtBackdrop
+        base="/art/confluence-y"
+        overlay="linear-gradient(180deg, rgba(10,26,47,0.78) 0%, rgba(10,26,47,0.62) 50%, rgba(10,26,47,0.80) 100%)"
+      />
       <div
-        className="text-center"
+        className="relative text-center"
         style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}
       >
         <div className="mb-5">

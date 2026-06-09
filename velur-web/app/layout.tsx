@@ -26,14 +26,14 @@ export const metadata: Metadata = {
     siteName: "Velur",
     locale: "en_US",
     type: "website",
-    images: [{ url: "https://velur.io/og-image.png", width: 1200, height: 630, alt: "Velur" }],
+    images: [{ url: "https://velur.io/art/dunes-og.png", width: 2752, height: 1536, alt: "Velur" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Velur · Revenue Intelligence",
     description:
       "Revenue, before it moves.",
-    images: ["https://velur.io/og-image.png"],
+    images: ["https://velur.io/art/dunes-og.png"],
   },
 };
 

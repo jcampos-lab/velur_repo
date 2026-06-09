@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { Lock, Shield, Check } from "lucide-react";
+import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
 
 /* ─── Per-page strings (Castilian Spanish for ES) ─────────────────── */
 const COPY = {
@@ -315,13 +316,17 @@ export default function IntegrationsContent() {
         </div>
       </section>
 
-      {/* Closing CTA */}
+      {/* Closing CTA — dunes brand art behind the midnight band */}
       <section
-        className="bg-midnight text-on-dark"
+        className="relative bg-midnight text-on-dark"
         style={{ padding: "var(--section-y) var(--gutter)" }}
       >
+        <ArtBackdrop
+          still="/art/dunes-og.png"
+          overlay="linear-gradient(180deg, rgba(10,26,47,0.72) 0%, rgba(10,26,47,0.55) 55%, rgba(10,26,47,0.78) 100%)"
+        />
         <div
-          className="text-center"
+          className="relative text-center"
           style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}
         >
           <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-action-blue mb-5">

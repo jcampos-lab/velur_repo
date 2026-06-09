@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
 
 function AccordionItem({
   q,
@@ -67,8 +68,14 @@ export default function FaqContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-2xl bg-brand-brown text-paper p-7 md:p-12 lg:p-16"
+            className="relative overflow-hidden rounded-2xl bg-brand-brown text-paper p-7 md:p-12 lg:p-16"
           >
+            <ArtBackdrop
+              still="/art/dunes-quiet.png"
+              overlay="rgba(16,19,22,0.35)"
+              objectPosition="center bottom"
+            />
+            <div className="relative">
             <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-5">
               {f.label}
             </p>
@@ -81,6 +88,7 @@ export default function FaqContent() {
             <p className="font-sans text-paper/75 text-base md:text-lg leading-relaxed max-w-2xl">
               {f.subhead}
             </p>
+            </div>
           </motion.div>
         </div>
       </section>

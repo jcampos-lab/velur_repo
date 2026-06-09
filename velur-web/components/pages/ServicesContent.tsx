@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
 
 /* ─── Per-page strings ─────────────────────────────────────────────────
    Inline EN+ES content keeps the translation co-located with the
@@ -236,15 +237,19 @@ function HeroCard({ c, m }: { c: Copy; m: Copy["mock"] }) {
           </div>
         </div>
 
-        {/* Right preview — Signal Green band per Velur Design System */}
+        {/* Right preview — dunes brand art behind the floating console cards */}
         <div className="relative bg-signal-green overflow-hidden hidden md:block">
-          <div
-            className="absolute inset-0 opacity-70"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 30% 30%, rgba(79,183,141,0.35), transparent 55%), radial-gradient(circle at 78% 78%, rgba(31,95,224,0.18), transparent 55%)",
-            }}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/art/dunes-hero.png"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: "70% center" }}
+            loading="lazy"
+            decoding="async"
           />
+          <div className="absolute inset-0 bg-velur-ink/25" aria-hidden="true" />
           <div className="absolute top-10 left-8 right-12 rounded-xl bg-velur-ink/95 backdrop-blur-sm border border-ink-700 p-5 shadow-2xl">
             <p className="font-mono text-[9.5px] tracking-[0.18em] text-signal-green-300 uppercase">
               {m.briefEyebrow}
@@ -373,8 +378,13 @@ export default function ServicesContent() {
       {/* How it works strip, dark wrapper */}
       <section id="how" className="bg-cream pb-14 md:pb-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="rounded-2xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          <div className="relative overflow-hidden rounded-2xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
+            <ArtBackdrop
+              still="/art/dunes-wide.jpg"
+              overlay="rgba(16,19,22,0.62)"
+              objectPosition="center 75%"
+            />
+            <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-5">
                 <p className="font-mono text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-4">
                   {c.onboard.eyebrow}

@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import WaitlistForm from "@/components/ui/WaitlistForm";
+import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
 
 export default function ContactContent() {
   const { t } = useLanguage();
@@ -19,8 +20,14 @@ export default function ContactContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-2xl bg-brand-brown text-paper p-7 md:p-12 lg:p-16"
+            className="relative overflow-hidden rounded-2xl bg-brand-brown text-paper p-7 md:p-12 lg:p-16"
           >
+            <ArtBackdrop
+              still="/art/dunes-cta.png"
+              overlay="linear-gradient(90deg, rgba(16,19,22,0.72) 0%, rgba(16,19,22,0.45) 60%, rgba(16,19,22,0.25) 100%)"
+              objectPosition="center 70%"
+            />
+            <div className="relative">
             <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-5">
               {c.label}
             </p>
@@ -33,6 +40,7 @@ export default function ContactContent() {
             <p className="font-sans text-paper/75 text-base md:text-lg leading-relaxed max-w-2xl">
               {c.subhead}
             </p>
+            </div>
           </motion.div>
         </div>
       </section>

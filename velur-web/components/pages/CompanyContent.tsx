@@ -5,6 +5,7 @@ import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import CtaSection from "@/components/marketing/CtaSection";
+import { ArtBand } from "@/components/velur/ArtBand";
 import {
   BarChart3,
   Cpu,
@@ -383,6 +384,12 @@ export default function CompanyContent() {
             {c.heroBody}
           </motion.p>
         </div>
+      </section>
+
+      {/* ── Brand art band — aerial delta (the "one timeline" terrain) ─── */}
+      <section className="bg-canvas border-b border-border-light" style={{ padding: "var(--section-y-tight) 0 0" }}>
+        <ArtBand src="/art/delta-aerial.png" className="h-[220px] md:h-[360px] lg:h-[440px]" />
+        <div style={{ height: "var(--section-y-tight)" }} />
       </section>
 
       {/* ── Founder block (inlined, trimmed, credibility-led) ─── */}
