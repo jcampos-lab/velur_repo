@@ -15,13 +15,13 @@ const hanken = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Velur · Revenue Intelligence for small businesses",
+  title: "Velur · The AI Revenue Operating System",
   description:
-    "Velur unifies pipeline, billing, product-usage and CRM signals into one console — so revenue teams see what's changing, and act before it costs them.",
+    "Velur sits above the tools you already run — Shopify, Meta, Klaviyo, Stripe — and turns their fragmented data into one reasoning intelligence layer. AI that understands your entire business.",
   openGraph: {
-    title: "Velur · Revenue Intelligence",
+    title: "Velur · The AI Revenue Operating System",
     description:
-      "Revenue, before it moves. Velur reconciles every source onto one timeline so a board-ready forecast is one click — not one week.",
+      "One intelligence layer above everything. Velur unifies your revenue data and uses AI to tell you what's working, what's breaking, and what to do next.",
     url: "https://velur.io",
     siteName: "Velur",
     locale: "en_US",
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Velur · Revenue Intelligence",
+    title: "Velur · The AI Revenue Operating System",
     description:
-      "Revenue, before it moves.",
+      "AI that understands your entire business.",
     images: ["https://velur.io/art/dunes-og.png"],
   },
 };
