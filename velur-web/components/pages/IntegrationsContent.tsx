@@ -5,6 +5,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { Lock, Shield, Check } from "lucide-react";
 import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
+import { GooeyTabs } from "@/components/ui/gooey-tabs";
+import { VelurStackOrbital } from "@/components/ui/orbital-integrations";
 
 /* ─── Per-page strings (Castilian Spanish for ES) ─────────────────── */
 const COPY = {
@@ -179,12 +181,49 @@ const COPY = {
 } as const;
 
 type Copy = typeof COPY.en | typeof COPY.es;
+type Integration = Copy["integrations"][number];
 
 const SECURITY_ICON: Record<string, typeof Lock> = {
   lock: Lock,
   shield: Shield,
   check: Check,
 };
+
+/* Shared detail block — rendered inside the gooey tab panel on
+   desktop and inside stacked cards on mobile. */
+function IntegrationDetail({ it }: { it: Integration }) {
+  return (
+    <div className="max-w-[820px]">
+      <div className="flex items-baseline justify-between gap-4 mb-4">
+        <h3 className="font-display font-normal text-ink-strong text-[24px] leading-tight tracking-[-0.015em]">
+          {it.name}
+        </h3>
+        <span className="font-mono text-[11px] uppercase tracking-[0.06em] text-signal-green">
+          {it.category}
+        </span>
+      </div>
+
+      <p className="font-sans text-[15px] text-ink leading-[1.55] mb-5">
+        {it.what}
+      </p>
+
+      <dl className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-border-light pt-5">
+        <div>
+          <dt className="font-mono text-[10.5px] uppercase tracking-[0.06em] text-slate mb-1">Data in</dt>
+          <dd className="font-sans text-[13.5px] text-ink/85 leading-snug">{it.data}</dd>
+        </div>
+        <div>
+          <dt className="font-mono text-[10.5px] uppercase tracking-[0.06em] text-slate mb-1">Scope</dt>
+          <dd className="font-mono text-[12.5px] text-ink/85 leading-snug">{it.scope}</dd>
+        </div>
+        <div>
+          <dt className="font-mono text-[10.5px] uppercase tracking-[0.06em] text-slate mb-1">Compatibility</dt>
+          <dd className="font-sans text-[13.5px] text-ink/85 leading-snug">{it.compatibility}</dd>
+        </div>
+      </dl>
+    </div>
+  );
+}
 
 export default function IntegrationsContent() {
   const { lang } = useLanguage();
@@ -211,6 +250,16 @@ export default function IntegrationsContent() {
           <p className="font-sans text-[18px] leading-[1.5] text-ink max-w-[52ch]">
             {c.subhead}
           </p>
+        </div>
+      </section>
+
+      {/* Orbital — the eight live integrations circling the Velur node */}
+      <section
+        className="bg-canvas border-b border-border-light"
+        style={{ padding: "var(--section-y-tight) var(--gutter)" }}
+      >
+        <div className="flex justify-center">
+          <VelurStackOrbital />
         </div>
       </section>
 
@@ -273,7 +322,20 @@ export default function IntegrationsContent() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+          {/* Desktop: gooey tabs — one tab per integration, the active
+              tab fuses into the detail panel. Mobile keeps stacked
+              cards (eight tabs don't fit a phone-width strip). */}
+          <div className="hidden md:block">
+            <GooeyTabs
+              surfaceClass="bg-paper"
+              tabs={c.integrations.map((it) => ({
+                label: it.name,
+                content: <IntegrationDetail it={it} />,
+              }))}
+            />
+          </div>
+
+          <div className="md:hidden flex flex-col gap-4">
             {c.integrations.map((it, i) => (
               <motion.article
                 key={it.name}
@@ -281,35 +343,9 @@ export default function IntegrationsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-2xl bg-paper border border-line p-7 md:p-8 flex flex-col gap-5"
+                className="rounded-2xl bg-paper border border-line p-6"
               >
-                <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="font-display font-normal text-ink-strong text-[24px] leading-tight tracking-[-0.015em]">
-                    {it.name}
-                  </h3>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.06em] text-signal-green">
-                    {it.category}
-                  </span>
-                </div>
-
-                <p className="font-sans text-[15px] text-ink leading-[1.55]">
-                  {it.what}
-                </p>
-
-                <dl className="grid grid-cols-1 gap-3 border-t border-border-light pt-5">
-                  <div>
-                    <dt className="font-mono text-[10.5px] uppercase tracking-[0.06em] text-slate mb-1">Data in</dt>
-                    <dd className="font-sans text-[13.5px] text-ink/85 leading-snug">{it.data}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-mono text-[10.5px] uppercase tracking-[0.06em] text-slate mb-1">Scope</dt>
-                    <dd className="font-mono text-[12.5px] text-ink/85 leading-snug">{it.scope}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-mono text-[10.5px] uppercase tracking-[0.06em] text-slate mb-1">Compatibility</dt>
-                    <dd className="font-sans text-[13.5px] text-ink/85 leading-snug">{it.compatibility}</dd>
-                  </div>
-                </dl>
+                <IntegrationDetail it={it} />
               </motion.article>
             ))}
           </div>

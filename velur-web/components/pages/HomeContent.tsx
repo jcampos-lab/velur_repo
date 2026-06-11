@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ConsoleMock } from "@/components/velur/ConsoleMock";
+import { VelurStackOrbital } from "@/components/ui/orbital-integrations";
 import {
   Plug,
   Layers,
@@ -331,9 +332,6 @@ export default function HomeContent() {
           .from(".gs-hero-ctas", { y: 16, opacity: 0, duration: 0.6 }, "-=0.45")
           .from(".gs-hero-media", { y: 60, opacity: 0, scale: 0.97, duration: 1.0, stagger: 0.12 }, "-=0.35");
 
-        /* ── Tool strip marquee ───────────────────────────────── */
-        gsap.to(".gs-marquee", { xPercent: -50, ease: "none", duration: 28, repeat: -1 });
-
         /* ── Problem statement: per-word scrub reveal ─────────── */
         gsap.fromTo(
           ".gs-problem .gs-word",
@@ -463,37 +461,28 @@ export default function HomeContent() {
 
       {/* ════ 2 · TOOL STRIP — honest trust strip (real stack, marquee) ════ */}
       <section className="bg-canvas border-y border-border-light py-8 overflow-hidden">
-        <p className="text-center font-sans text-[14px] text-slate mb-5">{c.strip.caption}</p>
-        <div className="gs-marquee flex w-max gap-12 px-6">
-          {[...c.strip.tools, ...c.strip.tools].map((t, i) => (
-            <span key={i} className="font-mono text-[15px] tracking-[0.08em] text-muted-slate whitespace-nowrap">
-              {t}
-            </span>
-          ))}
+        <p className="text-center font-sans text-[14px] text-slate mb-8">{c.strip.caption}</p>
+
+        {/* Orbital diagram — the eight live integrations circling the
+            Velur node. Continuous GSAP rotation; the visual answer to
+            both "what does it read from" and "why is this a problem". */}
+        <div className="flex justify-center" style={{ padding: "0 var(--gutter)" }}>
+          <VelurStackOrbital />
         </div>
       </section>
 
-      {/* ════ 3 · PROBLEM — scrub statement + silo grid ════ */}
+      {/* ════ 3 · PROBLEM — scrub statement ════ */}
       <section className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <p className="gs-rise font-mono text-[13px] uppercase tracking-[0.06em] text-coral mb-6">
             {c.problem.eyebrow}
           </p>
           <h2
-            className="gs-problem font-display font-normal text-ink-strong leading-[1.08] tracking-[-0.02em] max-w-[24ch] mb-12"
+            className="gs-problem font-display font-normal text-ink-strong leading-[1.08] tracking-[-0.02em] max-w-[24ch] mb-10"
             style={{ fontSize: "clamp(30px, 4.6vw, 60px)" }}
           >
             <Words text={c.problem.statement} />
           </h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-10">
-            {c.problem.silos.map((s) => (
-              <div key={s.what} className="gs-batch rounded-[12px] bg-paper border border-line p-4">
-                <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-slate mb-1.5">{s.what}</p>
-                <p className="font-sans text-[14px] text-ink-strong">{s.where}</p>
-              </div>
-            ))}
-          </div>
 
           <p className="gs-rise font-sans text-[18px] leading-[1.6] text-ink max-w-[58ch]">
             {c.problem.after}
