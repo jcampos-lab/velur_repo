@@ -6,11 +6,10 @@ import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
 
 /**
  * Velur — Closing CTA band
- * Midnight (#0a1a2f) full-width band over the Y-confluence brand art
- * (two rivers merging — the "every source onto one timeline" metaphor).
- * Mobile renders the still, desktop the 8s loop; a midnight scrim keeps
- * the centered copy at AA contrast. Monumental display heading + primary
- * onDark pill.
+ * Midnight (#0a1a2f) full-width band over the abstract gradient brand
+ * art (green pill composition — the brand's Signal Green family). A
+ * midnight scrim keeps the centered copy at AA contrast. Monumental
+ * display heading + primary onDark pill.
  */
 export default function CtaSection() {
   const { t } = useLanguage();
@@ -22,8 +21,8 @@ export default function CtaSection() {
       style={{ padding: "var(--section-y) var(--gutter)" }}
     >
       <ArtBackdrop
-        base="/art/confluence-y"
-        overlay="linear-gradient(180deg, rgba(10,26,47,0.78) 0%, rgba(10,26,47,0.62) 50%, rgba(10,26,47,0.80) 100%)"
+        still="/art/abstract-green.png"
+        overlay="linear-gradient(180deg, rgba(10,26,47,0.80) 0%, rgba(10,26,47,0.64) 50%, rgba(10,26,47,0.82) 100%)"
       />
       <div
         className="relative text-center"

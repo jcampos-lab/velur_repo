@@ -23,7 +23,7 @@ export default function ContactContent() {
             className="relative overflow-hidden rounded-2xl bg-brand-brown text-paper p-7 md:p-12 lg:p-16"
           >
             <ArtBackdrop
-              still="/art/dunes-cta.png"
+              still="/art/abstract-tiles.png"
               overlay="linear-gradient(90deg, rgba(16,19,22,0.72) 0%, rgba(16,19,22,0.45) 60%, rgba(16,19,22,0.25) 100%)"
               objectPosition="center 70%"
             />

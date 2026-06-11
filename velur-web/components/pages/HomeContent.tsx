@@ -105,25 +105,25 @@ const COPY = {
       cards: [
         {
           icon: "file",
-          art: "/art/delta-signals.png",
+          art: "/art/abstract-tiles.png",
           title: "The daily brief",
           body: "One paragraph at 8am: what moved, why it moved, what to do today. Written for the operator, not the analyst.",
         },
         {
           icon: "trending",
-          art: "/art/delta-forecast.png",
+          art: "/art/abstract-pills.png",
           title: "Forecasts with receipts",
           body: "Next month's expected revenue with every assumption shown — new, expansion, contraction, churn. No black box.",
         },
         {
           icon: "shield",
-          art: "/art/delta-risk.png",
+          art: "/art/abstract-cylinders.png",
           title: "Risk before it lands",
           body: "Churn signals, campaign decay and broken flows flagged while there's still time to act — not in next month's report.",
         },
         {
           icon: "bulb",
-          art: "/art/dunes-quiet.png",
+          art: "/art/abstract-petals.png",
           title: "Recommendations, not homework",
           body: "Pause this ad set. Scale that creative. Fix this flow. Every recommendation tied to the number it moves.",
         },
@@ -228,25 +228,25 @@ const COPY = {
       cards: [
         {
           icon: "file",
-          art: "/art/delta-signals.png",
+          art: "/art/abstract-tiles.png",
           title: "El brief diario",
           body: "Un párrafo a las 8 de la mañana: qué se movió, por qué se movió, qué hacer hoy. Escrito para quien opera, no para el analista.",
         },
         {
           icon: "trending",
-          art: "/art/delta-forecast.png",
+          art: "/art/abstract-pills.png",
           title: "Forecasts con recibos",
           body: "El ingreso esperado del mes que viene con cada supuesto a la vista — nuevo, expansión, contracción, churn. Sin caja negra.",
         },
         {
           icon: "shield",
-          art: "/art/delta-risk.png",
+          art: "/art/abstract-cylinders.png",
           title: "Riesgo antes de que aterrice",
           body: "Señales de churn, decaimiento de campañas y flujos rotos detectados mientras aún hay tiempo de actuar — no en el informe del mes siguiente.",
         },
         {
           icon: "bulb",
-          art: "/art/dunes-quiet.png",
+          art: "/art/abstract-petals.png",
           title: "Recomendaciones, no deberes",
           body: "Pausa este ad set. Escala esa creatividad. Arregla este flujo. Cada recomendación atada al número que mueve.",
         },
@@ -432,19 +432,21 @@ export default function HomeContent() {
           </div>
         </div>
 
-        {/* Two-card media composition (wide art video + console) */}
+        {/* Two-card media composition (wide abstract art + console) */}
         <div
           className="grid grid-cols-1 lg:grid-cols-[1.45fr_1fr] gap-4 md:gap-5 items-stretch"
           style={{ maxWidth: "var(--container-wide)", margin: "0 auto", paddingBottom: "var(--section-y-tight)" }}
         >
           <div className="gs-hero-media relative rounded-[22px] overflow-hidden min-h-[300px]" style={{ boxShadow: "var(--elevation-media)" }}>
-            <video
-              className="absolute inset-0 w-full h-full object-cover"
-              autoPlay muted loop playsInline
-              poster="/art/hero-river-wide.png"
-            >
-              <source src="/art/hero-river-wide.mp4" type="video/mp4" />
-            </video>
+            <Image
+              src="/art/abstract-glass.png"
+              alt=""
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 60vw"
+              className="gs-parallax object-cover scale-[1.12]"
+              style={{ objectPosition: "center 35%" }}
+            />
             {/* Brief chip overlay — the product moment inside the art */}
             <div className="absolute left-5 bottom-5 right-5 sm:right-auto sm:max-w-[380px] bg-velur-ink/90 backdrop-blur-md border border-ink-700 rounded-[14px] p-4">
               <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-signal-green-300 mb-1.5">
@@ -716,21 +718,21 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ════ 11 · CTA — confluence video band ════ */}
+      {/* ════ 11 · CTA — abstract green art band ════ */}
       <section className="bg-canvas" style={{ padding: "0 var(--gutter) var(--section-y)" }}>
         <div
           className="gs-cta-band relative rounded-[22px] overflow-hidden text-center"
           style={{ maxWidth: "var(--container-max)", margin: "0 auto", padding: "clamp(64px, 9vw, 140px) 24px" }}
         >
-          <video
-            className="absolute inset-0 w-full h-full object-cover"
-            autoPlay muted loop playsInline
-            poster="/art/confluence-y.png"
+          <Image
+            src="/art/abstract-green.png"
+            alt=""
+            fill
+            sizes="100vw"
+            className="gs-parallax object-cover scale-[1.12]"
             aria-hidden
-          >
-            <source src="/art/confluence-y.mp4" type="video/mp4" />
-          </video>
-          <div aria-hidden className="absolute inset-0 bg-velur-ink/55" />
+          />
+          <div aria-hidden className="absolute inset-0 bg-velur-ink/60" />
           <div className="relative">
             <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-signal-green-300 mb-5">{c.cta.eyebrow}</p>
             <h2 className="font-display font-normal text-white leading-[1.05] tracking-[-0.02em] mx-auto mb-5 max-w-[20ch]" style={{ fontSize: "clamp(28px, 4.4vw, 56px)" }}>

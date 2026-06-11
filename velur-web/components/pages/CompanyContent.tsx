@@ -2,7 +2,6 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
-import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import CtaSection from "@/components/marketing/CtaSection";
 import { ArtBand } from "@/components/velur/ArtBand";
@@ -35,8 +34,8 @@ const COPY = {
        trimmed and re-anchored on the credibility (5+ years), the
        fascination (DS / ML / AI), and the honest framing. */
     founderEyebrow: "The founder",
-    founderH1Lead: "Hi, I'm Alexander.",
-    founderH1Tail: "I'm the analyst, the builder, and the founder.",
+    founderH1Lead: "I'm Alexander Campos.",
+    founderH1Tail: "I'm building the tool I spent five years wishing existed.",
     founderQuote:
       "Five years as a Data Analyst inside DTC and small-business stacks. Every brand I've worked with ran on the same six or seven tools — and every brand was losing money because none of them talked to each other.",
     founderP2:
@@ -50,23 +49,6 @@ const COPY = {
     ],
     contactEmail: "hello@velur.io",
     contactLinkedin: "LinkedIn",
-
-    /* The gap — the animated diagram section. */
-    gapEyebrow: "The gap",
-    gapH1: "Your stack was never built to talk to itself.",
-    gapBody:
-      "Shopify says one thing. Meta says another. Klaviyo claims it drove the order. Stripe knows the refund happened. The truth lives in the gaps between them — and that's the layer Velur builds.",
-    diagramTools: [
-      "Shopify",
-      "Klaviyo",
-      "Meta",
-      "TikTok",
-      "Stripe",
-      "Recharge",
-      "Google",
-      "GA4",
-    ],
-    diagramCenter: "Velur",
 
     /* What I'm chasing — three short founder-voice cards. */
     chaseEyebrow: "What I'm chasing",
@@ -108,8 +90,8 @@ const COPY = {
     heroBody:
       "Velur es la capa de ingresos para la que tus herramientas nunca fueron diseñadas a compartir información. Honestos sobre lo que es real, específicos sobre lo que entregamos, y liderados por alguien que ha pasado los últimos cinco años viendo marcas atascadas entre plataformas que no se hablan entre sí.",
     founderEyebrow: "El fundador",
-    founderH1Lead: "Hola, soy Alexander.",
-    founderH1Tail: "Soy el analista, el constructor y el fundador.",
+    founderH1Lead: "Soy Alexander Campos.",
+    founderH1Tail: "Construyo la herramienta que pasé cinco años echando en falta.",
     founderQuote:
       "Cinco años como Data Analyst dentro de stacks DTC y de pequeño negocio. Cada marca con la que trabajé corría con las mismas seis o siete herramientas — y cada marca perdía dinero porque ninguna se hablaba con la siguiente.",
     founderP2:
@@ -123,22 +105,6 @@ const COPY = {
     ],
     contactEmail: "hello@velur.io",
     contactLinkedin: "LinkedIn",
-
-    gapEyebrow: "La brecha",
-    gapH1: "Tu stack nunca fue construido para hablarse a sí mismo.",
-    gapBody:
-      "Shopify dice una cosa. Meta dice otra. Klaviyo asegura que generó el pedido. Stripe sabe que hubo un reembolso. La verdad vive en las brechas entre ellos — y esa es la capa que Velur construye.",
-    diagramTools: [
-      "Shopify",
-      "Klaviyo",
-      "Meta",
-      "TikTok",
-      "Stripe",
-      "Recharge",
-      "Google",
-      "GA4",
-    ],
-    diagramCenter: "Velur",
 
     chaseEyebrow: "Lo que me mueve",
     chaseH1: "Data Science es el rigor. ML es el motor. La IA es el multiplicador.",
@@ -180,159 +146,6 @@ const TAG_ICON: Record<string, typeof BarChart3> = {
   spark: Sparkles,
 };
 
-/* ──────────────────────────────────────────────────────────────────
-   Component: ToolsBeamDiagram
-   8 tool tiles in a horizontal grid above a central Velur node. SVG
-   beams connect each tile to the center with a traveling gradient
-   pulse — the "your stack doesn't talk to itself; we're the layer"
-   moment told visually.
-   ────────────────────────────────────────────────────────────────── */
-
-function ToolsBeamDiagram({ tools, center }: { tools: readonly string[]; center: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const toolRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const centerRef = useRef<HTMLDivElement>(null);
-  const [paths, setPaths] = useState<string[]>([]);
-  const [viewBox, setViewBox] = useState({ w: 1000, h: 360 });
-  const prefersReduced = useReducedMotion();
-
-  useEffect(() => {
-    function compute() {
-      const container = containerRef.current;
-      const centerEl = centerRef.current;
-      if (!container || !centerEl) return;
-      const cb = container.getBoundingClientRect();
-      const ce = centerEl.getBoundingClientRect();
-      const cx = ce.left + ce.width / 2 - cb.left;
-      const cy = ce.top + ce.height / 2 - cb.top;
-      setViewBox({ w: cb.width, h: cb.height });
-      const next = toolRefs.current.map((el) => {
-        if (!el) return "";
-        const r = el.getBoundingClientRect();
-        const x = r.left + r.width / 2 - cb.left;
-        const y = r.top + r.height - cb.top + 6;
-        // Cubic curve from tile bottom → center top, with a soft drop.
-        const dy = (cy - y) * 0.55;
-        return `M ${x} ${y} C ${x} ${y + dy}, ${cx} ${cy - dy}, ${cx} ${cy}`;
-      });
-      setPaths(next);
-    }
-    compute();
-    window.addEventListener("resize", compute);
-    return () => window.removeEventListener("resize", compute);
-  }, [tools.length]);
-
-  return (
-    <div
-      ref={containerRef}
-      className="relative w-full"
-      style={{ minHeight: "clamp(300px, 36vw, 460px)" }}
-    >
-      {/* Tool tiles row */}
-      <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 sm:gap-3 relative z-10">
-        {tools.map((t, i) => (
-          <motion.div
-            key={t}
-            ref={(el) => {
-              toolRefs.current[i] = el;
-            }}
-            initial={prefersReduced ? {} : { opacity: 0, y: -8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{
-              duration: 0.5,
-              delay: prefersReduced ? 0 : i * 0.05,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-            className="bg-paper border border-line rounded-[12px] py-3 px-2 flex items-center justify-center font-mono text-[11px] sm:text-[12px] tracking-[0.02em] text-ink-strong"
-          >
-            {t}
-          </motion.div>
-        ))}
-      </div>
-
-      {/* SVG beams */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        viewBox={`0 0 ${viewBox.w} ${viewBox.h}`}
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <defs>
-          <linearGradient id="beam-grad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"  stopColor="#4FB78D" stopOpacity="0" />
-            <stop offset="40%" stopColor="#4FB78D" stopOpacity="0.95" />
-            <stop offset="100%" stopColor="#0B3D2E" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        {paths.map((d, i) =>
-          d ? (
-            <g key={i}>
-              {/* Static base line */}
-              <motion.path
-                d={d}
-                stroke="rgba(31, 95, 224, 0.18)"
-                strokeWidth="1.2"
-                fill="none"
-                initial={prefersReduced ? { pathLength: 1 } : { pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{
-                  duration: 1.1,
-                  delay: prefersReduced ? 0 : 0.2 + i * 0.05,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-              />
-              {/* Animated pulse traveling along the path */}
-              {!prefersReduced && (
-                <motion.path
-                  d={d}
-                  stroke="url(#beam-grad)"
-                  strokeWidth="2.4"
-                  strokeLinecap="round"
-                  fill="none"
-                  strokeDasharray="48 1000"
-                  initial={{ strokeDashoffset: 1048 }}
-                  animate={{ strokeDashoffset: 0 }}
-                  transition={{
-                    duration: 2.6,
-                    delay: 1.0 + i * 0.18,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    repeatDelay: 1.4,
-                  }}
-                />
-              )}
-            </g>
-          ) : null,
-        )}
-      </svg>
-
-      {/* Center Velur node */}
-      <motion.div
-        ref={centerRef}
-        initial={prefersReduced ? {} : { opacity: 0, scale: 0.92 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.6, delay: prefersReduced ? 0 : 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute left-1/2 -translate-x-1/2 z-10"
-        style={{ bottom: "8%" }}
-      >
-        <div className="relative">
-          <div className="absolute inset-0 -m-3 rounded-[24px] bg-signal-green/15 blur-xl" aria-hidden />
-          <div className="relative bg-velur-ink text-on-dark px-7 py-4 rounded-[20px] border border-signal-green/40 shadow-2xl">
-            <span className="font-display text-[24px] tracking-[-0.02em]">{center}</span>
-            <span className="ml-2 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.08em] text-signal-green-300 align-middle">
-              <span className="w-1.5 h-1.5 rounded-full bg-signal-green-300" />
-              live
-            </span>
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  );
-}
 
 /* ──────────────────────────────────────────────────────────────────
    Page
@@ -388,7 +201,7 @@ export default function CompanyContent() {
 
       {/* ── Brand art band — aerial delta (the "one timeline" terrain) ─── */}
       <section className="bg-canvas border-b border-border-light" style={{ padding: "var(--section-y-tight) 0 0" }}>
-        <ArtBand src="/art/delta-aerial.png" className="h-[220px] md:h-[360px] lg:h-[440px]" />
+        <ArtBand src="/art/abstract-glass.png" className="h-[220px] md:h-[360px] lg:h-[440px]" />
         <div style={{ height: "var(--section-y-tight)" }} />
       </section>
 
@@ -486,45 +299,6 @@ export default function CompanyContent() {
                 );
               })}
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── The gap: animated tools → Velur beam diagram ────────── */}
-      <section
-        className="bg-velur-ink text-on-dark relative overflow-hidden"
-        style={{ padding: "var(--section-y) var(--gutter)" }}
-      >
-        {/* Subtle dot grid background */}
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none opacity-[0.25]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, rgba(79,183,141,0.4) 1px, transparent 1px)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-
-        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto", position: "relative" }}>
-          <div className="max-w-3xl mb-10 md:mb-14">
-            <motion.p {...fadeUp(0)} className="font-mono text-[13px] uppercase tracking-[0.06em] text-signal-green-300 mb-4">
-              {c.gapEyebrow}
-            </motion.p>
-            <motion.h2
-              {...fadeUp(0.05)}
-              className="font-display font-normal text-white leading-[1.05] tracking-[-0.02em] mb-5"
-              style={{ fontSize: "clamp(28px, 4vw, 52px)" }}
-            >
-              {c.gapH1}
-            </motion.h2>
-            <motion.p {...fadeUp(0.1)} className="font-sans text-[17px] leading-[1.55] text-on-dark-muted max-w-[58ch]">
-              {c.gapBody}
-            </motion.p>
-          </div>
-
-          <div className="bg-velur-ink/70 backdrop-blur-sm rounded-2xl border border-ink-700 p-6 md:p-10">
-            <ToolsBeamDiagram tools={c.diagramTools} center={c.diagramCenter} />
           </div>
         </div>
       </section>

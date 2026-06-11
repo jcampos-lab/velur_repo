@@ -322,7 +322,7 @@ export default function IntegrationsContent() {
         style={{ padding: "var(--section-y) var(--gutter)" }}
       >
         <ArtBackdrop
-          still="/art/dunes-og.png"
+          still="/art/abstract-petals.png"
           overlay="linear-gradient(180deg, rgba(10,26,47,0.72) 0%, rgba(10,26,47,0.55) 55%, rgba(10,26,47,0.78) 100%)"
         />
         <div

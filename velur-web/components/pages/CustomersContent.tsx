@@ -192,7 +192,7 @@ export default function CustomersContent() {
 
       {/* Brand art band — spiral delta (every account converging on one console) */}
       <section className="bg-canvas" style={{ padding: "var(--section-y-tight) 0 0" }}>
-        <ArtBand src="/art/delta-spiral.png" className="h-[220px] md:h-[340px] lg:h-[420px]" />
+        <ArtBand src="/art/abstract-pills.png" className="h-[220px] md:h-[340px] lg:h-[420px]" />
       </section>
 
       {/* Audience cards */}

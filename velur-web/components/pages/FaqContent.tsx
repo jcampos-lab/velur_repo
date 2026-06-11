@@ -71,7 +71,7 @@ export default function FaqContent() {
             className="relative overflow-hidden rounded-2xl bg-brand-brown text-paper p-7 md:p-12 lg:p-16"
           >
             <ArtBackdrop
-              still="/art/dunes-quiet.png"
+              still="/art/abstract-cylinders.png"
               overlay="rgba(16,19,22,0.35)"
               objectPosition="center bottom"
             />
