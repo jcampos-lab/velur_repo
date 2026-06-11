@@ -46,7 +46,13 @@ export function GooeyTabs({
   const filterId = `goo-${rawId.replace(/[:]/g, "")}`;
 
   return (
-    <div className={`relative ${className}`}>
+    /* Framed rail: visible rounded boundary + soft gray base so the
+       component reads as a finished surface (the strip previously had
+       no edges and looked unanchored). overflow-hidden also crops the
+       goo blur cleanly at the corners. */
+    <div
+      className={`relative rounded-[22px] border border-line bg-stone-200/60 overflow-hidden ${className}`}
+    >
       <GooeyFilter id={filterId} strength={screenSize.lessThan("md") ? 8 : 15} />
 
       {/* ── Goo layer: tab blob + panel background, fused by the filter.
@@ -83,11 +89,15 @@ export function GooeyTabs({
               role="tab"
               aria-selected={active === i}
               onClick={() => setActive(i)}
-              className="flex-1 h-full px-1"
+              className="group flex-1 h-full p-1.5"
             >
+              {/* Gray-glassy pill on hover + press; the goo blob still
+                  marks the active tab underneath. */}
               <span
-                className={`w-full h-full flex items-center justify-center font-mono uppercase tracking-[0.06em] text-[10px] sm:text-[11px] md:text-[12px] transition-colors duration-200 ${
-                  active === i ? "text-ink-strong" : "text-slate hover:text-ink"
+                className={`w-full h-full flex items-center justify-center rounded-full font-mono uppercase tracking-[0.06em] text-[10px] sm:text-[11px] md:text-[12px] transition-all duration-200 backdrop-blur-sm ${
+                  active === i
+                    ? "text-ink-strong"
+                    : "text-slate group-hover:text-ink group-hover:bg-ink/[0.06] group-active:bg-ink/[0.1] group-active:scale-[0.97]"
                 }`}
               >
                 {tab.label}

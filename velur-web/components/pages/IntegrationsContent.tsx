@@ -310,44 +310,50 @@ export default function IntegrationsContent() {
         style={{ padding: "var(--section-y) var(--gutter)" }}
       >
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <div className="mb-10 md:mb-14 max-w-2xl">
-            <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
-              {c.integrationsEyebrow}
-            </p>
-            <h2
-              className="font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.025em]"
-              style={{ fontSize: "clamp(26px, 3.6vw, 44px)" }}
-            >
-              {c.integrationsHeading}
-            </h2>
-          </div>
-
-          {/* Desktop: gooey tabs — one tab per integration, the active
-              tab fuses into the detail panel. Mobile keeps stacked
-              cards (eight tabs don't fit a phone-width strip). */}
-          <div className="hidden md:block">
-            <GooeyTabs
-              surfaceClass="bg-paper"
-              tabs={c.integrations.map((it) => ({
-                label: it.name,
-                content: <IntegrationDetail it={it} />,
-              }))}
-            />
-          </div>
-
-          <div className="md:hidden flex flex-col gap-4">
-            {c.integrations.map((it, i) => (
-              <motion.article
-                key={it.name}
-                initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-2xl bg-paper border border-line p-6"
+          {/* Heading left, tabs constrained on the right — the tabs were
+              previously full-bleed and read enormous on wide screens. */}
+          <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.5fr] gap-10 lg:gap-14 items-start">
+            <div className="lg:sticky lg:top-32">
+              <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
+                {c.integrationsEyebrow}
+              </p>
+              <h2
+                className="font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.025em]"
+                style={{ fontSize: "clamp(26px, 3vw, 40px)" }}
               >
-                <IntegrationDetail it={it} />
-              </motion.article>
-            ))}
+                {c.integrationsHeading}
+              </h2>
+            </div>
+
+            <div>
+              {/* Desktop: gooey tabs — one tab per integration, the
+                  active tab fuses into the detail panel. Mobile keeps
+                  stacked cards (eight tabs don't fit a phone strip). */}
+              <div className="hidden md:block w-full max-w-[760px] lg:justify-self-end">
+                <GooeyTabs
+                  surfaceClass="bg-paper"
+                  tabs={c.integrations.map((it) => ({
+                    label: it.name,
+                    content: <IntegrationDetail it={it} />,
+                  }))}
+                />
+              </div>
+
+              <div className="md:hidden flex flex-col gap-4">
+                {c.integrations.map((it, i) => (
+                  <motion.article
+                    key={it.name}
+                    initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
+                    className="rounded-2xl bg-paper border border-line p-6"
+                  >
+                    <IntegrationDetail it={it} />
+                  </motion.article>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
