@@ -8,7 +8,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
-import { GooeyTabs } from "@/components/ui/gooey-tabs";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -446,7 +445,7 @@ export default function ServicesContent() {
         </div>
       </section>
 
-      {/* Module explorer — gooey tabs (active tab fuses into the panel) */}
+      {/* Module explorer — four cards, one per platform module */}
       <section className="bg-cream pb-14 md:pb-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="mb-8 md:mb-10 max-w-2xl">
@@ -458,32 +457,39 @@ export default function ServicesContent() {
               {c.platform.heading}
             </h2>
           </div>
-          <GooeyTabs
-            tabs={c.modules.map((m) => ({
-              label: m.label,
-              content: (
-                <div className="max-w-[760px]">
-                  <h3
-                    className="font-display font-normal text-ink-strong leading-[1.1] tracking-[-0.02em] mb-4"
-                    style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}
-                  >
-                    {m.title}
-                  </h3>
-                  <p className="font-sans text-[15.5px] leading-[1.6] text-ink/75 mb-6">
-                    {m.body}
-                  </p>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5">
-                    {m.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2.5">
-                        <span className="mt-2 inline-block w-1.5 h-1.5 rounded-full shrink-0 bg-signal-green" />
-                        <span className="font-sans text-[14px] text-ink/85 leading-snug">{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ),
-            }))}
-          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+            {c.modules.map((m, i) => (
+              <motion.article
+                key={m.label}
+                initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                className="rounded-2xl bg-paper border border-line p-6 md:p-8"
+              >
+                <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-signal-green mb-4">
+                  {m.label}
+                </p>
+                <h3
+                  className="font-display font-normal text-ink-strong leading-[1.1] tracking-[-0.02em] mb-3"
+                  style={{ fontSize: "clamp(20px, 2.2vw, 26px)" }}
+                >
+                  {m.title}
+                </h3>
+                <p className="font-sans text-[15px] leading-[1.6] text-ink/75 mb-5">
+                  {m.body}
+                </p>
+                <ul className="grid grid-cols-1 gap-y-2.5">
+                  {m.bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-2.5">
+                      <span className="mt-2 inline-block w-1.5 h-1.5 rounded-full shrink-0 bg-signal-green" />
+                      <span className="font-sans text-[14px] text-ink/85 leading-snug">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </section>
 

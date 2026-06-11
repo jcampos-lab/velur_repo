@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ConsoleMock } from "@/components/velur/ConsoleMock";
+import { RevenueAreaCard } from "@/components/velur/RevenueAreaCard";
 import { VelurStackOrbital } from "@/components/ui/orbital-integrations";
 import {
   Plug,
@@ -74,6 +75,12 @@ const COPY = {
         "Insight written in plain language, not charts to decode",
         "Forecasts and risks surfaced before they cost you",
       ],
+      chart: {
+        label: "Net revenue · last 30 days",
+        metric: "€1.42M",
+        delta: "+12.4% vs prior 30d",
+        seriesLabel: "Net revenue",
+      },
     },
     how: {
       eyebrow: "How it works",
@@ -197,6 +204,12 @@ const COPY = {
         "Insight escrito en lenguaje claro, no gráficos que descifrar",
         "Forecasts y riesgos detectados antes de que te cuesten dinero",
       ],
+      chart: {
+        label: "Ingresos netos · últimos 30 días",
+        metric: "1,42 M€",
+        delta: "+12,4% vs 30d anteriores",
+        seriesLabel: "Ingresos netos",
+      },
     },
     how: {
       eyebrow: "Cómo funciona",
@@ -490,7 +503,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ════ 4 · SOLUTION — Signal Green dark band + console ════ */}
+      {/* ════ 4 · SOLUTION — Signal Green dark band + revenue chart ════ */}
       <section className="bg-signal-green text-on-dark relative overflow-hidden" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div
           aria-hidden
@@ -521,7 +534,12 @@ export default function HomeContent() {
             </ul>
           </div>
           <div className="gs-console" style={{ clipPath: "inset(0 0 0% 0)" }}>
-            <ConsoleMock />
+            <RevenueAreaCard
+              label={c.solution.chart.label}
+              metric={c.solution.chart.metric}
+              delta={c.solution.chart.delta}
+              seriesLabel={c.solution.chart.seriesLabel}
+            />
           </div>
         </div>
       </section>

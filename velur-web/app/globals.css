@@ -179,6 +179,17 @@
 
 /* ─── Velur runtime tokens (radii, spacing, type-scale, elevation) */
 :root {
+  /* AreaChart (components/ui/area-chart.tsx) reads these directly
+     inside SVG fills/strokes, so they live outside @theme. */
+  --chart-background:       #FFFFFF;
+  --chart-foreground:       #101316;
+  --chart-foreground-muted: #6B7078;
+  --chart-label:            #6B7078;
+  --chart-line-primary:     #0B3D2E;
+  --chart-line-secondary:   #4FB78D;
+  --chart-crosshair:        #4FB78D;
+  --chart-grid:             #ECECEF;
+
   --radius-xs:   4px;
   --radius-sm:   8px;
   --radius-md:   16px;

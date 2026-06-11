@@ -5,7 +5,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { Lock, Shield, Check } from "lucide-react";
 import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
-import { GooeyTabs } from "@/components/ui/gooey-tabs";
 import { VelurStackOrbital } from "@/components/ui/orbital-integrations";
 
 /* ─── Per-page strings (Castilian Spanish for ES) ─────────────────── */
@@ -189,8 +188,7 @@ const SECURITY_ICON: Record<string, typeof Lock> = {
   check: Check,
 };
 
-/* Shared detail block — rendered inside the gooey tab panel on
-   desktop and inside stacked cards on mobile. */
+/* Detail block rendered inside each integration card. */
 function IntegrationDetail({ it }: { it: Integration }) {
   return (
     <div className="max-w-[820px]">
@@ -310,8 +308,7 @@ export default function IntegrationsContent() {
         style={{ padding: "var(--section-y) var(--gutter)" }}
       >
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          {/* Heading left, tabs constrained on the right — the tabs were
-              previously full-bleed and read enormous on wide screens. */}
+          {/* Sticky heading left, integration cards on the right. */}
           <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.5fr] gap-10 lg:gap-14 items-start">
             <div className="lg:sticky lg:top-32">
               <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
@@ -325,34 +322,19 @@ export default function IntegrationsContent() {
               </h2>
             </div>
 
-            <div>
-              {/* Desktop: gooey tabs — one tab per integration, the
-                  active tab fuses into the detail panel. Mobile keeps
-                  stacked cards (eight tabs don't fit a phone strip). */}
-              <div className="hidden md:block w-full max-w-[760px] lg:justify-self-end">
-                <GooeyTabs
-                  surfaceClass="bg-paper"
-                  tabs={c.integrations.map((it) => ({
-                    label: it.name,
-                    content: <IntegrationDetail it={it} />,
-                  }))}
-                />
-              </div>
-
-              <div className="md:hidden flex flex-col gap-4">
-                {c.integrations.map((it, i) => (
-                  <motion.article
-                    key={it.name}
-                    initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                    className="rounded-2xl bg-paper border border-line p-6"
-                  >
-                    <IntegrationDetail it={it} />
-                  </motion.article>
-                ))}
-              </div>
+            <div className="flex flex-col gap-4">
+              {c.integrations.map((it, i) => (
+                <motion.article
+                  key={it.name}
+                  initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
+                  className="rounded-2xl bg-paper border border-line p-6 md:p-8"
+                >
+                  <IntegrationDetail it={it} />
+                </motion.article>
+              ))}
             </div>
           </div>
         </div>
