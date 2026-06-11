@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
+import { GooeyTabs } from "@/components/ui/gooey-tabs";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -396,61 +397,6 @@ function HeroCard({ c, m }: { c: Copy; m: Copy["mock"] }) {
   );
 }
 
-/* ─── Module cards ─────────────────────────────────────────────────────── */
-
-type Module = {
-  label: string;
-  title: string;
-  body: string;
-  bullets: string[];
-  bg: string;
-  textTone: "dark" | "light";
-};
-
-const MODULE_SURFACES = [
-  { bg: "bg-paper",       textTone: "dark"  as const },
-  { bg: "bg-brand-beige", textTone: "dark"  as const },
-  { bg: "bg-brand-slate", textTone: "light" as const },
-  { bg: "bg-brand-brown", textTone: "light" as const },
-];
-
-function ModuleCard({ m, i, prefersReduced }: { m: Module; i: number; prefersReduced: boolean | null }) {
-  const dark = m.textTone === "light";
-  return (
-    <motion.div
-      initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.55, delay: prefersReduced ? 0 : i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-      whileHover={prefersReduced ? undefined : { y: -3 }}
-      className={`rounded-2xl ${m.bg} ${dark ? "text-on-dark" : "text-ink"} border ${dark ? "border-transparent" : "border-line"} p-7 md:p-9 flex flex-col gap-5`}
-    >
-      <p className={`font-mono text-[10.5px] tracking-[0.18em] uppercase ${dark ? "text-signal-green-300" : "text-action-blue"}`}>
-        {m.label}
-      </p>
-      <h3
-        className={`font-display font-normal leading-[1.1] tracking-[-0.02em] ${dark ? "text-on-dark" : "text-ink-strong"}`}
-        style={{ fontSize: "clamp(20px, 2.2vw, 28px)" }}
-      >
-        {m.title}
-      </h3>
-      <p className={`font-sans text-[14.5px] leading-relaxed ${dark ? "text-on-dark-muted" : "text-ink/70"}`}>
-        {m.body}
-      </p>
-      <ul className="mt-2 space-y-2">
-        {m.bullets.map(b => (
-          <li key={b} className="flex items-start gap-2.5">
-            <span className={`mt-2 inline-block w-1.5 h-1.5 rounded-full shrink-0 ${dark ? "bg-signal-green-300" : "bg-action-blue"}`} />
-            <span className={`font-sans text-[13.5px] ${dark ? "text-on-dark/90" : "text-ink/85"}`}>
-              {b}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </motion.div>
-  );
-}
-
 /* ─── Page ─────────────────────────────────────────────────────────────── */
 
 export default function ServicesContent() {
@@ -491,13 +437,6 @@ export default function ServicesContent() {
     { scope: howRef },
   );
 
-  const modules: Module[] = c.modules.map((m, i) => ({
-    ...m,
-    bullets: [...m.bullets],
-    bg: MODULE_SURFACES[i].bg,
-    textTone: MODULE_SURFACES[i].textTone,
-  }));
-
   return (
     <>
       {/* Hero card */}
@@ -507,7 +446,7 @@ export default function ServicesContent() {
         </div>
       </section>
 
-      {/* Module grid */}
+      {/* Module explorer — gooey tabs (active tab fuses into the panel) */}
       <section className="bg-cream pb-14 md:pb-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="mb-8 md:mb-10 max-w-2xl">
@@ -519,11 +458,32 @@ export default function ServicesContent() {
               {c.platform.heading}
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-            {modules.map((m, i) => (
-              <ModuleCard key={m.label} m={m} i={i} prefersReduced={prefersReduced} />
-            ))}
-          </div>
+          <GooeyTabs
+            tabs={c.modules.map((m) => ({
+              label: m.label,
+              content: (
+                <div className="max-w-[760px]">
+                  <h3
+                    className="font-display font-normal text-ink-strong leading-[1.1] tracking-[-0.02em] mb-4"
+                    style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}
+                  >
+                    {m.title}
+                  </h3>
+                  <p className="font-sans text-[15.5px] leading-[1.6] text-ink/75 mb-6">
+                    {m.body}
+                  </p>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5">
+                    {m.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5">
+                        <span className="mt-2 inline-block w-1.5 h-1.5 rounded-full shrink-0 bg-signal-green" />
+                        <span className="font-sans text-[14px] text-ink/85 leading-snug">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ),
+            }))}
+          />
         </div>
       </section>
 
