@@ -28,7 +28,7 @@ export const PROMPT_PACKS_ES: Record<string, PromptPackEs> = {
     title: "Spa & Estudio",
     tagline: "Imágenes tranquilas y premium para marcas de bienestar.",
     intro:
-      "Los prompts exactos que usa Cami Lab Studio para lanzar una semana de imágenes on-brand en una tarde. Pensados para spas, estética, masaje, recovery y pequeños estudios de bienestar donde el look tiene que sentirse calmado y caro sin sesión de fotos.",
+      "Los prompts exactos que usamos para lanzar una semana de imágenes on-brand en una tarde. Pensados para spas, estética, masaje, recovery y pequeños estudios de bienestar donde el look tiene que sentirse calmado y caro sin sesión de fotos.",
     groups: [
       {
         title: "Imágenes de sala de tratamiento",

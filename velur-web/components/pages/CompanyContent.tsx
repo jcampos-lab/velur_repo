@@ -13,66 +13,57 @@ import {
 } from "lucide-react";
 
 /* ─── Per-page strings (Castilian Spanish for ES) ──────────────────────
-   Heavy redesign: instead of three list-style sections (Opinions /
-   Beliefs / Passion) stacking on each other, the story flows as
-   one piece — founder voice, the gap, what I'm chasing, the promise.
-
-   Founder voice rules applied:
-   - State what's real (5 years as a Data Analyst inside DTC).
-   - Don't pitch. Be specific. Cami Lab Studio is the first client,
-     said plainly.
-   - The mission is honest: tools were never built to talk to each
-     other; the point is to make that layer exist. */
+   Team voice: professional, specific, no client name-drops. Velur is
+   presented as a dedicated team working across Data Science, ML, AI
+   and business operations, with Alexander's experience as the anchor
+   — never as a solo project. */
 const COPY = {
   en: {
-    heroEyebrow: "Company · The team",
-    heroLineLead: "Five years inside DTC data.",
-    heroLineTail: "One question I couldn't shake.",
+    heroEyebrow: "Company",
+    heroLineLead: "Years inside revenue data.",
+    heroLineTail: "One layer that was always missing.",
     heroBody:
-      "Velur is the revenue layer your tools were never built to share. Honest about what's real, specific about what we ship, and led by someone who's spent the last five years watching brands stuck between platforms that don't talk to each other.",
-    /* Founder block — replaces the imported FounderSection,
-       trimmed and re-anchored on the credibility (5+ years), the
-       fascination (DS / ML / AI), and the honest framing. */
-    founderEyebrow: "The founder",
-    founderH1Lead: "I'm Alexander Campos.",
-    founderH1Tail: "I'm building the tool I spent five years wishing existed.",
+      "Velur is built by a dedicated team working at the intersection of data science, machine learning, AI and business operations. We've spent years inside the revenue stacks of consumer brands — and we're building the intelligence layer those stacks were always missing.",
+    founderEyebrow: "Who we are",
+    founderH1Lead: "Led by Alexander Campos.",
+    founderH1Tail: "Built by a team that has done this work for years.",
     founderQuote:
-      "Five years as a Data Analyst inside DTC and small-business stacks. Every brand I've worked with ran on the same six or seven tools — and every brand was losing money because none of them talked to each other.",
+      "Years inside DTC and small-business data stacks taught us one thing: brands don't lack data — they lack a layer that reads it as one business. Every team we've worked alongside ran the same six or seven tools, and none of those tools talked to each other.",
     founderP2:
-      "Velur is the layer that makes them talk. Nothing about the product is novel by itself; what's new is that no one has actually built it for the brands that need it most.",
-    founderP3Pre: "Our first client is ",
-    founderP3Mid: ", a spa in Port St. Lucie that runs the same playbook Velur is built on — live, every day, by one person. It's how I test everything before it ships.",
+      "Velur exists to be that layer. The underlying technology — pipelines, models, language interfaces — is mature. What's been missing is a team willing to assemble it rigorously for the brands that need it most. That is the work we do every day.",
+    founderP3:
+      "We work across data science, machine learning and applied AI, with one constraint we never trade away: every number we put in front of an operator must be traceable back to its source.",
     founderTags: [
-      { icon: "chart",  label: "Data analyst" },
-      { icon: "cpu",    label: "ML curious" },
-      { icon: "spark",  label: "AI honest" },
+      { icon: "chart",  label: "Data Science" },
+      { icon: "cpu",    label: "Machine Learning" },
+      { icon: "spark",  label: "Applied AI" },
     ],
     contactEmail: "hello@velur.io",
     contactLinkedin: "LinkedIn",
 
-    /* What I'm chasing — three short founder-voice cards. */
-    chaseEyebrow: "What I'm chasing",
+    /* How we work — three discipline cards. */
+    chaseEyebrow: "How we work",
     chaseH1: "Data Science is the rigor. ML is the engine. AI is the multiplier.",
     chaseBody:
-      "I'm fascinated by all three — but only as means to an end. The end is a brand that reads its revenue clearly every morning and makes one fewer wrong call this week than last.",
+      "We care about all three — as means to an end. The end is a brand that reads its revenue clearly every morning and makes better decisions, faster.",
     chaseCards: [
       {
         icon: "chart",
         kicker: "01",
         title: "Data Science",
-        body: "Fragmented data is the default in DTC. Making it legible is most of the work. That's where I started, and that's still the rigor underneath everything Velur ships.",
+        body: "Fragmented data is the default in consumer business. Making it legible — modelled, reconciled, trustworthy — is most of the work, and it's the rigor underneath everything Velur ships.",
       },
       {
         icon: "cpu",
         kicker: "02",
         title: "Machine Learning",
-        body: "Used where it earns its keep — LTV projection, churn signals, attribution modeling. Not sprinkled on the product to look modern. The model is the engine, not the marketing.",
+        body: "Applied where it earns its place — LTV projection, churn signals, attribution modelling. Never decoration. The model is the engine, not the marketing.",
       },
       {
         icon: "spark",
         kicker: "03",
-        title: "AI as multiplier",
-        body: "AI is how a small team ships analyst-grade context at the speed an operator actually needs. Every brief is AI-assisted. Every number is human-validated. That's the contract.",
+        title: "Applied AI",
+        body: "AI is how a focused team delivers analyst-grade context at the speed an operator needs. Every brief is AI-assisted; every number is validated against source data. That's the contract.",
       },
     ],
 
@@ -80,61 +71,61 @@ const COPY = {
     promiseEyebrow: "The promise",
     promise: "Be useful. Add value. Don't ship dashboards no one reads.",
     promiseBody:
-      "That's the only line I write down. Everything Velur does either survives that test, or it doesn't ship.",
+      "It's the standard we hold every release to. If a feature doesn't survive that test, it doesn't ship.",
   },
 
   es: {
-    heroEyebrow: "Empresa · El equipo",
-    heroLineLead: "Cinco años dentro de los datos DTC.",
-    heroLineTail: "Una pregunta que no se me quitaba de la cabeza.",
+    heroEyebrow: "Empresa",
+    heroLineLead: "Años dentro de los datos de ingresos.",
+    heroLineTail: "Una capa que siempre faltó.",
     heroBody:
-      "Velur es la capa de ingresos para la que tus herramientas nunca fueron diseñadas a compartir información. Honestos sobre lo que es real, específicos sobre lo que entregamos, y liderados por alguien que ha pasado los últimos cinco años viendo marcas atascadas entre plataformas que no se hablan entre sí.",
-    founderEyebrow: "El fundador",
-    founderH1Lead: "Soy Alexander Campos.",
-    founderH1Tail: "Construyo la herramienta que pasé cinco años echando en falta.",
+      "Velur lo construye un equipo dedicado que trabaja en la intersección de data science, machine learning, IA y operaciones de negocio. Hemos pasado años dentro de los stacks de ingresos de marcas de consumo — y estamos construyendo la capa de inteligencia que a esos stacks siempre les faltó.",
+    founderEyebrow: "Quiénes somos",
+    founderH1Lead: "Liderados por Alexander Campos.",
+    founderH1Tail: "Construido por un equipo que lleva años haciendo este trabajo.",
     founderQuote:
-      "Cinco años como Data Analyst dentro de stacks DTC y de pequeño negocio. Cada marca con la que trabajé corría con las mismas seis o siete herramientas — y cada marca perdía dinero porque ninguna se hablaba con la siguiente.",
+      "Años dentro de stacks de datos DTC y de pequeño negocio nos enseñaron una cosa: a las marcas no les faltan datos — les falta una capa que los lea como un solo negocio. Cada equipo junto al que trabajamos corría con las mismas seis o siete herramientas, y ninguna se hablaba con la siguiente.",
     founderP2:
-      "Velur es la capa que las pone a hablar. Nada del producto es novedoso por sí solo; lo nuevo es que nadie lo ha construido todavía para las marcas que más lo necesitan.",
-    founderP3Pre: "Nuestro primer cliente es ",
-    founderP3Mid: ", un spa en Port St. Lucie que opera con el mismo manual sobre el que se construyó Velur — en vivo, cada día, llevado por una sola persona. Es donde pruebo cada cosa antes de lanzarla.",
+      "Velur existe para ser esa capa. La tecnología de base — pipelines, modelos, interfaces de lenguaje — está madura. Lo que faltaba era un equipo dispuesto a ensamblarla con rigor para las marcas que más la necesitan. Ese es el trabajo que hacemos cada día.",
+    founderP3:
+      "Trabajamos en data science, machine learning e IA aplicada, con una restricción que nunca negociamos: cada número que ponemos delante de un operador tiene que poder trazarse hasta su fuente.",
     founderTags: [
-      { icon: "chart", label: "Data analyst" },
-      { icon: "cpu",   label: "Curioso de ML" },
-      { icon: "spark", label: "IA con honestidad" },
+      { icon: "chart", label: "Data Science" },
+      { icon: "cpu",   label: "Machine Learning" },
+      { icon: "spark", label: "IA aplicada" },
     ],
     contactEmail: "hello@velur.io",
     contactLinkedin: "LinkedIn",
 
-    chaseEyebrow: "Lo que me mueve",
+    chaseEyebrow: "Cómo trabajamos",
     chaseH1: "Data Science es el rigor. ML es el motor. La IA es el multiplicador.",
     chaseBody:
-      "Me fascinan los tres — pero solo como medios para un fin. El fin es una marca que lee sus ingresos con claridad cada mañana y toma una decisión equivocada menos esta semana que la anterior.",
+      "Nos importan los tres — como medios para un fin. El fin es una marca que lee sus ingresos con claridad cada mañana y toma mejores decisiones, más rápido.",
     chaseCards: [
       {
         icon: "chart",
         kicker: "01",
         title: "Data Science",
-        body: "Los datos fragmentados son el estado por defecto en DTC. Hacerlos legibles es la mayor parte del trabajo. Ahí empecé, y ese es todavía el rigor debajo de todo lo que entrega Velur.",
+        body: "Los datos fragmentados son el estado por defecto en el negocio de consumo. Hacerlos legibles — modelados, reconciliados, fiables — es la mayor parte del trabajo, y es el rigor debajo de todo lo que entrega Velur.",
       },
       {
         icon: "cpu",
         kicker: "02",
         title: "Machine Learning",
-        body: "Lo usamos donde de verdad se paga solo — predicción de LTV, señales de churn, modelado de atribución. No espolvoreado encima del producto para que parezca moderno. El modelo es el motor, no el marketing.",
+        body: "Aplicado donde se gana su sitio — predicción de LTV, señales de churn, modelado de atribución. Nunca como decoración. El modelo es el motor, no el marketing.",
       },
       {
         icon: "spark",
         kicker: "03",
-        title: "IA como multiplicador",
-        body: "La IA es cómo un equipo pequeño entrega contexto de nivel analista a la velocidad que un operador realmente necesita. Cada brief está asistido por IA. Cada número está validado por personas. Ese es el contrato.",
+        title: "IA aplicada",
+        body: "La IA es cómo un equipo enfocado entrega contexto de nivel analista a la velocidad que un operador necesita. Cada brief está asistido por IA; cada número está validado contra los datos de origen. Ese es el contrato.",
       },
     ],
 
     promiseEyebrow: "La promesa",
     promise: "Sé útil. Aporta valor. No lances dashboards que nadie lee.",
     promiseBody:
-      "Es la única línea que tengo escrita. Todo lo que Velur hace sobrevive a esa prueba, o no se lanza.",
+      "Es el estándar al que sometemos cada release. Si una funcionalidad no supera esa prueba, no se lanza.",
   },
 } as const;
 
@@ -241,16 +232,7 @@ export default function CompanyContent() {
                 {c.founderP2}
               </p>
               <p className="font-sans text-[16.5px] text-ink/85 leading-[1.6]">
-                {c.founderP3Pre}
-                <Link
-                  href="https://camilab.studio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-action-blue hover:underline underline-offset-4"
-                >
-                  Cami Lab Studio
-                </Link>
-                {c.founderP3Mid}
+                {c.founderP3}
               </p>
 
               <div className="flex flex-wrap items-center gap-3 pt-2">

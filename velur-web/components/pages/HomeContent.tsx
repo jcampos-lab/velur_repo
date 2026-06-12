@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
@@ -10,6 +10,7 @@ import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ConsoleMock } from "@/components/velur/ConsoleMock";
 import { RevenueAreaCard } from "@/components/velur/RevenueAreaCard";
 import { BrandMarquee } from "@/components/velur/BrandMarquee";
+import { SignalJourney } from "@/components/velur/SignalJourney";
 import { RippleGrid } from "@/components/ui/ripple-grid";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { GooeyTabs } from "@/components/ui/gooey-tabs";
@@ -99,15 +100,27 @@ const COPY = {
     questions: {
       eyebrow: "Ask it anything",
       h2: "The questions Velur answers every day.",
-      items: [
-        "Why did revenue decline this week?",
-        "Which channel brings the highest-LTV customers?",
-        "Which products actually drive profit?",
-        "Which campaigns should be paused today?",
-        "What is causing customer churn?",
-        "What's the expected revenue next month?",
-        "Where are we losing money?",
-        "Which segments are growing fastest?",
+      groups: [
+        {
+          label: "Revenue",
+          note: "Every movement traced back to its cause — channel, creative, cohort or flow.",
+          items: ["Why did revenue decline this week?", "Where are we losing money?"],
+        },
+        {
+          label: "Acquisition",
+          note: "Spend, sessions, orders and margin reconciled into one honest ROAS per channel.",
+          items: ["Which channel brings the highest-LTV customers?", "Which campaigns should be paused today?"],
+        },
+        {
+          label: "Profit",
+          note: "Contribution margin per product and segment, not just gross revenue.",
+          items: ["Which products actually drive profit?", "Which segments are growing fastest?"],
+        },
+        {
+          label: "Forecast",
+          note: "Churn signals and next month's revenue, with every assumption shown.",
+          items: ["What is causing customer churn?", "What's the expected revenue next month?"],
+        },
       ],
     },
     features: {
@@ -158,9 +171,9 @@ const COPY = {
     },
     proof: {
       eyebrow: "Why trust us",
-      quote: "Velur is built by a data analyst who spent five years inside DTC and small-business stacks — and it's tested live on our first client before anything ships.",
-      body: "No invented logos, no fake case studies. One real client, one honest roadmap, and a founder who reads every reply.",
-      link: "Meet the founder →",
+      quote: "Velur is built by a team that spent years inside DTC and small-business data stacks — data scientists, ML engineers and operators who lived the problem before building the answer.",
+      body: "No invented logos, no fake case studies. An honest roadmap, and a team that reads every reply.",
+      link: "Meet the team →",
     },
     cta: {
       eyebrow: "Get started",
@@ -228,15 +241,27 @@ const COPY = {
     questions: {
       eyebrow: "Pregúntale lo que sea",
       h2: "Las preguntas que Velur responde cada día.",
-      items: [
-        "¿Por qué bajaron los ingresos esta semana?",
-        "¿Qué canal trae los clientes con mayor LTV?",
-        "¿Qué productos generan beneficio de verdad?",
-        "¿Qué campañas habría que pausar hoy?",
-        "¿Qué está causando el churn?",
-        "¿Cuál es el ingreso esperado el mes que viene?",
-        "¿Dónde estamos perdiendo dinero?",
-        "¿Qué segmentos crecen más rápido?",
+      groups: [
+        {
+          label: "Ingresos",
+          note: "Cada movimiento trazado hasta su causa — canal, creatividad, cohorte o flow.",
+          items: ["¿Por qué bajaron los ingresos esta semana?", "¿Dónde estamos perdiendo dinero?"],
+        },
+        {
+          label: "Adquisición",
+          note: "Inversión, sesiones, pedidos y margen reconciliados en un ROAS honesto por canal.",
+          items: ["¿Qué canal trae los clientes con mayor LTV?", "¿Qué campañas habría que pausar hoy?"],
+        },
+        {
+          label: "Beneficio",
+          note: "Margen de contribución por producto y segmento, no solo ingreso bruto.",
+          items: ["¿Qué productos generan beneficio de verdad?", "¿Qué segmentos crecen más rápido?"],
+        },
+        {
+          label: "Forecast",
+          note: "Señales de churn y el ingreso del mes que viene, con cada supuesto a la vista.",
+          items: ["¿Qué está causando el churn?", "¿Cuál es el ingreso esperado el mes que viene?"],
+        },
       ],
     },
     features: {
@@ -287,9 +312,9 @@ const COPY = {
     },
     proof: {
       eyebrow: "Por qué confiar en nosotros",
-      quote: "Velur lo construye un data analyst que pasó cinco años dentro de stacks DTC y de pequeño negocio — y se prueba en vivo con nuestro primer cliente antes de lanzar nada.",
-      body: "Sin logos inventados, sin casos de éxito falsos. Un cliente real, una hoja de ruta honesta y un fundador que lee cada respuesta.",
-      link: "Conoce al fundador →",
+      quote: "Velur lo construye un equipo que pasó años dentro de stacks de datos DTC y de pequeño negocio — data scientists, ingenieros de ML y operadores que vivieron el problema antes de construir la respuesta.",
+      body: "Sin logos inventados, sin casos de éxito falsos. Una hoja de ruta honesta y un equipo que lee cada respuesta.",
+      link: "Conoce al equipo →",
     },
     cta: {
       eyebrow: "Empezar",
@@ -326,14 +351,6 @@ export default function HomeContent() {
   const root = useRef<HTMLDivElement>(null);
   const { lang } = useLanguage();
   const c: Copy = COPY[lang];
-
-  /* Cycling highlight for the questions grid (honors reduced motion). */
-  const [activeQ, setActiveQ] = useState(0);
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = setInterval(() => setActiveQ((q) => (q + 1) % c.questions.items.length), 2400);
-    return () => clearInterval(id);
-  }, [c.questions.items.length]);
 
   useGSAP(
     () => {
@@ -379,15 +396,8 @@ export default function HomeContent() {
           scrollTrigger: { trigger: ".gs-console", start: "top 80%" },
         });
 
-        /* ── How it works: progress line scrub + step activate ── */
-        gsap.fromTo(
-          ".gs-progress",
-          { scaleY: 0 },
-          {
-            scaleY: 1, transformOrigin: "top", ease: "none",
-            scrollTrigger: { trigger: ".gs-steps", start: "top 70%", end: "bottom 55%", scrub: 0.5 },
-          },
-        );
+        /* ── How it works (mobile list reveal; the desktop journey
+              animates inside SignalJourney itself) ─────────────── */
         (gsap.utils.toArray(".gs-step") as Element[]).forEach((el) => {
           gsap.from(el, {
             x: -24, opacity: 0, duration: 0.7, ease: "power3.out",
@@ -570,57 +580,77 @@ export default function HomeContent() {
             {c.how.h2}
           </h2>
 
-          <div className="gs-steps relative">
-            {/* Progress rail */}
-            <div aria-hidden className="absolute left-[19px] top-2 bottom-2 w-px bg-hairline hidden sm:block" />
-            <div aria-hidden className="gs-progress absolute left-[19px] top-2 bottom-2 w-px bg-signal-green hidden sm:block" />
-
-            <ol className="space-y-10 sm:space-y-12">
-              {c.how.steps.map((s, i) => {
+          {/* Desktop: the signal journey — a curved line weaving the
+              full width, drawn on scroll, with a pulse riding it
+              station to station. */}
+          <div className="hidden md:block">
+            <SignalJourney
+              steps={c.how.steps.map((s) => {
                 const Icon = STEP_ICON[s.icon] ?? Plug;
-                return (
-                  <li key={s.title} className="gs-step relative sm:pl-16">
-                    <span className="hidden sm:flex absolute left-0 top-0 w-10 h-10 items-center justify-center">
-                      <Icon size={26} strokeWidth={1.5} className="text-signal-green" />
-                    </span>
-                    <div className="flex items-baseline gap-4 mb-2">
-                      <span className="font-mono text-[12px] tracking-[0.08em] text-slate">0{i + 1}</span>
-                      <h3 className="font-display font-normal text-ink-strong text-[24px] tracking-[-0.01em]">{s.title}</h3>
-                    </div>
-                    <p className="font-sans text-[15.5px] text-ink/80 leading-[1.6] max-w-[58ch]">{s.body}</p>
-                  </li>
-                );
+                return {
+                  title: s.title,
+                  body: s.body,
+                  icon: <Icon size={22} strokeWidth={1.5} />,
+                };
               })}
-            </ol>
+            />
           </div>
+
+          {/* Mobile: compact stacked list. */}
+          <ol className="md:hidden space-y-9">
+            {c.how.steps.map((s, i) => {
+              const Icon = STEP_ICON[s.icon] ?? Plug;
+              return (
+                <li key={s.title} className="gs-step">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Icon size={22} strokeWidth={1.5} className="text-signal-green" />
+                    <span className="font-display text-[12px] tracking-[0.08em] text-slate">0{i + 1}</span>
+                    <h3 className="font-display font-normal text-ink-strong text-[22px] tracking-[-0.01em]">{s.title}</h3>
+                  </div>
+                  <p className="font-sans text-[15px] text-ink/80 leading-[1.6]">{s.body}</p>
+                </li>
+              );
+            })}
+          </ol>
         </div>
       </section>
 
-      {/* ════ 6 · QUESTIONS — use-case grid with cycling highlight ════ */}
+      {/* ════ 6 · QUESTIONS — gooey tabs by question category ════ */}
       <section className="bg-stone-200 border-y border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-action-blue mb-4">{c.questions.eyebrow}</p>
           <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-12 max-w-[22ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
             {c.questions.h2}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {c.questions.items.map((q, i) => (
-              <div
-                key={q}
-                className={`gs-batch rounded-[14px] border p-5 transition-[background-color,border-color,transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(16,19,22,0.08)] ${
-                  i === activeQ
-                    ? "bg-velur-ink border-velur-ink"
-                    : "bg-paper border-line"
-                }`}
-              >
-                <span className={`font-display text-[10px] uppercase tracking-[0.08em] block mb-2 transition-colors duration-500 ${i === activeQ ? "text-signal-green-300" : "text-slate"}`}>
-                  Q{String(i + 1).padStart(2, "0")}
-                </span>
-                <p className={`font-sans text-[15px] leading-snug transition-colors duration-500 ${i === activeQ ? "text-on-dark" : "text-ink"}`}>
-                  {q}
-                </p>
-              </div>
-            ))}
+          <div className="gs-rise">
+            <GooeyTabs
+              surfaceClass="bg-paper"
+              tabs={c.questions.groups.map((g) => ({
+                label: g.label,
+                content: (
+                  <div className="max-w-[760px]">
+                    <ul className="space-y-4 mb-6">
+                      {g.items.map((q, qi) => (
+                        <li key={q} className="flex items-baseline gap-4">
+                          <span className="font-display text-[11px] uppercase tracking-[0.08em] text-signal-green shrink-0">
+                            Q{String(qi + 1).padStart(2, "0")}
+                          </span>
+                          <p
+                            className="font-display font-normal text-ink-strong leading-[1.25] tracking-[-0.015em]"
+                            style={{ fontSize: "clamp(19px, 2.2vw, 27px)" }}
+                          >
+                            {q}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="font-sans text-[14.5px] text-ink/70 leading-[1.55] border-t border-line pt-5">
+                      {g.note}
+                    </p>
+                  </div>
+                ),
+              }))}
+            />
           </div>
         </div>
       </section>
@@ -709,23 +739,37 @@ export default function HomeContent() {
             {c.integrations.h2}
           </h2>
 
-          <p className="gs-rise font-display text-[11px] uppercase tracking-[0.08em] text-signal-green mb-4">{c.integrations.liveLabel}</p>
-          <div className="flex flex-wrap gap-2.5 mb-10">
-            {c.integrations.live.map((t) => (
-              <span key={t} className="gs-batch inline-flex items-center gap-2 bg-paper border border-line rounded-[30px] px-5 py-2.5 font-sans text-[14.5px] text-ink-strong transition-transform duration-300 hover:-translate-y-0.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-success" />
-                {t}
-              </span>
-            ))}
-          </div>
-
-          <p className="gs-rise font-display text-[11px] uppercase tracking-[0.08em] text-slate mb-4">{c.integrations.roadmapLabel}</p>
-          <div className="flex flex-wrap gap-2.5 mb-10">
-            {c.integrations.roadmap.map((t) => (
-              <span key={t} className="gs-batch inline-flex items-center gap-2 bg-transparent border border-dashed border-hairline rounded-[30px] px-5 py-2.5 font-sans text-[14.5px] text-slate">
-                {t}
-              </span>
-            ))}
+          <div className="gs-rise mb-10">
+            <GooeyTabs
+              surfaceClass="bg-paper"
+              tabs={[
+                {
+                  label: c.integrations.liveLabel,
+                  content: (
+                    <div className="flex flex-wrap gap-2.5">
+                      {c.integrations.live.map((t) => (
+                        <span key={t} className="inline-flex items-center gap-2 bg-canvas border border-line rounded-[30px] px-5 py-2.5 font-sans text-[14.5px] text-ink-strong transition-transform duration-300 hover:-translate-y-0.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-success" />
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  ),
+                },
+                {
+                  label: c.integrations.roadmapLabel,
+                  content: (
+                    <div className="flex flex-wrap gap-2.5">
+                      {c.integrations.roadmap.map((t) => (
+                        <span key={t} className="inline-flex items-center gap-2 bg-transparent border border-dashed border-hairline rounded-[30px] px-5 py-2.5 font-sans text-[14.5px] text-slate">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  ),
+                },
+              ]}
+            />
           </div>
 
           <Link href="/integrations" className="gs-rise inline-block font-sans text-[15px] text-action-blue underline underline-offset-[0.25em] decoration-1 hover:decoration-2">

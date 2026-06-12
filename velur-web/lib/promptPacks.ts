@@ -75,7 +75,7 @@ const spaStudio: PromptPack = {
   title: "Spa & Studio",
   tagline: "Quiet, premium imagery for wellness brands.",
   intro:
-    "The exact prompts Cami Lab Studio uses to ship a week of on-brand imagery in an afternoon. Built for spas, aesthetics, massage, recovery and small wellness studios where the look has to feel calm and expensive without a photo shoot.",
+    "The exact prompts we use to ship a week of on-brand imagery in an afternoon. Built for spas, aesthetics, massage, recovery and small wellness studios where the look has to feel calm and expensive without a photo shoot.",
   surface: "bg-stone",
   textOnDark: false,
   eyebrowTone: "default",

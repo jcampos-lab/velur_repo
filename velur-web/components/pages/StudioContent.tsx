@@ -6,6 +6,7 @@ import { useState } from "react";
 import { PROMPT_PACKS, countPrompts, type Lang as PackLang } from "@/lib/promptPacks";
 import { packTitle, packTagline } from "@/lib/promptPacksEs";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { GooeyTabs } from "@/components/ui/gooey-tabs";
 
 /* ─── Per-page strings (Castilian Spanish for ES) ─────────────────── */
 const COPY = {
@@ -21,7 +22,7 @@ const COPY = {
     course: {
       eyebrow: "Flagship course",
       title: "Branded AI Editing Course",
-      body: "The exact workflow we use to ship video and image creative for Cami Lab Studio. Higgsfield prompt structure, MidJourney recipes, Claude voice prompts, and the brief that holds them all together.",
+      body: "The exact workflow we use to ship video and image creative for wellness and DTC brands. Higgsfield prompt structure, MidJourney recipes, Claude voice prompts, and the brief that holds them all together.",
       cta: "Learn more →",
       mockChapter: "Chapter 04",
       mockLesson: "Lesson",
@@ -62,18 +63,6 @@ const COPY = {
         { label: "Week 03", title: "AI Production",     body: "We help you produce, edit and ship the first batch using your stack: Higgsfield, MidJourney, Claude, ChatGPT." },
       ],
     },
-    testimonials: {
-      eyebrow: "From clients",
-      heading: "What it looks like in real businesses.",
-      items: [
-        { quote: "We finally post on a rhythm without burning out. The AI workflow gives us three weeks' worth of usable creative in an afternoon.",   name: "Camila",   role: "Spa owner, Cami Lab Studio" },
-        { quote: "Replaced our product shoot for two collections. The MidJourney recipes alone paid for the whole engagement in week one.",            name: "Marc R.",  role: "DTC apparel owner" },
-        { quote: "I went from staring at Higgsfield wondering what to type to publishing reels that actually book appointments.",                     name: "Sara V.",  role: "Clinic owner" },
-        { quote: "Alex actually picks up the phone. That alone made him different from every other agency we talked to.",                            name: "Diego T.", role: "Coffee subscription founder" },
-        { quote: "The prompt packs cut our brief-to-asset time by 70%. Our designer finally has time to actually design.",                            name: "Nora P.",  role: "Brand lead, beauty startup" },
-        { quote: "We had no in-house creative team. Now we ship better content than agencies five times our size.",                                  name: "Lars F.",  role: "E-commerce founder" },
-      ],
-    },
     fit: {
       eyebrow: "Who this is for",
       heading: "Honest about the fit.",
@@ -99,7 +88,7 @@ const COPY = {
         { q: "Does this actually look professional or like obvious AI?",     a: "Both have happened. The packs and the course teach you how to control output so it looks like real photography, with brand-consistent props, lighting, and composition. The first attempts will look AI. By week two they shouldn't." },
         { q: "Can I use this material to train AI?",                         a: "No. The prompts and templates are licensed for your direct use, not as training data for other models. We are a small team and we ask that you respect this." },
         { q: "What if I do not match the categories you cover?",             a: "Reach out. We have shipped work for spa, beauty, jewelry, hospitality, DTC apparel, food and drink, and coffee subscriptions. If your niche is close to one of those, we can adapt the prompt structure on a call." },
-        { q: "How long does it take to see results?",                        a: "Most clients ship their first usable asset on day one with the starter guide. Real revenue impact, defined as a campaign that pays for itself, typically lands within four to six weeks." },
+        { q: "How long does it take to see results?",                        a: "Most teams ship their first usable asset on day one with the starter guide. Real revenue impact, defined as a campaign that pays for itself, typically lands within four to six weeks." },
         { q: "Do I need to be technical?",                                   a: "No. If you can copy and paste, and if you have credit on Higgsfield or MidJourney, you have everything you need." },
         { q: "What if I do not like the first assets?",                      a: "We iterate together on the first batch. The first kickoff exists exactly so we can both decide if the fit is right before any money changes hands." },
       ],
@@ -122,7 +111,7 @@ const COPY = {
     course: {
       eyebrow: "Curso insignia",
       title: "Curso de edición con IA de marca",
-      body: "El flujo exacto con el que lanzamos vídeo e imagen para Cami Lab Studio. Estructura de prompts en Higgsfield, recetas en MidJourney, prompts de voz en Claude, y el brief que lo une todo.",
+      body: "El flujo exacto con el que lanzamos vídeo e imagen para marcas de bienestar y DTC. Estructura de prompts en Higgsfield, recetas en MidJourney, prompts de voz en Claude, y el brief que lo une todo.",
       cta: "Saber más →",
       mockChapter: "Capítulo 04",
       mockLesson: "Lección",
@@ -161,18 +150,6 @@ const COPY = {
         { label: "Semana 01", title: "Investigación de cliente",  body: "Mapeamos a tu cliente, a tu competencia y los ángulos que están ganando en tu categoría ahora mismo." },
         { label: "Semana 02", title: "Estrategia creativa",        body: "Mapeamos tus necesidades de contenido en orgánico, paid y email, y escribimos los briefs que mueven cada uno." },
         { label: "Semana 03", title: "Producción con IA",          body: "Te ayudamos a producir, editar y lanzar la primera tanda con tu stack: Higgsfield, MidJourney, Claude, ChatGPT." },
-      ],
-    },
-    testimonials: {
-      eyebrow: "Lo dicen los clientes",
-      heading: "Cómo se ve en negocios de verdad.",
-      items: [
-        { quote: "Por fin publicamos con ritmo sin quemarnos. El flujo con IA nos da tres semanas de creatividad útil en una tarde.",                             name: "Camila",   role: "Dueña de spa, Cami Lab Studio" },
-        { quote: "Reemplazó nuestra sesión de producto para dos colecciones. Solo las recetas de MidJourney pagaron todo el proyecto la primera semana.",         name: "Marc R.",  role: "Dueño de marca DTC de moda" },
-        { quote: "Pasé de mirar Higgsfield sin saber qué escribir a publicar reels que realmente reservan citas.",                                                name: "Sara V.",  role: "Dueña de clínica" },
-        { quote: "Alex coge el teléfono de verdad. Solo eso lo distinguió de cualquier otra agencia con la que hablamos.",                                        name: "Diego T.", role: "Fundador de suscripción de café" },
-        { quote: "Los prompt packs nos recortaron un 70% el tiempo de brief a activo. Nuestra diseñadora por fin tiene tiempo de diseñar de verdad.",             name: "Nora P.",  role: "Directora de marca, startup de belleza" },
-        { quote: "No teníamos equipo creativo interno. Ahora lanzamos mejor contenido que agencias cinco veces más grandes.",                                     name: "Lars F.",  role: "Fundador de e-commerce" },
       ],
     },
     fit: {
@@ -215,18 +192,6 @@ const COPY = {
 
 type Lang = keyof typeof COPY;
 type Copy = typeof COPY.en | typeof COPY.es;
-
-/* ─── Testimonial avatar colours (system palette only) ──────────── */
-const AVATAR_BG = [
-  "#0B3D2E", // signal-green
-  "#0A1A2F", // midnight
-  "#1F5FE0", // action-blue
-  "#101316", // velur-ink
-  "#4FB78D", // signal-green-300
-  "#FF6B4A", // coral
-];
-
-const INITIALS = ["C", "M", "S", "D", "N", "L"];
 
 /* ─── Featured course ─────────────────────────────────────────── */
 
@@ -469,100 +434,47 @@ function PackGrid({ s, lang }: { s: Copy["packGridSection"]; lang: PackLang }) {
   );
 }
 
-/* ─── Testimonials ────────────────────────────────────────────── */
 
-function Testimonials({ items }: { items: Copy["testimonials"]["items"] }) {
-  const prefersReduced = useReducedMotion();
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-      {items.map((t, i) => (
-        <motion.div
-          key={t.name + i}
-          initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-2xl bg-paper border border-line p-5 md:p-6 flex flex-col gap-4"
-        >
-          <p className="font-sans text-[14.5px] text-ink leading-relaxed flex-1">
-            &ldquo;{t.quote}&rdquo;
-          </p>
-          <div className="flex items-center gap-3">
-            <span
-              className="inline-flex w-9 h-9 rounded-full items-center justify-center text-white font-display font-normal text-[13px]"
-              style={{ background: AVATAR_BG[i % AVATAR_BG.length] }}
-            >
-              {INITIALS[i % INITIALS.length]}
-            </span>
-            <div>
-              <p className="font-sans font-semibold text-ink text-[14px] leading-tight">{t.name}</p>
-              <p className="font-sans text-[12.5px] text-ink/55">{t.role}</p>
-            </div>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
-
-/* ─── Fit comparison ──────────────────────────────────────────── */
+/* ─── Fit comparison — signature gooey tabs ───────────────────── */
 
 function FitSection({ f }: { f: Copy["fit"] }) {
-  const prefersReduced = useReducedMotion();
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <motion.div
-        initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="rounded-2xl bg-paper border border-line p-6 md:p-8"
-      >
-        <div className="flex items-center gap-2 mb-5">
-          <span className="inline-block w-2 h-2 rounded-full bg-success" />
-          <p className="font-display text-[11px] tracking-[0.16em] text-success uppercase font-semibold">
-            {f.yesLabel}
-          </p>
-        </div>
-        <ul className="space-y-3">
-          {f.yes.map((g, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mt-1 shrink-0">
-                <circle cx="8" cy="8" r="8" fill="#0E8A5F" opacity="0.12" />
-                <path d="M4.5 8.2 L7 10.5 L11.5 5.5" stroke="#0E8A5F" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-              </svg>
-              <span className="font-sans text-[14.5px] text-ink/85 leading-relaxed">{g}</span>
-            </li>
-          ))}
-        </ul>
-      </motion.div>
-
-      <motion.div
-        initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-        className="rounded-2xl bg-stone border border-line p-6 md:p-8"
-      >
-        <div className="flex items-center gap-2 mb-5">
-          <span className="inline-block w-2 h-2 rounded-full bg-muted-slate" />
-          <p className="font-display text-[11px] tracking-[0.16em] text-muted-slate uppercase font-semibold">
-            {f.noLabel}
-          </p>
-        </div>
-        <ul className="space-y-3">
-          {f.no.map((n, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mt-1 shrink-0">
-                <circle cx="8" cy="8" r="8" fill="#8A8F98" opacity="0.12" />
-                <path d="M5 5 L11 11 M11 5 L5 11" stroke="#8A8F98" strokeWidth="1.6" strokeLinecap="round" />
-              </svg>
-              <span className="font-sans text-[14.5px] text-ink/65 leading-relaxed">{n}</span>
-            </li>
-          ))}
-        </ul>
-      </motion.div>
-    </div>
+    <GooeyTabs
+      tabs={[
+        {
+          label: f.yesLabel,
+          content: (
+            <ul className="space-y-3 max-w-[64ch]">
+              {f.yes.map((g, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <svg width="18" height="18" viewBox="0 0 16 16" fill="none" className="mt-1 shrink-0">
+                    <circle cx="8" cy="8" r="8" fill="#0E8A5F" opacity="0.12" />
+                    <path d="M4.5 8.2 L7 10.5 L11.5 5.5" stroke="#0E8A5F" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                  </svg>
+                  <span className="font-sans text-[15px] text-ink/85 leading-relaxed">{g}</span>
+                </li>
+              ))}
+            </ul>
+          ),
+        },
+        {
+          label: f.noLabel,
+          content: (
+            <ul className="space-y-3 max-w-[64ch]">
+              {f.no.map((n, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <svg width="18" height="18" viewBox="0 0 16 16" fill="none" className="mt-1 shrink-0">
+                    <circle cx="8" cy="8" r="8" fill="#8A8F98" opacity="0.12" />
+                    <path d="M5 5 L11 11 M11 5 L5 11" stroke="#8A8F98" strokeWidth="1.6" strokeLinecap="round" />
+                  </svg>
+                  <span className="font-sans text-[15px] text-ink/65 leading-relaxed">{n}</span>
+                </li>
+              ))}
+            </ul>
+          ),
+        },
+      ]}
+    />
   );
 }
 
@@ -729,22 +641,6 @@ export default function StudioContent() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="bg-paper py-14 md:py-20 border-b border-line">
-        <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="mb-8 md:mb-12 max-w-2xl">
-            <p className="font-sans text-ink/55 text-[13px] mb-2">{c.testimonials.eyebrow}</p>
-            <h2
-              className="font-display font-normal text-ink leading-[1.05] tracking-[-0.025em]"
-              style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
-            >
-              {c.testimonials.heading}
-            </h2>
-          </div>
-          <Testimonials items={c.testimonials.items} />
         </div>
       </section>
 

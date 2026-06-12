@@ -417,18 +417,23 @@ export default function ServicesContent() {
           y: 28, opacity: 0, duration: 0.7, stagger: 0.1, ease: "power3.out",
           scrollTrigger: { trigger: howRef.current, start: "top 80%" },
         });
-        gsap.to(".gsv-progress", {
-          scaleY: 1, transformOrigin: "top", ease: "none",
-          scrollTrigger: { trigger: howRef.current, start: "top 60%", end: "bottom 70%", scrub: 0.5 },
-        });
-        (gsap.utils.toArray(".gsv-stage") as Element[]).forEach((el) => {
-          gsap.from(el, {
-            x: -28, opacity: 0, duration: 0.7, ease: "power3.out",
-            scrollTrigger: { trigger: el, start: "top 82%" },
-          });
-          gsap.from(el.querySelectorAll(".gsv-detail"), {
-            y: 16, opacity: 0, duration: 0.5, stagger: 0.07, ease: "power3.out",
-            scrollTrigger: { trigger: el, start: "top 75%" },
+        /* Stacked deck: as the next card scrolls in, the one beneath
+           settles back — slight scale + dim, origin at its pinned top. */
+        const cards = gsap.utils.toArray<HTMLElement>(".gsv-card");
+        cards.forEach((card, i) => {
+          const next = cards[i + 1];
+          if (!next) return;
+          gsap.to(card, {
+            scale: 0.95,
+            filter: "brightness(0.9)",
+            transformOrigin: "center top",
+            ease: "none",
+            scrollTrigger: {
+              trigger: next,
+              start: "top bottom",
+              end: `top ${140 + i * 16}px`,
+              scrub: true,
+            },
           });
         });
       });
@@ -505,34 +510,61 @@ export default function ServicesContent() {
             {c.howDeep.intro}
           </p>
 
-          <div className="relative">
-            {/* Progress rail — draws as you scroll */}
-            <div aria-hidden className="absolute left-[27px] top-3 bottom-3 w-px bg-hairline hidden md:block" />
-            <div aria-hidden className="gsv-progress absolute left-[27px] top-3 bottom-3 w-px bg-signal-green hidden md:block" style={{ transform: "scaleY(0)" }} />
-
-            <ol className="space-y-12 md:space-y-16">
-              {c.howDeep.stages.map((s) => (
-                <li key={s.num} className="gsv-stage relative md:pl-20">
-                  <span className="hidden md:flex absolute left-0 top-0 w-14 h-14 rounded-full bg-canvas border border-line items-center justify-center font-mono text-[14px] text-signal-green">
-                    {s.num}
-                  </span>
-                  <h3 className="font-display font-normal text-ink-strong text-[26px] tracking-[-0.015em] mb-3">
-                    <span className="md:hidden font-mono text-[13px] text-signal-green mr-3">{s.num}</span>
-                    {s.title}
-                  </h3>
-                  <p className="font-sans text-[16px] text-ink/85 leading-[1.6] max-w-[62ch] mb-5">
-                    {s.body}
-                  </p>
-                  <ul className="grid grid-cols-1 lg:grid-cols-3 gap-2.5 max-w-[920px]">
-                    {s.details.map((d) => (
-                      <li key={d} className="gsv-detail rounded-[12px] bg-stone-200 border border-card-border px-4 py-3">
-                        <span className="font-sans text-[13.5px] text-ink/80 leading-snug">{d}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-            </ol>
+          {/* Stacked deck — each stage is a full-width card that pins
+              under the nav while the next one slides over it; the card
+              beneath settles back with a slight scale. The giant stage
+              numeral fills the width the old left rail wasted. */}
+          <div className="space-y-6 md:space-y-0">
+            {c.howDeep.stages.map((s, i) => {
+              const isLast = i === c.howDeep.stages.length - 1;
+              const dark = i % 2 === 1;
+              const surface = isLast
+                ? "bg-signal-green border-signal-green"
+                : dark
+                  ? "bg-velur-ink border-velur-ink"
+                  : "bg-canvas border-line";
+              const onDark = dark || isLast;
+              return (
+                <div
+                  key={s.num}
+                  className="md:sticky md:pb-8"
+                  style={{ top: `calc(110px + ${i * 16}px)` }}
+                >
+                  <article
+                    className={`gsv-card rounded-[22px] border overflow-hidden p-7 md:p-12 ${surface}`}
+                    style={{ boxShadow: "0 -12px 40px rgba(16,19,22,0.08)" }}
+                  >
+                    <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-4 md:gap-12 items-start">
+                      <span
+                        aria-hidden
+                        className={`font-display leading-[0.85] tracking-[-0.04em] select-none ${onDark ? "text-white/15" : "text-ink/10"}`}
+                        style={{ fontSize: "clamp(72px, 10vw, 150px)" }}
+                      >
+                        {s.num}
+                      </span>
+                      <div>
+                        <h3 className={`font-display font-normal text-[26px] md:text-[30px] tracking-[-0.015em] mb-3 ${onDark ? "text-white" : "text-ink-strong"}`}>
+                          {s.title}
+                        </h3>
+                        <p className={`font-sans text-[16px] leading-[1.6] max-w-[62ch] mb-6 ${onDark ? "text-on-dark-muted" : "text-ink/85"}`}>
+                          {s.body}
+                        </p>
+                        <ul className="grid grid-cols-1 lg:grid-cols-3 gap-2.5">
+                          {s.details.map((d) => (
+                            <li
+                              key={d}
+                              className={`rounded-[12px] border px-4 py-3 ${onDark ? "bg-white/[0.07] border-white/15" : "bg-stone-200 border-card-border"}`}
+                            >
+                              <span className={`font-sans text-[13.5px] leading-snug ${onDark ? "text-on-dark" : "text-ink/80"}`}>{d}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -599,47 +631,42 @@ export default function ServicesContent() {
               {c.fit.heading}
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="rounded-2xl bg-paper border border-line p-6 md:p-8">
-              <div className="flex items-center gap-2 mb-5">
-                <span className="inline-block w-2 h-2 rounded-full bg-success" />
-                <p className="font-display text-[11px] tracking-[0.16em] text-success uppercase font-semibold">
-                  {c.fit.yesLabel}
-                </p>
-              </div>
-              <ul className="space-y-3">
-                {s.rightForItems.map((g, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mt-1 shrink-0">
-                      <circle cx="8" cy="8" r="8" fill="#0E8A5F" opacity="0.12" />
-                      <path d="M4.5 8.2 L7 10.5 L11.5 5.5" stroke="#0E8A5F" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                    </svg>
-                    <span className="font-sans text-[14.5px] text-ink/85 leading-relaxed">{g}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="rounded-2xl bg-stone border border-line p-6 md:p-8">
-              <div className="flex items-center gap-2 mb-5">
-                <span className="inline-block w-2 h-2 rounded-full bg-muted-slate" />
-                <p className="font-display text-[11px] tracking-[0.16em] text-muted-slate uppercase font-semibold">
-                  {c.fit.noLabel}
-                </p>
-              </div>
-              <ul className="space-y-3">
-                {s.notRightForItems.map((n, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mt-1 shrink-0">
-                      <circle cx="8" cy="8" r="8" fill="#8A8F98" opacity="0.12" />
-                      <path d="M5 5 L11 11 M11 5 L5 11" stroke="#8A8F98" strokeWidth="1.6" strokeLinecap="round" />
-                    </svg>
-                    <span className="font-sans text-[14.5px] text-ink/65 leading-relaxed">{n}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <GooeyTabs
+            tabs={[
+              {
+                label: c.fit.yesLabel,
+                content: (
+                  <ul className="space-y-3 max-w-[64ch]">
+                    {s.rightForItems.map((g, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" className="mt-1 shrink-0">
+                          <circle cx="8" cy="8" r="8" fill="#0E8A5F" opacity="0.12" />
+                          <path d="M4.5 8.2 L7 10.5 L11.5 5.5" stroke="#0E8A5F" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                        </svg>
+                        <span className="font-sans text-[15px] text-ink/85 leading-relaxed">{g}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ),
+              },
+              {
+                label: c.fit.noLabel,
+                content: (
+                  <ul className="space-y-3 max-w-[64ch]">
+                    {s.notRightForItems.map((n, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" className="mt-1 shrink-0">
+                          <circle cx="8" cy="8" r="8" fill="#8A8F98" opacity="0.12" />
+                          <path d="M5 5 L11 11 M11 5 L5 11" stroke="#8A8F98" strokeWidth="1.6" strokeLinecap="round" />
+                        </svg>
+                        <span className="font-sans text-[15px] text-ink/65 leading-relaxed">{n}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ),
+              },
+            ]}
+          />
         </div>
       </section>
 
