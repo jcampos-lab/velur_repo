@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ButtonLink } from "@/components/velur/Button";
+import { RollingText } from "@/components/ui/rolling-text";
 
 /**
  * Velur — Marketing Header
@@ -78,7 +79,9 @@ export default function Header() {
             "inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 1px 0 rgba(220, 221, 224, 0.5)",
         }}
       >
-        <div className="max-w-[1440px] mx-auto h-full flex items-center justify-between gap-6 px-5 md:px-10">
+        {/* Full-bleed bar: the mark hugs the very left edge of the
+            screen (no centered max-width container). */}
+        <div className="w-full h-full flex items-center justify-between gap-6 pl-4 pr-5 md:pl-5 md:pr-8">
           {/* Mark left */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="Velur home">
             <Image
@@ -99,9 +102,9 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-sans text-[15px] text-ink hover:text-ink-strong transition-colors duration-150"
+                className="group font-sans text-[15px] text-ink hover:text-ink-strong transition-colors duration-150"
               >
-                {link.label}
+                <RollingText text={link.label} />
               </Link>
             ))}
           </nav>
@@ -157,9 +160,9 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="font-sans text-lg text-ink-strong py-3.5 border-b border-border-light"
+                className="group font-sans text-lg text-ink-strong py-3.5 border-b border-border-light"
               >
-                {link.label}
+                <RollingText text={link.label} />
               </Link>
             ))}
             <Link

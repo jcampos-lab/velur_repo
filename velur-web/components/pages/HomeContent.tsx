@@ -9,7 +9,9 @@ import { useGSAP } from "@gsap/react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ConsoleMock } from "@/components/velur/ConsoleMock";
 import { RevenueAreaCard } from "@/components/velur/RevenueAreaCard";
-import { VelurStackOrbital } from "@/components/ui/orbital-integrations";
+import { BrandMarquee } from "@/components/velur/BrandMarquee";
+import { RippleGrid } from "@/components/ui/ripple-grid";
+import { TiltCard } from "@/components/ui/tilt-card";
 import {
   Plug,
   Layers,
@@ -400,6 +402,14 @@ export default function HomeContent() {
           );
         });
 
+        /* ── Floating chips: slow bob, desynced per element ────── */
+        gsap.utils.toArray<HTMLElement>(".gs-float").forEach((el, i) => {
+          gsap.to(el, {
+            y: -8, duration: 2.6 + i * 0.4, yoyo: true, repeat: -1,
+            ease: "sine.inOut", delay: i * 0.35,
+          });
+        });
+
         /* ── CTA band scale-in ────────────────────────────────── */
         gsap.from(".gs-cta-band", {
           scale: 0.96, opacity: 0, duration: 0.9, ease: "power3.out",
@@ -458,8 +468,9 @@ export default function HomeContent() {
               className="gs-parallax object-cover scale-[1.12]"
               style={{ objectPosition: "center 35%" }}
             />
-            {/* Brief chip overlay — the product moment inside the art */}
-            <div className="absolute left-5 bottom-5 right-5 sm:right-auto sm:max-w-[380px] bg-velur-ink/90 backdrop-blur-md border border-ink-700 rounded-[14px] p-4">
+            {/* Brief chip overlay — the product moment inside the art.
+                gs-float gives it a slow bob so the card feels alive. */}
+            <div className="gs-float absolute left-5 bottom-5 right-5 sm:right-auto sm:max-w-[380px] bg-velur-ink/90 backdrop-blur-md border border-ink-700 rounded-[14px] p-4">
               <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-signal-green-300 mb-1.5">
                 {c.hero.mediaChipLabel}
               </p>
@@ -474,32 +485,38 @@ export default function HomeContent() {
 
       {/* ════ 2 · TOOL STRIP — honest trust strip (real stack, marquee) ════ */}
       <section className="bg-canvas border-y border-border-light py-8 overflow-hidden">
-        <p className="text-center font-sans text-[14px] text-slate mb-8">{c.strip.caption}</p>
-
-        {/* Orbital diagram — the eight live integrations circling the
-            Velur node. Continuous GSAP rotation; the visual answer to
-            both "what does it read from" and "why is this a problem". */}
-        <div className="flex justify-center" style={{ padding: "0 var(--gutter)" }}>
-          <VelurStackOrbital />
-        </div>
+        <p className="text-center font-sans text-[14px] text-slate mb-7">{c.strip.caption}</p>
+        <BrandMarquee />
       </section>
 
-      {/* ════ 3 · PROBLEM — scrub statement ════ */}
+      {/* ════ 3 · PROBLEM — scrub statement + quiet ripple grid ════ */}
       <section className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
-        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="gs-rise font-mono text-[13px] uppercase tracking-[0.06em] text-coral mb-6">
-            {c.problem.eyebrow}
-          </p>
-          <h2
-            className="gs-problem font-display font-normal text-ink-strong leading-[1.08] tracking-[-0.02em] max-w-[24ch] mb-10"
-            style={{ fontSize: "clamp(30px, 4.6vw, 60px)" }}
-          >
-            <Words text={c.problem.statement} />
-          </h2>
+        <div
+          className="grid grid-cols-1 lg:grid-cols-[1.25fr_auto] gap-12 lg:gap-16 items-center"
+          style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}
+        >
+          <div>
+            <p className="gs-rise font-mono text-[13px] uppercase tracking-[0.06em] text-coral mb-6">
+              {c.problem.eyebrow}
+            </p>
+            <h2
+              className="gs-problem font-display font-normal text-ink-strong leading-[1.08] tracking-[-0.02em] max-w-[24ch] mb-10"
+              style={{ fontSize: "clamp(30px, 4.6vw, 60px)" }}
+            >
+              <Words text={c.problem.statement} />
+            </h2>
 
-          <p className="gs-rise font-sans text-[18px] leading-[1.6] text-ink max-w-[58ch]">
-            {c.problem.after}
-          </p>
+            <p className="gs-rise font-sans text-[18px] leading-[1.6] text-ink max-w-[58ch]">
+              {c.problem.after}
+            </p>
+          </div>
+
+          {/* One signal propagating through every cell — the quiet
+              counterpoint to the siloed-tools problem. Click to ripple;
+              an ambient pulse fires on its own now and then. */}
+          <div className="gs-rise hidden lg:block justify-self-end">
+            <RippleGrid rows={7} cols={7} cellSize={36} />
+          </div>
         </div>
       </section>
 
@@ -589,7 +606,7 @@ export default function HomeContent() {
             {c.questions.items.map((q, i) => (
               <div
                 key={q}
-                className={`gs-batch rounded-[14px] border p-5 transition-colors duration-500 ${
+                className={`gs-batch rounded-[14px] border p-5 transition-[background-color,border-color,transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(16,19,22,0.08)] ${
                   i === activeQ
                     ? "bg-velur-ink border-velur-ink"
                     : "bg-paper border-line"
@@ -618,26 +635,30 @@ export default function HomeContent() {
             {c.features.cards.map((f) => {
               const Icon = FEATURE_ICON[f.icon] ?? FileText;
               return (
-                <article key={f.title} className="gs-batch group rounded-[22px] bg-paper border border-line overflow-hidden">
-                  <div className="relative h-[180px] md:h-[220px] overflow-hidden">
-                    <Image
-                      src={f.art}
-                      alt=""
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="gs-parallax object-cover scale-[1.18] transition-transform duration-700 group-hover:scale-[1.24]"
-                    />
-                  </div>
-                  <div className="p-7 md:p-8">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="inline-flex w-9 h-9 rounded-full bg-wash-green text-signal-green items-center justify-center">
-                        <Icon size={16} strokeWidth={1.7} />
-                      </span>
-                      <h3 className="font-display font-normal text-ink-strong text-[21px] tracking-[-0.01em]">{f.title}</h3>
-                    </div>
-                    <p className="font-sans text-[14.5px] text-ink/80 leading-[1.6]">{f.body}</p>
-                  </div>
-                </article>
+                <div key={f.title} className="gs-batch">
+                  <TiltCard className="rounded-[22px]">
+                    <article className="group rounded-[22px] bg-paper border border-line overflow-hidden">
+                      <div className="relative h-[180px] md:h-[220px] overflow-hidden">
+                        <Image
+                          src={f.art}
+                          alt=""
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="gs-parallax object-cover scale-[1.18] transition-transform duration-700 group-hover:scale-[1.24]"
+                        />
+                      </div>
+                      <div className="p-7 md:p-8">
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="inline-flex w-9 h-9 rounded-full bg-wash-green text-signal-green items-center justify-center">
+                            <Icon size={16} strokeWidth={1.7} />
+                          </span>
+                          <h3 className="font-display font-normal text-ink-strong text-[21px] tracking-[-0.01em]">{f.title}</h3>
+                        </div>
+                        <p className="font-sans text-[14.5px] text-ink/80 leading-[1.6]">{f.body}</p>
+                      </div>
+                    </article>
+                  </TiltCard>
+                </div>
               );
             })}
           </div>
@@ -685,7 +706,7 @@ export default function HomeContent() {
           <p className="gs-rise font-mono text-[11px] uppercase tracking-[0.08em] text-signal-green mb-4">{c.integrations.liveLabel}</p>
           <div className="flex flex-wrap gap-2.5 mb-10">
             {c.integrations.live.map((t) => (
-              <span key={t} className="gs-batch inline-flex items-center gap-2 bg-paper border border-line rounded-[30px] px-5 py-2.5 font-sans text-[14.5px] text-ink-strong">
+              <span key={t} className="gs-batch inline-flex items-center gap-2 bg-paper border border-line rounded-[30px] px-5 py-2.5 font-sans text-[14.5px] text-ink-strong transition-transform duration-300 hover:-translate-y-0.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-success" />
                 {t}
               </span>

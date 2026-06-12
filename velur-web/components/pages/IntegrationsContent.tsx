@@ -5,7 +5,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { Lock, Shield, Check } from "lucide-react";
 import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
-import { VelurStackOrbital } from "@/components/ui/orbital-integrations";
 
 /* ─── Per-page strings (Castilian Spanish for ES) ─────────────────── */
 const COPY = {
@@ -248,16 +247,6 @@ export default function IntegrationsContent() {
           <p className="font-sans text-[18px] leading-[1.5] text-ink max-w-[52ch]">
             {c.subhead}
           </p>
-        </div>
-      </section>
-
-      {/* Orbital — the eight live integrations circling the Velur node */}
-      <section
-        className="bg-canvas border-b border-border-light"
-        style={{ padding: "var(--section-y-tight) var(--gutter)" }}
-      >
-        <div className="flex justify-center">
-          <VelurStackOrbital />
         </div>
       </section>
 

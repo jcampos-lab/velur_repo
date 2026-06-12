@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
+import { TiltCard } from "@/components/ui/tilt-card";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -465,8 +466,7 @@ export default function ServicesContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-2xl bg-paper border border-line p-6 md:p-8"
-              >
+              ><TiltCard className="rounded-2xl h-full"><div className="rounded-2xl bg-paper border border-line p-6 md:p-8 h-full">
                 <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-signal-green mb-4">
                   {m.label}
                 </p>
@@ -487,7 +487,7 @@ export default function ServicesContent() {
                     </li>
                   ))}
                 </ul>
-              </motion.article>
+              </div></TiltCard></motion.article>
             ))}
           </div>
         </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { RollingText } from "@/components/ui/rolling-text";
 
 /**
  * Velur — Marketing Footer
@@ -77,7 +78,10 @@ export default function Footer() {
 
           {f.cols.map((c) => (
             <div key={c.h}>
-              <div className="text-sm text-white mb-3.5">{c.h}</div>
+              {/* Column heading — quiet underline grows in on hover */}
+              <div className="relative w-fit text-sm text-white mb-3.5 after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-signal-green-300 after:transition-[width] after:duration-300 hover:after:w-full">
+                {c.h}
+              </div>
               <ul className="list-none p-0 m-0 flex flex-col gap-2.5">
                 {c.links.map((l) => {
                   const href = KNOWN_LINKS[l];
@@ -86,9 +90,9 @@ export default function Footer() {
                       {href ? (
                         <Link
                           href={href}
-                          className="text-sm text-muted-slate hover:text-white no-underline transition-colors"
+                          className="group text-sm text-muted-slate hover:text-white no-underline transition-colors"
                         >
-                          {l}
+                          <RollingText text={l} />
                         </Link>
                       ) : (
                         <span className="text-sm text-muted-slate">{l}</span>
@@ -121,9 +125,9 @@ export default function Footer() {
                 <Link
                   key={l}
                   href={href}
-                  className="text-[12px] text-muted-slate hover:text-white no-underline"
+                  className="group text-[12px] text-muted-slate hover:text-white no-underline"
                 >
-                  {l}
+                  <RollingText text={l} />
                 </Link>
               ) : (
                 <span key={l} className="text-[12px] text-muted-slate">
@@ -144,8 +148,10 @@ export default function Footer() {
       <div
         className="relative mt-12 md:mt-16 select-none pointer-events-none overflow-hidden"
         style={{
-          margin: "56px 0 0",
-          paddingLeft: "var(--gutter)",
+          /* Break out of the footer's own gutter so the mark touches
+             the very left edge of the screen. */
+          margin: "56px calc(var(--gutter) * -1) 0",
+          paddingLeft: 0,
           paddingRight: 0,
           /* Fade holds full opacity through 72%, dissolves through
              90%, fully transparent at 100%. Both prefixed for Safari. */
