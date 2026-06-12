@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { Lock, Shield, Check } from "lucide-react";
 import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
+import { GooeyTabs } from "@/components/ui/gooey-tabs";
 
 /* ─── Per-page strings (Castilian Spanish for ES) ─────────────────── */
 const COPY = {
@@ -195,7 +196,7 @@ function IntegrationDetail({ it }: { it: Integration }) {
         <h3 className="font-display font-normal text-ink-strong text-[24px] leading-tight tracking-[-0.015em]">
           {it.name}
         </h3>
-        <span className="font-mono text-[11px] uppercase tracking-[0.06em] text-signal-green">
+        <span className="font-display text-[11px] uppercase tracking-[0.06em] text-signal-green">
           {it.category}
         </span>
       </div>
@@ -206,15 +207,15 @@ function IntegrationDetail({ it }: { it: Integration }) {
 
       <dl className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-border-light pt-5">
         <div>
-          <dt className="font-mono text-[10.5px] uppercase tracking-[0.06em] text-slate mb-1">Data in</dt>
+          <dt className="font-display text-[10.5px] uppercase tracking-[0.06em] text-slate mb-1">Data in</dt>
           <dd className="font-sans text-[13.5px] text-ink/85 leading-snug">{it.data}</dd>
         </div>
         <div>
-          <dt className="font-mono text-[10.5px] uppercase tracking-[0.06em] text-slate mb-1">Scope</dt>
+          <dt className="font-display text-[10.5px] uppercase tracking-[0.06em] text-slate mb-1">Scope</dt>
           <dd className="font-mono text-[12.5px] text-ink/85 leading-snug">{it.scope}</dd>
         </div>
         <div>
-          <dt className="font-mono text-[10.5px] uppercase tracking-[0.06em] text-slate mb-1">Compatibility</dt>
+          <dt className="font-display text-[10.5px] uppercase tracking-[0.06em] text-slate mb-1">Compatibility</dt>
           <dd className="font-sans text-[13.5px] text-ink/85 leading-snug">{it.compatibility}</dd>
         </div>
       </dl>
@@ -235,7 +236,7 @@ export default function IntegrationsContent() {
         style={{ padding: "var(--section-y-tight) var(--gutter)" }}
       >
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-signal-green mb-5">
+          <p className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-5">
             {c.eyebrow}
           </p>
           <h1
@@ -257,7 +258,7 @@ export default function IntegrationsContent() {
       >
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <div className="mb-10 md:mb-12 max-w-2xl">
-            <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
+            <p className="font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
               {c.securityEyebrow}
             </p>
             <h2
@@ -275,8 +276,8 @@ export default function IntegrationsContent() {
                   key={card.title}
                   className="rounded-2xl bg-paper border border-line p-6 md:p-7 flex flex-col gap-4"
                 >
-                  <span className="inline-flex w-10 h-10 rounded-full bg-wash-green text-signal-green items-center justify-center">
-                    <Icon size={18} strokeWidth={1.6} />
+                  <span className="inline-flex text-signal-green items-center">
+                    <Icon size={28} strokeWidth={1.5} />
                   </span>
                   <h3 className="font-display font-normal text-ink-strong text-[18px] leading-snug tracking-[-0.01em]">
                     {card.title}
@@ -300,7 +301,7 @@ export default function IntegrationsContent() {
           {/* Sticky heading left, integration cards on the right. */}
           <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.5fr] gap-10 lg:gap-14 items-start">
             <div className="lg:sticky lg:top-32">
-              <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
+              <p className="font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
                 {c.integrationsEyebrow}
               </p>
               <h2
@@ -311,19 +312,33 @@ export default function IntegrationsContent() {
               </h2>
             </div>
 
-            <div className="flex flex-col gap-4">
-              {c.integrations.map((it, i) => (
-                <motion.article
-                  key={it.name}
-                  initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                  className="rounded-2xl bg-paper border border-line p-6 md:p-8"
-                >
-                  <IntegrationDetail it={it} />
-                </motion.article>
-              ))}
+            <div>
+              {/* Desktop: gooey tabs — one tab per integration, the
+                  active tab fuses into the detail panel. Mobile keeps
+                  stacked cards (eight tabs don't fit a phone strip). */}
+              <div className="hidden md:block w-full max-w-[760px] lg:justify-self-end">
+                <GooeyTabs
+                  tabs={c.integrations.map((it) => ({
+                    label: it.name,
+                    content: <IntegrationDetail it={it} />,
+                  }))}
+                />
+              </div>
+
+              <div className="md:hidden flex flex-col gap-4">
+                {c.integrations.map((it, i) => (
+                  <motion.article
+                    key={it.name}
+                    initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
+                    className="rounded-2xl bg-paper border border-line p-6"
+                  >
+                    <IntegrationDetail it={it} />
+                  </motion.article>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -342,7 +357,7 @@ export default function IntegrationsContent() {
           className="relative text-center"
           style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}
         >
-          <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-action-blue mb-5">
+          <p className="font-display text-[13px] uppercase tracking-[0.06em] text-action-blue mb-5">
             {c.closingEyebrow}
           </p>
           <h2

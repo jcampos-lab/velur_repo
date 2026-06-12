@@ -43,7 +43,7 @@ export function ConsoleMock({ compact = false }: { compact?: boolean }) {
           className="opacity-95"
         />
         <span className="text-sm text-white">Revenue console</span>
-        <span className="ml-auto font-mono text-[11px] uppercase tracking-[0.06em] text-on-dark-muted">
+        <span className="ml-auto font-display text-[11px] uppercase tracking-[0.06em] text-on-dark-muted">
           Live
         </span>
         <span className="w-[7px] h-[7px] rounded-full bg-signal-green-300" />
@@ -55,17 +55,17 @@ export function ConsoleMock({ compact = false }: { compact?: boolean }) {
         style={{ borderBottom: "1px solid var(--border-dark)" }}
       >
         <div className="flex-1">
-          <div className="font-mono text-[10px] uppercase tracking-[0.06em] text-on-dark-muted">Net Revenue</div>
+          <div className="font-display text-[10px] uppercase tracking-[0.06em] text-on-dark-muted">Net Revenue</div>
           <div className="font-display text-[26px] tracking-[-0.02em] mt-1 text-white">$128,400</div>
           <MetricDelta value={12.4} suffix="% vs last week" size="sm" />
         </div>
         <div className="flex-1">
-          <div className="font-mono text-[10px] uppercase tracking-[0.06em] text-on-dark-muted">Blended ROAS</div>
+          <div className="font-display text-[10px] uppercase tracking-[0.06em] text-on-dark-muted">Blended ROAS</div>
           <div className="font-display text-[26px] tracking-[-0.02em] mt-1 text-white">3.14×</div>
           <MetricDelta value={0.4} suffix=" vs last week" size="sm" />
         </div>
         <div className={`flex-1 ${compact ? "hidden" : "block"}`}>
-          <div className="font-mono text-[10px] uppercase tracking-[0.06em] text-on-dark-muted">Churned customers</div>
+          <div className="font-display text-[10px] uppercase tracking-[0.06em] text-on-dark-muted">Churned customers</div>
           <div className="font-display text-[26px] tracking-[-0.02em] mt-1 text-white">14</div>
           <MetricDelta value={3} suffix="" format={() => "3 new at-risk"} size="sm" />
         </div>

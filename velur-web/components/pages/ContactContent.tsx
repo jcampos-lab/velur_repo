@@ -28,7 +28,7 @@ export default function ContactContent() {
               objectPosition="center 70%"
             />
             <div className="relative">
-            <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-5">
+            <p className="font-display text-[10.5px] tracking-[0.18em] text-amber uppercase mb-5">
               {c.label}
             </p>
             <h1
@@ -68,7 +68,7 @@ export default function ContactContent() {
               className="lg:col-span-5 rounded-2xl bg-brand-beige border border-line p-6 md:p-8 flex flex-col gap-6"
             >
               <div>
-                <p className="font-mono text-[11px] tracking-[0.16em] text-amber uppercase mb-3 font-semibold">
+                <p className="font-display text-[11px] tracking-[0.16em] text-amber uppercase mb-3 font-semibold">
                   {c.whatToExpect}
                 </p>
                 <div className="space-y-4">

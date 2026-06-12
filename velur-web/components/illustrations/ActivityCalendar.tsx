@@ -79,7 +79,7 @@ export default function ActivityCalendar() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <span className="font-mono text-[9.5px] tracking-wide text-muted uppercase">
+          <span className="font-display text-[9.5px] tracking-wide text-muted uppercase">
             Less
           </span>
           {[0.15, 0.35, 0.55, 0.8, 1].map(t => (
@@ -89,7 +89,7 @@ export default function ActivityCalendar() {
               style={{ background: shade(t * max, max) }}
             />
           ))}
-          <span className="font-mono text-[9.5px] tracking-wide text-muted uppercase">
+          <span className="font-display text-[9.5px] tracking-wide text-muted uppercase">
             More
           </span>
         </div>
@@ -171,7 +171,7 @@ export default function ActivityCalendar() {
                 top:   `calc(${((18 + hover.day  * (CELL + GAP) + CELL / 2) / H) * 100}% - 64px)`,
               }}
             >
-              <p className="font-mono text-[9.5px] tracking-[0.14em] text-paper/55 uppercase mb-0.5">
+              <p className="font-display text-[9.5px] tracking-[0.14em] text-paper/55 uppercase mb-0.5">
                 {hover.date}
               </p>
               <p className="font-display font-normal text-paper text-[15px] leading-none tabular-nums">

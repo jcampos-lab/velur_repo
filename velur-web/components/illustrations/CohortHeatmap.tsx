@@ -215,10 +215,10 @@ export default function CohortHeatmap() {
               }}
             >
               <div className="flex items-center justify-between gap-3 mb-2">
-                <span className="font-mono text-[10px] tracking-[0.16em] text-paper/55 uppercase">
+                <span className="font-display text-[10px] tracking-[0.16em] text-paper/55 uppercase">
                   {hover.cohort} cohort
                 </span>
-                <span className="font-mono text-[10px] tracking-[0.14em] text-amber uppercase">
+                <span className="font-display text-[10px] tracking-[0.14em] text-amber uppercase">
                   {hover.period}
                 </span>
               </div>

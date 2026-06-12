@@ -44,7 +44,7 @@ export default function BlogPage() {
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
-              className={`font-mono text-xs uppercase tracking-widest shrink-0 pb-1 border-b-2 transition-colors ${
+              className={`font-display text-xs uppercase tracking-widest shrink-0 pb-1 border-b-2 transition-colors ${
                 cat === "All"
                   ? "border-ink text-ink"
                   : "border-transparent text-muted hover:text-ink"
@@ -64,7 +64,7 @@ export default function BlogPage() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
                 {/* Cover placeholder */}
                 <div className="lg:col-span-7 aspect-[16/9] bg-cream rounded-2xl border border-line flex items-center justify-center">
-                  <span className="font-mono text-xs text-muted uppercase tracking-widest">
+                  <span className="font-display text-xs text-muted uppercase tracking-widest">
                     Cover image
                   </span>
                 </div>
@@ -72,7 +72,7 @@ export default function BlogPage() {
                 {/* Meta */}
                 <div className="lg:col-span-5 flex flex-col gap-4 pb-2">
                   <div className="flex items-center gap-4">
-                    <span className="font-mono text-xs uppercase tracking-widest text-amber">
+                    <span className="font-display text-xs uppercase tracking-widest text-amber">
                       {featured.category}
                     </span>
                     <span className="font-mono text-xs text-muted">
@@ -103,13 +103,13 @@ export default function BlogPage() {
                 <div className="border border-line rounded-2xl p-8 flex flex-col gap-4 hover:border-ink transition-colors">
                   {/* Cover placeholder */}
                   <div className="aspect-[16/9] bg-cream rounded-xl flex items-center justify-center mb-2">
-                    <span className="font-mono text-xs text-muted uppercase tracking-widest">
+                    <span className="font-display text-xs text-muted uppercase tracking-widest">
                       Cover image
                     </span>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs uppercase tracking-widest text-muted">
+                    <span className="font-display text-xs uppercase tracking-widest text-muted">
                       {post.category}
                     </span>
                     <span className="font-mono text-xs text-muted">{formatDate(post.date)}</span>

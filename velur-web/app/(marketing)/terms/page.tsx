@@ -12,12 +12,12 @@ export default function TermsPage() {
       <div className="max-w-[720px] mx-auto px-6 md:px-12">
         <Link
           href="/"
-          className="font-mono text-xs uppercase tracking-widest text-muted hover:text-ink transition-colors mb-10 inline-block"
+          className="font-display text-xs uppercase tracking-widest text-muted hover:text-ink transition-colors mb-10 inline-block"
         >
           ← Home
         </Link>
 
-        <p className="font-mono text-xs uppercase tracking-widest text-muted mb-6">
+        <p className="font-display text-xs uppercase tracking-widest text-muted mb-6">
           LEGAL · TERMS OF SERVICE
         </p>
 
@@ -29,7 +29,7 @@ export default function TermsPage() {
         </h1>
 
         <div className="space-y-8 font-sans text-base text-ink leading-relaxed">
-          <p className="text-muted font-mono text-xs uppercase tracking-widest">
+          <p className="text-muted font-display text-xs uppercase tracking-widest">
             Last updated: May 2026
           </p>
 

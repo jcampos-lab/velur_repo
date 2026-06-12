@@ -173,7 +173,7 @@ function CorrelationChart() {
               </div>
               <div className="flex items-baseline gap-3">
                 <div>
-                  <p className="font-mono text-[9.5px] tracking-[0.14em] text-paper/55 uppercase">
+                  <p className="font-display text-[9.5px] tracking-[0.14em] text-paper/55 uppercase">
                     Margin
                   </p>
                   <p className="font-display font-normal text-paper text-[14px] tabular-nums">
@@ -181,7 +181,7 @@ function CorrelationChart() {
                   </p>
                 </div>
                 <div>
-                  <p className="font-mono text-[9.5px] tracking-[0.14em] text-paper/55 uppercase">
+                  <p className="font-display text-[9.5px] tracking-[0.14em] text-paper/55 uppercase">
                     Spend
                   </p>
                   <p className="font-display font-normal text-paper text-[14px] tabular-nums">
@@ -251,7 +251,7 @@ function MiniBrief() {
     <div className="h-full flex flex-col">
       <div className="flex items-center gap-2 mb-3">
         <span className="w-2 h-2 rounded-full bg-positive pulse-dot" />
-        <p className="font-mono text-[10px] tracking-[0.14em] text-positive uppercase">
+        <p className="font-display text-[10px] tracking-[0.14em] text-positive uppercase">
           Today&apos;s brief, 08:02
         </p>
       </div>

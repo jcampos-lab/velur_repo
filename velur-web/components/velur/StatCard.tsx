@@ -41,7 +41,7 @@ export function StatCard({
     <div
       className={`border rounded-[16px] px-6 py-[22px] flex flex-col gap-2.5 ${surfaceMap[surface]} ${className}`}
     >
-      <span className={`font-mono text-[12px] uppercase tracking-[0.06em] ${labelColor}`}>
+      <span className={`font-display text-[12px] uppercase tracking-[0.06em] ${labelColor}`}>
         {label}
       </span>
       <span

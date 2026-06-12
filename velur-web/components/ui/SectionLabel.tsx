@@ -48,7 +48,7 @@ export default function SectionLabel({
 
   return (
     <div className={`flex items-center gap-4 ${className}`}>
-      <span className="font-mono text-xs uppercase tracking-widest text-muted whitespace-nowrap">
+      <span className="font-display text-xs uppercase tracking-widest text-muted whitespace-nowrap">
         {left}
       </span>
       <span
@@ -58,7 +58,7 @@ export default function SectionLabel({
       />
       <span
         ref={rightRef}
-        className="font-mono text-xs uppercase tracking-widest text-muted whitespace-nowrap"
+        className="font-display text-xs uppercase tracking-widest text-muted whitespace-nowrap"
       >
         {right}
       </span>

@@ -12,6 +12,7 @@ import { RevenueAreaCard } from "@/components/velur/RevenueAreaCard";
 import { BrandMarquee } from "@/components/velur/BrandMarquee";
 import { RippleGrid } from "@/components/ui/ripple-grid";
 import { TiltCard } from "@/components/ui/tilt-card";
+import { GooeyTabs } from "@/components/ui/gooey-tabs";
 import {
   Plug,
   Layers,
@@ -427,7 +428,7 @@ export default function HomeContent() {
       {/* ════ 1 · HERO — centered declaration + media composition ════ */}
       <section className="bg-canvas relative overflow-hidden" style={{ padding: "var(--section-y-tight) var(--gutter) 0" }}>
         <div className="text-center" style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="gs-hero-eyebrow font-mono text-[13px] uppercase tracking-[0.06em] text-signal-green mb-6">
+          <p className="gs-hero-eyebrow font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-6">
             {c.hero.eyebrow}
           </p>
           <h1
@@ -465,13 +466,13 @@ export default function HomeContent() {
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 60vw"
-              className="gs-parallax object-cover scale-[1.12]"
+              className="art-live gs-parallax object-cover"
               style={{ objectPosition: "center 35%" }}
             />
             {/* Brief chip overlay — the product moment inside the art.
                 gs-float gives it a slow bob so the card feels alive. */}
             <div className="gs-float absolute left-5 bottom-5 right-5 sm:right-auto sm:max-w-[380px] bg-velur-ink/90 backdrop-blur-md border border-ink-700 rounded-[14px] p-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-signal-green-300 mb-1.5">
+              <p className="font-display text-[10px] uppercase tracking-[0.08em] text-signal-green-300 mb-1.5">
                 {c.hero.mediaChipLabel}
               </p>
               <p className="font-sans text-[13.5px] text-on-dark leading-snug">{c.hero.mediaChipText}</p>
@@ -496,7 +497,7 @@ export default function HomeContent() {
           style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}
         >
           <div>
-            <p className="gs-rise font-mono text-[13px] uppercase tracking-[0.06em] text-coral mb-6">
+            <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-coral mb-6">
               {c.problem.eyebrow}
             </p>
             <h2
@@ -532,7 +533,7 @@ export default function HomeContent() {
           style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}
         >
           <div>
-            <p className="gs-rise font-mono text-[13px] uppercase tracking-[0.06em] text-signal-green-300 mb-5">
+            <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-signal-green-300 mb-5">
               {c.solution.eyebrow}
             </p>
             <h2 className="gs-rise font-display font-normal text-white leading-[1.05] tracking-[-0.02em] mb-6" style={{ fontSize: "clamp(30px, 4.2vw, 54px)" }}>
@@ -564,7 +565,7 @@ export default function HomeContent() {
       {/* ════ 5 · HOW IT WORKS — progress rail + 5 steps ════ */}
       <section id="how" className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="gs-rise font-mono text-[13px] uppercase tracking-[0.06em] text-slate mb-4">{c.how.eyebrow}</p>
+          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-4">{c.how.eyebrow}</p>
           <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-14 max-w-[20ch]" style={{ fontSize: "clamp(30px, 4.2vw, 54px)" }}>
             {c.how.h2}
           </h2>
@@ -579,8 +580,8 @@ export default function HomeContent() {
                 const Icon = STEP_ICON[s.icon] ?? Plug;
                 return (
                   <li key={s.title} className="gs-step relative sm:pl-16">
-                    <span className="hidden sm:flex absolute left-0 top-0 w-10 h-10 rounded-full bg-canvas border border-line items-center justify-center">
-                      <Icon size={17} strokeWidth={1.6} className="text-signal-green" />
+                    <span className="hidden sm:flex absolute left-0 top-0 w-10 h-10 items-center justify-center">
+                      <Icon size={26} strokeWidth={1.5} className="text-signal-green" />
                     </span>
                     <div className="flex items-baseline gap-4 mb-2">
                       <span className="font-mono text-[12px] tracking-[0.08em] text-slate">0{i + 1}</span>
@@ -598,7 +599,7 @@ export default function HomeContent() {
       {/* ════ 6 · QUESTIONS — use-case grid with cycling highlight ════ */}
       <section className="bg-stone-200 border-y border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="gs-rise font-mono text-[13px] uppercase tracking-[0.06em] text-action-blue mb-4">{c.questions.eyebrow}</p>
+          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-action-blue mb-4">{c.questions.eyebrow}</p>
           <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-12 max-w-[22ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
             {c.questions.h2}
           </h2>
@@ -612,7 +613,7 @@ export default function HomeContent() {
                     : "bg-paper border-line"
                 }`}
               >
-                <span className={`font-mono text-[10px] uppercase tracking-[0.08em] block mb-2 transition-colors duration-500 ${i === activeQ ? "text-signal-green-300" : "text-slate"}`}>
+                <span className={`font-display text-[10px] uppercase tracking-[0.08em] block mb-2 transition-colors duration-500 ${i === activeQ ? "text-signal-green-300" : "text-slate"}`}>
                   Q{String(i + 1).padStart(2, "0")}
                 </span>
                 <p className={`font-sans text-[15px] leading-snug transition-colors duration-500 ${i === activeQ ? "text-on-dark" : "text-ink"}`}>
@@ -627,7 +628,7 @@ export default function HomeContent() {
       {/* ════ 7 · FEATURES — 4 art-led capability cards ════ */}
       <section className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="gs-rise font-mono text-[13px] uppercase tracking-[0.06em] text-slate mb-4">{c.features.eyebrow}</p>
+          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-4">{c.features.eyebrow}</p>
           <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-12 max-w-[24ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
             {c.features.h2}
           </h2>
@@ -644,13 +645,13 @@ export default function HomeContent() {
                           alt=""
                           fill
                           sizes="(max-width: 768px) 100vw, 50vw"
-                          className="gs-parallax object-cover scale-[1.18] transition-transform duration-700 group-hover:scale-[1.24]"
+                          className="art-live gs-parallax object-cover"
                         />
                       </div>
                       <div className="p-7 md:p-8">
                         <div className="flex items-center gap-3 mb-4">
-                          <span className="inline-flex w-9 h-9 rounded-full bg-wash-green text-signal-green items-center justify-center">
-                            <Icon size={16} strokeWidth={1.7} />
+                          <span className="inline-flex text-signal-green items-center">
+                            <Icon size={26} strokeWidth={1.5} />
                           </span>
                           <h3 className="font-display font-normal text-ink-strong text-[21px] tracking-[-0.01em]">{f.title}</h3>
                         </div>
@@ -665,45 +666,50 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ════ 8 · THE SHIFT — before / with Velur compare ════ */}
+      {/* ════ 8 · THE SHIFT — before / with Velur as gooey tabs ════ */}
       <section className="bg-canvas" style={{ padding: "0 var(--gutter) var(--section-y)" }}>
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 rounded-[22px] overflow-hidden border border-line"
-          style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}
-        >
-          <div className="gs-rise bg-stone p-8 md:p-10">
-            <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-slate mb-6">{c.shift.beforeLabel}</p>
-            <ul className="space-y-3.5">
-              {c.shift.before.map((b) => (
-                <li key={b} className="font-sans text-[15.5px] text-ink/60 leading-snug line-through decoration-ink/25 decoration-1">
-                  {b}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="gs-rise bg-velur-ink text-on-dark p-8 md:p-10">
-            <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-signal-green-300 mb-6">{c.shift.afterLabel}</p>
-            <ul className="space-y-3.5">
-              {c.shift.after.map((a) => (
-                <li key={a} className="flex items-start gap-3">
-                  <CheckCircle2 size={16} strokeWidth={1.8} className="text-signal-green-300 shrink-0 mt-1" />
-                  <span className="font-sans text-[15.5px] text-on-dark leading-snug">{a}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="gs-rise" style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+          <GooeyTabs
+            tabs={[
+              {
+                label: c.shift.beforeLabel,
+                content: (
+                  <ul className="space-y-3.5 max-w-[64ch]">
+                    {c.shift.before.map((b) => (
+                      <li key={b} className="font-sans text-[15.5px] text-ink/60 leading-snug line-through decoration-ink/25 decoration-1">
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                ),
+              },
+              {
+                label: c.shift.afterLabel,
+                content: (
+                  <ul className="space-y-3.5 max-w-[64ch]">
+                    {c.shift.after.map((a) => (
+                      <li key={a} className="flex items-start gap-3">
+                        <CheckCircle2 size={20} strokeWidth={1.8} className="text-signal-green shrink-0 mt-0.5" />
+                        <span className="font-sans text-[15.5px] text-ink leading-snug">{a}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ),
+              },
+            ]}
+          />
         </div>
       </section>
 
       {/* ════ 9 · INTEGRATIONS — live tier + honest roadmap tier ════ */}
       <section className="bg-cream border-y border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="gs-rise font-mono text-[13px] uppercase tracking-[0.06em] text-slate mb-4">{c.integrations.eyebrow}</p>
+          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-4">{c.integrations.eyebrow}</p>
           <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-12 max-w-[22ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
             {c.integrations.h2}
           </h2>
 
-          <p className="gs-rise font-mono text-[11px] uppercase tracking-[0.08em] text-signal-green mb-4">{c.integrations.liveLabel}</p>
+          <p className="gs-rise font-display text-[11px] uppercase tracking-[0.08em] text-signal-green mb-4">{c.integrations.liveLabel}</p>
           <div className="flex flex-wrap gap-2.5 mb-10">
             {c.integrations.live.map((t) => (
               <span key={t} className="gs-batch inline-flex items-center gap-2 bg-paper border border-line rounded-[30px] px-5 py-2.5 font-sans text-[14.5px] text-ink-strong transition-transform duration-300 hover:-translate-y-0.5">
@@ -713,7 +719,7 @@ export default function HomeContent() {
             ))}
           </div>
 
-          <p className="gs-rise font-mono text-[11px] uppercase tracking-[0.08em] text-slate mb-4">{c.integrations.roadmapLabel}</p>
+          <p className="gs-rise font-display text-[11px] uppercase tracking-[0.08em] text-slate mb-4">{c.integrations.roadmapLabel}</p>
           <div className="flex flex-wrap gap-2.5 mb-10">
             {c.integrations.roadmap.map((t) => (
               <span key={t} className="gs-batch inline-flex items-center gap-2 bg-transparent border border-dashed border-hairline rounded-[30px] px-5 py-2.5 font-sans text-[14.5px] text-slate">
@@ -731,7 +737,7 @@ export default function HomeContent() {
       {/* ════ 10 · PROOF — honest founder note (no fake logos) ════ */}
       <section className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}>
-          <p className="gs-rise font-mono text-[13px] uppercase tracking-[0.06em] text-coral mb-6 text-center">{c.proof.eyebrow}</p>
+          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-coral mb-6 text-center">{c.proof.eyebrow}</p>
           <blockquote className="gs-rise font-display font-normal text-ink-strong leading-[1.3] tracking-[-0.01em] text-center mb-6" style={{ fontSize: "clamp(20px, 2.6vw, 30px)" }}>
             &ldquo;{c.proof.quote}&rdquo;
           </blockquote>
@@ -757,12 +763,12 @@ export default function HomeContent() {
             alt=""
             fill
             sizes="100vw"
-            className="gs-parallax object-cover scale-[1.12]"
+            className="art-live gs-parallax object-cover"
             aria-hidden
           />
           <div aria-hidden className="absolute inset-0 bg-velur-ink/60" />
           <div className="relative">
-            <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-signal-green-300 mb-5">{c.cta.eyebrow}</p>
+            <p className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green-300 mb-5">{c.cta.eyebrow}</p>
             <h2 className="font-display font-normal text-white leading-[1.05] tracking-[-0.02em] mx-auto mb-5 max-w-[20ch]" style={{ fontSize: "clamp(28px, 4.4vw, 56px)" }}>
               {c.cta.h2}
             </h2>

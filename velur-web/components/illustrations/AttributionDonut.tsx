@@ -132,7 +132,7 @@ export default function AttributionDonut() {
                   <p className="font-display font-normal text-ink text-[26px] leading-none tabular-nums">
                     {hover.share}%
                   </p>
-                  <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase mt-1.5">
+                  <p className="font-display text-[10px] tracking-[0.14em] text-muted uppercase mt-1.5">
                     {hover.label}
                   </p>
                 </motion.div>
@@ -148,7 +148,7 @@ export default function AttributionDonut() {
                   <p className="font-display font-normal text-ink text-[26px] leading-none tabular-nums">
                     $186K
                   </p>
-                  <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase mt-1.5">
+                  <p className="font-display text-[10px] tracking-[0.14em] text-muted uppercase mt-1.5">
                     last 30 days
                   </p>
                 </motion.div>

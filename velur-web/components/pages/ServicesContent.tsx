@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
-import { TiltCard } from "@/components/ui/tilt-card";
+import { GooeyTabs } from "@/components/ui/gooey-tabs";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -329,7 +329,7 @@ function HeroCard({ c, m }: { c: Copy; m: Copy["mock"] }) {
       <div className="grid grid-cols-1 md:grid-cols-2 items-stretch min-h-[420px]">
         <div className="p-7 md:p-12 flex flex-col justify-between gap-8">
           <div>
-            <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-5">
+            <p className="font-display text-[10.5px] tracking-[0.18em] text-amber uppercase mb-5">
               {c.hero.eyebrow}
             </p>
             <h1
@@ -365,14 +365,14 @@ function HeroCard({ c, m }: { c: Copy; m: Copy["mock"] }) {
             src="/art/abstract-green.png"
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="art-live absolute inset-0 h-full w-full object-cover"
             style={{ objectPosition: "70% center" }}
             loading="lazy"
             decoding="async"
           />
           <div className="absolute inset-0 bg-velur-ink/25" aria-hidden="true" />
           <div className="absolute top-10 left-8 right-12 rounded-xl bg-velur-ink/95 backdrop-blur-sm border border-ink-700 p-5 shadow-2xl">
-            <p className="font-mono text-[9.5px] tracking-[0.18em] text-signal-green-300 uppercase">
+            <p className="font-display text-[9.5px] tracking-[0.18em] text-signal-green-300 uppercase">
               {m.briefEyebrow}
             </p>
             <p className="font-sans font-semibold text-on-dark text-[16px] leading-tight mt-2">
@@ -383,7 +383,7 @@ function HeroCard({ c, m }: { c: Copy; m: Copy["mock"] }) {
             </p>
           </div>
           <div className="absolute bottom-10 right-10 left-20 rounded-xl bg-velur-ink border border-ink-700 p-4 shadow-2xl">
-            <p className="font-mono text-[9px] tracking-[0.18em] text-signal-green-300 uppercase mb-2">
+            <p className="font-display text-[9px] tracking-[0.18em] text-signal-green-300 uppercase mb-2">
               {m.roasLabel}
             </p>
             <div className="flex items-baseline justify-between">
@@ -458,38 +458,32 @@ export default function ServicesContent() {
               {c.platform.heading}
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-            {c.modules.map((m, i) => (
-              <motion.article
-                key={m.label}
-                initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-              ><TiltCard className="rounded-2xl h-full"><div className="rounded-2xl bg-paper border border-line p-6 md:p-8 h-full">
-                <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-signal-green mb-4">
-                  {m.label}
-                </p>
-                <h3
-                  className="font-display font-normal text-ink-strong leading-[1.1] tracking-[-0.02em] mb-3"
-                  style={{ fontSize: "clamp(20px, 2.2vw, 26px)" }}
-                >
-                  {m.title}
-                </h3>
-                <p className="font-sans text-[15px] leading-[1.6] text-ink/75 mb-5">
-                  {m.body}
-                </p>
-                <ul className="grid grid-cols-1 gap-y-2.5">
-                  {m.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2.5">
-                      <span className="mt-2 inline-block w-1.5 h-1.5 rounded-full shrink-0 bg-signal-green" />
-                      <span className="font-sans text-[14px] text-ink/85 leading-snug">{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div></TiltCard></motion.article>
-            ))}
-          </div>
+          <GooeyTabs
+            tabs={c.modules.map((m) => ({
+              label: m.label,
+              content: (
+                <div className="max-w-[760px]">
+                  <h3
+                    className="font-display font-normal text-ink-strong leading-[1.1] tracking-[-0.02em] mb-4"
+                    style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}
+                  >
+                    {m.title}
+                  </h3>
+                  <p className="font-sans text-[15.5px] leading-[1.6] text-ink/75 mb-6">
+                    {m.body}
+                  </p>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5">
+                    {m.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5">
+                        <span className="mt-2 inline-block w-1.5 h-1.5 rounded-full shrink-0 bg-signal-green" />
+                        <span className="font-sans text-[14px] text-ink/85 leading-snug">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ),
+            }))}
+          />
         </div>
       </section>
 
@@ -497,7 +491,7 @@ export default function ServicesContent() {
       <section id="how" ref={howRef} className="bg-paper border-y border-line py-14 md:py-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="gsv-rise mb-4">
-            <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-signal-green mb-3">
+            <p className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-3">
               {c.howDeep.eyebrow}
             </p>
             <h2
@@ -554,7 +548,7 @@ export default function ServicesContent() {
             />
             <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-5">
-                <p className="font-mono text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-4">
+                <p className="font-display text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-4">
                   {c.onboard.eyebrow}
                 </p>
                 <h2
@@ -576,7 +570,7 @@ export default function ServicesContent() {
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {c.steps.map(step => (
                   <div key={step.label} className="rounded-2xl bg-on-dark/[0.06] border border-on-dark/15 p-5">
-                    <p className="font-mono text-[10px] tracking-[0.18em] text-signal-green-300 uppercase mb-3">
+                    <p className="font-display text-[10px] tracking-[0.18em] text-signal-green-300 uppercase mb-3">
                       {step.label}
                     </p>
                     <p className="font-sans font-semibold text-paper text-[16px] leading-tight mb-2">
@@ -609,7 +603,7 @@ export default function ServicesContent() {
             <div className="rounded-2xl bg-paper border border-line p-6 md:p-8">
               <div className="flex items-center gap-2 mb-5">
                 <span className="inline-block w-2 h-2 rounded-full bg-success" />
-                <p className="font-mono text-[11px] tracking-[0.16em] text-success uppercase font-semibold">
+                <p className="font-display text-[11px] tracking-[0.16em] text-success uppercase font-semibold">
                   {c.fit.yesLabel}
                 </p>
               </div>
@@ -629,7 +623,7 @@ export default function ServicesContent() {
             <div className="rounded-2xl bg-stone border border-line p-6 md:p-8">
               <div className="flex items-center gap-2 mb-5">
                 <span className="inline-block w-2 h-2 rounded-full bg-muted-slate" />
-                <p className="font-mono text-[11px] tracking-[0.16em] text-muted-slate uppercase font-semibold">
+                <p className="font-display text-[11px] tracking-[0.16em] text-muted-slate uppercase font-semibold">
                   {c.fit.noLabel}
                 </p>
               </div>
@@ -660,7 +654,7 @@ export default function ServicesContent() {
             />
             <div className="relative grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
               <div className="max-w-2xl">
-                <p className="font-mono text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-3">
+                <p className="font-display text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-3">
                   {c.closing.eyebrow}
                 </p>
                 <h3

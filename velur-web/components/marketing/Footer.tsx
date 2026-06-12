@@ -1,10 +1,16 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { RollingText } from "@/components/ui/rolling-text";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 /**
  * Velur — Marketing Footer
@@ -38,9 +44,36 @@ const KNOWN_LINKS: Record<string, string> = {
 export default function Footer() {
   const { t } = useLanguage();
   const f = t.footerKit;
+  const root = useRef<HTMLElement>(null);
+
+  /* Giant wordmark rises in and the mark spins half a turn as the
+     footer scrolls into view. Reduced motion → static. */
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.from(".ft-wordmark", {
+          yPercent: 40,
+          opacity: 0,
+          duration: 1.1,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".ft-wordmark", start: "top 95%" },
+        });
+        gsap.from(".ft-wordmark-mark", {
+          rotation: -180,
+          duration: 1.3,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".ft-wordmark", start: "top 95%" },
+        });
+      });
+      return () => mm.revert();
+    },
+    { scope: root },
+  );
 
   return (
     <footer
+      ref={root}
       className="bg-velur-ink text-on-dark overflow-hidden"
       style={{ padding: "var(--section-y-tight) var(--gutter) 24px" }}
     >
@@ -51,7 +84,7 @@ export default function Footer() {
         >
           {/* Newsletter column */}
           <div>
-            <div className="font-mono text-[12px] uppercase tracking-[0.06em] text-coral">
+            <div className="font-display text-[12px] uppercase tracking-[0.06em] text-coral">
               {f.eyebrow}
             </div>
             <h3 className="font-display text-[28px] leading-[1.1] tracking-[-0.01em] text-white mt-3 mb-4 max-w-[16ch]">
@@ -162,14 +195,14 @@ export default function Footer() {
         }}
         aria-hidden="true"
       >
-        <div className="flex items-center justify-start gap-[1.5vw] flex-nowrap">
+        <div className="ft-wordmark flex items-center justify-start gap-[1.5vw] flex-nowrap">
           <Image
             src="/logos/velur-mark-white.png"
             alt=""
             width={400}
             height={400}
             priority={false}
-            className="h-auto shrink-0"
+            className="ft-wordmark-mark h-auto shrink-0"
             style={{ width: "clamp(64px, 11vw, 180px)" }}
           />
           <span

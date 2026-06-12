@@ -75,7 +75,7 @@ export default function ThreeThingsSection() {
                 className={`rounded-2xl border ${dark ? "border-transparent" : "border-line"} p-6 md:p-8 flex flex-col gap-4 ${row.bg} ${bodyClass}`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10.5px] tracking-[0.16em] uppercase text-amber">
+                  <span className="font-display text-[10.5px] tracking-[0.16em] uppercase text-amber">
                     {row.label}
                   </span>
                   <span className={`font-mono text-[11px] ${labelOpacity}`}>

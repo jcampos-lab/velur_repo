@@ -36,7 +36,7 @@ export default function FloatingSideRail() {
 
       {/* Rotated label */}
       <span
-        className="font-mono text-[11px] text-muted tracking-[0.2em] uppercase mt-2"
+        className="font-display text-[11px] text-muted tracking-[0.2em] uppercase mt-2"
         style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
       >
         VELUR.IO

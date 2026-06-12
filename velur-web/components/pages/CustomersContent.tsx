@@ -175,7 +175,7 @@ export default function CustomersContent() {
         style={{ padding: "var(--section-y-tight) var(--gutter)" }}
       >
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-signal-green mb-5">
+          <p className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-5">
             {c.eyebrow}
           </p>
           <h1
@@ -202,7 +202,7 @@ export default function CustomersContent() {
       >
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <div className="mb-10 md:mb-12 max-w-2xl">
-            <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
+            <p className="font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
               {c.audienceEyebrow}
             </p>
             <h2
@@ -225,7 +225,7 @@ export default function CustomersContent() {
                 <h3 className="font-display font-normal text-ink-strong text-[22px] leading-tight tracking-[-0.01em]">
                   {card.size}
                 </h3>
-                <p className="font-mono text-[11.5px] uppercase tracking-[0.06em] text-signal-green">
+                <p className="font-display text-[11.5px] uppercase tracking-[0.06em] text-signal-green">
                   {card.revenue}
                 </p>
                 <p className="font-sans text-[15px] text-ink/80 leading-relaxed">
@@ -247,7 +247,7 @@ export default function CustomersContent() {
           style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}
         >
           <div>
-            <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
+            <p className="font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
               {c.teamEyebrow}
             </p>
             <h2
@@ -282,7 +282,7 @@ export default function CustomersContent() {
       >
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <div className="mb-10 md:mb-12 max-w-3xl">
-            <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
+            <p className="font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
               {c.versusEyebrow}
             </p>
             <h2
@@ -299,13 +299,13 @@ export default function CustomersContent() {
           <div className="rounded-2xl border border-line overflow-hidden">
             {/* Header row */}
             <div className="hidden md:grid grid-cols-[1.1fr_1fr_1fr] bg-stone-200 border-b border-line">
-              <div className="px-6 md:px-7 py-4 font-mono text-[11px] uppercase tracking-[0.06em] text-slate">
+              <div className="px-6 md:px-7 py-4 font-display text-[11px] uppercase tracking-[0.06em] text-slate">
                 The question
               </div>
-              <div className="px-6 md:px-7 py-4 font-mono text-[11px] uppercase tracking-[0.06em] text-slate border-l border-line">
+              <div className="px-6 md:px-7 py-4 font-display text-[11px] uppercase tracking-[0.06em] text-slate border-l border-line">
                 AI chatbots
               </div>
-              <div className="px-6 md:px-7 py-4 font-mono text-[11px] uppercase tracking-[0.06em] text-signal-green border-l border-line">
+              <div className="px-6 md:px-7 py-4 font-display text-[11px] uppercase tracking-[0.06em] text-signal-green border-l border-line">
                 Velur
               </div>
             </div>
@@ -320,7 +320,7 @@ export default function CustomersContent() {
                   </h3>
                 </div>
                 <div className="px-6 md:px-7 py-5 md:py-6 border-t md:border-t-0 md:border-l border-line">
-                  <p className="md:hidden font-mono text-[10.5px] uppercase tracking-[0.06em] text-slate mb-2">
+                  <p className="md:hidden font-display text-[10.5px] uppercase tracking-[0.06em] text-slate mb-2">
                     AI chatbots
                   </p>
                   <p className="font-sans text-[14.5px] text-ink/70 leading-relaxed">
@@ -328,7 +328,7 @@ export default function CustomersContent() {
                   </p>
                 </div>
                 <div className="px-6 md:px-7 py-5 md:py-6 border-t md:border-t-0 md:border-l border-line bg-wash-green/40">
-                  <p className="md:hidden font-mono text-[10.5px] uppercase tracking-[0.06em] text-signal-green mb-2">
+                  <p className="md:hidden font-display text-[10.5px] uppercase tracking-[0.06em] text-signal-green mb-2">
                     Velur
                   </p>
                   <p className="font-sans text-[14.5px] text-ink leading-relaxed">
@@ -350,7 +350,7 @@ export default function CustomersContent() {
           className="text-center"
           style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}
         >
-          <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-action-blue mb-5">
+          <p className="font-display text-[13px] uppercase tracking-[0.06em] text-action-blue mb-5">
             {c.closingEyebrow}
           </p>
           <h2

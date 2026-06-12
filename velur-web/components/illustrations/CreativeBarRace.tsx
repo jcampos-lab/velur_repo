@@ -112,12 +112,12 @@ export default function CreativeBarRace() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.25 }}
-            className="font-mono text-[11px] tracking-[0.16em] uppercase text-amber"
+            className="font-display text-[11px] tracking-[0.16em] uppercase text-amber"
           >
             {week.label}
           </motion.p>
         </AnimatePresence>
-        <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
+        <p className="font-display text-[10px] tracking-[0.14em] text-muted uppercase">
           Margin attributed
         </p>
       </div>

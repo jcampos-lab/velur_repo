@@ -12,12 +12,12 @@ export default function ImprintPage() {
       <div className="max-w-[720px] mx-auto px-6 md:px-12">
         <Link
           href="/"
-          className="font-mono text-xs uppercase tracking-widest text-muted hover:text-ink transition-colors mb-10 inline-block"
+          className="font-display text-xs uppercase tracking-widest text-muted hover:text-ink transition-colors mb-10 inline-block"
         >
           ← Home
         </Link>
 
-        <p className="font-mono text-xs uppercase tracking-widest text-muted mb-6">
+        <p className="font-display text-xs uppercase tracking-widest text-muted mb-6">
           LEGAL · IMPRINT
         </p>
 

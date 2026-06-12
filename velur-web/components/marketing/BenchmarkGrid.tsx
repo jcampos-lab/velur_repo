@@ -61,7 +61,7 @@ export default function BenchmarkGrid() {
             >
               <div className="flex items-center gap-2">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber" />
-                <p className="font-mono text-[10.5px] tracking-[0.16em] text-amber uppercase">
+                <p className="font-display text-[10.5px] tracking-[0.16em] text-amber uppercase">
                   {s.label}
                 </p>
               </div>

@@ -120,7 +120,7 @@ export default function LtvLineChart() {
           </p>
         </div>
         <div className="flex flex-col items-end gap-0.5">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
+          <span className="font-display text-[10px] uppercase tracking-widest text-muted">
             Lift vs RFM at M12
           </span>
           <span className="font-display font-normal text-amber text-[28px] leading-none tracking-tight tabular-nums">
@@ -325,7 +325,7 @@ export default function LtvLineChart() {
                     : `calc(${tooltipPct}% + 16px)`,
               }}
             >
-              <p className="font-mono text-[9.5px] tracking-[0.16em] text-paper/55 uppercase mb-1.5">
+              <p className="font-display text-[9.5px] tracking-[0.16em] text-paper/55 uppercase mb-1.5">
                 Month
               </p>
               <p className="font-display font-normal text-paper text-[15px] tracking-tight mb-2">

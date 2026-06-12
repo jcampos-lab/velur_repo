@@ -29,7 +29,7 @@ export default function CtaSection() {
         style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}
       >
         <div className="mb-5">
-          <span className="font-mono text-[13px] uppercase tracking-[0.06em] text-action-blue">
+          <span className="font-display text-[13px] uppercase tracking-[0.06em] text-action-blue">
             {c.eyebrow}
           </span>
         </div>

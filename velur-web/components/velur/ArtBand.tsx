@@ -28,7 +28,7 @@ export function ArtBand({
           <img
             src={src}
             alt=""
-            className="absolute inset-0 h-full w-full object-cover"
+            className="art-live absolute inset-0 h-full w-full object-cover"
             style={{ objectPosition }}
             loading="lazy"
             decoding="async"

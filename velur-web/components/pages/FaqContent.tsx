@@ -76,7 +76,7 @@ export default function FaqContent() {
               objectPosition="center bottom"
             />
             <div className="relative">
-            <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase mb-5">
+            <p className="font-display text-[10.5px] tracking-[0.18em] text-amber uppercase mb-5">
               {f.label}
             </p>
             <h1
@@ -124,7 +124,7 @@ export default function FaqContent() {
                   className="rounded-2xl bg-paper border border-line overflow-hidden"
                 >
                   <div className="px-6 md:px-8 pt-6 md:pt-7 pb-2">
-                    <p className="font-mono text-[10.5px] tracking-[0.18em] text-amber uppercase">
+                    <p className="font-display text-[10.5px] tracking-[0.18em] text-amber uppercase">
                       {cat.title}
                     </p>
                   </div>

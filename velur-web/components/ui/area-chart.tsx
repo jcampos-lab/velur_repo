@@ -802,7 +802,7 @@ function TooltipContent({ title, rows, children }: TooltipContentProps) {
     >
       <div className="px-3 py-2.5" ref={measureRef}>
         {title && (
-          <div className="mb-2 font-mono text-[11px] uppercase tracking-[0.06em] text-white/70">
+          <div className="mb-2 font-display text-[11px] uppercase tracking-[0.06em] text-white/70">
             {title}
           </div>
         )}

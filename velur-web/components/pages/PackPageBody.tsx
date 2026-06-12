@@ -87,7 +87,7 @@ export default function PackPageBody({ pack }: { pack: PromptPack }) {
             {chrome.backLink}
           </Link>
 
-          <p className={`font-mono text-[13px] uppercase tracking-[0.06em] mb-5 ${pack.textOnDark ? "text-on-dark-muted" : "text-slate"}`}>
+          <p className={`font-display text-[13px] uppercase tracking-[0.06em] mb-5 ${pack.textOnDark ? "text-on-dark-muted" : "text-slate"}`}>
             {chrome.promptPackLabel} · {total} {chrome.promptsSuffix}
           </p>
 
@@ -117,7 +117,7 @@ export default function PackPageBody({ pack }: { pack: PromptPack }) {
             {packIntro(pack, l)}
           </p>
           <aside className="rounded-2xl bg-stone p-6 md:p-7 flex flex-col gap-3 self-start">
-            <p className={`font-mono text-[11.5px] uppercase tracking-[0.06em] ${eyebrowTone[pack.eyebrowTone]}`}>
+            <p className={`font-display text-[11.5px] uppercase tracking-[0.06em] ${eyebrowTone[pack.eyebrowTone]}`}>
               {chrome.sidebarEyebrow}
             </p>
             <p className="font-sans text-[14.5px] text-ink leading-relaxed">
@@ -151,7 +151,7 @@ export default function PackPageBody({ pack }: { pack: PromptPack }) {
                 >
                   {groupTitle(pack, gi, l)}
                 </h2>
-                <p className="font-mono text-[12px] uppercase tracking-[0.06em] text-slate mt-2">
+                <p className="font-display text-[12px] uppercase tracking-[0.06em] text-slate mt-2">
                   {g.prompts.length} {chrome.promptsSuffix}
                 </p>
               </div>
@@ -170,7 +170,7 @@ export default function PackPageBody({ pack }: { pack: PromptPack }) {
                           {promptTitle(pack, gi, pi, l)}
                         </h3>
                         <span
-                          className={`shrink-0 font-mono text-[11px] uppercase tracking-[0.06em] px-2.5 py-1 rounded-full ${ts.bg} ${ts.fg}`}
+                          className={`shrink-0 font-display text-[11px] uppercase tracking-[0.06em] px-2.5 py-1 rounded-full ${ts.bg} ${ts.fg}`}
                         >
                           {p.tool}
                         </span>
@@ -204,7 +204,7 @@ export default function PackPageBody({ pack }: { pack: PromptPack }) {
           className="text-center"
           style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}
         >
-          <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-action-blue mb-5">
+          <p className="font-display text-[13px] uppercase tracking-[0.06em] text-action-blue mb-5">
             {chrome.finalEyebrow}
           </p>
           <h2

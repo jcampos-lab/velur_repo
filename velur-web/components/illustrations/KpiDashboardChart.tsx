@@ -199,7 +199,7 @@ function KpiCard({
     >
       <div className="flex items-start justify-between">
         <div>
-          <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase mb-1.5">
+          <p className="font-display text-[10px] tracking-[0.14em] text-muted uppercase mb-1.5">
             {metric.label}
           </p>
           <p className="font-display font-normal text-ink text-[22px] tracking-tight leading-none tabular-nums">
@@ -289,7 +289,7 @@ export default function KpiDashboardChart() {
             className="hidden md:flex absolute pointer-events-none -top-4 right-6 rounded-xl bg-ink text-paper shadow-2xl border border-line/20 px-3.5 py-2.5 gap-4"
           >
             <div className="flex flex-col">
-              <span className="font-mono text-[9.5px] tracking-[0.16em] text-paper/55 uppercase mb-1">
+              <span className="font-display text-[9.5px] tracking-[0.16em] text-paper/55 uppercase mb-1">
                 Day
               </span>
               <span className="font-display font-normal text-paper text-[14px] tabular-nums">
@@ -299,7 +299,7 @@ export default function KpiDashboardChart() {
             <div className="border-l border-paper/15 pl-4 flex items-center gap-4">
               {summary.map(s => (
                 <div key={s.label} className="flex flex-col">
-                  <span className="font-mono text-[9.5px] tracking-[0.10em] text-paper/55 uppercase mb-0.5 flex items-center gap-1.5">
+                  <span className="font-display text-[9.5px] tracking-[0.10em] text-paper/55 uppercase mb-0.5 flex items-center gap-1.5">
                     <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: s.color }} />
                     {s.label.split(" ")[0]}
                   </span>

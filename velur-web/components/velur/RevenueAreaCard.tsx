@@ -44,7 +44,7 @@ export function RevenueAreaCard({
     >
       <div className="flex items-start justify-between gap-4 mb-1">
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-slate mb-2">
+          <p className="font-display text-[11px] uppercase tracking-[0.06em] text-slate mb-2">
             {label}
           </p>
           <p className="font-display font-normal text-ink-strong text-[28px] md:text-[34px] leading-none tracking-[-0.02em] tabular-nums">

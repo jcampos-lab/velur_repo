@@ -182,7 +182,7 @@ export default function CompanyContent() {
         />
 
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto", position: "relative" }}>
-          <motion.p {...fadeUp(0)} className="font-mono text-[13px] uppercase tracking-[0.06em] text-signal-green mb-5">
+          <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-5">
             {c.heroEyebrow}
           </motion.p>
           <motion.h1
@@ -211,7 +211,7 @@ export default function CompanyContent() {
         style={{ padding: "var(--section-y-tight) var(--gutter)" }}
       >
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <motion.p {...fadeUp(0)} className="font-mono text-[13px] uppercase tracking-[0.06em] text-slate mb-3">
+          <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-3">
             {c.founderEyebrow}
           </motion.p>
 
@@ -291,8 +291,8 @@ export default function CompanyContent() {
                     whileHover={prefersReduced ? undefined : { x: -4 }}
                     className="inline-flex items-center gap-2.5 bg-paper border border-line rounded-full pl-3 pr-5 py-2"
                   >
-                    <span className="inline-flex w-6 h-6 rounded-full bg-wash-green text-signal-green items-center justify-center">
-                      <Icon size={13} strokeWidth={1.8} />
+                    <span className="inline-flex text-signal-green items-center justify-center">
+                      <Icon size={20} strokeWidth={1.7} />
                     </span>
                     <span className="font-sans text-[13.5px] text-ink-strong">{tag.label}</span>
                   </motion.div>
@@ -310,7 +310,7 @@ export default function CompanyContent() {
       >
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <div className="max-w-3xl mb-10 md:mb-14">
-            <motion.p {...fadeUp(0)} className="font-mono text-[13px] uppercase tracking-[0.06em] text-coral mb-4">
+            <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-coral mb-4">
               {c.chaseEyebrow}
             </motion.p>
             <motion.h2
@@ -345,10 +345,10 @@ export default function CompanyContent() {
                   />
 
                   <div className="relative flex items-center gap-3 mb-6">
-                    <span className="inline-flex w-9 h-9 rounded-full bg-wash-green text-signal-green items-center justify-center">
-                      <Icon size={16} strokeWidth={1.8} />
+                    <span className="inline-flex text-signal-green items-center">
+                      <Icon size={26} strokeWidth={1.5} />
                     </span>
-                    <span className="font-mono text-[11px] tracking-[0.16em] text-slate uppercase">
+                    <span className="font-display text-[11px] tracking-[0.16em] text-slate uppercase">
                       {card.kicker}
                     </span>
                   </div>
@@ -385,7 +385,7 @@ export default function CompanyContent() {
           className="relative"
           style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}
         >
-          <motion.p {...fadeUp(0)} className="font-mono text-[13px] uppercase tracking-[0.06em] text-coral mb-6">
+          <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-coral mb-6">
             {c.promiseEyebrow}
           </motion.p>
           <motion.h2

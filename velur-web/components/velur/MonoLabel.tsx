@@ -25,7 +25,7 @@ export function MonoLabel({
   };
   return (
     <span
-      className={`font-mono text-[13px] uppercase tracking-[0.06em] ${colors[tone]} ${className}`}
+      className={`font-display text-[13px] uppercase tracking-[0.06em] ${colors[tone]} ${className}`}
     >
       {children}
     </span>

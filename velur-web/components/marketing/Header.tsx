@@ -82,17 +82,18 @@ export default function Header() {
         {/* Full-bleed bar: the mark hugs the very left edge of the
             screen (no centered max-width container). */}
         <div className="w-full h-full flex items-center justify-between gap-6 pl-4 pr-5 md:pl-5 md:pr-8">
-          {/* Mark left */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="Velur home">
+          {/* Mark left — hover spins the four-dot mark half a turn and
+              the wordmark does the rolling swap. */}
+          <Link href="/" className="group flex items-center gap-2.5 shrink-0" aria-label="Velur home">
             <Image
               src="/logos/velur-mark-black.png"
               alt=""
               width={26}
               height={26}
-              className="shrink-0"
+              className="shrink-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:rotate-180"
             />
             <span className="font-display text-[22px] tracking-[-0.02em] text-ink-strong">
-              Velur
+              <RollingText text="Velur" />
             </span>
           </Link>
 

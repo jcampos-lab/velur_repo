@@ -50,7 +50,7 @@ export default function DataPipelineFlow() {
       className="border border-line bg-stone rounded-2xl p-5 md:p-6 select-none overflow-hidden"
       style={{ animation: "fadeSlideUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.15s both" }}
     >
-      <p className="font-mono text-[10px] uppercase tracking-widest text-muted mb-5">
+      <p className="font-display text-[10px] uppercase tracking-widest text-muted mb-5">
         Your Analytics Stack, Built Once, Owned Forever
       </p>
 

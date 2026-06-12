@@ -177,6 +177,21 @@
    for 500/600 the browser falls through to the closest available
    weight, which is 400 Regular — that's the look we want. */
 
+/* ─── Art drift — slow Ken Burns for every art asset ───────────────
+   Animates the native `scale` property (not transform), so it
+   composes cleanly with GSAP parallax translates on the same node. */
+@keyframes art-drift {
+  0%   { scale: 1.12; }
+  50%  { scale: 1.2; }
+  100% { scale: 1.12; }
+}
+.art-live {
+  animation: art-drift 28s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .art-live { animation: none; }
+}
+
 /* ─── Velur runtime tokens (radii, spacing, type-scale, elevation) */
 :root {
   /* AreaChart (components/ui/area-chart.tsx) reads these directly

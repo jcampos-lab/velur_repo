@@ -52,7 +52,7 @@ export default async function BlogPostPage({ params }: Props) {
 
           <div className="max-w-[720px]">
             <div className="flex items-center gap-4 mb-5">
-              <span className="font-mono text-[11px] tracking-[0.16em] text-amber uppercase">
+              <span className="font-display text-[11px] tracking-[0.16em] text-amber uppercase">
                 {post.category}
               </span>
               <span className="font-mono text-[11px] text-ink/55 tracking-[0.06em]">{formatDate(post.date)}</span>

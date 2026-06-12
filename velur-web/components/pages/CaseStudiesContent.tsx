@@ -25,7 +25,7 @@ export default function CaseStudiesContent() {
       {/* Hero */}
       <section className="bg-paper pt-20 pb-16 border-b border-line">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <p className="font-mono text-xs uppercase tracking-widest text-muted mb-8">
+          <p className="font-display text-xs uppercase tracking-widest text-muted mb-8">
             {cs.label}
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -53,7 +53,7 @@ export default function CaseStudiesContent() {
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-4 border border-line bg-paper rounded-[16px] p-12 flex flex-col gap-3">
-              <span className="font-mono text-xs uppercase tracking-widest text-positive">
+              <span className="font-display text-xs uppercase tracking-widest text-positive">
                 {featured.category}
               </span>
               <span
@@ -62,7 +62,7 @@ export default function CaseStudiesContent() {
               >
                 {featured.metric}
               </span>
-              <span className="font-mono text-sm text-muted uppercase tracking-widest">
+              <span className="font-display text-sm text-muted uppercase tracking-widest">
                 {featured.metricLabel}
               </span>
             </div>
@@ -95,7 +95,7 @@ export default function CaseStudiesContent() {
                 className="marketing-card border border-line bg-paper rounded-[16px] p-8 flex flex-col gap-5"
               >
                 <div className="flex items-center justify-between">
-                  <span className={`font-mono text-xs uppercase tracking-widest ${CATEGORY_COLORS[r.categoryKey] ?? "text-muted"}`}>
+                  <span className={`font-display text-xs uppercase tracking-widest ${CATEGORY_COLORS[r.categoryKey] ?? "text-muted"}`}>
                     {r.category}
                   </span>
                   <span className="font-mono text-xs text-muted">{r.metricLabel}</span>
@@ -127,7 +127,7 @@ export default function CaseStudiesContent() {
             {cs.voices.map((v, i) => (
               <div key={i} className="py-14 grid grid-cols-1 lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-3">
-                  <p className="font-mono text-xs uppercase tracking-widest text-muted leading-relaxed">
+                  <p className="font-display text-xs uppercase tracking-widest text-muted leading-relaxed">
                     {v.attribution}
                   </p>
                 </div>

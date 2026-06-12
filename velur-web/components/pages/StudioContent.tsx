@@ -243,7 +243,7 @@ function FeaturedCourse({ c }: { c: Copy["course"] }) {
       <div className="grid grid-cols-1 md:grid-cols-2 items-stretch min-h-[400px]">
         <div className="p-7 md:p-12 flex flex-col justify-between gap-8">
           <div>
-            <p className="font-mono text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-4">
+            <p className="font-display text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-4">
               {c.eyebrow}
             </p>
             <h3
@@ -270,11 +270,11 @@ function FeaturedCourse({ c }: { c: Copy["course"] }) {
             backgroundImage: "radial-gradient(circle at 30% 40%, rgba(79,183,141,0.45), transparent 55%), radial-gradient(circle at 80% 80%, rgba(31,95,224,0.18), transparent 55%)",
           }} />
           <div className="absolute top-12 left-8 right-12 bottom-8 rounded-xl bg-velur-ink border border-ink-700 p-5 flex flex-col justify-between shadow-2xl">
-            <p className="font-mono text-[10px] tracking-[0.18em] text-signal-green-300 uppercase">
+            <p className="font-display text-[10px] tracking-[0.18em] text-signal-green-300 uppercase">
               {c.mockChapter}
             </p>
             <div>
-              <p className="font-mono text-[10px] tracking-[0.16em] text-on-dark-muted uppercase mb-1">
+              <p className="font-display text-[10px] tracking-[0.16em] text-on-dark-muted uppercase mb-1">
                 {c.mockLesson}
               </p>
               <p className="font-display font-normal text-on-dark text-[20px] leading-tight">
@@ -283,7 +283,7 @@ function FeaturedCourse({ c }: { c: Copy["course"] }) {
             </div>
           </div>
           <div className="absolute -bottom-6 -right-6 w-40 h-28 rounded-xl bg-canvas border border-hairline p-3 rotate-[6deg] shadow-2xl">
-            <p className="font-mono text-[9px] tracking-[0.18em] text-slate uppercase">
+            <p className="font-display text-[9px] tracking-[0.18em] text-slate uppercase">
               {c.mockMicro}
             </p>
             <div className="mt-1.5 space-y-1">
@@ -356,7 +356,7 @@ function GuideAndPacks({
                   />
                 ))}
               </div>
-              <p className="font-mono text-[7px] text-ink/45 tracking-wider uppercase mt-1">
+              <p className="font-display text-[7px] text-ink/45 tracking-wider uppercase mt-1">
                 {guide.bookCaption}
               </p>
             </div>
@@ -446,7 +446,7 @@ function PackGrid({ s, lang }: { s: Copy["packGridSection"]; lang: PackLang }) {
           >
             <Link href={`/studio/packs/${p.slug}`} className="flex flex-col h-full">
               <div className={`aspect-[5/4] ${p.surface} relative p-6 flex flex-col justify-end`}>
-                <p className={`font-mono text-[10px] tracking-[0.18em] uppercase ${p.textOnDark ? "text-on-dark-muted" : "text-ink/60"}`}>
+                <p className={`font-display text-[10px] tracking-[0.18em] uppercase ${p.textOnDark ? "text-on-dark-muted" : "text-ink/60"}`}>
                   {count} {s.promptsSuffix}
                 </p>
                 <p className={`font-display font-normal text-[24px] leading-tight tracking-[-0.01em] mt-1 ${p.textOnDark ? "text-on-dark" : "text-ink-strong"}`}>
@@ -520,7 +520,7 @@ function FitSection({ f }: { f: Copy["fit"] }) {
       >
         <div className="flex items-center gap-2 mb-5">
           <span className="inline-block w-2 h-2 rounded-full bg-success" />
-          <p className="font-mono text-[11px] tracking-[0.16em] text-success uppercase font-semibold">
+          <p className="font-display text-[11px] tracking-[0.16em] text-success uppercase font-semibold">
             {f.yesLabel}
           </p>
         </div>
@@ -546,7 +546,7 @@ function FitSection({ f }: { f: Copy["fit"] }) {
       >
         <div className="flex items-center gap-2 mb-5">
           <span className="inline-block w-2 h-2 rounded-full bg-muted-slate" />
-          <p className="font-mono text-[11px] tracking-[0.16em] text-muted-slate uppercase font-semibold">
+          <p className="font-display text-[11px] tracking-[0.16em] text-muted-slate uppercase font-semibold">
             {f.noLabel}
           </p>
         </div>
@@ -622,7 +622,7 @@ export default function StudioContent() {
       {/* Hero */}
       <section className="bg-cream pt-12 md:pt-16 pb-12 md:pb-16">
         <div className="max-w-[1100px] mx-auto px-5 md:px-10 text-center">
-          <p className="font-mono text-[11px] tracking-[0.18em] text-signal-green uppercase mb-6">
+          <p className="font-display text-[11px] tracking-[0.18em] text-signal-green uppercase mb-6">
             {c.hero.eyebrow}
           </p>
           <h1
@@ -693,7 +693,7 @@ export default function StudioContent() {
           <div className="rounded-2xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-5">
-                <p className="font-mono text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-4">
+                <p className="font-display text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-4">
                   {c.system.eyebrow}
                 </p>
                 <h2
@@ -715,7 +715,7 @@ export default function StudioContent() {
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {c.system.weeks.map(step => (
                   <div key={step.label} className="rounded-2xl bg-on-dark/[0.06] border border-on-dark/15 p-5">
-                    <p className="font-mono text-[10px] tracking-[0.16em] text-signal-green-300 uppercase mb-3">
+                    <p className="font-display text-[10px] tracking-[0.16em] text-signal-green-300 uppercase mb-3">
                       {step.label}
                     </p>
                     <p className="font-sans font-semibold text-paper text-[16px] leading-tight mb-2">
@@ -786,7 +786,7 @@ export default function StudioContent() {
           <div className="rounded-2xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
               <div className="max-w-2xl">
-                <p className="font-mono text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-3">
+                <p className="font-display text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-3">
                   {c.closing.eyebrow}
                 </p>
                 <h3

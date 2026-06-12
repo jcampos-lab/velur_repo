@@ -31,7 +31,7 @@ export default function WaitlistForm() {
   if (state === "success") {
     return (
       <div className="border border-line bg-paper rounded-2xl p-10 flex flex-col gap-4">
-        <span className="font-mono text-xs text-amber uppercase tracking-widest">✓ Done</span>
+        <span className="font-display text-xs text-amber uppercase tracking-widest">✓ Done</span>
         <p className="font-display font-normal text-ink text-2xl leading-snug">{c.formSuccess}</p>
         <p className="font-mono text-xs text-muted">{c.formNote}</p>
       </div>
@@ -41,7 +41,7 @@ export default function WaitlistForm() {
   return (
     <form onSubmit={handleSubmit} className="border border-line bg-paper rounded-2xl p-8 md:p-10 flex flex-col gap-6">
       <div className="flex flex-col gap-2">
-        <label htmlFor="waitlist-email" className="font-mono text-xs uppercase tracking-widest text-muted">
+        <label htmlFor="waitlist-email" className="font-display text-xs uppercase tracking-widest text-muted">
           Email
         </label>
         <input

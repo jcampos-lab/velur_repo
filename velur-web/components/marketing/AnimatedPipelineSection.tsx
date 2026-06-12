@@ -82,7 +82,7 @@ export default function AnimatedPipelineSection() {
 
             {/* Sources column */}
             <div className="flex flex-col gap-3 md:gap-4">
-              <p className="font-mono text-[10px] tracking-[0.18em] text-ink/45 uppercase mb-1">
+              <p className="font-display text-[10px] tracking-[0.18em] text-ink/45 uppercase mb-1">
                 Sources
               </p>
               {SOURCES.map((s, i) => (
@@ -134,7 +134,7 @@ export default function AnimatedPipelineSection() {
                     />
                   </span>
                 )}
-                <p className="font-mono text-[9px] md:text-[10px] tracking-[0.22em] text-amber uppercase mb-2">
+                <p className="font-display text-[9px] md:text-[10px] tracking-[0.22em] text-amber uppercase mb-2">
                   Velur
                 </p>
                 <p className="font-display font-normal text-[16px] md:text-[19px] leading-[1.1]">
@@ -147,7 +147,7 @@ export default function AnimatedPipelineSection() {
 
             {/* Outputs column */}
             <div className="flex flex-col gap-3 md:gap-4">
-              <p className="font-mono text-[10px] tracking-[0.18em] text-ink/45 uppercase mb-1 text-right">
+              <p className="font-display text-[10px] tracking-[0.18em] text-ink/45 uppercase mb-1 text-right">
                 Outputs
               </p>
               {OUTPUTS.map((o, i) => (
