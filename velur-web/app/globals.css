@@ -192,6 +192,16 @@
   .art-live { animation: none; }
 }
 
+/* ─── Integration logo bob — gentle float on the big stack panels ── */
+@keyframes logo-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.logo-bob { animation: logo-bob 4.5s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .logo-bob { animation: none; }
+}
+
 /* ─── Velur runtime tokens (radii, spacing, type-scale, elevation) */
 :root {
   /* AreaChart (components/ui/area-chart.tsx) reads these directly

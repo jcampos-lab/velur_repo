@@ -7,11 +7,14 @@ import { Lock, Shield, Check } from "lucide-react";
 import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
 import { GooeyTabs } from "@/components/ui/gooey-tabs";
 
-/* ─── Per-page strings (Castilian Spanish for ES) ─────────────────── */
+/* ─── Per-page strings (Castilian Spanish for ES) ─────────────────────
+   Velur runs on six integrations for now (Shopify, Meta, Stripe,
+   Recharge, Google Ads, Klaviyo). More will follow — we don't claim a
+   fixed monthly/quarterly cadence. */
 const COPY = {
   en: {
     eyebrow: "Integrations",
-    h1: "Eight integrations. One revenue truth.",
+    h1: "Six integrations. One revenue truth.",
     subhead: "Velur connects to the tools every DTC brand already runs on. Read-only OAuth, EU-hosted processing, no warehouse to stand up. Plug them in and your first daily brief lands the next morning.",
     securityEyebrow: "Security & compatibility",
     securityHeading: "How Velur connects.",
@@ -21,14 +24,15 @@ const COPY = {
       { icon: "check", title: "No warehouse required",   body: "You don't need BigQuery, Snowflake, or a data engineer. Velur handles modeling, normalization and orchestration. The setup is the OAuth click, then we backfill the last 18 months." },
     ],
     integrationsEyebrow: "The stack",
-    integrationsHeading: "Eight tools that cover ~95% of DTC revenue.",
+    integrationsHeading: "Six tools. The core of how DTC revenue flows.",
     closingEyebrow: "Don't see your stack?",
-    closingHeading: "We add integrations every quarter.",
-    closingBody: "If a tool isn't listed, tell us when you join the waitlist and we'll share where it sits on the roadmap. Anything CSV/SFTP-importable can be onboarded manually in the meantime.",
+    closingHeading: "More integrations are on the way.",
+    closingBody: "For now, Velur runs on these six — the tools that cover the core of DTC revenue. Tell us what else you need when you join the waitlist; anything CSV/SFTP-importable can be onboarded manually in the meantime.",
     closingCta: "Join the waitlist",
     integrations: [
       {
         name: "Shopify",
+        logo: "/integrations/shopify.svg",
         category: "Commerce",
         data: "Orders, customers, products, refunds, fulfilment",
         what: "The spine of every DTC brand we work with. Velur reads the order and customer graph so we can attribute revenue, build behavioural cohorts, and reconcile margin against ad spend.",
@@ -36,15 +40,8 @@ const COPY = {
         compatibility: "Shopify Basic, Shopify, Advanced, Plus. B2B / wholesale channels supported on Plus.",
       },
       {
-        name: "Klaviyo",
-        category: "Email + SMS",
-        data: "Flow triggers, segment membership, campaign performance, attributed revenue",
-        what: "Klaviyo is where the post-purchase relationship lives. Velur ties flow performance back to first-party Shopify revenue — so 'attributed' actually means a real order, not a click that opened the email.",
-        scope: "Read-only API key with metrics + profiles + campaigns scope",
-        compatibility: "All Klaviyo plans. Klaviyo SMS supported on the SMS plan.",
-      },
-      {
         name: "Meta Ads",
+        logo: "/integrations/meta.svg",
         category: "Paid social",
         data: "Spend, impressions, clicks, creative metadata, ad-level conversions",
         what: "Server-side and pixel events together, reconciled with Shopify orders. We rebuild post-iOS14 attribution at the campaign and creative level so your reported ROAS is the one you trust.",
@@ -52,31 +49,8 @@ const COPY = {
         compatibility: "Meta Business Manager. Aggregated Event Measurement supported. CAPI integration recommended for accuracy.",
       },
       {
-        name: "TikTok Ads",
-        category: "Paid social",
-        data: "Spend, creative-level performance, video views, ad-level conversions",
-        what: "Treats TikTok as a real revenue channel, not just a vanity dashboard. Velur ties hook → save → checkout so you stop boosting creative that only drives engagement.",
-        scope: "Read-only TikTok Ads API access",
-        compatibility: "TikTok Ads Manager + TikTok Pixel + Events API. Spark Ads supported.",
-      },
-      {
-        name: "Google Ads",
-        category: "Paid search",
-        data: "Spend, search and shopping conversions, Performance Max breakdown, asset-level performance",
-        what: "Shows you what Performance Max is actually doing under the hood. Velur splits PMax into its real placements (search vs shopping vs YouTube) so the channel mix is honest.",
-        scope: "AdWords read scope",
-        compatibility: "Standard, Performance Max, Shopping. Manager (MCC) accounts supported.",
-      },
-      {
-        name: "GA4",
-        category: "Web analytics",
-        data: "Sessions, events, attribution paths, e-commerce conversions",
-        what: "GA4 is our cross-check on Shopify's view of the world. When the two diverge on a date, Velur surfaces the gap and the most likely cause (pixel drop, attribution window, bot traffic).",
-        scope: "Google Analytics Data API (read-only)",
-        compatibility: "GA4 properties only. Universal Analytics is end-of-life.",
-      },
-      {
         name: "Stripe",
+        logo: "/integrations/stripe.svg",
         category: "Payments + billing",
         data: "Charges, refunds, disputes, subscription MRR, payout schedule",
         what: "For DTC brands with a subscription line — and any brand processing payments outside Shopify — Stripe is where the truth lives. Velur ties MRR, churn and dunning to the same customer record as Shopify orders.",
@@ -85,17 +59,36 @@ const COPY = {
       },
       {
         name: "Recharge",
+        logo: "/integrations/recharge.svg",
         category: "Subscriptions",
         data: "Subscription MRR, churn, cohort retention, next-charge schedule, plan changes",
         what: "If you sell on a recurring schedule, Recharge is the data set that matters most. Velur models retention by acquisition channel, plan, and first product — so you stop guessing which acquisition cohort pays back.",
         scope: "Recharge API read scope (subscriptions, customers, charges)",
         compatibility: "Recharge Standard, Pro, Custom. Bundles and tiered subscriptions supported.",
       },
+      {
+        name: "Google Ads",
+        logo: "/integrations/google.svg",
+        category: "Paid search",
+        data: "Spend, search and shopping conversions, Performance Max breakdown, asset-level performance",
+        what: "Shows you what Performance Max is actually doing under the hood. Velur splits PMax into its real placements (search vs shopping vs YouTube) so the channel mix is honest.",
+        scope: "AdWords read scope",
+        compatibility: "Standard, Performance Max, Shopping. Manager (MCC) accounts supported.",
+      },
+      {
+        name: "Klaviyo",
+        logo: "/integrations/klaviyo.svg",
+        category: "Email + SMS",
+        data: "Flow triggers, segment membership, campaign performance, attributed revenue",
+        what: "Klaviyo is where the post-purchase relationship lives. Velur ties flow performance back to first-party Shopify revenue — so 'attributed' actually means a real order, not a click that opened the email.",
+        scope: "Read-only API key with metrics + profiles + campaigns scope",
+        compatibility: "All Klaviyo plans. Klaviyo SMS supported on the SMS plan.",
+      },
     ],
   },
   es: {
     eyebrow: "Integraciones",
-    h1: "Ocho integraciones. Una sola verdad de ingresos.",
+    h1: "Seis integraciones. Una sola verdad de ingresos.",
     subhead: "Velur se conecta a las herramientas con las que ya opera cualquier marca DTC. OAuth de solo lectura, procesamiento alojado en la UE, sin warehouse que montar. Conéctalas y tu primer informe diario llega a la mañana siguiente.",
     securityEyebrow: "Seguridad y compatibilidad",
     securityHeading: "Cómo se conecta Velur.",
@@ -105,14 +98,15 @@ const COPY = {
       { icon: "check",  title: "Sin warehouse necesario",     body: "No necesitas BigQuery, Snowflake ni ingeniero de datos. Velur se encarga del modelado, la normalización y la orquestación. El setup es el clic de OAuth, y luego hacemos backfill de los últimos 18 meses." },
     ],
     integrationsEyebrow: "El stack",
-    integrationsHeading: "Ocho herramientas que cubren ~95% de los ingresos DTC.",
+    integrationsHeading: "Seis herramientas. El núcleo de cómo fluyen los ingresos DTC.",
     closingEyebrow: "¿No ves tu stack?",
-    closingHeading: "Añadimos integraciones cada trimestre.",
-    closingBody: "Si una herramienta no está listada, dínoslo al unirte a la lista de espera y te contamos dónde está en la hoja de ruta. Cualquier cosa importable por CSV/SFTP se puede onboardear manualmente mientras tanto.",
+    closingHeading: "Llegarán más integraciones.",
+    closingBody: "Por ahora, Velur funciona con estas seis — las herramientas que cubren el núcleo de los ingresos DTC. Dinos qué más necesitas al unirte a la lista de espera; cualquier cosa importable por CSV/SFTP se puede onboardear manualmente mientras tanto.",
     closingCta: "Unirse a la lista",
     integrations: [
       {
         name: "Shopify",
+        logo: "/integrations/shopify.svg",
         category: "E-commerce",
         data: "Pedidos, clientes, productos, reembolsos, fulfilment",
         what: "La columna vertebral de cada marca DTC con la que trabajamos. Velur lee el grafo de pedidos y clientes para atribuir ingresos, construir cohortes de comportamiento y reconciliar margen contra inversión publicitaria.",
@@ -120,15 +114,8 @@ const COPY = {
         compatibility: "Shopify Basic, Shopify, Advanced, Plus. Canales B2B / mayorista soportados en Plus.",
       },
       {
-        name: "Klaviyo",
-        category: "Email + SMS",
-        data: "Disparadores de flujo, pertenencia a segmento, rendimiento de campaña, ingresos atribuidos",
-        what: "Klaviyo es donde vive la relación post-compra. Velur conecta el rendimiento de los flujos con los ingresos de primera parte de Shopify — así 'atribuido' significa un pedido real, no un clic que abrió el email.",
-        scope: "API key de solo lectura con scope metrics + profiles + campaigns",
-        compatibility: "Todos los planes Klaviyo. Klaviyo SMS soportado en el plan SMS.",
-      },
-      {
         name: "Meta Ads",
+        logo: "/integrations/meta.svg",
         category: "Publicidad social",
         data: "Inversión, impresiones, clics, metadatos creativos, conversiones a nivel de anuncio",
         what: "Eventos server-side y de píxel a la vez, reconciliados con pedidos de Shopify. Reconstruimos la atribución post-iOS14 a nivel de campaña y creativo, para que el ROAS reportado sea el ROAS en el que confías.",
@@ -136,31 +123,8 @@ const COPY = {
         compatibility: "Meta Business Manager. Aggregated Event Measurement soportado. CAPI recomendado para precisión.",
       },
       {
-        name: "TikTok Ads",
-        category: "Publicidad social",
-        data: "Inversión, rendimiento a nivel de creativo, vistas de vídeo, conversiones a nivel de anuncio",
-        what: "Trata a TikTok como un canal de ingresos real, no como un dashboard de vanidad. Velur conecta hook → guardado → checkout para que dejes de impulsar creatividad que solo mueve engagement.",
-        scope: "Acceso de solo lectura a la API de TikTok Ads",
-        compatibility: "TikTok Ads Manager + TikTok Pixel + Events API. Spark Ads soportado.",
-      },
-      {
-        name: "Google Ads",
-        category: "Search ads",
-        data: "Inversión, conversiones de search y shopping, desglose de Performance Max, rendimiento por asset",
-        what: "Te muestra lo que Performance Max realmente está haciendo por debajo. Velur separa PMax en sus placements reales (search vs shopping vs YouTube) para que el mix de canal sea honesto.",
-        scope: "Scope de lectura AdWords",
-        compatibility: "Standard, Performance Max, Shopping. Cuentas Manager (MCC) soportadas.",
-      },
-      {
-        name: "GA4",
-        category: "Analítica web",
-        data: "Sesiones, eventos, paths de atribución, conversiones e-commerce",
-        what: "GA4 es nuestro contraste sobre la visión que tiene Shopify del mundo. Cuando los dos divergen en una fecha, Velur señala la brecha y la causa más probable (caída de píxel, ventana de atribución, tráfico bot).",
-        scope: "Google Analytics Data API (solo lectura)",
-        compatibility: "Solo propiedades GA4. Universal Analytics está en fin de vida.",
-      },
-      {
         name: "Stripe",
+        logo: "/integrations/stripe.svg",
         category: "Pagos + facturación",
         data: "Cargos, reembolsos, disputas, MRR de suscripción, calendario de payouts",
         what: "Para marcas DTC con línea de suscripción — y cualquier marca que procese pagos fuera de Shopify — Stripe es donde vive la verdad. Velur conecta MRR, churn y dunning con el mismo registro de cliente que los pedidos de Shopify.",
@@ -169,11 +133,30 @@ const COPY = {
       },
       {
         name: "Recharge",
+        logo: "/integrations/recharge.svg",
         category: "Suscripciones",
         data: "MRR de suscripción, churn, retención por cohorte, próximo cargo, cambios de plan",
         what: "Si vendes en formato recurrente, Recharge es el conjunto de datos que más importa. Velur modela retención por canal de adquisición, plan y primer producto — para que dejes de adivinar qué cohorte de adquisición devuelve la inversión.",
         scope: "Scope de lectura de la API de Recharge (subscriptions, customers, charges)",
         compatibility: "Recharge Standard, Pro, Custom. Bundles y suscripciones por niveles soportados.",
+      },
+      {
+        name: "Google Ads",
+        logo: "/integrations/google.svg",
+        category: "Search ads",
+        data: "Inversión, conversiones de search y shopping, desglose de Performance Max, rendimiento por asset",
+        what: "Te muestra lo que Performance Max realmente está haciendo por debajo. Velur separa PMax en sus placements reales (search vs shopping vs YouTube) para que el mix de canal sea honesto.",
+        scope: "Scope de lectura AdWords",
+        compatibility: "Standard, Performance Max, Shopping. Cuentas Manager (MCC) soportadas.",
+      },
+      {
+        name: "Klaviyo",
+        logo: "/integrations/klaviyo.svg",
+        category: "Email + SMS",
+        data: "Disparadores de flujo, pertenencia a segmento, rendimiento de campaña, ingresos atribuidos",
+        what: "Klaviyo es donde vive la relación post-compra. Velur conecta el rendimiento de los flujos con los ingresos de primera parte de Shopify — así 'atribuido' significa un pedido real, no un clic que abrió el email.",
+        scope: "API key de solo lectura con scope metrics + profiles + campaigns",
+        compatibility: "Todos los planes Klaviyo. Klaviyo SMS soportado en el plan SMS.",
       },
     ],
   },
@@ -188,10 +171,30 @@ const SECURITY_ICON: Record<string, typeof Lock> = {
   check: Check,
 };
 
-/* Detail block rendered inside each integration card. */
+/* Big animated brand logo — left side of the stack panels. */
+function IntegrationLogo({ it }: { it: Integration }) {
+  return (
+    <div className="relative flex items-center justify-center py-6 md:py-4">
+      <div
+        aria-hidden
+        className="absolute w-[60%] aspect-square rounded-full bg-signal-green/10 blur-3xl"
+      />
+      <div className="logo-bob relative flex items-center justify-center w-full">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={it.logo}
+          alt={it.name}
+          className="w-auto max-w-[78%] max-h-[110px] md:max-h-[150px] object-contain"
+        />
+      </div>
+    </div>
+  );
+}
+
+/* Text detail — right side of the panels, and the body of mobile cards. */
 function IntegrationDetail({ it }: { it: Integration }) {
   return (
-    <div className="max-w-[820px]">
+    <div className="max-w-[640px]">
       <div className="flex items-baseline justify-between gap-4 mb-4">
         <h3 className="font-display font-normal text-ink-strong text-[24px] leading-tight tracking-[-0.015em]">
           {it.name}
@@ -219,6 +222,16 @@ function IntegrationDetail({ it }: { it: Integration }) {
           <dd className="font-sans text-[13.5px] text-ink/85 leading-snug">{it.compatibility}</dd>
         </div>
       </dl>
+    </div>
+  );
+}
+
+/* Full panel inside the gooey tab — big logo left, detail right. */
+function IntegrationPanel({ it }: { it: Integration }) {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-[0.85fr_1.5fr] gap-8 md:gap-14 items-center md:min-h-[300px]">
+      <IntegrationLogo it={it} />
+      <IntegrationDetail it={it} />
     </div>
   );
 }
@@ -292,54 +305,52 @@ export default function IntegrationsContent() {
         </div>
       </section>
 
-      {/* The 8 integrations */}
+      {/* The stack — full-width gooey box, big logo left / text right */}
       <section
         className="bg-cream border-y border-border-light"
         style={{ padding: "var(--section-y) var(--gutter)" }}
       >
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          {/* Sticky heading left, integration cards on the right. */}
-          <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.5fr] gap-10 lg:gap-14 items-start">
-            <div className="lg:sticky lg:top-32">
-              <p className="font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
-                {c.integrationsEyebrow}
-              </p>
-              <h2
-                className="font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.025em]"
-                style={{ fontSize: "clamp(26px, 3vw, 40px)" }}
+          <div className="mb-10 md:mb-14 max-w-3xl">
+            <p className="font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-2">
+              {c.integrationsEyebrow}
+            </p>
+            <h2
+              className="font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.025em]"
+              style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}
+            >
+              {c.integrationsHeading}
+            </h2>
+          </div>
+
+          {/* Desktop: full-width gooey box. Mobile: stacked cards with
+              the logo on top (six tabs are too many for a phone strip). */}
+          <div className="hidden md:block w-full">
+            <GooeyTabs
+              tabs={c.integrations.map((it) => ({
+                label: it.name,
+                content: <IntegrationPanel it={it} />,
+              }))}
+            />
+          </div>
+
+          <div className="md:hidden flex flex-col gap-4">
+            {c.integrations.map((it, i) => (
+              <motion.article
+                key={it.name}
+                initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
+                className="rounded-2xl bg-paper border border-line p-6"
               >
-                {c.integrationsHeading}
-              </h2>
-            </div>
-
-            <div>
-              {/* Desktop: gooey tabs — one tab per integration, the
-                  active tab fuses into the detail panel. Mobile keeps
-                  stacked cards (eight tabs don't fit a phone strip). */}
-              <div className="hidden md:block w-full max-w-[760px] lg:justify-self-end">
-                <GooeyTabs
-                  tabs={c.integrations.map((it) => ({
-                    label: it.name,
-                    content: <IntegrationDetail it={it} />,
-                  }))}
-                />
-              </div>
-
-              <div className="md:hidden flex flex-col gap-4">
-                {c.integrations.map((it, i) => (
-                  <motion.article
-                    key={it.name}
-                    initial={prefersReduced ? {} : { opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                    className="rounded-2xl bg-paper border border-line p-6"
-                  >
-                    <IntegrationDetail it={it} />
-                  </motion.article>
-                ))}
-              </div>
-            </div>
+                <div className="flex items-center justify-center h-24 mb-5">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={it.logo} alt={it.name} className="w-auto max-w-[60%] max-h-[64px] object-contain" />
+                </div>
+                <IntegrationDetail it={it} />
+              </motion.article>
+            ))}
           </div>
         </div>
       </section>

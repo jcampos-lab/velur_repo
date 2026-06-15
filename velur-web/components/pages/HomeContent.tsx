@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -22,6 +23,7 @@ import {
   TrendingUp,
   ShieldAlert,
   Lightbulb,
+  X,
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -125,30 +127,37 @@ const COPY = {
     features: {
       eyebrow: "What you get",
       h2: "Intelligence that arrives, instead of dashboards that wait.",
+      detailLabel: "How it works",
+      learnMore: "How it works",
+      close: "Close",
       cards: [
         {
           icon: "file",
           art: "/art/abstract-tiles.png",
           title: "The daily brief",
           body: "One paragraph at 8am: what moved, why it moved, what to do today. Written for the operator, not the analyst.",
+          detail: "Every morning Velur reads the previous night across all six connected tools, reconciles them onto one timeline, and writes a short brief — net revenue, what drove the change, which channel paid back, what needs attention. It's the work a senior analyst would do before standup, done by 8am in plain language, so you act on the day instead of decoding it.",
         },
         {
           icon: "trending",
           art: "/art/abstract-pills.png",
           title: "Forecasts with receipts",
           body: "Next month's expected revenue with every assumption shown — new, expansion, contraction, churn. No black box.",
+          detail: "We never hand you a single number and ask you to trust it. Velur breaks next month's expected revenue into its parts — new customers, expansion, contraction, churn — and shows the assumption behind each one. When the forecast moves you can see exactly which lever moved it, so you can defend the number or push back on it with evidence.",
         },
         {
           icon: "shield",
           art: "/art/abstract-cylinders.png",
           title: "Risk before it lands",
           body: "Churn signals, campaign decay and broken flows flagged while there's still time to act — not in next month's report.",
+          detail: "Velur watches the leading indicators, not the lagging ones — a flow that quietly broke, a cohort retaining worse than last month, a campaign whose ROAS is decaying before the spend catches up. Each risk is flagged while you can still act, with the most likely cause attached, instead of being explained after the damage in next month's report.",
         },
         {
           icon: "bulb",
           art: "/art/abstract-petals.png",
           title: "Recommendations, not homework",
           body: "Pause this ad set. Scale that creative. Fix this flow. Every recommendation tied to the number it moves.",
+          detail: "Insight you can't act on is just trivia. Every Velur recommendation is specific and tied to the number it moves — pause this ad set, scale that creative, fix this flow — with the expected impact and the data behind it. You make the call; Velur does the analysis that makes the call obvious.",
         },
       ],
     },
@@ -163,9 +172,7 @@ const COPY = {
       eyebrow: "Integrations",
       h2: "Built on the stack you already trust.",
       liveLabel: "Live today",
-      roadmapLabel: "On the roadmap",
-      live: ["Shopify", "Klaviyo", "Meta Ads", "TikTok Ads", "Google Ads", "GA4", "Stripe", "Recharge"],
-      roadmap: ["HubSpot", "Salesforce", "Zendesk", "Gorgias", "Amazon Ads", "Postgres"],
+      live: ["Shopify", "Meta Ads", "Stripe", "Recharge", "Google Ads", "Klaviyo"],
       link: "Explore all integrations →",
     },
     proof: {
@@ -266,30 +273,37 @@ const COPY = {
     features: {
       eyebrow: "Lo que obtienes",
       h2: "Inteligencia que llega, en vez de dashboards que esperan.",
+      detailLabel: "Cómo funciona",
+      learnMore: "Cómo funciona",
+      close: "Cerrar",
       cards: [
         {
           icon: "file",
           art: "/art/abstract-tiles.png",
           title: "El brief diario",
           body: "Un párrafo a las 8 de la mañana: qué se movió, por qué se movió, qué hacer hoy. Escrito para quien opera, no para el analista.",
+          detail: "Cada mañana Velur lee la noche anterior en las seis herramientas conectadas, las reconcilia en una sola línea de tiempo y escribe un brief corto — ingreso neto, qué causó el cambio, qué canal devolvió la inversión, qué requiere atención. Es el trabajo que haría un analista senior antes del standup, listo a las 8 y en lenguaje claro, para que actúes sobre el día en vez de descifrarlo.",
         },
         {
           icon: "trending",
           art: "/art/abstract-pills.png",
           title: "Forecasts con recibos",
           body: "El ingreso esperado del mes que viene con cada supuesto a la vista — nuevo, expansión, contracción, churn. Sin caja negra.",
+          detail: "Nunca te damos un único número y te pedimos que confíes. Velur descompone el ingreso esperado del mes que viene en sus partes — nuevos clientes, expansión, contracción, churn — y muestra el supuesto detrás de cada una. Cuando el forecast se mueve, ves exactamente qué palanca lo movió, para defender el número o rebatirlo con evidencia.",
         },
         {
           icon: "shield",
           art: "/art/abstract-cylinders.png",
           title: "Riesgo antes de que aterrice",
           body: "Señales de churn, decaimiento de campañas y flujos rotos detectados mientras aún hay tiempo de actuar — no en el informe del mes siguiente.",
+          detail: "Velur vigila los indicadores adelantados, no los rezagados — un flow que se rompió en silencio, una cohorte que retiene peor que el mes pasado, una campaña cuyo ROAS decae antes de que el gasto lo note. Cada riesgo se señala mientras aún puedes actuar, con la causa más probable adjunta, en vez de explicarse tras el daño en el informe del mes siguiente.",
         },
         {
           icon: "bulb",
           art: "/art/abstract-petals.png",
           title: "Recomendaciones, no deberes",
           body: "Pausa este ad set. Escala esa creatividad. Arregla este flujo. Cada recomendación atada al número que mueve.",
+          detail: "El insight sobre el que no puedes actuar es solo trivia. Cada recomendación de Velur es específica y está atada al número que mueve — pausa este ad set, escala esa creatividad, arregla este flujo — con el impacto esperado y los datos que la respaldan. Tú decides; Velur hace el análisis que vuelve obvia la decisión.",
         },
       ],
     },
@@ -304,9 +318,7 @@ const COPY = {
       eyebrow: "Integraciones",
       h2: "Construido sobre el stack en el que ya confías.",
       liveLabel: "Activas hoy",
-      roadmapLabel: "En la hoja de ruta",
-      live: ["Shopify", "Klaviyo", "Meta Ads", "TikTok Ads", "Google Ads", "GA4", "Stripe", "Recharge"],
-      roadmap: ["HubSpot", "Salesforce", "Zendesk", "Gorgias", "Amazon Ads", "Postgres"],
+      live: ["Shopify", "Meta Ads", "Stripe", "Recharge", "Google Ads", "Klaviyo"],
       link: "Explorar todas las integraciones →",
     },
     proof: {
@@ -350,6 +362,15 @@ export default function HomeContent() {
   const root = useRef<HTMLDivElement>(null);
   const { lang } = useLanguage();
   const c: Copy = COPY[lang];
+
+  /* Which feature card's detail modal is open (index, or null). */
+  const [activeFeature, setActiveFeature] = useState<number | null>(null);
+  useEffect(() => {
+    if (activeFeature === null) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setActiveFeature(null);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [activeFeature]);
 
   useGSAP(
     () => {
@@ -657,12 +678,19 @@ export default function HomeContent() {
             {c.features.h2}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-            {c.features.cards.map((f) => {
+            {c.features.cards.map((f, i) => {
               const Icon = FEATURE_ICON[f.icon] ?? FileText;
               return (
                 <div key={f.title} className="gs-batch">
                   <TiltCard className="rounded-[22px]">
-                    <article className="group rounded-[22px] bg-paper border border-line overflow-hidden">
+                    <article
+                      onClick={() => setActiveFeature(i)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setActiveFeature(i)}
+                      aria-haspopup="dialog"
+                      className="group cursor-pointer rounded-[22px] bg-paper border border-line overflow-hidden transition-shadow duration-300 hover:shadow-[0_24px_64px_-32px_rgba(11,61,46,0.35)]"
+                    >
                       <div className="relative h-[180px] md:h-[220px] overflow-hidden">
                         <Image
                           src={f.art}
@@ -679,7 +707,11 @@ export default function HomeContent() {
                           </span>
                           <h3 className="font-display font-normal text-ink-strong text-[21px] tracking-[-0.01em]">{f.title}</h3>
                         </div>
-                        <p className="font-sans text-[14.5px] text-ink/80 leading-[1.6]">{f.body}</p>
+                        <p className="font-sans text-[14.5px] text-ink/80 leading-[1.6] mb-4">{f.body}</p>
+                        <span className="inline-flex items-center gap-1.5 font-display text-[11px] uppercase tracking-[0.08em] text-signal-green">
+                          {c.features.learnMore}
+                          <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
+                        </span>
                       </div>
                     </article>
                   </TiltCard>
@@ -688,6 +720,63 @@ export default function HomeContent() {
             })}
           </div>
         </div>
+
+        {/* Feature detail modal — blurs the page, explains how each works. */}
+        <AnimatePresence>
+          {activeFeature !== null && (() => {
+            const f = c.features.cards[activeFeature];
+            const Icon = FEATURE_ICON[f.icon] ?? FileText;
+            return (
+              <motion.div
+                className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                role="dialog"
+                aria-modal="true"
+                aria-label={f.title}
+              >
+                <div
+                  className="absolute inset-0 bg-velur-ink/70 backdrop-blur-md"
+                  onClick={() => setActiveFeature(null)}
+                  aria-hidden
+                />
+                <motion.div
+                  className="relative w-full max-w-xl rounded-[22px] bg-canvas overflow-hidden shadow-2xl"
+                  initial={{ scale: 0.96, y: 12 }}
+                  animate={{ scale: 1, y: 0 }}
+                  exit={{ scale: 0.97, y: 8, opacity: 0 }}
+                  transition={{ type: "spring", bounce: 0, duration: 0.35 }}
+                >
+                  <div className="relative h-[160px] overflow-hidden">
+                    <Image src={f.art} alt="" fill sizes="600px" className="art-live object-cover" />
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setActiveFeature(null)}
+                    aria-label={c.features.close}
+                    className="absolute top-4 right-4 z-10 inline-flex w-9 h-9 items-center justify-center rounded-full bg-velur-ink/70 text-white hover:bg-velur-ink transition-colors"
+                  >
+                    <X size={18} strokeWidth={1.8} />
+                  </button>
+                  <div className="p-7 md:p-9">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="inline-flex text-signal-green items-center">
+                        <Icon size={24} strokeWidth={1.5} />
+                      </span>
+                      <h3 className="font-display font-normal text-ink-strong text-[24px] tracking-[-0.015em]">{f.title}</h3>
+                    </div>
+                    <p className="font-display text-[11px] uppercase tracking-[0.08em] text-slate mb-4">
+                      {c.features.detailLabel}
+                    </p>
+                    <p className="font-sans text-[15.5px] leading-[1.6] text-ink/85">{f.detail}</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })()}
+        </AnimatePresence>
       </section>
 
       {/* ════ 8 · THE SHIFT — before / with Velur as gooey tabs ════ */}
@@ -725,45 +814,22 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ════ 9 · INTEGRATIONS — live tier + honest roadmap tier ════ */}
+      {/* ════ 9 · INTEGRATIONS — the six live tools ════ */}
       <section className="bg-cream border-y border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-4">{c.integrations.eyebrow}</p>
-          <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-12 max-w-[22ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
+          <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-10 max-w-[22ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
             {c.integrations.h2}
           </h2>
 
-          <div className="gs-rise mb-10">
-            <GooeyTabs
-              surfaceClass="bg-paper"
-              tabs={[
-                {
-                  label: c.integrations.liveLabel,
-                  content: (
-                    <div className="flex flex-wrap gap-2.5">
-                      {c.integrations.live.map((t) => (
-                        <span key={t} className="inline-flex items-center gap-2 bg-canvas border border-line rounded-[30px] px-5 py-2.5 font-sans text-[14.5px] text-ink-strong transition-transform duration-300 hover:-translate-y-0.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-success" />
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  ),
-                },
-                {
-                  label: c.integrations.roadmapLabel,
-                  content: (
-                    <div className="flex flex-wrap gap-2.5">
-                      {c.integrations.roadmap.map((t) => (
-                        <span key={t} className="inline-flex items-center gap-2 bg-transparent border border-dashed border-hairline rounded-[30px] px-5 py-2.5 font-sans text-[14.5px] text-slate">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  ),
-                },
-              ]}
-            />
+          <p className="gs-rise font-display text-[11px] uppercase tracking-[0.08em] text-signal-green mb-4">{c.integrations.liveLabel}</p>
+          <div className="flex flex-wrap gap-2.5 mb-10">
+            {c.integrations.live.map((t) => (
+              <span key={t} className="gs-batch inline-flex items-center gap-2 bg-paper border border-line rounded-[30px] px-5 py-2.5 font-sans text-[14.5px] text-ink-strong transition-transform duration-300 hover:-translate-y-0.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-success" />
+                {t}
+              </span>
+            ))}
           </div>
 
           <Link href="/integrations" className="gs-rise inline-block font-sans text-[15px] text-action-blue underline underline-offset-[0.25em] decoration-1 hover:decoration-2">
