@@ -121,24 +121,15 @@ export function StackedDeck({
         const t = i === cards.length - 1 ? GREEN : THEMES[i % THEMES.length];
         return (
           <div
-            key={card.ghost + card.title}
+            key={card.title}
             className="md:sticky md:pb-10"
             style={{ top: `calc(96px + ${i * 14}px)` }}
           >
             <article
-              className={`sd-card relative rounded-[24px] overflow-hidden p-9 md:p-16 md:min-h-[440px] flex flex-col justify-center ${t.bg}`}
+              className={`sd-card relative rounded-[24px] overflow-hidden p-9 md:p-14 flex flex-col justify-center ${t.bg}`}
               style={{ boxShadow: "0 -14px 48px rgba(16,19,22,0.16)" }}
             >
-              {/* Full-bleed index watermark filling the right side. */}
-              <span
-                aria-hidden
-                className={`pointer-events-none absolute -top-6 right-2 md:top-0 md:right-8 font-display leading-[0.8] tracking-[-0.05em] select-none ${t.ghost}`}
-                style={{ fontSize: "clamp(150px, 26vw, 340px)" }}
-              >
-                {card.ghost}
-              </span>
-
-              <div className="relative max-w-[780px]">
+              <div className="relative max-w-[820px]">
                 {card.eyebrow && (
                   <p className={`font-display text-[12px] uppercase tracking-[0.08em] mb-4 ${t.eyebrow}`}>
                     {card.eyebrow}

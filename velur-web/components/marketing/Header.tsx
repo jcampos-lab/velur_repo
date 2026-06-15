@@ -29,10 +29,9 @@ export default function Header() {
   /* AI Studio intentionally NOT in the top nav, it lives in the
      footer only. The top nav stays focused on Platform, Company, FAQ. */
   const NAV_LINKS = [
-    { label: t.header.nav.platform,     href: "/services" },
-    { label: t.header.nav.integrations, href: "/integrations" },
-    { label: t.header.nav.company,      href: "/company" },
-    { label: t.header.nav.faq,          href: "/faq" },
+    { label: t.header.nav.platform, href: "/services" },
+    { label: t.header.nav.company,  href: "/company" },
+    { label: t.header.nav.faq,      href: "/faq" },
   ];
 
   return (

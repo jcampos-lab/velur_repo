@@ -171,20 +171,17 @@ const SECURITY_ICON: Record<string, typeof Lock> = {
   check: Check,
 };
 
-/* Brand logo enclosed in a consistent card, left side of the panels.
-   Every logo is capped to the same height in an identical box so they
-   read as one set, no matter the source aspect ratio. No animation. */
+/* Brand logo, left side of the panels. Capped to a uniform height so
+   the set reads consistently, no box, no animation. */
 function IntegrationLogo({ it }: { it: Integration }) {
   return (
-    <div className="flex items-center justify-center">
-      <div className="flex items-center justify-center w-full max-w-[300px] aspect-[5/3] rounded-2xl bg-canvas border border-line shadow-[0_2px_16px_rgba(16,19,22,0.07)]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={it.logo}
-          alt={it.name}
-          className="w-auto max-w-[60%] max-h-[52px] object-contain"
-        />
-      </div>
+    <div className="flex items-center justify-center py-4">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={it.logo}
+        alt={it.name}
+        className="w-auto max-w-[72%] max-h-[60px] object-contain"
+      />
     </div>
   );
 }
@@ -342,9 +339,9 @@ export default function IntegrationsContent() {
                 transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
                 className="rounded-2xl bg-paper border border-line p-6"
               >
-                <div className="flex items-center justify-center h-20 mb-5 rounded-xl bg-canvas border border-line shadow-[0_2px_12px_rgba(16,19,22,0.06)]">
+                <div className="flex items-center justify-center h-20 mb-5">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={it.logo} alt={it.name} className="w-auto max-w-[55%] max-h-[40px] object-contain" />
+                  <img src={it.logo} alt={it.name} className="w-auto max-w-[55%] max-h-[44px] object-contain" />
                 </div>
                 <IntegrationDetail it={it} />
               </motion.article>
@@ -353,37 +350,39 @@ export default function IntegrationsContent() {
         </div>
       </section>
 
-      {/* Closing CTA, dunes brand art behind the midnight band */}
-      <section
-        className="relative bg-midnight text-on-dark"
-        style={{ padding: "var(--section-y) var(--gutter)" }}
-      >
-        <ArtBackdrop
-          still="/art/abstract-petals.png"
-          overlay="linear-gradient(180deg, rgba(10,26,47,0.72) 0%, rgba(10,26,47,0.55) 55%, rgba(10,26,47,0.78) 100%)"
-        />
+      {/* Closing CTA, brand art contained inside a rounded box */}
+      <section className="bg-canvas" style={{ padding: "0 var(--gutter) var(--section-y)" }}>
         <div
-          className="relative text-center"
-          style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}
+          className="relative rounded-[22px] overflow-hidden bg-midnight text-on-dark text-center"
+          style={{ maxWidth: "var(--container-max)", margin: "0 auto", padding: "clamp(56px, 8vw, 120px) 24px" }}
         >
-          <p className="font-display text-[13px] uppercase tracking-[0.06em] text-action-blue mb-5">
-            {c.closingEyebrow}
-          </p>
-          <h2
-            className="font-display font-normal text-white mb-5"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+          <ArtBackdrop
+            still="/art/abstract-petals.png"
+            overlay="linear-gradient(180deg, rgba(10,26,47,0.74) 0%, rgba(10,26,47,0.58) 55%, rgba(10,26,47,0.80) 100%)"
+          />
+          <div
+            className="relative text-center"
+            style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}
           >
-            {c.closingHeading}
-          </h2>
-          <p className="font-sans text-[18px] leading-[1.5] text-on-dark-muted max-w-[48ch] mx-auto mb-9">
-            {c.closingBody}
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center bg-canvas text-velur-ink font-sans font-medium text-[16px] px-[30px] py-[15px] rounded-[32px] hover:bg-stone transition-colors"
-          >
-            {c.closingCta}
-          </Link>
+            <p className="font-display text-[13px] uppercase tracking-[0.06em] text-action-blue mb-5">
+              {c.closingEyebrow}
+            </p>
+            <h2
+              className="font-display font-normal text-white mb-5"
+              style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+            >
+              {c.closingHeading}
+            </h2>
+            <p className="font-sans text-[18px] leading-[1.5] text-on-dark-muted max-w-[48ch] mx-auto mb-9">
+              {c.closingBody}
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center bg-canvas text-velur-ink font-sans font-medium text-[16px] px-[30px] py-[15px] rounded-[32px] hover:bg-stone transition-colors"
+            >
+              {c.closingCta}
+            </Link>
+          </div>
         </div>
       </section>
     </>

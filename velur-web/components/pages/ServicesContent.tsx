@@ -23,7 +23,7 @@ const COPY = {
     hero: {
       eyebrow: "Revenue Intelligence",
       h1: "The platform that ties your stack to revenue.",
-      body: "Shopify, Klaviyo, Meta, TikTok and Google Ads connected to one daily brief. We tell you what actually moved money last night, in plain English, before your team is even online.",
+      body: "Shopify, Meta, Stripe, Recharge, Google Ads and Klaviyo connected to one daily brief. We tell you what actually moved money last night, in plain English, before your team is even online.",
       cta1: "Join the waitlist",
       cta2: "How it works",
     },
@@ -31,7 +31,7 @@ const COPY = {
       briefEyebrow: "Today's brief · 08:02",
       briefHeadline: "Net revenue up 12% week-over-week.",
       briefBody:
-        "TikTok creator drove 38% of the lift. Klaviyo win-back flow underperformed, pause variant B.",
+        "Meta creative drove 38% of the lift. Klaviyo win-back flow underperformed, pause variant B.",
       roasLabel: "ROAS, blended",
     },
     platform: {
@@ -55,7 +55,7 @@ const COPY = {
         title: "iOS14 broke this. We rebuilt it.",
         body: "First-party events, server-side signals, and modeled conversions feeding one CAC and one ROAS per channel, per campaign, per creative. No more arguing with Meta's number versus Shopify's number.",
         bullets: [
-          "Server-side Meta and TikTok events",
+          "Server-side Meta and Google events",
           "Modeled CAC by channel and creative",
           "Margin-adjusted ROAS, not gross",
           "Honest delta vs platform numbers",
@@ -75,9 +75,9 @@ const COPY = {
       {
         label: "Creative intelligence",
         title: "Which post actually sold something.",
-        body: "Tag every TikTok, Instagram, and Meta creative with metadata when it ships. We tie views, saves, and clicks back to orders and margin, not just engagement.",
+        body: "Tag every Meta and Instagram creative with metadata when it ships. We tie views, saves, and clicks back to orders and margin, not just engagement.",
         bullets: [
-          "TikTok, Instagram, Meta tracked together",
+          "Meta and Instagram tracked together",
           "Hook-by-hook revenue, not engagement",
           "Cut list for what to pause this week",
           "Boost list for what is over-performing",
@@ -91,7 +91,7 @@ const COPY = {
       cta: "Join the waitlist",
     },
     steps: [
-      { label: "Step 01", title: "Plug in your stack.",     body: "Shopify, Klaviyo, Meta, TikTok, plus whichever AI tools you actually use. OAuth or read-only keys." },
+      { label: "Step 01", title: "Plug in your stack.",     body: "Shopify, Meta, Stripe, Recharge, Google Ads and Klaviyo. OAuth or read-only keys." },
       { label: "Step 02", title: "We backfill 18 months.",  body: "Orders, sessions, ad spend, creative metadata, email events. So your first brief is not reading a week of noise." },
       { label: "Step 03", title: "First brief lands.",      body: "One paragraph, three numbers, two recommendations. If it is wrong, you reply and we recalibrate the next day." },
       { label: "Step 04", title: "You own the keys.",       body: "Every SQL model, every dashboard, every score function in your repo, under your name. Cancel anytime." },
@@ -104,7 +104,7 @@ const COPY = {
         {
           num: "01",
           title: "Connect",
-          body: "Read-only OAuth into the stack you already run. Shopify, Klaviyo, Meta, TikTok, Google Ads, GA4, Stripe and Recharge connect through each platform's official flow, no engineer, no warehouse, no CSV exports.",
+          body: "Read-only OAuth into the stack you already run. Shopify, Meta, Stripe, Recharge, Google Ads and Klaviyo connect through each platform's official flow, no engineer, no warehouse, no CSV exports.",
           details: [
             "Read-only scopes, Velur can never write to your tools",
             "EU-hosted processing under GDPR-compliant DPAs",
@@ -169,7 +169,7 @@ const COPY = {
     hero: {
       eyebrow: "Revenue Intelligence",
       h1: "La plataforma que conecta tu stack con los ingresos.",
-      body: "Shopify, Klaviyo, Meta, TikTok y Google Ads conectados a un único informe diario. Te contamos qué movió el dinero anoche, en lenguaje claro, antes incluso de que tu equipo se haya conectado.",
+      body: "Shopify, Meta, Stripe, Recharge, Google Ads y Klaviyo conectados a un único informe diario. Te contamos qué movió el dinero anoche, en lenguaje claro, antes incluso de que tu equipo se haya conectado.",
       cta1: "Unirse a la lista",
       cta2: "Cómo funciona",
     },
@@ -177,7 +177,7 @@ const COPY = {
       briefEyebrow: "Informe de hoy · 08:02",
       briefHeadline: "Ingresos netos +12% respecto a la semana pasada.",
       briefBody:
-        "Un creador de TikTok generó el 38% de la subida. El flujo de recuperación de Klaviyo no rinde, pausa la variante B.",
+        "La creatividad de Meta generó el 38% de la subida. El flujo de recuperación de Klaviyo no rinde, pausa la variante B.",
       roasLabel: "ROAS combinado",
     },
     platform: {
@@ -201,7 +201,7 @@ const COPY = {
         title: "iOS14 rompió esto. Lo hemos reconstruido.",
         body: "Eventos de primera parte, señales del lado del servidor y conversiones modeladas alimentando un único CAC y un único ROAS por canal, por campaña, por creativo. Se acabó la pelea entre el número de Meta y el de Shopify.",
         bullets: [
-          "Eventos server-side de Meta y TikTok",
+          "Eventos server-side de Meta y Google",
           "CAC modelado por canal y creativo",
           "ROAS ajustado por margen, no bruto",
           "Delta honesto frente a las cifras de las plataformas",
@@ -221,9 +221,9 @@ const COPY = {
       {
         label: "Inteligencia creativa",
         title: "Qué publicación vendió de verdad.",
-        body: "Etiquetamos cada creativo de TikTok, Instagram y Meta con metadatos cuando se publica. Conectamos vistas, guardados y clics con pedidos y margen, no solo con engagement.",
+        body: "Etiquetamos cada creativo de Meta e Instagram con metadatos cuando se publica. Conectamos vistas, guardados y clics con pedidos y margen, no solo con engagement.",
         bullets: [
-          "TikTok, Instagram y Meta medidos juntos",
+          "Meta e Instagram medidos juntos",
           "Ingresos hook a hook, no engagement",
           "Lista de qué pausar esta semana",
           "Lista de qué amplificar por su rendimiento",
@@ -237,7 +237,7 @@ const COPY = {
       cta: "Unirse a la lista",
     },
     steps: [
-      { label: "Paso 01", title: "Conecta tu stack.",            body: "Shopify, Klaviyo, Meta, TikTok, más las herramientas de IA que uses de verdad. OAuth o claves de solo lectura." },
+      { label: "Paso 01", title: "Conecta tu stack.",            body: "Shopify, Meta, Stripe, Recharge, Google Ads y Klaviyo. OAuth o claves de solo lectura." },
       { label: "Paso 02", title: "Hacemos backfill de 18 meses.", body: "Pedidos, sesiones, inversión publicitaria, metadatos creativos, eventos de email. Así tu primer informe no está leyendo una semana de ruido." },
       { label: "Paso 03", title: "Llega el primer informe.",      body: "Un párrafo, tres números, dos recomendaciones. Si algo no encaja, respondes y recalibramos al día siguiente." },
       { label: "Paso 04", title: "Las llaves son tuyas.",         body: "Cada modelo SQL, cada dashboard, cada función de scoring en tu repositorio, a tu nombre. Cancela cuando quieras." },
@@ -250,7 +250,7 @@ const COPY = {
         {
           num: "01",
           title: "Conecta",
-          body: "OAuth de solo lectura al stack que ya usas. Shopify, Klaviyo, Meta, TikTok, Google Ads, GA4, Stripe y Recharge se conectan por el flujo oficial de cada plataforma, sin ingeniero, sin warehouse, sin exportar CSVs.",
+          body: "OAuth de solo lectura al stack que ya usas. Shopify, Meta, Stripe, Recharge, Google Ads y Klaviyo se conectan por el flujo oficial de cada plataforma, sin ingeniero, sin warehouse, sin exportar CSVs.",
           details: [
             "Permisos de solo lectura, Velur nunca puede escribir en tus herramientas",
             "Procesamiento alojado en la UE bajo acuerdos DPA conformes con el RGPD",
@@ -511,9 +511,9 @@ export default function ServicesContent() {
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="relative overflow-hidden rounded-2xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
             <ArtBackdrop
-              still="/art/abstract-pills.png"
-              overlay="rgba(16,19,22,0.62)"
-              objectPosition="center 75%"
+              still="/art/abstract-green.png"
+              overlay="linear-gradient(90deg, rgba(16,19,22,0.9) 0%, rgba(16,19,22,0.74) 50%, rgba(16,19,22,0.56) 100%)"
+              objectPosition="center 55%"
             />
             <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-5">

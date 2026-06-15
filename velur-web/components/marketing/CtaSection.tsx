@@ -16,18 +16,19 @@ export default function CtaSection() {
   const c = t.ctaBand;
 
   return (
-    <section
-      className="relative bg-midnight text-on-dark"
-      style={{ padding: "var(--section-y) var(--gutter)" }}
-    >
-      <ArtBackdrop
-        still="/art/abstract-green.png"
-        overlay="linear-gradient(180deg, rgba(10,26,47,0.80) 0%, rgba(10,26,47,0.64) 50%, rgba(10,26,47,0.82) 100%)"
-      />
+    <section className="bg-canvas" style={{ padding: "0 var(--gutter) var(--section-y)" }}>
       <div
-        className="relative text-center"
-        style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}
+        className="relative rounded-[22px] overflow-hidden bg-midnight text-on-dark text-center"
+        style={{ maxWidth: "var(--container-max)", margin: "0 auto", padding: "clamp(56px, 8vw, 120px) 24px" }}
       >
+        <ArtBackdrop
+          still="/art/abstract-green.png"
+          overlay="linear-gradient(180deg, rgba(10,26,47,0.80) 0%, rgba(10,26,47,0.64) 50%, rgba(10,26,47,0.82) 100%)"
+        />
+        <div
+          className="relative text-center"
+          style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}
+        >
         <div className="mb-5">
           <span className="font-display text-[13px] uppercase tracking-[0.06em] text-action-blue">
             {c.eyebrow}
@@ -45,6 +46,7 @@ export default function CtaSection() {
             {c.ctaSecondary}
           </ButtonLink>
         </div>
+      </div>
       </div>
     </section>
   );

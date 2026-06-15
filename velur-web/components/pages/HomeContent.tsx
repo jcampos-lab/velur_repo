@@ -52,7 +52,7 @@ const COPY = {
       ctaPrimary: "Join the waitlist",
       ctaSecondary: "How it works",
       mediaChipLabel: "Today's brief · 08:02",
-      mediaChipText: "Net revenue up 12.4%, TikTok creative drove the lift. One flow needs attention.",
+      mediaChipText: "Net revenue up 12.4%, Meta creative drove the lift. One flow needs attention.",
     },
     strip: {
       caption: "Reads from the tools you already run",
@@ -198,7 +198,7 @@ const COPY = {
       ctaPrimary: "Unirse a la lista",
       ctaSecondary: "Cómo funciona",
       mediaChipLabel: "Informe de hoy · 08:02",
-      mediaChipText: "Ingresos netos +12,4%, la creatividad de TikTok generó la subida. Un flujo necesita atención.",
+      mediaChipText: "Ingresos netos +12,4%, la creatividad de Meta generó la subida. Un flujo necesita atención.",
     },
     strip: {
       caption: "Lee de las herramientas que ya usas",

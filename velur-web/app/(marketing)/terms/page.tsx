@@ -2,107 +2,139 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Use · Velur",
-  description: "Plain-language terms for using the Velur website and product.",
+  title: "Terms of Service · Velur",
+  description: "The terms that govern your use of the Velur website and product.",
 };
 
-/* Plain-language terms. Full page width, label rail on the left, the
-   explanation on the right. */
+/* Terms of Service modelled on a modern SaaS ToS structure (site use,
+   AI disclaimer, proprietary rights, products/fees, no advice, security,
+   third-party links, indemnity, warranty, liability, governing law,
+   general), adapted to Velur: EU/Spain jurisdiction, read-only, beta. */
 const SECTIONS: { h: string; body: React.ReactNode }[] = [
   {
-    h: "Who this is between",
+    h: "1. Our site and your account",
+    body: (
+      <>
+        <p className="mb-4">
+          By using <strong>velur.io</strong> or the Velur product you agree to these terms. If you don&apos;t agree,
+          please don&apos;t use them. You must be able to form a binding contract (broadly, 18 or older) to use Velur.
+        </p>
+        <p>
+          We grant you a limited, non-exclusive, revocable licence to use the site and product for your business.
+          Please don&apos;t scrape it, reverse-engineer it, resell it, attack its security, or try to reach data that
+          isn&apos;t yours. We may improve, change, or discontinue parts of the service over time.
+        </p>
+      </>
+    ),
+  },
+  {
+    h: "2. About the AI",
     body: (
       <p>
-        These terms are between you and Velur, a revenue-intelligence team based in Barcelona, Spain. They cover
-        your use of <strong>velur.io</strong> and the Velur product. A paid engagement has its own separate
-        contract, which takes precedence over anything here.
+        Velur uses AI to turn your data into a written brief. AI can be wrong or incomplete. Treat its output as
+        decision support, not as a guarantee, and use your own judgement before acting. We work hard to make every
+        number traceable to its source so you can check it.
       </p>
     ),
   },
   {
-    h: "What Velur is",
+    h: "3. What Velur is, and is not",
     body: (
       <p>
-        Velur is an intelligence layer that reads across the tools your business already runs and turns them into
-        a clear, written brief. It is <strong>read-only</strong>: Velur never moves money, places orders, sends
-        messages, or changes anything inside your connected accounts. You stay in control at all times.
+        Velur is a read-only intelligence layer: it reads the tools your business runs and reports back. It never
+        moves money, places orders, sends messages, or changes anything in your connected accounts. It is
+        <strong> not</strong> financial, legal, tax, or investment advice. Figures and examples on this website are
+        illustrative, not a promise of results.
       </p>
     ),
   },
   {
-    h: "What Velur is not",
+    h: "4. Proprietary rights",
     body: (
       <p>
-        Velur is not financial, legal, tax, or investment advice. It helps you see your business clearly and
-        decide faster, but the decisions are yours. Any figures, charts, or examples shown on this website are
-        <strong> illustrative</strong>, not a promise of results.
+        The content, design and code of this website and product belong to Velur. Your business data, and anything
+        you create with the product, remain entirely yours, we claim no ownership over them. If you send us feedback
+        or ideas, you allow us to use them to improve Velur without obligation.
       </p>
     ),
   },
   {
-    h: "Early product, honest expectations",
+    h: "5. Plans, fees and customer terms",
     body: (
       <p>
-        Velur is early. We work hard to make every number accurate and traceable to its source, but while the
-        product is in beta it is provided <strong>&quot;as is&quot;</strong>, without warranties. We&apos;ll always be
-        straight with you about what works today and what doesn&apos;t yet.
+        A paid engagement is governed by a separate customer agreement, which takes precedence over anything here if
+        they conflict. Pricing, billing and cancellation are set out in that agreement; you can cancel and take your
+        data with you.
       </p>
     ),
   },
   {
-    h: "Your side of it",
+    h: "6. Privacy and security",
     body: (
       <p>
-        When you connect a tool, you confirm you&apos;re allowed to access that account and the data in it. Please
-        don&apos;t misuse the site, no scraping, reverse-engineering, reselling, or trying to access other
-        businesses&apos; data. Normal, good-faith use is all we ask.
+        How we handle data is described in our{" "}
+        <Link href="/privacy" className="text-action-blue hover:underline">Privacy Notice</Link>: read-only access,
+        EU hosting, raw customer data that never leaves our database, and delete-anytime control. We use
+        industry-standard security, though no system is perfectly secure.
       </p>
     ),
   },
   {
-    h: "Your data and your control",
+    h: "7. Third-party links and services",
     body: (
       <p>
-        Everything about how we handle your data lives in our{" "}
-        <Link href="/privacy" className="text-action-blue hover:underline">Privacy Policy</Link>. In short: read-only
-        access, EU hosting, your raw customer data never leaves our database, and you can disconnect and delete
-        everything whenever you want.
+        The site and product may link to or connect with third-party services (the platforms you integrate, for
+        example). Those services have their own terms and privacy policies, and we&apos;re not responsible for them.
       </p>
     ),
   },
   {
-    h: "Intellectual property",
+    h: "8. Your responsibilities and indemnity",
     body: (
       <p>
-        The content, design, and code of this website belong to Velur unless otherwise attributed. Your business
-        data, of course, remains entirely yours.
+        When you connect a tool, you confirm you&apos;re entitled to access that account and its data. You agree to
+        use Velur lawfully and in good faith, and to cover us against claims that arise from your misuse of the
+        service or breach of these terms.
       </p>
     ),
   },
   {
-    h: "Liability",
+    h: "9. No warranty",
     body: (
       <p>
-        To the fullest extent allowed by law, Velur isn&apos;t liable for indirect or consequential losses arising
-        from use of the website or the product while in beta. Nothing here limits rights you have that can&apos;t
-        be limited under applicable law.
+        Velur is early and is provided <strong>&quot;as is&quot;</strong> and <strong>&quot;as available&quot;</strong>,
+        without warranties of any kind while in beta. We don&apos;t warrant that it will be uninterrupted, error-free,
+        or that every figure is exact, though that&apos;s exactly what we&apos;re building toward.
       </p>
     ),
   },
   {
-    h: "Governing law",
+    h: "10. Limitation of liability",
     body: (
       <p>
-        These terms are governed by the laws of Spain and the European Union. Anything not covered here defaults
-        to your statutory rights under EU law.
+        To the fullest extent permitted by law, Velur is not liable for indirect, incidental, or consequential
+        losses arising from your use of the website or product while in beta. Nothing here limits liability that
+        can&apos;t be limited under applicable law, including your statutory rights.
       </p>
     ),
   },
   {
-    h: "Changes & contact",
+    h: "11. Governing law and disputes",
     body: (
       <p>
-        If these terms change, the &quot;last updated&quot; date will reflect it. Questions go to{" "}
+        These terms are governed by the laws of Spain and the European Union. We&apos;d always rather resolve any
+        issue directly first, so please contact us before anything formal. Where it applies, EU consumer-protection
+        law and your local rights still stand.
+      </p>
+    ),
+  },
+  {
+    h: "12. General, changes and contact",
+    body: (
+      <p>
+        We may assign these terms as part of a sale or reorganisation; you may not assign yours without our consent.
+        If any part is unenforceable, the rest still applies. If these terms change, the &quot;last updated&quot; date
+        will reflect it, and continued use means you accept the update. Questions go to{" "}
         <a href="mailto:hello@velur.io" className="text-action-blue hover:underline">hello@velur.io</a>.
       </p>
     ),
@@ -117,7 +149,7 @@ export default function TermsPage() {
           ← Home
         </Link>
 
-        <p className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-4">Legal · Terms</p>
+        <p className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-4">Legal · Terms of Service</p>
         <h1
           className="font-display font-normal text-ink-strong leading-[1.04] tracking-[-0.025em] mb-6 max-w-[20ch]"
           style={{ fontSize: "clamp(34px, 5vw, 66px)" }}
@@ -145,7 +177,7 @@ export default function TermsPage() {
               <h2 className="font-display font-normal text-ink-strong leading-tight tracking-[-0.015em]" style={{ fontSize: "clamp(20px, 2vw, 26px)" }}>
                 {s.h}
               </h2>
-              <div className="font-sans text-[16px] md:text-[17px] text-ink/90 leading-[1.65] max-w-[70ch]">
+              <div className="font-sans text-[16px] md:text-[17px] text-ink/90 leading-[1.65] max-w-[72ch]">
                 {s.body}
               </div>
             </div>
