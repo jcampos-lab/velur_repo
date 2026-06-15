@@ -16,7 +16,7 @@ export default function CtaSection() {
   const c = t.ctaBand;
 
   return (
-    <section className="bg-canvas" style={{ padding: "0 var(--gutter) var(--section-y)" }}>
+    <section className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
       <div
         className="relative rounded-[22px] overflow-hidden bg-midnight text-on-dark text-center"
         style={{ maxWidth: "var(--container-max)", margin: "0 auto", padding: "clamp(56px, 8vw, 120px) 24px" }}

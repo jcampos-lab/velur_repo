@@ -45,14 +45,14 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const COPY = {
   en: {
     hero: {
-      eyebrow: "AI Revenue Operating System",
-      h1a: "AI that understands",
-      h1b: "your entire business.",
-      sub: "Velur sits above the tools you already run, Shopify, Meta, Klaviyo, Stripe, and turns their fragmented data into one reasoning intelligence layer. It reads everything, so you don't have to.",
+      eyebrow: "The Revenue Intelligence Layer",
+      h1a: "Understand exactly why",
+      h1b: "your revenue moved.",
+      sub: "Velur connects Shopify, Meta, Stripe, Klaviyo and the rest of your stack, reconciles them onto one timeline, and writes you a plain-language brief every morning: what changed, why it changed, and what to do next.",
       ctaPrimary: "Join the waitlist",
       ctaSecondary: "How it works",
       mediaChipLabel: "Today's brief · 08:02",
-      mediaChipText: "Net revenue up 12.4%, Meta creative drove the lift. One flow needs attention.",
+      mediaChipText: "Net revenue up 12.4%, Meta creative drove the lift. One Klaviyo flow needs attention.",
     },
     strip: {
       caption: "Reads from the tools you already run",
@@ -60,7 +60,7 @@ const COPY = {
     },
     problem: {
       eyebrow: "The problem",
-      statement: "You don't have a data problem. You have an intelligence problem.",
+      statement: "Your numbers live in ten tools. The answer lives in none of them.",
       silos: [
         { where: "Meta · Google",  what: "Marketing" },
         { where: "Shopify",        what: "Customers" },
@@ -69,12 +69,12 @@ const COPY = {
         { where: "GA4",            what: "Behaviour" },
         { where: "Spreadsheets",   what: "Everything else" },
       ],
-      after: "Every tool reports its own version of the truth. None of them can see the whole business. That gap, between ten dashboards and one decision, is where revenue quietly leaks.",
+      after: "Every tool reports its own version of the truth, and none of them can see the whole business. That gap, between ten dashboards and one decision, is where revenue quietly leaks: the broken flow no one caught, the channel that stopped paying back, the cohort that started churning a month before the report showed it.",
     },
     solution: {
       eyebrow: "The solution",
-      h2: "One intelligence layer above everything.",
-      body: "Velur ingests every revenue signal onto a single modelled timeline, then uses large language models to reason across the whole customer journey, acquisition, conversion, retention, billing. It isn't another dashboard. It's the analyst that reads all of them.",
+      h2: "Every tool, reconciled onto one timeline.",
+      body: "Velur pulls every order, charge, ad and subscription onto a single modelled timeline, then reads across the whole customer journey, acquisition, conversion, retention, billing, to explain what happened and why. It isn't another dashboard to check. It's the analyst that checks them all for you and writes up the answer.",
       points: [
         "One source of truth, reconciled daily",
         "Insight written in plain language, not charts to decode",
@@ -168,6 +168,24 @@ const COPY = {
       before: ["Ten disconnected tools", "Conflicting reports", "Manual spreadsheets", "Hours decoding dashboards", "Reactive management"],
       after: ["One source of truth", "AI-written insight", "Forecasts you can defend", "Risks caught early", "Decisions in minutes"],
     },
+    diff: {
+      eyebrow: "Why Velur",
+      h2: "Not a dashboard. Not a chatbot. The layer that reasons.",
+      rows: [
+        {
+          title: "Dashboards show numbers. Velur explains them.",
+          body: "BI tools draw the chart and stop. Velur reads across every connected source and tells you what moved, why it moved and what to do, in writing, before you think to ask.",
+        },
+        {
+          title: "ChatGPT doesn't know your business. Velur does.",
+          body: "A generic model can't see your orders, spend or subscriptions, and forgets everything between chats. Velur is wired into your live stack and reasons over your real, reconciled history, every day.",
+        },
+        {
+          title: "Monthly reports arrive too late. Velur arrives at 8am.",
+          body: "By the time a report explains the dip, the month is over. Velur watches the leading indicators daily and flags the risk while there's still time to act.",
+        },
+      ],
+    },
     integrations: {
       eyebrow: "Integrations",
       h2: "Built on the stack you already trust.",
@@ -176,14 +194,14 @@ const COPY = {
       link: "Explore all integrations →",
     },
     proof: {
-      eyebrow: "Why trust us",
-      quote: "Velur is built by a team that spent years inside DTC and small-business data stacks, data scientists, ML engineers and operators who lived the problem before building the answer.",
-      body: "No invented logos, no fake case studies. An honest roadmap, and a team that reads every reply.",
+      eyebrow: "Built by operators",
+      quote: "Velur is built by a team that spent years inside DTC and small-business data stacks, data scientists, ML engineers and operators who lived this problem before building the answer.",
+      body: "We show you exactly what Velur reads, how it reasons and what it writes, so you can judge the product on the product. The people building it are the ones who answer your emails.",
       link: "Meet the team →",
     },
     cta: {
       eyebrow: "Get started",
-      h2: "One place where AI understands your whole business.",
+      h2: "Your whole business, explained every morning.",
       body: "Join the waitlist and we'll reach out personally when the next seat opens.",
       button: "Join the waitlist",
     },
@@ -191,14 +209,14 @@ const COPY = {
 
   es: {
     hero: {
-      eyebrow: "Sistema Operativo de Ingresos con IA",
-      h1a: "IA que entiende",
-      h1b: "todo tu negocio.",
-      sub: "Velur se sitúa por encima de las herramientas que ya usas, Shopify, Meta, Klaviyo, Stripe, y convierte sus datos fragmentados en una sola capa de inteligencia que razona. Lo lee todo, para que tú no tengas que hacerlo.",
+      eyebrow: "La Capa de Inteligencia de Ingresos",
+      h1a: "Entiende exactamente por qué",
+      h1b: "se movieron tus ingresos.",
+      sub: "Velur conecta Shopify, Meta, Stripe, Klaviyo y el resto de tu stack, los reconcilia en una sola línea de tiempo y te escribe un brief en lenguaje claro cada mañana: qué cambió, por qué cambió y qué hacer a continuación.",
       ctaPrimary: "Unirse a la lista",
       ctaSecondary: "Cómo funciona",
       mediaChipLabel: "Informe de hoy · 08:02",
-      mediaChipText: "Ingresos netos +12,4%, la creatividad de Meta generó la subida. Un flujo necesita atención.",
+      mediaChipText: "Ingresos netos +12,4%, la creatividad de Meta generó la subida. Un flujo de Klaviyo necesita atención.",
     },
     strip: {
       caption: "Lee de las herramientas que ya usas",
@@ -206,7 +224,7 @@ const COPY = {
     },
     problem: {
       eyebrow: "El problema",
-      statement: "No tienes un problema de datos. Tienes un problema de inteligencia.",
+      statement: "Tus números viven en diez herramientas. La respuesta no vive en ninguna.",
       silos: [
         { where: "Meta · Google",   what: "Marketing" },
         { where: "Shopify",         what: "Clientes" },
@@ -215,12 +233,12 @@ const COPY = {
         { where: "GA4",             what: "Comportamiento" },
         { where: "Hojas de cálculo", what: "Todo lo demás" },
       ],
-      after: "Cada herramienta reporta su propia versión de la verdad. Ninguna puede ver el negocio completo. Esa brecha, entre diez dashboards y una decisión, es donde los ingresos se escapan en silencio.",
+      after: "Cada herramienta reporta su propia versión de la verdad, y ninguna puede ver el negocio completo. Esa brecha, entre diez dashboards y una decisión, es donde los ingresos se escapan en silencio: el flow roto que nadie detectó, el canal que dejó de devolver la inversión, la cohorte que empezó a hacer churn un mes antes de que el informe lo mostrara.",
     },
     solution: {
       eyebrow: "La solución",
-      h2: "Una capa de inteligencia por encima de todo.",
-      body: "Velur ingiere cada señal de ingresos en una sola línea de tiempo modelada, y usa grandes modelos de lenguaje para razonar sobre todo el recorrido del cliente, adquisición, conversión, retención, facturación. No es otro dashboard. Es el analista que los lee todos.",
+      h2: "Cada herramienta, reconciliada en una sola línea de tiempo.",
+      body: "Velur reúne cada pedido, cargo, anuncio y suscripción en una única línea de tiempo modelada, y luego lee todo el recorrido del cliente, adquisición, conversión, retención, facturación, para explicar qué pasó y por qué. No es otro dashboard que revisar. Es el analista que los revisa todos por ti y escribe la respuesta.",
       points: [
         "Una sola fuente de verdad, reconciliada a diario",
         "Insight escrito en lenguaje claro, no gráficos que descifrar",
@@ -314,6 +332,24 @@ const COPY = {
       before: ["Diez herramientas desconectadas", "Informes que se contradicen", "Hojas de cálculo manuales", "Horas descifrando dashboards", "Gestión reactiva"],
       after: ["Una sola fuente de verdad", "Insight escrito por IA", "Forecasts que puedes defender", "Riesgos detectados a tiempo", "Decisiones en minutos"],
     },
+    diff: {
+      eyebrow: "Por qué Velur",
+      h2: "No es un dashboard. No es un chatbot. Es la capa que razona.",
+      rows: [
+        {
+          title: "Los dashboards muestran números. Velur los explica.",
+          body: "Las herramientas de BI dibujan el gráfico y se detienen. Velur lee todas las fuentes conectadas y te dice qué se movió, por qué se movió y qué hacer, por escrito, antes de que se te ocurra preguntar.",
+        },
+        {
+          title: "ChatGPT no conoce tu negocio. Velur sí.",
+          body: "Un modelo genérico no ve tus pedidos, tu inversión ni tus suscripciones, y olvida todo entre conversaciones. Velur está conectado a tu stack en vivo y razona sobre tu histórico real y reconciliado, cada día.",
+        },
+        {
+          title: "Los informes mensuales llegan tarde. Velur llega a las 8h.",
+          body: "Para cuando un informe explica la caída, el mes ya terminó. Velur vigila los indicadores adelantados a diario y señala el riesgo cuando aún hay tiempo de actuar.",
+        },
+      ],
+    },
     integrations: {
       eyebrow: "Integraciones",
       h2: "Construido sobre el stack en el que ya confías.",
@@ -322,14 +358,14 @@ const COPY = {
       link: "Explorar todas las integraciones →",
     },
     proof: {
-      eyebrow: "Por qué confiar en nosotros",
-      quote: "Velur lo construye un equipo que pasó años dentro de stacks de datos DTC y de pequeño negocio, data scientists, ingenieros de ML y operadores que vivieron el problema antes de construir la respuesta.",
-      body: "Sin logos inventados, sin casos de éxito falsos. Una hoja de ruta honesta y un equipo que lee cada respuesta.",
+      eyebrow: "Construido por operadores",
+      quote: "Velur lo construye un equipo que pasó años dentro de stacks de datos DTC y de pequeño negocio, data scientists, ingenieros de ML y operadores que vivieron este problema antes de construir la respuesta.",
+      body: "Te mostramos exactamente qué lee Velur, cómo razona y qué escribe, para que juzgues el producto por el producto. Quienes lo construyen son los que responden tus correos.",
       link: "Conoce al equipo →",
     },
     cta: {
       eyebrow: "Empezar",
-      h2: "Un solo lugar donde la IA entiende todo tu negocio.",
+      h2: "Todo tu negocio, explicado cada mañana.",
       body: "Únete a la lista de espera y te escribiremos personalmente cuando se abra el siguiente cupo.",
       button: "Unirse a la lista",
     },
@@ -812,6 +848,24 @@ export default function HomeContent() {
               },
             ]}
           />
+        </div>
+      </section>
+
+      {/* ════ 8.5 · DIFFERENTIATION, why not a dashboard / chatbot ════ */}
+      <section className="bg-stone-200 border-y border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
+        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-action-blue mb-4">{c.diff.eyebrow}</p>
+          <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-12 max-w-[24ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
+            {c.diff.h2}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+            {c.diff.rows.map((r) => (
+              <div key={r.title} className="gs-batch rounded-[22px] bg-paper border border-line p-7 md:p-8">
+                <h3 className="font-display font-normal text-ink-strong text-[20px] leading-[1.2] tracking-[-0.01em] mb-4">{r.title}</h3>
+                <p className="font-sans text-[14.5px] text-ink/80 leading-[1.6]">{r.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
