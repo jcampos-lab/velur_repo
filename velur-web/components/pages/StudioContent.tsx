@@ -65,7 +65,7 @@ const COPY = {
     },
     fit: {
       eyebrow: "Who this is for",
-      heading: "Honest about the fit.",
+      heading: "Where this fits, and where it doesn't.",
       yesLabel: "This is for you if",
       noLabel: "This is not for you if",
       yes: [
@@ -154,7 +154,7 @@ const COPY = {
     },
     fit: {
       eyebrow: "Para quién es esto",
-      heading: "Honestos sobre el encaje.",
+      heading: "Dónde encaja esto, y dónde no.",
       yesLabel: "Esto es para ti si",
       noLabel: "Esto no es para ti si",
       yes: [

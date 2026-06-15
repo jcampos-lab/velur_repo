@@ -86,7 +86,7 @@ const COPY = {
     ],
     onboard: {
       eyebrow: "Onboarding",
-      heading: "Velur is live. Onboarding the next cohort.",
+      heading: "We're onboarding the first brands now.",
       body: "We handle the integrations and the backfill. Your team needs an OAuth approval and twenty minutes on a Wednesday. Join the waitlist and we'll reach out when the next seat opens.",
       cta: "Join the waitlist",
     },
@@ -155,7 +155,7 @@ const COPY = {
     },
     fit: {
       eyebrow: "Who this is for",
-      heading: "Honest about the fit.",
+      heading: "Where Velur fits, and where it doesn't.",
       yesLabel: "This is for you if",
       noLabel: "This is not for you if",
     },
@@ -232,7 +232,7 @@ const COPY = {
     ],
     onboard: {
       eyebrow: "Onboarding",
-      heading: "Velur está activo. Onboardeando la próxima cohorte.",
+      heading: "Estamos onboardeando las primeras marcas.",
       body: "Nosotros nos encargamos de las integraciones y del backfill. Tu equipo solo necesita aprobar el OAuth y dedicarnos veinte minutos un miércoles. Únete a la lista y te escribiremos cuando se abra el siguiente cupo.",
       cta: "Unirse a la lista",
     },
@@ -301,7 +301,7 @@ const COPY = {
     },
     fit: {
       eyebrow: "Para quién es esto",
-      heading: "Honestos sobre el encaje.",
+      heading: "Dónde encaja Velur, y dónde no.",
       yesLabel: "Esto es para ti si",
       noLabel: "Esto no es para ti si",
     },

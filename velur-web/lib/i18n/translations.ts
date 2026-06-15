@@ -284,7 +284,7 @@ const en = {
     label: "WAITLIST · EARLY ACCESS",
     h1a: "Be first.",
     h1b: "Get in before we launch.",
-    subhead: "Velur is live and onboarding the next cohort. Leave your email and we'll reach out personally when the next seat opens, with a founder rate locked in.",
+    subhead: "We're onboarding our first brands now. Leave your email and we'll reach out personally when the next seat opens, with a founder rate locked in.",
     whatToExpect: "WHAT HAPPENS NEXT",
     timeline: [
       { time: "01", text: "We confirm your spot on the waitlist within 24 hours" },
@@ -315,7 +315,7 @@ const en = {
         items: [
           {
             q: "What do you actually do? Is this another dashboard tool?",
-            a: "We're a revenue intelligence practice, which is fundamentally different from a dashboard. A dashboard shows you numbers. We show you numbers and tell you why they moved, which ones to act on, and what to do next. Every metric comes with an AI analyst note in plain English. Think of it as a senior data analyst available every morning, not another set of charts to stare at.",
+            a: "We're a revenue intelligence layer, which is fundamentally different from a dashboard. A dashboard shows you numbers. We show you numbers and tell you why they moved, which ones to act on, and what to do next. Every metric comes with an AI analyst note in plain English. Think of it as a senior data analyst available every morning, not another set of charts to stare at.",
           },
           {
             q: "How are you different from Triple Whale, Northbeam, or Daasity?",
@@ -340,7 +340,7 @@ const en = {
           },
           {
             q: "What's the difference between blended ROAS and channel ROAS?",
-            a: "Channel ROAS, what Meta, Google, and TikTok each report, is self-reported. Every platform claims credit for the conversion, which leads to triple-counting and inflated numbers. Blended ROAS is your total ad spend divided by total revenue, the only number that can't be gamed. We show you both: blended ROAS as your ground truth, channel ROAS with appropriate context. When the two diverge significantly, we flag it and tell you why.",
+            a: "Channel ROAS, what Meta and Google each report, is self-reported. Every platform claims credit for the conversion, which leads to double-counting and inflated numbers. Blended ROAS is your total ad spend divided by total revenue, the only number that can't be gamed. We show you both: blended ROAS as your ground truth, channel ROAS with appropriate context. When the two diverge significantly, we flag it and tell you why.",
           },
           {
             q: "How do you model attribution across email and paid channels?",
@@ -357,11 +357,11 @@ const en = {
         items: [
           {
             q: "Which platforms do you connect to?",
-            a: "We integrate with Shopify (orders, products, customers), Klaviyo (email flows, segments, revenue attribution), Meta Ads (spend, creative, campaign-level), Google Ads (search, shopping, Performance Max), TikTok Ads (creative, campaign), Recharge (subscription MRR, churn, cohort data), and Stripe (payment and subscription data). New integrations are added regularly, if you're on a platform not listed, reach out and we'll tell you our timeline.",
+            a: "We connect to six core tools: Shopify (orders, products, customers), Meta Ads (spend, creative, campaign-level), Stripe (payment and subscription data), Recharge (subscription MRR, churn, cohort data), Google Ads (search, shopping, Performance Max), and Klaviyo (email flows, segments, revenue attribution). More integrations are on the way, if you're on a platform not listed, reach out and we'll tell you where it sits on our roadmap.",
           },
           {
             q: "How long does it take to go live?",
-            a: "Most brands go live within 48 hours of connecting their stack. There's no data engineering required on your end, you authenticate each integration, and we handle the data modeling, normalization, and intelligence layer. Your first daily revenue briefing arrives the morning after your data connects.",
+            a: "Setup typically takes about 48 hours from connecting your stack. There's no data engineering required on your end, you authenticate each integration, and we handle the data modeling, normalization, and intelligence layer. Your first daily revenue briefing arrives the morning after your data connects.",
           },
           {
             q: "Do I need a developer or data engineer?",
@@ -447,9 +447,9 @@ const en = {
   ctaBand: {
     eyebrow: "Get started",
     heading: "See your own revenue in Velur.",
-    body: "We'll walk you through a console wired to your stack, pipeline, billing, usage and CRM, on one timeline.",
+    body: "We'll show you your store, ads, billing and email reconciled onto one timeline, with the first daily brief written from your real numbers.",
     ctaPrimary: "Join the waitlist",
-    ctaSecondary: "Read the docs",
+    ctaSecondary: "See the platform",
   },
   footerKit: {
     eyebrow: "Revenue moves fast",
@@ -747,7 +747,7 @@ const es: typeof en = {
     label: "LISTA DE ESPERA · ACCESO ANTICIPADO",
     h1a: "Sé el primero.",
     h1b: "Entra antes del lanzamiento.",
-    subhead: "Velur está activo y onboardeando la próxima cohorte. Deja tu email y nos ponemos en contacto personalmente cuando se abra el siguiente cupo, con una tarifa fundadora garantizada.",
+    subhead: "Estamos onboardeando nuestras primeras marcas. Deja tu email y nos ponemos en contacto personalmente cuando se abra el siguiente cupo, con una tarifa fundadora garantizada.",
     whatToExpect: "QUÉ PASA DESPUÉS",
     timeline: [
       { time: "01", text: "Confirmamos tu plaza en la lista de espera en menos de 24 horas" },
@@ -803,7 +803,7 @@ const es: typeof en = {
           },
           {
             q: "¿Cuál es la diferencia entre el ROAS combinado y el ROAS por canal?",
-            a: "El ROAS por canal, lo que reportan Meta, Google y TikTok, es autoinformado. Cada plataforma se atribuye el mérito de la conversión, lo que genera triple contabilización y cifras infladas. El ROAS combinado es tu gasto publicitario total dividido entre tus ingresos totales, el único número que no se puede manipular. Velur te muestra ambos: el ROAS combinado como verdad absoluta, y el ROAS por canal con el contexto adecuado. Cuando divergen significativamente, Velur lo señala y explica por qué.",
+            a: "El ROAS por canal, lo que reportan Meta y Google, es autoinformado. Cada plataforma se atribuye el mérito de la conversión, lo que genera doble contabilización y cifras infladas. El ROAS combinado es tu gasto publicitario total dividido entre tus ingresos totales, el único número que no se puede manipular. Velur te muestra ambos: el ROAS combinado como verdad absoluta, y el ROAS por canal con el contexto adecuado. Cuando divergen significativamente, Velur lo señala y explica por qué.",
           },
           {
             q: "¿Cómo modela Velur la atribución entre email y canales de pago?",
@@ -820,11 +820,11 @@ const es: typeof en = {
         items: [
           {
             q: "¿Con qué plataformas se conecta Velur?",
-            a: "Velur se integra actualmente con: Shopify (pedidos, productos, clientes), Klaviyo (flujos de email, segmentos, atribución de ingresos), Meta Ads (inversión, creatividades, nivel de campaña), Google Ads (búsqueda, shopping, Performance Max), TikTok Ads (creatividades, campaña), Recharge (MRR de suscripciones, abandono, datos de cohortes) y Stripe (datos de pagos y suscripciones). Añadimos nuevas integraciones regularmente, si usas una plataforma que no aparece aquí, contáctanos y te diremos nuestra hoja de ruta.",
+            a: "Velur se conecta con seis herramientas principales: Shopify (pedidos, productos, clientes), Meta Ads (inversión, creatividades, nivel de campaña), Stripe (datos de pagos y suscripciones), Recharge (MRR de suscripciones, abandono, datos de cohortes), Google Ads (búsqueda, shopping, Performance Max) y Klaviyo (flujos de email, segmentos, atribución de ingresos). Pronto habrá más integraciones, si usas una plataforma que no aparece aquí, contáctanos y te diremos en qué punto de la hoja de ruta está.",
           },
           {
             q: "¿Cuánto tiempo se tarda en estar operativo?",
-            a: "La mayoría de las marcas están activas en 48 horas tras conectar su stack. No se requiere ingeniería de datos por tu parte, autentificas cada integración a través del flujo de conexión de Velur, y nosotros nos encargamos del modelado de datos, la normalización y la capa de inteligencia. Tu primer informe de ingresos diario llega a la mañana siguiente de conectar tus datos.",
+            a: "La configuración suele tardar unas 48 horas desde que conectas tu stack. No se requiere ingeniería de datos por tu parte, autentificas cada integración a través del flujo de conexión de Velur, y nosotros nos encargamos del modelado de datos, la normalización y la capa de inteligencia. Tu primer informe de ingresos diario llega a la mañana siguiente de conectar tus datos.",
           },
           {
             q: "¿Necesito un desarrollador o ingeniero de datos para usar Velur?",
@@ -910,9 +910,9 @@ const es: typeof en = {
   ctaBand: {
     eyebrow: "Empezar",
     heading: "Ve tus propios ingresos en Velur.",
-    body: "Te guiamos por una consola conectada a tu stack, pipeline, facturación, uso y CRM, en una sola línea de tiempo.",
+    body: "Te mostramos tu tienda, anuncios, facturación y email reconciliados en una sola línea de tiempo, con el primer brief diario escrito a partir de tus números reales.",
     ctaPrimary: "Unirse a la lista",
-    ctaSecondary: "Leer la documentación",
+    ctaSecondary: "Ver la plataforma",
   },
   footerKit: {
     eyebrow: "Los ingresos se mueven rápido",
