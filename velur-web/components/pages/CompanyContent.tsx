@@ -137,6 +137,10 @@ type Copy = typeof COPY.en | typeof COPY.es;
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/juan-alexander-campos/";
 
+/* TEMP: founder block (portrait + name + bio modal) hidden until the
+   final founder photo is ready. Flip back to true to restore it. */
+const SHOW_FOUNDER = false;
+
 /* Photo placeholder, swap for <Image src="/team/alexander.jpg" … /> once
    the portrait is added under /public/team/. */
 function PhotoPlaceholder({ caption, className = "" }: { caption: string; className?: string }) {
@@ -278,6 +282,7 @@ export default function CompanyContent() {
       </section>
 
       {/* ── Founder, carbon band, photo on top, click → bio modal ── */}
+      {SHOW_FOUNDER && (
       <section className="bg-[#0F1115] text-on-dark" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div className="text-center" style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}>
           <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green-300 mb-8">
@@ -307,6 +312,7 @@ export default function CompanyContent() {
           </motion.button>
         </div>
       </section>
+      )}
 
       {/* ── Bio modal (Cohere-style) ────────────────────────────── */}
       <AnimatePresence>
