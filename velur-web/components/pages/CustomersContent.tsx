@@ -46,6 +46,7 @@ const COPY = {
     versusEyebrow: "Why a complete layer beats AI chatbots",
     versusHeading: "AI chatbots answer questions. A revenue intelligence layer changes how you operate.",
     versusBody: "The current crop of \"AI for DTC\" tools is mostly a chat interface bolted onto whatever shallow data the integration could grab. They look useful in a demo and fall apart in operations. Here's what you actually get with Velur instead.",
+    versusCols: { chatbot: "AI chatbots", velur: "Velur" },
     versusRows: [
       {
         question: "Where does the data live?",
@@ -54,7 +55,7 @@ const COPY = {
       },
       {
         question: "How honest are the numbers?",
-        chatbot: "Self-reported by each platform (Meta says it drove X, TikTok says it drove X, you can't trust either alone).",
+        chatbot: "Self-reported by each platform (Meta says it drove X, Google says it drove X, you can't trust either alone).",
         velur:   "Blended ROAS as ground truth + channel ROAS with context. When platforms disagree, we flag the gap and explain why.",
       },
       {
@@ -121,6 +122,7 @@ const COPY = {
     versusEyebrow: "Por qué una capa completa supera a un chatbot de IA",
     versusHeading: "Los chatbots de IA responden preguntas. Una capa de inteligencia de ingresos cambia cómo operas.",
     versusBody: "La actual oleada de herramientas \"IA para DTC\" es básicamente una interfaz de chat colocada encima de los datos superficiales que la integración pudo coger. Se ven útiles en una demo y se caen en operaciones. Esto es lo que de verdad obtienes con Velur en su lugar.",
+    versusCols: { chatbot: "Chatbots de IA", velur: "Velur" },
     versusRows: [
       {
         question: "¿Dónde viven los datos?",
@@ -129,7 +131,7 @@ const COPY = {
       },
       {
         question: "¿Qué tan honestos son los números?",
-        chatbot: "Auto-reportados por cada plataforma (Meta dice que generó X, TikTok dice que generó X, no puedes fiarte de ninguno por separado).",
+        chatbot: "Auto-reportados por cada plataforma (Meta dice que generó X, Google dice que generó X, no puedes fiarte de ninguno por separado).",
         velur:   "ROAS combinado como verdad absoluta + ROAS por canal con contexto. Cuando las plataformas no coinciden, señalamos la brecha y explicamos por qué.",
       },
       {
@@ -296,46 +298,44 @@ export default function CustomersContent() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-line overflow-hidden">
-            {/* Header row */}
-            <div className="hidden md:grid grid-cols-[1.1fr_1fr_1fr] bg-stone-200 border-b border-line">
-              <div className="px-6 md:px-7 py-4 font-display text-[11px] uppercase tracking-[0.06em] text-slate">
-                The question
-              </div>
-              <div className="px-6 md:px-7 py-4 font-display text-[11px] uppercase tracking-[0.06em] text-slate border-l border-line">
-                AI chatbots
-              </div>
-              <div className="px-6 md:px-7 py-4 font-display text-[11px] uppercase tracking-[0.06em] text-signal-green border-l border-line">
-                Velur
-              </div>
-            </div>
+          {/* Engaging comparison — one card per question, the answer split
+              into a muted "chatbot" half and a highlighted Velur half. */}
+          <div className="space-y-5">
             {c.versusRows.map((row, i) => (
-              <div
+              <motion.div
                 key={row.question}
-                className={`grid grid-cols-1 md:grid-cols-[1.1fr_1fr_1fr] bg-paper ${i < c.versusRows.length - 1 ? "border-b border-line" : ""}`}
+                initial={prefersReduced ? {} : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                className="rounded-[20px] border border-line bg-paper overflow-hidden"
               >
-                <div className="px-6 md:px-7 py-5 md:py-6">
-                  <h3 className="font-display font-normal text-ink-strong text-[17px] leading-snug tracking-[-0.005em]">
+                <div className="px-6 md:px-10 pt-6 md:pt-8 pb-2">
+                  <h3 className="font-display font-normal text-ink-strong leading-snug tracking-[-0.015em]" style={{ fontSize: "clamp(20px, 2.4vw, 27px)" }}>
                     {row.question}
                   </h3>
                 </div>
-                <div className="px-6 md:px-7 py-5 md:py-6 border-t md:border-t-0 md:border-l border-line">
-                  <p className="md:hidden font-display text-[10.5px] uppercase tracking-[0.06em] text-slate mb-2">
-                    AI chatbots
-                  </p>
-                  <p className="font-sans text-[14.5px] text-ink/70 leading-relaxed">
-                    {row.chatbot}
-                  </p>
+                <div className="grid grid-cols-1 md:grid-cols-2">
+                  <div className="px-6 md:px-10 py-6 md:py-7 border-t border-line md:border-r">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <span className="inline-flex w-7 h-7 rounded-full bg-ink/[0.06] text-slate items-center justify-center">
+                        <X size={15} strokeWidth={2} />
+                      </span>
+                      <span className="font-display text-[11px] uppercase tracking-[0.08em] text-slate">{c.versusCols.chatbot}</span>
+                    </div>
+                    <p className="font-sans text-[16px] md:text-[17px] text-ink/65 leading-[1.6]">{row.chatbot}</p>
+                  </div>
+                  <div className="px-6 md:px-10 py-6 md:py-7 border-t border-line bg-wash-green/40">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <span className="inline-flex w-7 h-7 rounded-full bg-signal-green text-white items-center justify-center">
+                        <Check size={15} strokeWidth={2.2} />
+                      </span>
+                      <span className="font-display text-[11px] uppercase tracking-[0.08em] text-signal-green">{c.versusCols.velur}</span>
+                    </div>
+                    <p className="font-sans text-[16px] md:text-[17px] text-ink leading-[1.6]">{row.velur}</p>
+                  </div>
                 </div>
-                <div className="px-6 md:px-7 py-5 md:py-6 border-t md:border-t-0 md:border-l border-line bg-wash-green/40">
-                  <p className="md:hidden font-display text-[10.5px] uppercase tracking-[0.06em] text-signal-green mb-2">
-                    Velur
-                  </p>
-                  <p className="font-sans text-[14.5px] text-ink leading-relaxed">
-                    {row.velur}
-                  </p>
-                </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

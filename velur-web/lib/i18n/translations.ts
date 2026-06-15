@@ -2,7 +2,7 @@ export type Lang = "en" | "es";
 
 const en = {
   header: {
-    nav: { platform: "Platform", studio: "AI Studio", caseStudies: "Case Studies", company: "Company", faq: "FAQ" },
+    nav: { platform: "Platform", integrations: "Integrations", studio: "AI Studio", caseStudies: "Case Studies", company: "Company", faq: "FAQ" },
     cta: "Join the waitlist",
     signin: "Sign in",
     announcement: "Velur is shipping. New seats opening soon.",
@@ -466,7 +466,7 @@ const en = {
 
 const es: typeof en = {
   header: {
-    nav: { platform: "Plataforma", studio: "AI Studio", caseStudies: "Casos de Éxito", company: "Empresa", faq: "FAQ" },
+    nav: { platform: "Plataforma", integrations: "Integraciones", studio: "AI Studio", caseStudies: "Casos de Éxito", company: "Empresa", faq: "FAQ" },
     cta: "Unirse a la lista",
     signin: "Entrar",
     announcement: "Velur está activo. Próximamente abrimos nuevos cupos.",

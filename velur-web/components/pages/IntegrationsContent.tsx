@@ -171,20 +171,18 @@ const SECURITY_ICON: Record<string, typeof Lock> = {
   check: Check,
 };
 
-/* Big animated brand logo — left side of the stack panels. */
+/* Brand logo enclosed in a consistent card — left side of the panels.
+   Every logo is capped to the same height in an identical box so they
+   read as one set, no matter the source aspect ratio. No animation. */
 function IntegrationLogo({ it }: { it: Integration }) {
   return (
-    <div className="relative flex items-center justify-center py-6 md:py-4">
-      <div
-        aria-hidden
-        className="absolute w-[60%] aspect-square rounded-full bg-signal-green/10 blur-3xl"
-      />
-      <div className="logo-bob relative flex items-center justify-center w-full">
+    <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center w-full max-w-[300px] aspect-[5/3] rounded-2xl bg-canvas border border-line">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={it.logo}
           alt={it.name}
-          className="w-auto max-w-[78%] max-h-[110px] md:max-h-[150px] object-contain"
+          className="w-auto max-w-[60%] max-h-[52px] object-contain"
         />
       </div>
     </div>
@@ -344,9 +342,9 @@ export default function IntegrationsContent() {
                 transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
                 className="rounded-2xl bg-paper border border-line p-6"
               >
-                <div className="flex items-center justify-center h-24 mb-5">
+                <div className="flex items-center justify-center h-20 mb-5 rounded-xl bg-canvas border border-line">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={it.logo} alt={it.name} className="w-auto max-w-[60%] max-h-[64px] object-contain" />
+                  <img src={it.logo} alt={it.name} className="w-auto max-w-[55%] max-h-[40px] object-contain" />
                 </div>
                 <IntegrationDetail it={it} />
               </motion.article>

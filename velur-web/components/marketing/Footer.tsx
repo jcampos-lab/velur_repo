@@ -25,6 +25,33 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
  * we don't ship dead "#" links to crawlers or users. Anything in
  * KNOWN_LINKS resolves to a real route and renders as a real <Link>.
  */
+/* Corporate social row — replaces the old floating side rail. */
+function SocialLinks() {
+  const base =
+    "inline-flex w-9 h-9 items-center justify-center rounded-full border text-muted-slate hover:text-white hover:border-white transition-colors";
+  const border = { borderColor: "var(--border-dark)" };
+  return (
+    <div className="flex items-center gap-2.5">
+      <a href="https://www.linkedin.com/company/velur/" target="_blank" rel="noopener noreferrer" aria-label="Velur on LinkedIn" className={base} style={border}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+          <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.06 3.77-2.06C21.4 8.64 22 11 22 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21h-4z" />
+        </svg>
+      </a>
+      <a href="https://x.com/velur_io" target="_blank" rel="noopener noreferrer" aria-label="Velur on X" className={base} style={border}>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      </a>
+      <a href="mailto:hello@velur.io" aria-label="Email Velur" className={base} style={border}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden>
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="m4 7 8 6 8-6" />
+        </svg>
+      </a>
+    </div>
+  );
+}
+
 const KNOWN_LINKS: Record<string, string> = {
   // English labels
   "AI Studio":    "/studio",
@@ -139,7 +166,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom strip */}
-        <div className="flex flex-wrap justify-between items-center gap-3 pt-6">
+        <div className="flex flex-wrap justify-between items-center gap-5 pt-6">
           <div className="flex items-center gap-2.5">
             <Image
               src="/logos/velur-mark-white.png"
@@ -151,6 +178,9 @@ export default function Footer() {
               {f.copyright}
             </span>
           </div>
+
+          <SocialLinks />
+
           <div className="flex gap-5">
             {f.legal.map((l) => {
               const href = KNOWN_LINKS[l];
