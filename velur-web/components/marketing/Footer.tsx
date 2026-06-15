@@ -248,7 +248,7 @@ export default function Footer() {
               fontSynthesisWeight: "auto",
             }}
           >
-            Velur
+            velur
           </span>
         </div>
       </div>

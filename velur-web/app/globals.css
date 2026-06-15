@@ -311,8 +311,10 @@
   * { box-sizing: border-box; }
 
   html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+    /* No native smooth-scroll — Lenis owns smoothing; running both
+       fights for the scroll position and can lock the page. */
+    overflow-x: clip; /* clip (not hidden) avoids creating a scroll
+                         container that breaks sticky + Lenis */
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }

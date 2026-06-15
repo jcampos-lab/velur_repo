@@ -113,7 +113,7 @@ export default function Header() {
               className="shrink-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:rotate-180"
             />
             <span className="font-display text-[22px] tracking-[-0.02em] text-ink-strong">
-              <RollingText text="Velur" />
+              <RollingText text="velur" />
             </span>
           </Link>
 
@@ -154,7 +154,7 @@ export default function Header() {
           <div className="flex items-center justify-between px-5 h-16 border-b border-border-light">
             <Link href="/" className="flex items-center gap-2.5" onClick={() => setMenuOpen(false)}>
               <Image src="/logos/velur-mark-black.png" alt="" width={24} height={24} />
-              <span className="font-display text-[20px] tracking-[-0.02em] text-ink-strong">Velur</span>
+              <span className="font-display text-[20px] tracking-[-0.02em] text-ink-strong">velur</span>
             </Link>
             <button
               onClick={() => setMenuOpen(false)}
