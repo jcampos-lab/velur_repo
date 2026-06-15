@@ -4,31 +4,26 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { Globe } from "lucide-react";
 import { ButtonLink } from "@/components/velur/Button";
 import { RollingText } from "@/components/ui/rolling-text";
 
-/* Segmented EN / ES language toggle — replaces the plain text switch,
-   shared by desktop and the mobile menu. Active language = dark pill. */
-function LangToggle({ className = "" }: { className?: string }) {
+/* Language control — a clickable globe icon that toggles EN ↔ ES, with
+   the current language code beside it. Shared by desktop and the mobile
+   menu (on mobile it lives only inside the dropdown). */
+function LangGlobe({ className = "" }: { className?: string }) {
   const { lang, setLang } = useLanguage();
-  const opt = (code: "en" | "es", label: string) => (
+  return (
     <button
       type="button"
-      onClick={() => setLang(code)}
-      aria-pressed={lang === code}
-      aria-label={code === "en" ? "English" : "Español"}
-      className={`px-2.5 py-1 rounded-full font-mono text-[11px] tracking-[0.06em] transition-colors duration-200 ${
-        lang === code ? "bg-velur-ink text-white" : "text-slate hover:text-ink"
-      }`}
+      onClick={() => setLang(lang === "en" ? "es" : "en")}
+      aria-label={lang === "en" ? "Cambiar a Español" : "Switch to English"}
+      title={lang === "en" ? "Español" : "English"}
+      className={`inline-flex items-center gap-1.5 text-slate hover:text-ink transition-colors duration-200 ${className}`}
     >
-      {label}
+      <Globe size={18} strokeWidth={1.6} />
+      <span className="font-mono text-[11px] tracking-[0.08em] uppercase">{lang}</span>
     </button>
-  );
-  return (
-    <div className={`inline-flex items-center rounded-full border border-line bg-stone-200/60 p-0.5 ${className}`}>
-      {opt("en", "EN")}
-      {opt("es", "ES")}
-    </div>
   );
 }
 
@@ -137,7 +132,7 @@ export default function Header() {
 
           {/* CTA right */}
           <div className="flex items-center gap-3 md:gap-4 shrink-0">
-            <LangToggle className="hidden md:inline-flex" />
+            <LangGlobe className="hidden md:inline-flex" />
             <ButtonLink href="/contact" variant="primary" size="sm" className="hidden md:inline-flex">
               {t.header.cta}
             </ButtonLink>
@@ -191,7 +186,7 @@ export default function Header() {
               {t.header.cta}
             </Link>
 
-            <LangToggle className="mt-5 self-start" />
+            <LangGlobe className="mt-5 self-start" />
 
             {/* Brand banner closing the menu. */}
             <Link
