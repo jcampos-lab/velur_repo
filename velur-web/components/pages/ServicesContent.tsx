@@ -9,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
 import { GooeyTabs } from "@/components/ui/gooey-tabs";
+import { StackedDeck } from "@/components/velur/StackedDeck";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -417,25 +418,7 @@ export default function ServicesContent() {
           y: 28, opacity: 0, duration: 0.7, stagger: 0.1, ease: "power3.out",
           scrollTrigger: { trigger: howRef.current, start: "top 80%" },
         });
-        /* Stacked deck: as the next card scrolls in, the one beneath
-           settles back — slight scale + dim, origin at its pinned top. */
-        const cards = gsap.utils.toArray<HTMLElement>(".gsv-card");
-        cards.forEach((card, i) => {
-          const next = cards[i + 1];
-          if (!next) return;
-          gsap.to(card, {
-            scale: 0.95,
-            filter: "brightness(0.9)",
-            transformOrigin: "center top",
-            ease: "none",
-            scrollTrigger: {
-              trigger: next,
-              start: "top bottom",
-              end: `top ${140 + i * 16}px`,
-              scrub: true,
-            },
-          });
-        });
+        /* The stacked-deck scroll scaling lives inside <StackedDeck>. */
       });
       return () => mm.revert();
     },
@@ -510,62 +493,16 @@ export default function ServicesContent() {
             {c.howDeep.intro}
           </p>
 
-          {/* Stacked deck — each stage is a full-width card that pins
-              under the nav while the next one slides over it; the card
-              beneath settles back with a slight scale. The giant stage
-              numeral fills the width the old left rail wasted. */}
-          <div className="space-y-6 md:space-y-0">
-            {c.howDeep.stages.map((s, i) => {
-              const isLast = i === c.howDeep.stages.length - 1;
-              const dark = i % 2 === 1;
-              const surface = isLast
-                ? "bg-signal-green border-signal-green"
-                : dark
-                  ? "bg-velur-ink border-velur-ink"
-                  : "bg-canvas border-line";
-              const onDark = dark || isLast;
-              return (
-                <div
-                  key={s.num}
-                  className="md:sticky md:pb-8"
-                  style={{ top: `calc(110px + ${i * 16}px)` }}
-                >
-                  <article
-                    className={`gsv-card rounded-[22px] border overflow-hidden p-7 md:p-12 ${surface}`}
-                    style={{ boxShadow: "0 -12px 40px rgba(16,19,22,0.08)" }}
-                  >
-                    <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-4 md:gap-12 items-start">
-                      <span
-                        aria-hidden
-                        className={`font-display leading-[0.85] tracking-[-0.04em] select-none ${onDark ? "text-white/15" : "text-ink/10"}`}
-                        style={{ fontSize: "clamp(72px, 10vw, 150px)" }}
-                      >
-                        {s.num}
-                      </span>
-                      <div>
-                        <h3 className={`font-display font-normal text-[26px] md:text-[30px] tracking-[-0.015em] mb-3 ${onDark ? "text-white" : "text-ink-strong"}`}>
-                          {s.title}
-                        </h3>
-                        <p className={`font-sans text-[16px] leading-[1.6] max-w-[62ch] mb-6 ${onDark ? "text-on-dark-muted" : "text-ink/85"}`}>
-                          {s.body}
-                        </p>
-                        <ul className="grid grid-cols-1 lg:grid-cols-3 gap-2.5">
-                          {s.details.map((d) => (
-                            <li
-                              key={d}
-                              className={`rounded-[12px] border px-4 py-3 ${onDark ? "bg-white/[0.07] border-white/15" : "bg-stone-200 border-card-border"}`}
-                            >
-                              <span className={`font-sans text-[13.5px] leading-snug ${onDark ? "text-on-dark" : "text-ink/80"}`}>{d}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-              );
-            })}
-          </div>
+          {/* Stacked deck — readable soft tints + a Signal Green finale.
+              Each stage pins under the nav while the next slides over it. */}
+          <StackedDeck
+            cards={c.howDeep.stages.map((s) => ({
+              ghost: s.num,
+              title: s.title,
+              body: s.body,
+              bullets: [...s.details],
+            }))}
+          />
         </div>
       </section>
 

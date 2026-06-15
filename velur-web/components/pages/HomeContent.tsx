@@ -9,7 +9,6 @@ import { useGSAP } from "@gsap/react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ConsoleMock } from "@/components/velur/ConsoleMock";
 import { RevenueAreaCard } from "@/components/velur/RevenueAreaCard";
-import { BrandMarquee } from "@/components/velur/BrandMarquee";
 import { SignalJourney } from "@/components/velur/SignalJourney";
 import { RippleGrid } from "@/components/ui/ripple-grid";
 import { TiltCard } from "@/components/ui/tilt-card";
@@ -494,12 +493,6 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ════ 2 · TOOL STRIP — honest trust strip (real stack, marquee) ════ */}
-      <section className="bg-canvas border-y border-border-light py-8 overflow-hidden">
-        <p className="text-center font-sans text-[14px] text-slate mb-7">{c.strip.caption}</p>
-        <BrandMarquee />
-      </section>
-
       {/* ════ 3 · PROBLEM — scrub statement + quiet ripple grid ════ */}
       <section className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div
@@ -561,7 +554,8 @@ export default function HomeContent() {
               ))}
             </ul>
           </div>
-          <div className="gs-console" style={{ clipPath: "inset(0 0 0% 0)" }}>
+          {/* Chart is desktop-only — it reads cramped on phones. */}
+          <div className="gs-console hidden md:block" style={{ clipPath: "inset(0 0 0% 0)" }}>
             <RevenueAreaCard
               label={c.solution.chart.label}
               metric={c.solution.chart.metric}
