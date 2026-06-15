@@ -1,152 +1,178 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import Link from "next/link";
+import { X } from "lucide-react";
+
+/* lucide build here has no LinkedIn glyph — small inline mark instead. */
+function LinkedinMark({ size = 17 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.06 3.77-2.06C21.4 8.64 22 11 22 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21h-4z" />
+    </svg>
+  );
+}
 import CtaSection from "@/components/marketing/CtaSection";
 import { StackedDeck } from "@/components/velur/StackedDeck";
-import { BarChart3, Cpu, Sparkles } from "lucide-react";
 
 /* ─── Per-page strings (Castilian Spanish for ES) ──────────────────────
-   About page, Cohere-style: a mission hero → an evolution timeline drawn
-   from Alexander's real path (Medellín → Data Science degree → Fabletics
-   / Yitty → Velur) → his personal conviction → a founder block with a
-   photo placeholder. Company voice stays "we" (a small team across DS /
-   ML / AI); the belief section is first person — his actual reason for
-   building this. */
+   About page, Cohere-style. Company voice is always "we" — the journey
+   is the evolution of the idea, not a personal résumé. No company names
+   (industries instead), no country names in the narrative. The founder
+   bio (in the modal) is third-person and is the only place that mentions
+   his studies. */
 const COPY = {
   en: {
     heroEyebrow: "Company",
-    heroLineLead: "Technology is how humanity",
-    heroLineTail: "reaches what it couldn't before.",
+    heroLineLead: "Technology is how businesses",
+    heroLineTail: "reach what they couldn't before.",
     heroBody:
-      "Velur is built on one conviction: used well, data and AI help people discover and decide things they otherwise couldn't — and that creates real value, far beyond the numbers. We're a small team working across data science, machine learning and applied AI, building the intelligence layer modern businesses are missing.",
+      "Velur is built on one conviction: used well, data and AI help businesses discover and decide things they otherwise couldn't — value far beyond the numbers. We're a small team working across data science, machine learning and applied AI, building the intelligence layer modern businesses are missing.",
 
-    timelineEyebrow: "The path here",
-    timelineHeading: "From reading data to rethinking it.",
-    timeline: [
+    journeyEyebrow: "The journey",
+    journeyHeading: "How we got to one intelligence layer.",
+    journey: [
       {
-        ghost: "2021",
-        eyebrow: "Medellín, Colombia",
-        title: "Learning to make data speak.",
-        body: "As a Data & Reporting Analyst, I automated the messy middle — Python and SQL pipelines that cut errors by a third and turned raw operational data into decisions leaders could act on.",
+        ghost: "01",
+        eyebrow: "What we kept seeing",
+        title: "Every business runs on the same broken setup.",
+        body: "Across ecommerce, retail and fashion, subscription, logistics and transportation, we kept finding the same thing — six or seven tools per business, none of them speaking to each other, and a person stuck in the middle stitching the truth together by hand.",
       },
       {
-        ghost: "2023",
-        eyebrow: "IU University · Germany",
-        title: "Data Science, made formal.",
-        body: "A Bachelor of Data Science specialising in Artificial Intelligence, Business Intelligence and visualisation — the foundation under everything Velur is built on.",
+        ghost: "02",
+        eyebrow: "Why it matters",
+        title: "The gap is where value quietly leaks.",
+        body: "Disconnected data isn't a cosmetic problem. It's missed revenue, slow decisions and answers that arrive a week too late — in industries where a week is the difference between scaling a winner and funding a loser.",
       },
       {
-        ghost: "2023–25",
-        eyebrow: "Fabletics · Yitty",
-        title: "The same gap, in every brand.",
-        body: "As Marketing Data Analyst I became the liaison between marketing, product and MarTech — the person who made the tools talk. The work drove 35% sales growth and surfaced $750K in untapped revenue. But every brand ran on the same six or seven tools, and none of them spoke to each other. Closing that gap by hand was the whole job.",
+        ghost: "03",
+        eyebrow: "What we're building",
+        title: "One layer of intelligence above everything.",
+        body: "Velur connects every data source a business already runs into a single reasoning layer — so instead of ten dashboards to read, there's one clear answer, already written when the day starts.",
       },
       {
-        ghost: "Now",
-        eyebrow: "Barcelona · Building Velur",
-        title: "The layer that was always missing.",
-        body: "Velur closes that gap for good — one intelligence layer that reads across every data source a business runs, so the answer is already written when you open your laptop.",
+        ghost: "04",
+        eyebrow: "Where this goes",
+        title: "AI that understands an entire business.",
+        body: "We believe the businesses that win the next decade will be the ones whose data finally works as one. We're building the layer that makes that ordinary.",
       },
     ],
 
-    beliefEyebrow: "Why I'm building Velur",
-    beliefHeading: "I'm fascinated by what technology lets us become.",
+    beliefEyebrow: "What we believe",
+    beliefHeading: "We're fascinated by what technology lets us become.",
     beliefQuote:
-      "Technology is one of the biggest transformations in human history. AI now lets us reach outcomes we couldn't have imagined thirty or fifty years ago — and I want to use it to help people create real value, not just another dashboard.",
+      "Technology is one of the biggest transformations in human history. AI now lets businesses reach outcomes that were unimaginable a generation ago — and we're here to turn that into real value, not another dashboard.",
     beliefP1:
-      "A company built today has to be AI-native; that's simply where the world is moving. And it has to bring something genuinely new. Connecting every kind of data source into one layer of intelligence is, I believe, exactly that — useful, and not yet done well for the businesses that need it most.",
+      "A company built today has to be AI-native; that's simply where the world is moving. And it has to bring something genuinely new. Connecting every kind of data source into one layer of intelligence is exactly that — useful, and not yet done well for the businesses that need it most.",
     beliefP2:
-      "Data Science is the rigor. Machine Learning is the engine. AI is the multiplier. I care about all three only as means to an end: a business that understands itself clearly, every morning, and makes better calls because of it.",
+      "Data Science is the rigor. Machine Learning is the engine. AI is the multiplier. We care about all three only as means to an end: a business that understands itself clearly, every morning, and makes better calls because of it.",
     beliefP3:
-      "It might take years. I'm fine with that. I'm willing to fail many times over — as long as I keep going and keep scaling, until one day it works.",
+      "It may take years. We're fine with that. We're willing to fail many times over — as long as we keep going and keep scaling, until it works.",
 
-    founderEyebrow: "The founder",
+    founderEyebrow: "Founded by",
     founderName: "Alexander Campos",
     founderRole: "Founder · Data Scientist",
-    founderBio:
-      "Four years turning complex data into decisions for consumer brands — from operational analytics in Medellín to marketing data science for Fabletics' Yitty. Data Science graduate (IU, Germany), based in Barcelona. Velur is led by Alexander and built with a small team across data science, ML and applied AI.",
-    founderTags: [
-      { icon: "chart", label: "Data Science" },
-      { icon: "cpu", label: "Machine Learning" },
-      { icon: "spark", label: "Applied AI" },
-    ],
+    founderHint: "Read bio",
     photoCaption: "Photo coming soon",
-    contactEmail: "hello@velur.io",
-    contactLinkedin: "LinkedIn",
+    modalBio: [
+      "Alexander founded Velur after years as a data scientist embedded inside the data stacks of ecommerce, retail and fashion, subscription, logistics and transportation businesses — the operator who turned fragmented data into decisions teams could actually act on.",
+      "He studied data science in Germany and Barcelona, specialising in artificial intelligence and business intelligence. Velur is the layer he kept wishing those businesses had — now built for the ones that need it most.",
+    ],
+    linkedinCta: "View LinkedIn",
+    close: "Close",
   },
 
   es: {
     heroEyebrow: "Empresa",
-    heroLineLead: "La tecnología es cómo la humanidad",
-    heroLineTail: "alcanza lo que antes no podía.",
+    heroLineLead: "La tecnología es cómo los negocios",
+    heroLineTail: "alcanzan lo que antes no podían.",
     heroBody:
-      "Velur se construye sobre una convicción: bien usados, los datos y la IA ayudan a las personas a descubrir y decidir cosas que de otro modo no podrían — y eso crea valor real, mucho más allá de los números. Somos un equipo pequeño que trabaja en data science, machine learning e IA aplicada, construyendo la capa de inteligencia que les falta a los negocios de hoy.",
+      "Velur se construye sobre una convicción: bien usados, los datos y la IA ayudan a los negocios a descubrir y decidir cosas que de otro modo no podrían — valor mucho más allá de los números. Somos un equipo pequeño que trabaja en data science, machine learning e IA aplicada, construyendo la capa de inteligencia que les falta a los negocios de hoy.",
 
-    timelineEyebrow: "El camino hasta aquí",
-    timelineHeading: "De leer los datos a repensarlos.",
-    timeline: [
+    journeyEyebrow: "El recorrido",
+    journeyHeading: "Cómo llegamos a una sola capa de inteligencia.",
+    journey: [
       {
-        ghost: "2021",
-        eyebrow: "Medellín, Colombia",
-        title: "Aprender a hacer hablar a los datos.",
-        body: "Como Data & Reporting Analyst, automaticé el trabajo sucio del medio — pipelines de Python y SQL que redujeron los errores un tercio y convirtieron datos operativos en bruto en decisiones que los líderes podían tomar.",
+        ghost: "01",
+        eyebrow: "Lo que veíamos una y otra vez",
+        title: "Cada negocio corre con el mismo montaje roto.",
+        body: "En ecommerce, retail y moda, suscripción, logística y transporte, encontrábamos siempre lo mismo — seis o siete herramientas por negocio, ninguna hablando con la siguiente, y una persona atrapada en el medio cosiendo la verdad a mano.",
       },
       {
-        ghost: "2023",
-        eyebrow: "IU University · Alemania",
-        title: "Data Science, de forma formal.",
-        body: "Un Bachelor en Data Science con especialización en Inteligencia Artificial, Business Intelligence y visualización — la base sobre la que se construye todo Velur.",
+        ghost: "02",
+        eyebrow: "Por qué importa",
+        title: "La brecha es donde el valor se escapa en silencio.",
+        body: "Los datos desconectados no son un problema cosmético. Son ingresos perdidos, decisiones lentas y respuestas que llegan una semana tarde — en industrias donde una semana es la diferencia entre escalar a un ganador y financiar a un perdedor.",
       },
       {
-        ghost: "2023–25",
-        eyebrow: "Fabletics · Yitty",
-        title: "La misma brecha, en cada marca.",
-        body: "Como Marketing Data Analyst me convertí en el enlace entre marketing, producto y MarTech — la persona que hacía hablar a las herramientas. El trabajo impulsó un 35% de crecimiento en ventas y destapó 750.000 $ en ingresos sin aprovechar. Pero cada marca corría con las mismas seis o siete herramientas, y ninguna se hablaba con la siguiente. Cerrar esa brecha a mano era todo el trabajo.",
+        ghost: "03",
+        eyebrow: "Lo que construimos",
+        title: "Una capa de inteligencia por encima de todo.",
+        body: "Velur conecta cada fuente de datos que un negocio ya usa en una sola capa de razonamiento — para que en lugar de diez dashboards que leer, haya una respuesta clara, ya escrita cuando empieza el día.",
       },
       {
-        ghost: "Ahora",
-        eyebrow: "Barcelona · Construyendo Velur",
-        title: "La capa que siempre faltó.",
-        body: "Velur cierra esa brecha de una vez — una sola capa de inteligencia que lee a través de cada fuente de datos que usa un negocio, para que la respuesta ya esté escrita cuando abres el portátil.",
+        ghost: "04",
+        eyebrow: "Hacia dónde va",
+        title: "IA que entiende un negocio entero.",
+        body: "Creemos que los negocios que ganen la próxima década serán aquellos cuyos datos por fin funcionen como uno. Construimos la capa que hace que eso sea lo normal.",
       },
     ],
 
-    beliefEyebrow: "Por qué construyo Velur",
-    beliefHeading: "Me fascina en qué nos permite convertirnos la tecnología.",
+    beliefEyebrow: "Lo que creemos",
+    beliefHeading: "Nos fascina en qué nos permite convertirnos la tecnología.",
     beliefQuote:
-      "La tecnología es una de las mayores transformaciones de la historia humana. La IA hoy nos permite alcanzar resultados que no habríamos imaginado hace treinta o cincuenta años — y quiero usarla para ayudar a las personas a crear valor real, no otro dashboard más.",
+      "La tecnología es una de las mayores transformaciones de la historia humana. La IA hoy permite a los negocios alcanzar resultados inimaginables hace una generación — y estamos aquí para convertir eso en valor real, no en otro dashboard.",
     beliefP1:
-      "Una empresa que nace hoy tiene que ser AI-native; es sencillamente hacia donde va el mundo. Y tiene que aportar algo genuinamente nuevo. Conectar cada tipo de fuente de datos en una sola capa de inteligencia es, creo, exactamente eso — útil, y aún no bien resuelto para los negocios que más lo necesitan.",
+      "Una empresa que nace hoy tiene que ser AI-native; es sencillamente hacia donde va el mundo. Y tiene que aportar algo genuinamente nuevo. Conectar cada tipo de fuente de datos en una sola capa de inteligencia es exactamente eso — útil, y aún no bien resuelto para los negocios que más lo necesitan.",
     beliefP2:
-      "Data Science es el rigor. Machine Learning es el motor. La IA es el multiplicador. Me importan los tres solo como medios para un fin: un negocio que se entiende con claridad, cada mañana, y por eso toma mejores decisiones.",
+      "Data Science es el rigor. Machine Learning es el motor. La IA es el multiplicador. Nos importan los tres solo como medios para un fin: un negocio que se entiende con claridad, cada mañana, y por eso toma mejores decisiones.",
     beliefP3:
-      "Puede que lleve años. Me parece bien. Estoy dispuesto a fallar muchas veces — mientras siga adelante y siga escalando, hasta que un día funcione.",
+      "Puede que lleve años. Nos parece bien. Estamos dispuestos a fallar muchas veces — mientras sigamos adelante y sigamos escalando, hasta que funcione.",
 
-    founderEyebrow: "El fundador",
+    founderEyebrow: "Fundada por",
     founderName: "Alexander Campos",
     founderRole: "Fundador · Data Scientist",
-    founderBio:
-      "Cuatro años convirtiendo datos complejos en decisiones para marcas de consumo — de la analítica operativa en Medellín a la data science de marketing para Yitty, de Fabletics. Graduado en Data Science (IU, Alemania), con base en Barcelona. Velur está liderado por Alexander y construido con un equipo pequeño en data science, ML e IA aplicada.",
-    founderTags: [
-      { icon: "chart", label: "Data Science" },
-      { icon: "cpu", label: "Machine Learning" },
-      { icon: "spark", label: "IA aplicada" },
-    ],
+    founderHint: "Ver bio",
     photoCaption: "Foto próximamente",
-    contactEmail: "hello@velur.io",
-    contactLinkedin: "LinkedIn",
+    modalBio: [
+      "Alexander fundó Velur tras años como data scientist dentro de los stacks de datos de negocios de ecommerce, retail y moda, suscripción, logística y transporte — el operador que convertía datos fragmentados en decisiones que los equipos podían tomar de verdad.",
+      "Estudió data science en Alemania y Barcelona, con especialización en inteligencia artificial y business intelligence. Velur es la capa que siempre deseó que esos negocios tuvieran — ahora construida para los que más la necesitan.",
+    ],
+    linkedinCta: "Ver LinkedIn",
+    close: "Cerrar",
   },
 } as const;
 
 type Copy = typeof COPY.en | typeof COPY.es;
 
-const TAG_ICON: Record<string, typeof BarChart3> = {
-  chart: BarChart3,
-  cpu: Cpu,
-  spark: Sparkles,
-};
+const LINKEDIN_URL = "https://www.linkedin.com/in/juan-alexander-campos/";
+
+/* Photo placeholder — swap for <Image src="/team/alexander.jpg" … /> once
+   the portrait is added under /public/team/. */
+function PhotoPlaceholder({ caption, className = "" }: { caption: string; className?: string }) {
+  return (
+    <div
+      className={`relative w-full rounded-[18px] overflow-hidden bg-midnight flex items-center justify-center ${className}`}
+      style={{ aspectRatio: "4 / 5" }}
+    >
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-30"
+        style={{ background: "radial-gradient(circle at 50% 35%, rgba(79,183,141,0.4), transparent 60%)" }}
+      />
+      <div className="relative flex flex-col items-center gap-4 text-center px-6">
+        <span className="inline-flex w-20 h-20 rounded-full bg-signal-green text-white items-center justify-center font-display text-[26px] tracking-[-0.02em]">
+          AC
+        </span>
+        <span className="font-display text-[11px] uppercase tracking-[0.12em] text-on-dark-muted">
+          {caption}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 /* ──────────────────────────────────────────────────────────────────
    Page
@@ -156,6 +182,15 @@ export default function CompanyContent() {
   const { lang } = useLanguage();
   const c: Copy = COPY[lang];
   const prefersReduced = useReducedMotion();
+  const [bioOpen, setBioOpen] = useState(false);
+
+  /* Close the bio modal on Escape. */
+  useEffect(() => {
+    if (!bioOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setBioOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [bioOpen]);
 
   const fadeUp = (delay = 0) => ({
     initial: prefersReduced ? {} : { opacity: 0, y: 18 },
@@ -202,33 +237,33 @@ export default function CompanyContent() {
         </div>
       </section>
 
-      {/* ── Evolution timeline (stacked deck) ───────────────────── */}
-      <section className="bg-paper border-b border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
+      {/* ── The journey (stacked deck, bold dark cards) ─────────── */}
+      <section className="bg-stone border-b border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <div className="mb-12 md:mb-16 max-w-2xl">
             <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-3">
-              {c.timelineEyebrow}
+              {c.journeyEyebrow}
             </motion.p>
             <motion.h2
               {...fadeUp(0.05)}
               className="font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.025em]"
               style={{ fontSize: "clamp(28px, 4vw, 52px)" }}
             >
-              {c.timelineHeading}
+              {c.journeyHeading}
             </motion.h2>
           </div>
-          <StackedDeck cards={c.timeline.map((t) => ({ ...t }))} />
+          <StackedDeck cards={c.journey.map((t) => ({ ...t }))} />
         </div>
       </section>
 
-      {/* ── Belief / why — first person ─────────────────────────── */}
+      {/* ── Belief / why — "we" voice ───────────────────────────── */}
       <section className="bg-canvas relative overflow-hidden" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div
           aria-hidden
           className="absolute -bottom-32 -right-32 w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] pointer-events-none opacity-30"
           style={{
             background:
-              "radial-gradient(circle, rgba(79,183,141,0.3) 0%, rgba(79,183,141,0) 65%)",
+              "radial-gradient(circle, rgba(255,107,74,0.3) 0%, rgba(255,107,74,0) 65%)",
             filter: "blur(40px)",
           }}
         />
@@ -254,95 +289,109 @@ export default function CompanyContent() {
           </motion.blockquote>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-[1000px]">
-            <motion.p {...fadeUp(0.16)} className="font-sans text-[16px] leading-[1.6] text-ink/85">
-              {c.beliefP1}
-            </motion.p>
-            <motion.p {...fadeUp(0.22)} className="font-sans text-[16px] leading-[1.6] text-ink/85">
-              {c.beliefP2}
-            </motion.p>
-            <motion.p {...fadeUp(0.28)} className="font-sans text-[16px] leading-[1.6] text-ink/85">
-              {c.beliefP3}
-            </motion.p>
+            <motion.p {...fadeUp(0.16)} className="font-sans text-[16px] leading-[1.6] text-ink/85">{c.beliefP1}</motion.p>
+            <motion.p {...fadeUp(0.22)} className="font-sans text-[16px] leading-[1.6] text-ink/85">{c.beliefP2}</motion.p>
+            <motion.p {...fadeUp(0.28)} className="font-sans text-[16px] leading-[1.6] text-ink/85">{c.beliefP3}</motion.p>
           </div>
         </div>
       </section>
 
-      {/* ── Founder block — photo placeholder + bio ─────────────── */}
-      <section className="bg-cream border-y border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
-        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-8">
+      {/* ── Founder — dark band, photo on top, click → bio modal ── */}
+      <section className="bg-midnight text-on-dark" style={{ padding: "var(--section-y) var(--gutter)" }}>
+        <div className="text-center" style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}>
+          <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green-300 mb-8">
             {c.founderEyebrow}
           </motion.p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-center">
-            {/* Photo placeholder — drop a portrait at /public/team/alexander.jpg
-                and replace this block with <Image src="/team/alexander.jpg" … />. */}
-            <motion.div {...fadeUp(0.05)}>
-              <div
-                className="relative w-full max-w-[380px] rounded-[22px] border border-line bg-stone overflow-hidden flex items-center justify-center"
-                style={{ aspectRatio: "4 / 5" }}
+          <motion.button
+            {...fadeUp(0.05)}
+            type="button"
+            onClick={() => setBioOpen(true)}
+            className="group inline-flex flex-col items-center mx-auto"
+            aria-haspopup="dialog"
+          >
+            <span className="block w-[180px] sm:w-[200px] transition-transform duration-300 group-hover:-translate-y-1">
+              <PhotoPlaceholder caption={c.photoCaption} />
+            </span>
+            <span className="mt-6 font-display font-normal text-white text-[26px] tracking-[-0.015em]">
+              {c.founderName}
+            </span>
+            <span className="font-display text-[12px] uppercase tracking-[0.1em] text-signal-green-300 mt-1">
+              {c.founderRole}
+            </span>
+            <span className="mt-3 inline-flex items-center gap-1.5 font-sans text-[14px] text-on-dark-muted group-hover:text-white transition-colors">
+              {c.founderHint}
+              <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
+            </span>
+          </motion.button>
+        </div>
+      </section>
+
+      {/* ── Bio modal (Cohere-style) ────────────────────────────── */}
+      <AnimatePresence>
+        {bioOpen && (
+          <motion.div
+            className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label={c.founderName}
+          >
+            <div
+              className="absolute inset-0 bg-midnight/80 backdrop-blur-sm"
+              onClick={() => setBioOpen(false)}
+              aria-hidden
+            />
+            <motion.div
+              className="relative w-full max-w-3xl rounded-[22px] bg-canvas overflow-hidden shadow-2xl"
+              initial={prefersReduced ? {} : { scale: 0.96, y: 12 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={prefersReduced ? {} : { scale: 0.97, y: 8, opacity: 0 }}
+              transition={{ type: "spring", bounce: 0, duration: 0.35 }}
+            >
+              <button
+                type="button"
+                onClick={() => setBioOpen(false)}
+                aria-label={c.close}
+                className="absolute top-4 right-4 z-10 inline-flex w-9 h-9 items-center justify-center rounded-full text-ink/60 hover:text-ink hover:bg-ink/[0.06] transition-colors"
               >
-                <div className="flex flex-col items-center gap-4 text-center px-6">
-                  <span className="inline-flex w-20 h-20 rounded-full bg-signal-green text-white items-center justify-center font-display text-[26px] tracking-[-0.02em]">
-                    AC
-                  </span>
-                  <span className="font-display text-[12px] uppercase tracking-[0.1em] text-slate">
-                    {c.photoCaption}
-                  </span>
+                <X size={18} strokeWidth={1.8} />
+              </button>
+
+              <div className="grid grid-cols-1 sm:grid-cols-[0.85fr_1.15fr] gap-6 sm:gap-8 p-6 sm:p-9">
+                <div className="w-[150px] sm:w-full mx-auto sm:mx-0">
+                  <PhotoPlaceholder caption={c.photoCaption} />
+                </div>
+                <div className="flex flex-col">
+                  <h3 className="font-display font-normal text-ink-strong text-[28px] sm:text-[34px] leading-tight tracking-[-0.02em]">
+                    {c.founderName}
+                  </h3>
+                  <p className="font-display text-[12px] uppercase tracking-[0.1em] text-signal-green mt-1.5 mb-4">
+                    {c.founderRole}
+                  </p>
+                  <div className="space-y-4 mb-6">
+                    {c.modalBio.map((p, i) => (
+                      <p key={i} className="font-sans text-[15.5px] leading-[1.6] text-ink/85">{p}</p>
+                    ))}
+                  </div>
+                  <Link
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto inline-flex items-center gap-2 self-start bg-velur-ink text-canvas font-sans font-medium text-[14.5px] px-5 py-3 rounded-[28px] hover:bg-ink-700 transition-colors"
+                  >
+                    <LinkedinMark size={17} />
+                    {c.linkedinCta}
+                  </Link>
                 </div>
               </div>
             </motion.div>
-
-            <motion.div {...fadeUp(0.12)}>
-              <h3 className="font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-2" style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}>
-                {c.founderName}
-              </h3>
-              <p className="font-display text-[12px] uppercase tracking-[0.1em] text-signal-green mb-6">
-                {c.founderRole}
-              </p>
-              <p className="font-sans text-[16.5px] leading-[1.6] text-ink/85 max-w-[56ch] mb-7">
-                {c.founderBio}
-              </p>
-
-              <div className="flex flex-wrap gap-2.5 mb-7">
-                {c.founderTags.map((tag) => {
-                  const Icon = TAG_ICON[tag.icon] ?? BarChart3;
-                  return (
-                    <span
-                      key={tag.label}
-                      className="inline-flex items-center gap-2 bg-paper border border-line rounded-full pl-3 pr-4 py-2"
-                    >
-                      <span className="inline-flex text-signal-green items-center">
-                        <Icon size={18} strokeWidth={1.7} />
-                      </span>
-                      <span className="font-sans text-[13.5px] text-ink-strong">{tag.label}</span>
-                    </span>
-                  );
-                })}
-              </div>
-
-              <div className="flex flex-wrap items-center gap-3">
-                <Link
-                  href={`mailto:${c.contactEmail}`}
-                  className="inline-flex items-center gap-1.5 font-sans text-[14.5px] text-ink hover:text-action-blue transition-colors"
-                >
-                  {c.contactEmail}
-                  <span aria-hidden>→</span>
-                </Link>
-                <span className="text-line" aria-hidden>·</span>
-                <Link
-                  href="https://www.linkedin.com/in/juan-alexander-campos/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-sans text-[14.5px] text-ink/65 hover:text-ink transition-colors"
-                >
-                  {c.contactLinkedin}
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <CtaSection />
     </>
