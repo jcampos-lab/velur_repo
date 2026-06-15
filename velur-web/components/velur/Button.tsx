@@ -4,7 +4,7 @@ import { forwardRef, ButtonHTMLAttributes, ReactNode } from "react";
 import Link from "next/link";
 
 /**
- * Velur — Button
+ * Velur, Button
  * Primary action is a near-black (or white-on-dark) pill. Secondary is a
  * quiet underlined text link. Outline is a transparent pill for filters/tags.
  *

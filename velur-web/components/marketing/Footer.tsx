@@ -13,7 +13,7 @@ import { RollingText } from "@/components/ui/rolling-text";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 /**
- * Velur — Marketing Footer
+ * Velur, Marketing Footer
  * Signature dark newsletter footer per ui_kits/marketing/Chrome.jsx.
  * Velur-ink (#101316) bg, coral editorial eyebrow, monumental claim,
  * underlined newsletter form, 3-column link list, bottom legal strip.
@@ -25,7 +25,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
  * we don't ship dead "#" links to crawlers or users. Anything in
  * KNOWN_LINKS resolves to a real route and renders as a real <Link>.
  */
-/* Corporate social row — replaces the old floating side rail. */
+/* Corporate social row, replaces the old floating side rail. */
 function SocialLinks() {
   const base =
     "inline-flex w-9 h-9 items-center justify-center rounded-full border text-muted-slate hover:text-white hover:border-white transition-colors";
@@ -138,7 +138,7 @@ export default function Footer() {
 
           {f.cols.map((c) => (
             <div key={c.h}>
-              {/* Column heading — quiet underline grows in on hover */}
+              {/* Column heading, quiet underline grows in on hover */}
               <div className="relative w-fit text-sm text-white mb-3.5 after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-signal-green-300 after:transition-[width] after:duration-300 hover:after:w-full">
                 {c.h}
               </div>
@@ -202,7 +202,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom wordmark — mark + "Velur" pinned to the LEFT edge of
+      {/* Bottom wordmark, mark + "Velur" pinned to the LEFT edge of
           the footer (under the newsletter column). The mark stays at
           its smaller proportion; only the wordmark gets sized up.
           A soft mask-image fade dissolves the right edge into the
@@ -241,7 +241,7 @@ export default function Footer() {
               fontFamily: "'Px Grotesk', Inter, system-ui, sans-serif",
               fontWeight: 400,
               fontSize: "clamp(9rem, 30vw, 26rem)",
-              /* Subtle faux-bold — just enough to lift Px Grotesk Regular
+              /* Subtle faux-bold, just enough to lift Px Grotesk Regular
                  at display size without going slab. */
               WebkitTextStroke: "0.022em #F4F1E8",
               paintOrder: "stroke fill",

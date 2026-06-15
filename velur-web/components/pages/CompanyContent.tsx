@@ -6,7 +6,7 @@ import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import Link from "next/link";
 import { X } from "lucide-react";
 
-/* lucide build here has no LinkedIn glyph — small inline mark instead. */
+/* lucide build here has no LinkedIn glyph, small inline mark instead. */
 function LinkedinMark({ size = 17 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -18,7 +18,7 @@ import CtaSection from "@/components/marketing/CtaSection";
 import { StackedDeck } from "@/components/velur/StackedDeck";
 
 /* ─── Per-page strings (Castilian Spanish for ES) ──────────────────────
-   About page, Cohere-style. Company voice is always "we" — the journey
+   About page, Cohere-style. Company voice is always "we", the journey
    is the evolution of the idea, not a personal résumé. No company names
    (industries instead), no country names in the narrative. The founder
    bio (in the modal) is third-person and is the only place that mentions
@@ -29,7 +29,7 @@ const COPY = {
     heroLineLead: "Technology is how businesses",
     heroLineTail: "reach what they couldn't before.",
     heroBody:
-      "Velur is built on one conviction: used well, data and AI help businesses discover and decide things they otherwise couldn't — value far beyond the numbers. We're a small team working across data science, machine learning and applied AI, building the intelligence layer modern businesses are missing.",
+      "Velur is built on one conviction: used well, data and AI help businesses discover and decide things they otherwise couldn't, value far beyond the numbers. We're a small team working across data science, machine learning and applied AI, building the intelligence layer modern businesses are missing.",
 
     journeyEyebrow: "The journey",
     journeyHeading: "How we got to one intelligence layer.",
@@ -38,19 +38,19 @@ const COPY = {
         ghost: "01",
         eyebrow: "What we kept seeing",
         title: "Every business runs on the same broken setup.",
-        body: "Across ecommerce, retail and fashion, subscription, logistics and transportation, we kept finding the same thing — six or seven tools per business, none of them speaking to each other, and a person stuck in the middle stitching the truth together by hand.",
+        body: "Across ecommerce, retail and fashion, subscription, logistics and transportation, we kept finding the same thing, six or seven tools per business, none of them speaking to each other, and a person stuck in the middle stitching the truth together by hand.",
       },
       {
         ghost: "02",
         eyebrow: "Why it matters",
         title: "The gap is where value quietly leaks.",
-        body: "Disconnected data isn't a cosmetic problem. It's missed revenue, slow decisions and answers that arrive a week too late — in industries where a week is the difference between scaling a winner and funding a loser.",
+        body: "Disconnected data isn't a cosmetic problem. It's missed revenue, slow decisions and answers that arrive a week too late, in industries where a week is the difference between scaling a winner and funding a loser.",
       },
       {
         ghost: "03",
         eyebrow: "What we're building",
         title: "One layer of intelligence above everything.",
-        body: "Velur connects every data source a business already runs into a single reasoning layer — so instead of ten dashboards to read, there's one clear answer, already written when the day starts.",
+        body: "Velur connects every data source a business already runs into a single reasoning layer, so instead of ten dashboards to read, there's one clear answer, already written when the day starts.",
       },
       {
         ghost: "04",
@@ -63,7 +63,7 @@ const COPY = {
     beliefEyebrow: "What we believe",
     beliefHeading: "We're fascinated by what technology lets us become.",
     beliefStatement:
-      "Modern AI is finally giving software a real understanding of how a business works. We're building the technology that makes that understanding widely available — to every business, not just the ones with a data team.",
+      "Modern AI is finally giving software a real understanding of how a business works. We're building the technology that makes that understanding widely available, to every business, not just the ones with a data team.",
 
     founderEyebrow: "Founded by",
     founderName: "Alexander Campos",
@@ -71,8 +71,8 @@ const COPY = {
     founderHint: "Read bio",
     photoCaption: "Photo coming soon",
     modalBio: [
-      "Alexander founded Velur after years as a data scientist embedded inside the data stacks of ecommerce, retail and fashion, subscription, logistics and transportation businesses — the operator who turned fragmented data into decisions teams could actually act on.",
-      "He studied data science in Germany and Barcelona, specialising in artificial intelligence and business intelligence. Velur is the layer he kept wishing those businesses had — now built for the ones that need it most.",
+      "Alexander founded Velur after years as a data scientist embedded inside the data stacks of ecommerce, retail and fashion, subscription, logistics and transportation businesses, the operator who turned fragmented data into decisions teams could actually act on.",
+      "He studied data science in Germany and Barcelona, specialising in artificial intelligence and business intelligence. Velur is the layer he kept wishing those businesses had, now built for the ones that need it most.",
     ],
     linkedinCta: "View LinkedIn",
     close: "Close",
@@ -83,7 +83,7 @@ const COPY = {
     heroLineLead: "La tecnología es cómo los negocios",
     heroLineTail: "alcanzan lo que antes no podían.",
     heroBody:
-      "Velur se construye sobre una convicción: bien usados, los datos y la IA ayudan a los negocios a descubrir y decidir cosas que de otro modo no podrían — valor mucho más allá de los números. Somos un equipo pequeño que trabaja en data science, machine learning e IA aplicada, construyendo la capa de inteligencia que les falta a los negocios de hoy.",
+      "Velur se construye sobre una convicción: bien usados, los datos y la IA ayudan a los negocios a descubrir y decidir cosas que de otro modo no podrían, valor mucho más allá de los números. Somos un equipo pequeño que trabaja en data science, machine learning e IA aplicada, construyendo la capa de inteligencia que les falta a los negocios de hoy.",
 
     journeyEyebrow: "El recorrido",
     journeyHeading: "Cómo llegamos a una sola capa de inteligencia.",
@@ -92,19 +92,19 @@ const COPY = {
         ghost: "01",
         eyebrow: "Lo que veíamos una y otra vez",
         title: "Cada negocio corre con el mismo montaje roto.",
-        body: "En ecommerce, retail y moda, suscripción, logística y transporte, encontrábamos siempre lo mismo — seis o siete herramientas por negocio, ninguna hablando con la siguiente, y una persona atrapada en el medio cosiendo la verdad a mano.",
+        body: "En ecommerce, retail y moda, suscripción, logística y transporte, encontrábamos siempre lo mismo, seis o siete herramientas por negocio, ninguna hablando con la siguiente, y una persona atrapada en el medio cosiendo la verdad a mano.",
       },
       {
         ghost: "02",
         eyebrow: "Por qué importa",
         title: "La brecha es donde el valor se escapa en silencio.",
-        body: "Los datos desconectados no son un problema cosmético. Son ingresos perdidos, decisiones lentas y respuestas que llegan una semana tarde — en industrias donde una semana es la diferencia entre escalar a un ganador y financiar a un perdedor.",
+        body: "Los datos desconectados no son un problema cosmético. Son ingresos perdidos, decisiones lentas y respuestas que llegan una semana tarde, en industrias donde una semana es la diferencia entre escalar a un ganador y financiar a un perdedor.",
       },
       {
         ghost: "03",
         eyebrow: "Lo que construimos",
         title: "Una capa de inteligencia por encima de todo.",
-        body: "Velur conecta cada fuente de datos que un negocio ya usa en una sola capa de razonamiento — para que en lugar de diez dashboards que leer, haya una respuesta clara, ya escrita cuando empieza el día.",
+        body: "Velur conecta cada fuente de datos que un negocio ya usa en una sola capa de razonamiento, para que en lugar de diez dashboards que leer, haya una respuesta clara, ya escrita cuando empieza el día.",
       },
       {
         ghost: "04",
@@ -117,7 +117,7 @@ const COPY = {
     beliefEyebrow: "Lo que creemos",
     beliefHeading: "Nos fascina en qué nos permite convertirnos la tecnología.",
     beliefStatement:
-      "La IA moderna por fin le da al software una comprensión real de cómo funciona un negocio. Construimos la tecnología que hace que esa comprensión esté ampliamente disponible — para cualquier negocio, no solo los que tienen un equipo de datos.",
+      "La IA moderna por fin le da al software una comprensión real de cómo funciona un negocio. Construimos la tecnología que hace que esa comprensión esté ampliamente disponible, para cualquier negocio, no solo los que tienen un equipo de datos.",
 
     founderEyebrow: "Fundada por",
     founderName: "Alexander Campos",
@@ -125,8 +125,8 @@ const COPY = {
     founderHint: "Ver bio",
     photoCaption: "Foto próximamente",
     modalBio: [
-      "Alexander fundó Velur tras años como data scientist dentro de los stacks de datos de negocios de ecommerce, retail y moda, suscripción, logística y transporte — el operador que convertía datos fragmentados en decisiones que los equipos podían tomar de verdad.",
-      "Estudió data science en Alemania y Barcelona, con especialización en inteligencia artificial y business intelligence. Velur es la capa que siempre deseó que esos negocios tuvieran — ahora construida para los que más la necesitan.",
+      "Alexander fundó Velur tras años como data scientist dentro de los stacks de datos de negocios de ecommerce, retail y moda, suscripción, logística y transporte, el operador que convertía datos fragmentados en decisiones que los equipos podían tomar de verdad.",
+      "Estudió data science en Alemania y Barcelona, con especialización en inteligencia artificial y business intelligence. Velur es la capa que siempre deseó que esos negocios tuvieran, ahora construida para los que más la necesitan.",
     ],
     linkedinCta: "Ver LinkedIn",
     close: "Cerrar",
@@ -137,7 +137,7 @@ type Copy = typeof COPY.en | typeof COPY.es;
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/juan-alexander-campos/";
 
-/* Photo placeholder — swap for <Image src="/team/alexander.jpg" … /> once
+/* Photo placeholder, swap for <Image src="/team/alexander.jpg" … /> once
    the portrait is added under /public/team/. */
 function PhotoPlaceholder({ caption, className = "" }: { caption: string; className?: string }) {
   return (
@@ -193,7 +193,7 @@ export default function CompanyContent() {
 
   return (
     <>
-      {/* ── Hero — mission statement ────────────────────────────── */}
+      {/* ── Hero, mission statement ────────────────────────────── */}
       <section
         className="bg-canvas border-b border-border-light relative overflow-hidden"
         style={{ padding: "var(--section-y-tight) var(--gutter)" }}
@@ -244,7 +244,7 @@ export default function CompanyContent() {
         </div>
       </section>
 
-      {/* ── Belief / why — "we" voice ───────────────────────────── */}
+      {/* ── Belief / why, "we" voice ───────────────────────────── */}
       <section className="bg-canvas relative overflow-hidden" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div
           aria-hidden
@@ -277,7 +277,7 @@ export default function CompanyContent() {
         </div>
       </section>
 
-      {/* ── Founder — carbon band, photo on top, click → bio modal ── */}
+      {/* ── Founder, carbon band, photo on top, click → bio modal ── */}
       <section className="bg-[#0F1115] text-on-dark" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div className="text-center" style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}>
           <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green-300 mb-8">

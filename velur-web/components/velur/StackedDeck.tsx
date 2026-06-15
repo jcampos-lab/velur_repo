@@ -8,10 +8,10 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 /**
- * Velur — StackedDeck
+ * Velur, StackedDeck
  * Cohere-style stacked timeline: each card pins under the nav while the
- * next slides over it. Refined neutral palette — ivory, carbon-black,
- * cool gray and deep Signal Green — every theme pairs its surface with
+ * next slides over it. Refined neutral palette, ivory, carbon-black,
+ * cool gray and deep Signal Green, every theme pairs its surface with
  * a legible text colour. The giant index sits as a full-bleed watermark
  * on the right so the content fills the card width (no dead right gutter).
  *
@@ -19,7 +19,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
  * Reduced motion / mobile → plain stacked cards, no scroll scaling.
  */
 export type DeckCard = {
-  /** Giant faded watermark — a number ("01"). */
+  /** Giant faded watermark, a number ("01"). */
   ghost: string;
   /** Small label above the title. */
   eyebrow?: string;

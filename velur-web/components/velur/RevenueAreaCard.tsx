@@ -10,11 +10,11 @@ import {
 } from "@/components/ui/area-chart";
 
 /**
- * Velur — RevenueAreaCard
+ * Velur, RevenueAreaCard
  * Light product-style card with an interactive net-revenue area chart
  * (hover crosshair + tooltip + animated date pill). Sits on the dark
  * Signal Green solution band on the homepage. Data is an illustrative
- * deterministic series — same on server and client, no hydration drift.
+ * deterministic series, same on server and client, no hydration drift.
  */
 
 const SERIES = Array.from({ length: 30 }, (_, i) => ({

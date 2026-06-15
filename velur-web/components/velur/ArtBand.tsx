@@ -1,9 +1,9 @@
 /**
- * Velur — ArtBand
+ * Velur, ArtBand
  * Standalone full-width artwork band (rounded image inside the page
  * container) for light pages where art can't sit behind ink text.
  * Height is clamped responsively; the artwork crops via object-cover.
- * Decorative only — hidden from assistive tech.
+ * Decorative only, hidden from assistive tech.
  */
 
 type ArtBandProps = {
@@ -11,7 +11,7 @@ type ArtBandProps = {
   src: string;
   /** Focal point for the responsive crop. */
   objectPosition?: string;
-  /** Band height — defaults tuned for a cinematic strip. */
+  /** Band height, defaults tuned for a cinematic strip. */
   className?: string;
 };
 

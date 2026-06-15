@@ -18,7 +18,7 @@ import {
 } from "@/lib/promptPacksEs";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
-/* Per-page chrome strings — EN + Castilian Spanish. */
+/* Per-page chrome strings, EN + Castilian Spanish. */
 const CHROME = {
   en: {
     backLink: "All prompt packs",
@@ -50,7 +50,7 @@ const CHROME = {
   },
 } as const;
 
-/* Tool chips — small mono-uppercase badges next to each prompt title. */
+/* Tool chips, small mono-uppercase badges next to each prompt title. */
 const toolStyles: Record<PromptTool, { bg: string; fg: string }> = {
   MidJourney: { bg: "bg-wash-green", fg: "text-signal-green" },
   Higgsfield: { bg: "bg-coral-wash", fg: "text-coral" },
@@ -73,7 +73,7 @@ export default function PackPageBody({ pack }: { pack: PromptPack }) {
 
   return (
     <>
-      {/* Hero — solid pack surface */}
+      {/* Hero, solid pack surface */}
       <section
         className={`${pack.surface} ${pack.textOnDark ? "text-on-dark" : "text-ink-strong"}`}
         style={{ padding: "var(--section-y-tight) var(--gutter)" }}
@@ -195,7 +195,7 @@ export default function PackPageBody({ pack }: { pack: PromptPack }) {
         </div>
       </section>
 
-      {/* Closing CTA — Midnight band */}
+      {/* Closing CTA, Midnight band */}
       <section
         className="bg-midnight text-on-dark"
         style={{ padding: "var(--section-y) var(--gutter)" }}

@@ -10,7 +10,7 @@ interface IsoGridProps {
   bleed?: number;   // how far the pattern extends beyond the viewBox on each side
 }
 
-// Proper isometric grid — lines at 30°/60°/90° angles
+// Proper isometric grid, lines at 30°/60°/90° angles
 // bleed extends the pattern rect beyond the SVG viewBox so it merges with the page edge
 export default function IsoGrid({ width, height, spacing = 60, opacity = 0.06, bleed = 2000 }: IsoGridProps) {
   const rawId    = useId();

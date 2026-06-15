@@ -54,7 +54,7 @@ export default function ConnectionLine({
   const isAccelerated = state === "active" || state === "pulse";
   const dotDuration   = isAccelerated ? 1.0 : 2.5;
 
-  // Continuous traveling dot — always active
+  // Continuous traveling dot, always active
   useEffect(() => {
     const dot = dotRef.current;
     if (!dot) return;

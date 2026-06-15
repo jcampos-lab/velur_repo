@@ -7,9 +7,9 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(useGSAP);
 
 /**
- * Velur — RippleGrid
+ * Velur, RippleGrid
  * A quiet grid of hairline cells. Click (or tap) any cell and a pulse
- * ripples outward through its neighbours by Manhattan distance — a
+ * ripples outward through its neighbours by Manhattan distance, a
  * small visual of one signal propagating through the whole layer.
  *
  * Adapted from the 21st.dev ripple-grid pattern with two changes:

@@ -10,7 +10,7 @@ interface VelurAnchorProps {
 }
 
 // Chapter 1: Velur exists. Alone. Alive. Certain.
-// Single large Velur cube — establishes the protagonist before the story.
+// Single large Velur cube, establishes the protagonist before the story.
 export default function VelurAnchor({ className }: VelurAnchorProps) {
   const svgRef   = useRef<SVGSVGElement>(null);
   const cubeRef  = useRef<SVGGElement>(null);

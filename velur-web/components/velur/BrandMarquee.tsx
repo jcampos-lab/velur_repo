@@ -9,7 +9,7 @@ import { LineChart } from "lucide-react";
 gsap.registerPlugin(useGSAP);
 
 /**
- * Velur — BrandMarquee
+ * Velur, BrandMarquee
  * Slow infinite strip of the eight live integrations as quiet chips.
  * GSAP xPercent loop (two copies, -50% per cycle); pauses on hover,
  * static row under prefers-reduced-motion. Soft edge fades keep it
@@ -23,7 +23,7 @@ const BRANDS: { label: string; file?: string }[] = [
   { label: "Google Ads", file: "google.svg" },
   { label: "Stripe", file: "stripe.svg" },
   { label: "Recharge", file: "recharge.svg" },
-  { label: "GA4" }, // no official asset in repo — Lucide glyph
+  { label: "GA4" }, // no official asset in repo, Lucide glyph
 ];
 
 function ChipRow() {

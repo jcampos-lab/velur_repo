@@ -92,7 +92,7 @@ export default function VelurInside({ className }: VelurInsideProps) {
     run();
   }, []);
 
-  // Wireframe outer cube — draw edges only (no face fills)
+  // Wireframe outer cube, draw edges only (no face fills)
   function WireframeShell({ s, cx, cy }: { s: number; cx: number; cy: number }) {
     const A = [cx,         cy           ];
     const B = [cx + s * R, cy + s * 0.5 ];
@@ -146,7 +146,7 @@ export default function VelurInside({ className }: VelurInsideProps) {
         <MonoLabel x={cx - modelS * R - 8} y={modelCy + modelS * 0.9} text="data model" />
       </g>
 
-      {/* Velur cube — top of the stack */}
+      {/* Velur cube, top of the stack */}
       <VelurCube ref={cubeRef} size={velurS} cx={cx} cy={velurCy} breathe interactive={false} />
 
       {/* "you own it" callout */}

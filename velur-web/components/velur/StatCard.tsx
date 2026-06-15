@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 /**
- * Velur — StatCard
+ * Velur, StatCard
  * Composed metric block: mono label, large display value, optional delta + caption.
  * Used across the revenue console and marketing proof sections.
  *

@@ -10,7 +10,7 @@ interface MonoLabelProps {
   dark?: boolean;
 }
 
-// Auto-sizing mono label — uses getBBox() to measure text and fit the rect.
+// Auto-sizing mono label, uses getBBox() to measure text and fit the rect.
 // x, y = center of the label pill.
 export default function MonoLabel({ x, y, text, accentNumber, dark = false }: MonoLabelProps) {
   const textRef = useRef<SVGTextElement>(null);

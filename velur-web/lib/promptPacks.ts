@@ -1,5 +1,5 @@
 /**
- * Velur — Prompt Packs
+ * Velur, Prompt Packs
  * ---------------------------------------------------------------
  * Field-tested prompts for the categories Velur AI Studio actually
  * ships for. Each pack maps to a card on /studio and a detail page
@@ -14,7 +14,7 @@
  *
  * Conventions:
  *   - Replace [BRAND] / [PRODUCT] / [LOCATION] / etc. with your own.
- *   - Square brackets are intentional — they make the variables easy
+ *   - Square brackets are intentional, they make the variables easy
  *     to find and swap.
  *   - Each prompt ends with a stylistic anchor (lighting, lens,
  *     mood) so MidJourney/Higgsfield outputs stay on-brand.
@@ -28,7 +28,7 @@ export type Prompt = {
   title: string;
   /** Which tool this prompt is written for. */
   tool: PromptTool;
-  /** The actual prompt — paste-ready, with [BRACKETED] variables.
+  /** The actual prompt, paste-ready, with [BRACKETED] variables.
       Stays in English because MidJourney / Higgsfield / Claude
       produce noticeably better results with English prompts. */
   body: string;
@@ -43,7 +43,7 @@ export type PromptGroup = {
 };
 
 export type PromptPack = {
-  /** URL slug — /studio/packs/[slug]. */
+  /** URL slug, /studio/packs/[slug]. */
   slug: string;
   /** Display title (card + page). */
   title: string;
@@ -51,7 +51,7 @@ export type PromptPack = {
   tagline: string;
   /** One paragraph for the pack detail page hero. */
   intro: string;
-  /** Card surface — one of the new system tokens. */
+  /** Card surface, one of the new system tokens. */
   surface:
     | "bg-stone"
     | "bg-signal-green-300"
@@ -63,7 +63,7 @@ export type PromptPack = {
   textOnDark: boolean;
   /** Optional mono-label tone for the pack page eyebrow. */
   eyebrowTone: "green" | "coral" | "blue" | "default";
-  /** Total prompt count, computed at runtime — see countPrompts(). */
+  /** Total prompt count, computed at runtime, see countPrompts(). */
   groups: PromptGroup[];
 };
 
@@ -185,7 +185,7 @@ const beautyShots: PromptPack = {
   title: "Beauty Shots",
   tagline: "Editorial beauty stills for skincare, cosmetics and grooming.",
   intro:
-    "Field-tested prompts that produce magazine-grade beauty stills for skincare, cosmetics, color and grooming brands. Designed to replace a small product shoot — drop a product reference into MidJourney and ship a campaign in an afternoon.",
+    "Field-tested prompts that produce magazine-grade beauty stills for skincare, cosmetics, color and grooming brands. Designed to replace a small product shoot, drop a product reference into MidJourney and ship a campaign in an afternoon.",
   surface: "bg-signal-green-300",
   textOnDark: false,
   eyebrowTone: "green",
@@ -277,7 +277,7 @@ const beautyShots: PromptPack = {
           title: "Product launch caption set",
           tool: "Claude",
           body:
-            "You are writing for [BRAND], a [DESCRIPTOR] beauty brand. Voice: calm operator, confident, never hype, never emoji. Write five Instagram captions for the launch of [PRODUCT NAME]. Each caption: 1 hook line under 8 words, 2 sentences on the actual benefit (no jargon), 1 line on who it is for, 1 soft CTA. Vary the angle — sensorial, ingredient-led, before-after, founder voice, ritual.",
+            "You are writing for [BRAND], a [DESCRIPTOR] beauty brand. Voice: calm operator, confident, never hype, never emoji. Write five Instagram captions for the launch of [PRODUCT NAME]. Each caption: 1 hook line under 8 words, 2 sentences on the actual benefit (no jargon), 1 line on who it is for, 1 soft CTA. Vary the angle, sensorial, ingredient-led, before-after, founder voice, ritual.",
         },
         {
           title: "Product description page",
@@ -298,7 +298,7 @@ const dtcProducts: PromptPack = {
   title: "DTC Products",
   tagline: "Sell-page imagery for direct-to-consumer brands.",
   intro:
-    "Tested on real DTC clients across apparel, consumables, home and accessories. These prompts ship the imagery that actually converts on a PDP or Meta ad — clean enough to look studio, specific enough to feel like the brand.",
+    "Tested on real DTC clients across apparel, consumables, home and accessories. These prompts ship the imagery that actually converts on a PDP or Meta ad, clean enough to look studio, specific enough to feel like the brand.",
   surface: "bg-velur-ink",
   textOnDark: true,
   eyebrowTone: "blue",
@@ -400,7 +400,7 @@ const hospitality: PromptPack = {
   title: "Hospitality",
   tagline: "On-brand imagery for restaurants, cafes, hotels and bars.",
   intro:
-    "Hospitality is mood-led. These prompts produce the kind of warm, lived-in imagery a small restaurant or boutique hotel actually wants on its grid — without spending a Friday night on a photographer who shoots someone else's brand the same way.",
+    "Hospitality is mood-led. These prompts produce the kind of warm, lived-in imagery a small restaurant or boutique hotel actually wants on its grid, without spending a Friday night on a photographer who shoots someone else's brand the same way.",
   surface: "bg-midnight",
   textOnDark: true,
   eyebrowTone: "blue",
@@ -481,7 +481,7 @@ const hospitality: PromptPack = {
           title: "Menu description rewrite",
           tool: "Claude",
           body:
-            "Rewrite the menu descriptions below for [RESTAURANT NAME]. Voice: confident, sensorial, no buzzwords, no clichés (no 'house-made', no 'kissed with', no 'farm-to-table'). Each description: 8–14 words, name two real things you taste or feel. Menu: [PASTE MENU].",
+            "Rewrite the menu descriptions below for [RESTAURANT NAME]. Voice: confident, sensorial, no buzzwords, no clichés (no 'house-made', no 'kissed with', no 'farm-to-table'). Each description: 8 to 14 words, name two real things you taste or feel. Menu: [PASTE MENU].",
         },
         {
           title: "Reservation DM script",
@@ -508,7 +508,7 @@ const reelHooks: PromptPack = {
   title: "Reel Hooks",
   tagline: "Short-form hooks that earn the next three seconds.",
   intro:
-    "Hooks are the only line that decides whether the next ninety seconds get watched. These are the prompt frameworks we use across TikTok, Instagram Reels and YouTube Shorts to write hooks that fit the post — not generic ChatGPT clickbait. Pair each with a Higgsfield clip from the matching pack.",
+    "Hooks are the only line that decides whether the next ninety seconds get watched. These are the prompt frameworks we use across TikTok, Instagram Reels and YouTube Shorts to write hooks that fit the post, not generic ChatGPT clickbait. Pair each with a Higgsfield clip from the matching pack.",
   surface: "bg-coral",
   textOnDark: true,
   eyebrowTone: "coral",
@@ -526,7 +526,7 @@ const reelHooks: PromptPack = {
           title: "Curiosity gap",
           tool: "Claude",
           body:
-            "Write 10 curiosity-gap hooks for a [INDUSTRY] reel about [TOPIC]. Format: '[Strong claim about the result] — but [unexpected reason].' Each under 12 words. The reason must feel earned, not invented. Output numbered.",
+            "Write 10 curiosity-gap hooks for a [INDUSTRY] reel about [TOPIC]. Format: '[Strong claim about the result], but [unexpected reason].' Each under 12 words. The reason must feel earned, not invented. Output numbered.",
         },
         {
           title: "POV / first-person",
@@ -538,7 +538,7 @@ const reelHooks: PromptPack = {
           title: "Number + outcome",
           tool: "Claude",
           body:
-            "Write 10 number-led hooks for a [INDUSTRY] reel about [TOPIC]. Format: '[N] [things/reasons/mistakes] that [outcome].' Vary the number 3–9, lead with the outcome the viewer actually wants. Each under 11 words.",
+            "Write 10 number-led hooks for a [INDUSTRY] reel about [TOPIC]. Format: '[N] [things/reasons/mistakes] that [outcome].' Vary the number 3 to 9, lead with the outcome the viewer actually wants. Each under 11 words.",
         },
         {
           title: "Loss-aversion / mistake",

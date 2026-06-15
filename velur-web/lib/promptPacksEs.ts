@@ -1,5 +1,5 @@
 /**
- * Velur — Prompt Packs · Castilian Spanish (es-ES) translations.
+ * Velur, Prompt Packs · Castilian Spanish (es-ES) translations.
  * ---------------------------------------------------------------
  * Indexed by pack slug → group index → prompt index. The English
  * source of truth lives in lib/promptPacks.ts; this file mirrors
@@ -69,7 +69,7 @@ export const PROMPT_PACKS_ES: Record<string, PromptPackEs> = {
     title: "Beauty Shots",
     tagline: "Stills editoriales de belleza para skincare, cosmética y grooming.",
     intro:
-      "Prompts probados sobre el terreno que producen stills de belleza de nivel revista para marcas de skincare, cosmética, color y grooming. Diseñados para reemplazar una sesión de producto pequeña — pega una referencia de producto en MidJourney y lanza una campaña en una tarde.",
+      "Prompts probados sobre el terreno que producen stills de belleza de nivel revista para marcas de skincare, cosmética, color y grooming. Diseñados para reemplazar una sesión de producto pequeña, pega una referencia de producto en MidJourney y lanza una campaña en una tarde.",
     groups: [
       {
         title: "Hero de producto",
@@ -115,7 +115,7 @@ export const PROMPT_PACKS_ES: Record<string, PromptPackEs> = {
     title: "DTC Products",
     tagline: "Imágenes de página de venta para marcas DTC.",
     intro:
-      "Probadas en clientes DTC reales de moda, gran consumo, hogar y accesorios. Estos prompts lanzan la imagen que de verdad convierte en una PDP o en un anuncio de Meta — lo suficientemente limpia para parecer de estudio, lo suficientemente específica para sentirse como tu marca.",
+      "Probadas en clientes DTC reales de moda, gran consumo, hogar y accesorios. Estos prompts lanzan la imagen que de verdad convierte en una PDP o en un anuncio de Meta, lo suficientemente limpia para parecer de estudio, lo suficientemente específica para sentirse como tu marca.",
     groups: [
       {
         title: "Hero de catálogo",
@@ -155,7 +155,7 @@ export const PROMPT_PACKS_ES: Record<string, PromptPackEs> = {
     title: "Hostelería",
     tagline: "Imágenes on-brand para restaurantes, cafés, hoteles y bares.",
     intro:
-      "La hostelería va de mood. Estos prompts producen el tipo de imagen cálida y vivida que un restaurante pequeño o un hotel boutique sí quiere en su grid — sin gastar un viernes noche con un fotógrafo que dispara la marca de otros igual.",
+      "La hostelería va de mood. Estos prompts producen el tipo de imagen cálida y vivida que un restaurante pequeño o un hotel boutique sí quiere en su grid, sin gastar un viernes noche con un fotógrafo que dispara la marca de otros igual.",
     groups: [
       {
         title: "Platos emplatados",
@@ -196,7 +196,7 @@ export const PROMPT_PACKS_ES: Record<string, PromptPackEs> = {
     title: "Reel Hooks",
     tagline: "Hooks de vídeo corto que se ganan los próximos tres segundos.",
     intro:
-      "El hook es la única línea que decide si los próximos noventa segundos se ven. Estos son los frameworks que usamos en TikTok, Reels y YouTube Shorts para escribir hooks que encajan con la publicación — no clickbait genérico de ChatGPT. Combina cada uno con un clip de Higgsfield del pack correspondiente.",
+      "El hook es la única línea que decide si los próximos noventa segundos se ven. Estos son los frameworks que usamos en TikTok, Reels y YouTube Shorts para escribir hooks que encajan con la publicación, no clickbait genérico de ChatGPT. Combina cada uno con un clip de Higgsfield del pack correspondiente.",
     groups: [
       {
         title: "Frameworks de hook (copia y cambia)",
@@ -273,7 +273,7 @@ export const PROMPT_PACKS_ES: Record<string, PromptPackEs> = {
 };
 
 /**
- * Localized accessor — returns the right string for the given language.
+ * Localized accessor, returns the right string for the given language.
  * Falls back to the English value if the ES translation is missing.
  */
 import type { Lang, PromptPack } from "./promptPacks";

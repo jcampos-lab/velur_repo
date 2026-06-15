@@ -268,7 +268,7 @@ const VELUR_CY = 118;
 const VELUR_S  = 112;
 
 // velurCubeCenter returns the C vertex = { x: cx, y: cy + size }
-// which is the front-bottom apex of the top face — good line target.
+// which is the front-bottom apex of the top face, good line target.
 
 // ── Main component ───────────────────────────────────────────────────
 
@@ -276,7 +276,7 @@ export default function PlatformMap({ className }: PlatformMapProps) {
   const cubeRef    = useRef<SVGGElement>(null);
   const velurAnchor = velurCubeCenter(VELUR_S, VELUR_CX, VELUR_CY);
 
-  // Right-face midpoint — good for the output line origin
+  // Right-face midpoint, good for the output line origin
   const outputFrom = {
     x: VELUR_CX + VELUR_S * R_iso,
     y: VELUR_CY + VELUR_S * 1.5,

@@ -5,9 +5,9 @@ import { ButtonLink } from "@/components/velur/Button";
 import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
 
 /**
- * Velur — Closing CTA band
+ * Velur, Closing CTA band
  * Midnight (#0a1a2f) full-width band over the abstract gradient brand
- * art (green pill composition — the brand's Signal Green family). A
+ * art (green pill composition, the brand's Signal Green family). A
  * midnight scrim keeps the centered copy at AA contrast. Monumental
  * display heading + primary onDark pill.
  */

@@ -2,7 +2,7 @@ import Image from "next/image";
 import { MetricDelta } from "./MetricDelta";
 
 /**
- * Velur — Revenue console mock.
+ * Velur, Revenue console mock.
  * The brand's signature product panel: near-black field, status chips,
  * account rows with status + delta. Used on home + product hero.
  *
@@ -49,7 +49,7 @@ export function ConsoleMock({ compact = false }: { compact?: boolean }) {
         <span className="w-[7px] h-[7px] rounded-full bg-signal-green-300" />
       </div>
 
-      {/* KPI row — DTC: net revenue / blended ROAS / churn signals */}
+      {/* KPI row, DTC: net revenue / blended ROAS / churn signals */}
       <div
         className="flex gap-2.5 py-4"
         style={{ borderBottom: "1px solid var(--border-dark)" }}
@@ -71,7 +71,7 @@ export function ConsoleMock({ compact = false }: { compact?: boolean }) {
         </div>
       </div>
 
-      {/* Account rows — DTC brand-style names */}
+      {/* Account rows, DTC brand-style names */}
       <div className="pt-2.5">
         {rows.map((r) => (
           <div

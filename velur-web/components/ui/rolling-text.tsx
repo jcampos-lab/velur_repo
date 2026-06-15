@@ -3,7 +3,7 @@
 import { ReactNode } from "react";
 
 /**
- * Velur — RollingText
+ * Velur, RollingText
  * Editorial link hover: the label rolls up and out while a duplicate
  * rolls in from below, like a split-flap line. Pure CSS (group-hover),
  * so it costs nothing and degrades to a plain label without hover.

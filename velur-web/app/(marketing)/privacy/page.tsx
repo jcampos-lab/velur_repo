@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Plain-language privacy policy: your raw data stays in your ecosystem. EU-hosted, read-only, tenant-isolated, and never used to train AI.",
 };
 
-/* Plain-language privacy policy. Full page width — heading in a left
+/* Plain-language privacy policy. Full page width, heading in a left
    rail, the explanation on the right, so every clause is easy to scan
    and nothing is boxed into a narrow centre column. */
 const SECTIONS: { h: string; body: React.ReactNode }[] = [
@@ -27,8 +27,7 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
       <p>
         Your raw business data stays in your ecosystem. We connect to your tools <strong>read-only</strong>,
         we pull only what we need to build your brief, and we keep what ever leaves our database to an
-        absolute minimum. The most sensitive data — individual customer names, emails and transactions —
-        <strong> never leaves our database at all</strong>. Everything below is just the detail of how we keep that promise.
+        absolute minimum. The most sensitive data, individual customer names, emails and transactions,         <strong> never leaves our database at all</strong>. Everything below is just the detail of how we keep that promise.
       </p>
     ),
   },
@@ -36,7 +35,7 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
     h: "What we connect to, and how",
     body: (
       <p>
-        Velur connects to six tools — Shopify, Meta, Stripe, Recharge, Google Ads and Klaviyo — through
+        Velur connects to six tools, Shopify, Meta, Stripe, Recharge, Google Ads and Klaviyo, through
         each platform&apos;s official OAuth flow, with <strong>read-only scopes</strong>. We can read your data
         to model it; we can never write to, change, or delete anything in your accounts. You can disconnect
         any tool from its own settings at any time, and the connection drops immediately.
@@ -47,8 +46,8 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
     h: "What actually leaves our database",
     body: (
       <p>
-        To write your daily brief, Velur sends <strong>only aggregated, derived numbers</strong> — things like
-        revenue by channel, blended ROAS, or churn by cohort — to the AI model that drafts the text. Individual
+        To write your daily brief, Velur sends <strong>only aggregated, derived numbers</strong>, things like
+        revenue by channel, blended ROAS, or churn by cohort, to the AI model that drafts the text. Individual
         customer records (names, emails, order-level detail) <strong>stay inside our EU database and are never sent
         to the model</strong>. The AI reasons over the summary, not over your customers.
       </p>
@@ -70,7 +69,7 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
       <p>
         Velur uses Anthropic&apos;s Claude API to write the brief. By Anthropic&apos;s terms, data sent through the API
         is <strong>not used to train their models</strong>, and where it qualifies we use their zero-retention option.
-        Combined with the previous point — that we only ever send aggregates — this means your customer-level data
+        Combined with the previous point, that we only ever send aggregates, this means your customer-level data
         is never exposed to the model.
       </p>
     ),
@@ -80,7 +79,7 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
     body: (
       <p>
         Each customer&apos;s data is strictly separated at the database level. One business can never see, query, or
-        be mixed with another&apos;s — even by mistake. Your numbers are yours alone.
+        be mixed with another&apos;s, even by mistake. Your numbers are yours alone.
       </p>
     ),
   },
@@ -88,7 +87,7 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
     h: "Who else touches your data (sub-processors)",
     body: (
       <p>
-        We rely on a small set of trusted providers to run Velur — Anthropic (AI), Supabase (database, EU),
+        We rely on a small set of trusted providers to run Velur, Anthropic (AI), Supabase (database, EU),
         Vercel (hosting) and Resend (email). Each operates under a data-processing agreement, and we keep the
         list as short as possible. We&apos;ll keep this section current as the product grows.
       </p>
@@ -99,7 +98,7 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
     body: (
       <p>
         Under GDPR you can ask us to access, correct, export, or delete the data we hold about your business,
-        at any time. If you stop using Velur, we delete your connected data — nothing is held hostage. Email{" "}
+        at any time. If you stop using Velur, we delete your connected data, nothing is held hostage. Email{" "}
         <a href="mailto:hello@velur.io" className="text-action-blue hover:underline">hello@velur.io</a> and we&apos;ll handle it.
       </p>
     ),
@@ -110,7 +109,7 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
       <p>
         The website itself collects almost nothing. The only personal data we take here is the email you enter
         in the waitlist form, stored solely to contact you when a seat opens. If we use analytics, it is
-        privacy-first — no cookies, no cross-site tracking, no selling data.
+        privacy-first, no cookies, no cross-site tracking, no selling data.
       </p>
     ),
   },
@@ -145,7 +144,7 @@ export default function PrivacyPage() {
         <div className="rounded-2xl border border-line bg-wash-green/50 p-6 md:p-8 mb-4 max-w-[900px]">
           <p className="font-display text-[12px] uppercase tracking-[0.08em] text-signal-green mb-4">The short version</p>
           <ul className="space-y-2.5 font-sans text-[16px] md:text-[17px] text-ink leading-[1.55]">
-            <li>• We connect to your tools <strong>read-only</strong> — we can never change anything.</li>
+            <li>• We connect to your tools <strong>read-only</strong>, we can never change anything.</li>
             <li>• Your raw customer data <strong>stays in our EU database</strong>; only aggregated numbers reach the AI.</li>
             <li>• The AI <strong>doesn&apos;t train on your data</strong>, and your data is never shared with other brands.</li>
             <li>• You can <strong>disconnect and delete everything</strong> whenever you want.</li>

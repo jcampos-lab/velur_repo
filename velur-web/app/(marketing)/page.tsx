@@ -1,7 +1,7 @@
 import HomeContent from "@/components/pages/HomeContent";
 
 /**
- * Velur — Homepage
+ * Velur, Homepage
  * v3 narrative: "AI Revenue Operating System". Eleven-section
  * GSAP-driven story lives in components/pages/HomeContent.tsx
  * (hero → tool strip → problem → solution band → how it works →

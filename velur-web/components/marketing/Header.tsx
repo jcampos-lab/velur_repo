@@ -8,14 +8,14 @@ import { ButtonLink } from "@/components/velur/Button";
 import { RollingText } from "@/components/ui/rolling-text";
 
 /**
- * Velur — Marketing Header
+ * Velur, Marketing Header
  * Three-zone bar (mark left · menu center · CTA right) following the
  * design system's marketing nav pattern. Liquid-glass sticky nav,
  * 72px tall, optional announcement bar above for product news.
  *
  * Liquid glass treatment (always on, not just on scroll):
  *   - 55% white tint that shows the content behind
- *   - 24px backdrop blur + 180% saturate — strong enough to feel
+ *   - 24px backdrop blur + 180% saturate, strong enough to feel
  *     like Apple's Liquid Glass surface, refined enough to stay
  *     readable as the nav
  *   - 1px inner-top highlight (white 55%) suggests a reflection
@@ -26,7 +26,7 @@ export default function Header() {
   const [annOpen, setAnnOpen] = useState(true);
   const { t, lang, setLang } = useLanguage();
 
-  /* AI Studio intentionally NOT in the top nav — it lives in the
+  /* AI Studio intentionally NOT in the top nav, it lives in the
      footer only. The top nav stays focused on Platform, Company, FAQ. */
   const NAV_LINKS = [
     { label: t.header.nav.platform,     href: "/services" },
@@ -37,7 +37,7 @@ export default function Header() {
 
   return (
     <>
-      {/* Announcement bar — full-width black strip per AnnouncementBar spec */}
+      {/* Announcement bar, full-width black strip per AnnouncementBar spec */}
       {annOpen && (
         <div
           className="relative bg-velur-black text-white text-[13px] flex items-center justify-center px-11 py-2"
@@ -69,7 +69,7 @@ export default function Header() {
         className="sticky top-0 left-0 right-0 z-50"
         style={{
           height: "var(--nav-h)",
-          /* Liquid glass — translucent tint + strong backdrop blur
+          /* Liquid glass, translucent tint + strong backdrop blur
              so content scrolling behind the nav refracts through it. */
           backgroundColor: "rgba(255, 255, 255, 0.55)",
           backdropFilter: "blur(24px) saturate(180%)",
@@ -83,7 +83,7 @@ export default function Header() {
         {/* Full-bleed bar: the mark hugs the very left edge of the
             screen (no centered max-width container). */}
         <div className="w-full h-full flex items-center justify-between gap-6 pl-4 pr-5 md:pl-5 md:pr-8">
-          {/* Mark left — hover spins the four-dot mark half a turn and
+          {/* Mark left, hover spins the four-dot mark half a turn and
               the wordmark does the rolling swap. */}
           <Link href="/" className="group flex items-center gap-2.5 shrink-0" aria-label="Velur home">
             <Image

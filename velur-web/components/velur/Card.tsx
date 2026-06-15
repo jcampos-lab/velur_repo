@@ -3,9 +3,9 @@
 import { HTMLAttributes, ReactNode, useState } from "react";
 
 /**
- * Velur — Card
+ * Velur, Card
  * Surface container. White bordered by default; warm stone, or dark
- * green/navy/ink product fields. Flat — depth via border or soft media lift.
+ * green/navy/ink product fields. Flat, depth via border or soft media lift.
  */
 type Surface = "default" | "warm" | "green" | "navy" | "ink";
 type Radius = "sm" | "md" | "lg";

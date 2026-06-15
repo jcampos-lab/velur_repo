@@ -1,5 +1,5 @@
 /**
- * Velur — StatusDot
+ * Velur, StatusDot
  * Small colored dot + label. The brand's status convention (never emoji).
  */
 type Status = "healthy" | "at-risk" | "churned" | "pending" | "neutral";
@@ -9,7 +9,7 @@ const map: Record<Status, { color: string; text: string }> = {
   "at-risk": { color: "bg-warning", text: "At risk" },
   churned: { color: "bg-error", text: "Churned" },
   pending: { color: "bg-action-blue", text: "Pending" },
-  neutral: { color: "bg-muted-slate", text: "—" },
+  neutral: { color: "bg-muted-slate", text: ", " },
 };
 
 export function StatusDot({

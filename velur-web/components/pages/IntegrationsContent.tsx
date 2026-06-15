@@ -9,7 +9,7 @@ import { GooeyTabs } from "@/components/ui/gooey-tabs";
 
 /* ─── Per-page strings (Castilian Spanish for ES) ─────────────────────
    Velur runs on six integrations for now (Shopify, Meta, Stripe,
-   Recharge, Google Ads, Klaviyo). More will follow — we don't claim a
+   Recharge, Google Ads, Klaviyo). More will follow, we don't claim a
    fixed monthly/quarterly cadence. */
 const COPY = {
   en: {
@@ -20,14 +20,14 @@ const COPY = {
     securityHeading: "How Velur connects.",
     securityCards: [
       { icon: "lock",  title: "Read-only OAuth",          body: "Every integration uses the platform's official OAuth flow with read-only scopes. We never request write access. Disconnect from your platform's settings at any time and the connection drops immediately." },
-      { icon: "shield",title: "EU-hosted processing",    body: "Data is processed and stored on EU infrastructure under GDPR-compliant DPAs. Your revenue data stays yours — never resold, never used to train shared models, never shared with other brands." },
+      { icon: "shield",title: "EU-hosted processing",    body: "Data is processed and stored on EU infrastructure under GDPR-compliant DPAs. Your revenue data stays yours, never resold, never used to train shared models, never shared with other brands." },
       { icon: "check", title: "No warehouse required",   body: "You don't need BigQuery, Snowflake, or a data engineer. Velur handles modeling, normalization and orchestration. The setup is the OAuth click, then we backfill the last 18 months." },
     ],
     integrationsEyebrow: "The stack",
     integrationsHeading: "Six tools. The core of how DTC revenue flows.",
     closingEyebrow: "Don't see your stack?",
     closingHeading: "More integrations are on the way.",
-    closingBody: "For now, Velur runs on these six — the tools that cover the core of DTC revenue. Tell us what else you need when you join the waitlist; anything CSV/SFTP-importable can be onboarded manually in the meantime.",
+    closingBody: "For now, Velur runs on these six, the tools that cover the core of DTC revenue. Tell us what else you need when you join the waitlist; anything CSV/SFTP-importable can be onboarded manually in the meantime.",
     closingCta: "Join the waitlist",
     integrations: [
       {
@@ -53,7 +53,7 @@ const COPY = {
         logo: "/integrations/stripe.svg",
         category: "Payments + billing",
         data: "Charges, refunds, disputes, subscription MRR, payout schedule",
-        what: "For DTC brands with a subscription line — and any brand processing payments outside Shopify — Stripe is where the truth lives. Velur ties MRR, churn and dunning to the same customer record as Shopify orders.",
+        what: "For DTC brands with a subscription line, and any brand processing payments outside Shopify, Stripe is where the truth lives. Velur ties MRR, churn and dunning to the same customer record as Shopify orders.",
         scope: "Read-only restricted key",
         compatibility: "Stripe Billing, Subscriptions, Checkout. Stripe Connect supported.",
       },
@@ -62,7 +62,7 @@ const COPY = {
         logo: "/integrations/recharge.svg",
         category: "Subscriptions",
         data: "Subscription MRR, churn, cohort retention, next-charge schedule, plan changes",
-        what: "If you sell on a recurring schedule, Recharge is the data set that matters most. Velur models retention by acquisition channel, plan, and first product — so you stop guessing which acquisition cohort pays back.",
+        what: "If you sell on a recurring schedule, Recharge is the data set that matters most. Velur models retention by acquisition channel, plan, and first product, so you stop guessing which acquisition cohort pays back.",
         scope: "Recharge API read scope (subscriptions, customers, charges)",
         compatibility: "Recharge Standard, Pro, Custom. Bundles and tiered subscriptions supported.",
       },
@@ -80,7 +80,7 @@ const COPY = {
         logo: "/integrations/klaviyo.svg",
         category: "Email + SMS",
         data: "Flow triggers, segment membership, campaign performance, attributed revenue",
-        what: "Klaviyo is where the post-purchase relationship lives. Velur ties flow performance back to first-party Shopify revenue — so 'attributed' actually means a real order, not a click that opened the email.",
+        what: "Klaviyo is where the post-purchase relationship lives. Velur ties flow performance back to first-party Shopify revenue, so 'attributed' actually means a real order, not a click that opened the email.",
         scope: "Read-only API key with metrics + profiles + campaigns scope",
         compatibility: "All Klaviyo plans. Klaviyo SMS supported on the SMS plan.",
       },
@@ -94,14 +94,14 @@ const COPY = {
     securityHeading: "Cómo se conecta Velur.",
     securityCards: [
       { icon: "lock",   title: "OAuth de solo lectura",       body: "Cada integración usa el flujo OAuth oficial de la plataforma con permisos de solo lectura. Nunca pedimos acceso de escritura. Desconecta desde tu plataforma cuando quieras y la conexión cae al instante." },
-      { icon: "shield", title: "Procesamiento en la UE",      body: "Los datos se procesan y almacenan en infraestructura europea bajo acuerdos DPA conformes con el RGPD. Tus datos de ingresos son tuyos — nunca los revendemos, nunca los usamos para entrenar modelos compartidos, nunca los compartimos con otras marcas." },
+      { icon: "shield", title: "Procesamiento en la UE",      body: "Los datos se procesan y almacenan en infraestructura europea bajo acuerdos DPA conformes con el RGPD. Tus datos de ingresos son tuyos, nunca los revendemos, nunca los usamos para entrenar modelos compartidos, nunca los compartimos con otras marcas." },
       { icon: "check",  title: "Sin warehouse necesario",     body: "No necesitas BigQuery, Snowflake ni ingeniero de datos. Velur se encarga del modelado, la normalización y la orquestación. El setup es el clic de OAuth, y luego hacemos backfill de los últimos 18 meses." },
     ],
     integrationsEyebrow: "El stack",
     integrationsHeading: "Seis herramientas. El núcleo de cómo fluyen los ingresos DTC.",
     closingEyebrow: "¿No ves tu stack?",
     closingHeading: "Llegarán más integraciones.",
-    closingBody: "Por ahora, Velur funciona con estas seis — las herramientas que cubren el núcleo de los ingresos DTC. Dinos qué más necesitas al unirte a la lista de espera; cualquier cosa importable por CSV/SFTP se puede onboardear manualmente mientras tanto.",
+    closingBody: "Por ahora, Velur funciona con estas seis, las herramientas que cubren el núcleo de los ingresos DTC. Dinos qué más necesitas al unirte a la lista de espera; cualquier cosa importable por CSV/SFTP se puede onboardear manualmente mientras tanto.",
     closingCta: "Unirse a la lista",
     integrations: [
       {
@@ -127,7 +127,7 @@ const COPY = {
         logo: "/integrations/stripe.svg",
         category: "Pagos + facturación",
         data: "Cargos, reembolsos, disputas, MRR de suscripción, calendario de payouts",
-        what: "Para marcas DTC con línea de suscripción — y cualquier marca que procese pagos fuera de Shopify — Stripe es donde vive la verdad. Velur conecta MRR, churn y dunning con el mismo registro de cliente que los pedidos de Shopify.",
+        what: "Para marcas DTC con línea de suscripción, y cualquier marca que procese pagos fuera de Shopify, Stripe es donde vive la verdad. Velur conecta MRR, churn y dunning con el mismo registro de cliente que los pedidos de Shopify.",
         scope: "Clave restringida de solo lectura",
         compatibility: "Stripe Billing, Subscriptions, Checkout. Stripe Connect soportado.",
       },
@@ -136,7 +136,7 @@ const COPY = {
         logo: "/integrations/recharge.svg",
         category: "Suscripciones",
         data: "MRR de suscripción, churn, retención por cohorte, próximo cargo, cambios de plan",
-        what: "Si vendes en formato recurrente, Recharge es el conjunto de datos que más importa. Velur modela retención por canal de adquisición, plan y primer producto — para que dejes de adivinar qué cohorte de adquisición devuelve la inversión.",
+        what: "Si vendes en formato recurrente, Recharge es el conjunto de datos que más importa. Velur modela retención por canal de adquisición, plan y primer producto, para que dejes de adivinar qué cohorte de adquisición devuelve la inversión.",
         scope: "Scope de lectura de la API de Recharge (subscriptions, customers, charges)",
         compatibility: "Recharge Standard, Pro, Custom. Bundles y suscripciones por niveles soportados.",
       },
@@ -154,7 +154,7 @@ const COPY = {
         logo: "/integrations/klaviyo.svg",
         category: "Email + SMS",
         data: "Disparadores de flujo, pertenencia a segmento, rendimiento de campaña, ingresos atribuidos",
-        what: "Klaviyo es donde vive la relación post-compra. Velur conecta el rendimiento de los flujos con los ingresos de primera parte de Shopify — así 'atribuido' significa un pedido real, no un clic que abrió el email.",
+        what: "Klaviyo es donde vive la relación post-compra. Velur conecta el rendimiento de los flujos con los ingresos de primera parte de Shopify, así 'atribuido' significa un pedido real, no un clic que abrió el email.",
         scope: "API key de solo lectura con scope metrics + profiles + campaigns",
         compatibility: "Todos los planes Klaviyo. Klaviyo SMS soportado en el plan SMS.",
       },
@@ -171,13 +171,13 @@ const SECURITY_ICON: Record<string, typeof Lock> = {
   check: Check,
 };
 
-/* Brand logo enclosed in a consistent card — left side of the panels.
+/* Brand logo enclosed in a consistent card, left side of the panels.
    Every logo is capped to the same height in an identical box so they
    read as one set, no matter the source aspect ratio. No animation. */
 function IntegrationLogo({ it }: { it: Integration }) {
   return (
     <div className="flex items-center justify-center">
-      <div className="flex items-center justify-center w-full max-w-[300px] aspect-[5/3] rounded-2xl bg-canvas border border-line">
+      <div className="flex items-center justify-center w-full max-w-[300px] aspect-[5/3] rounded-2xl bg-canvas border border-line shadow-[0_2px_16px_rgba(16,19,22,0.07)]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={it.logo}
@@ -189,7 +189,7 @@ function IntegrationLogo({ it }: { it: Integration }) {
   );
 }
 
-/* Text detail — right side of the panels, and the body of mobile cards. */
+/* Text detail, right side of the panels, and the body of mobile cards. */
 function IntegrationDetail({ it }: { it: Integration }) {
   return (
     <div className="max-w-[640px]">
@@ -224,7 +224,7 @@ function IntegrationDetail({ it }: { it: Integration }) {
   );
 }
 
-/* Full panel inside the gooey tab — big logo left, detail right. */
+/* Full panel inside the gooey tab, big logo left, detail right. */
 function IntegrationPanel({ it }: { it: Integration }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-[0.85fr_1.5fr] gap-8 md:gap-14 items-center md:min-h-[300px]">
@@ -303,7 +303,7 @@ export default function IntegrationsContent() {
         </div>
       </section>
 
-      {/* The stack — full-width gooey box, big logo left / text right */}
+      {/* The stack, full-width gooey box, big logo left / text right */}
       <section
         className="bg-cream border-y border-border-light"
         style={{ padding: "var(--section-y) var(--gutter)" }}
@@ -342,7 +342,7 @@ export default function IntegrationsContent() {
                 transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
                 className="rounded-2xl bg-paper border border-line p-6"
               >
-                <div className="flex items-center justify-center h-20 mb-5 rounded-xl bg-canvas border border-line">
+                <div className="flex items-center justify-center h-20 mb-5 rounded-xl bg-canvas border border-line shadow-[0_2px_12px_rgba(16,19,22,0.06)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={it.logo} alt={it.name} className="w-auto max-w-[55%] max-h-[40px] object-contain" />
                 </div>
@@ -353,7 +353,7 @@ export default function IntegrationsContent() {
         </div>
       </section>
 
-      {/* Closing CTA — dunes brand art behind the midnight band */}
+      {/* Closing CTA, dunes brand art behind the midnight band */}
       <section
         className="relative bg-midnight text-on-dark"
         style={{ padding: "var(--section-y) var(--gutter)" }}

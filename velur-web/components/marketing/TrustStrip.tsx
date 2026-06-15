@@ -3,7 +3,7 @@
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 /**
- * Velur — Trust strip
+ * Velur, Trust strip
  * Six brand names set in mono, +0.08em tracking, muted-slate.
  * Mirror of ui_kits/marketing/Home.jsx trust strip.
  */

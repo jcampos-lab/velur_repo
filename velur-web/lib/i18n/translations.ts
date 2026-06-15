@@ -21,11 +21,11 @@ const en = {
     pill: "Revenue Intelligence",
     line1: "Revenue,",
     line2: "before it moves.",
-    subhead: "Velur unifies pipeline, billing, product-usage and CRM signals into one console — so revenue teams see what's changing, and act before it costs them.",
+    subhead: "Velur unifies pipeline, billing, product-usage and CRM signals into one console, so revenue teams see what's changing, and act before it costs them.",
     ctaPrimary: "Join the waitlist",
     ctaSecondary: "Explore the platform",
     thesisLabel: "The thesis",
-    thesis: "The number you report should be the number you trust. Velur reconciles every revenue source on a single timeline, so a board-ready forecast is one click — not one week.",
+    thesis: "The number you report should be the number you trust. Velur reconciles every revenue source on a single timeline, so a board-ready forecast is one click, not one week.",
     cyclePre: "Reconcile",
     cyclePost: "into one revenue truth.",
     cycleWords: ["Salesforce pipeline", "Stripe billing", "HubSpot signals", "NetSuite ledgers", "product usage events", "renewals & expansion"],
@@ -243,7 +243,7 @@ const en = {
       "You want a self-serve SaaS tool with no onboarding or configuration",
     ],
   },
-  /* twoProducts + studio i18n blocks removed — AI Studio body copy
+  /* twoProducts + studio i18n blocks removed, AI Studio body copy
      no longer appears anywhere except the footer link label, which
      uses the literal string "AI Studio" inside footerKit.cols. */
   company: {
@@ -424,7 +424,7 @@ const en = {
     brands: ["NORTHWIND", "ATLAS", "BRIAR & CO", "CEDAR", "MERIDIAN", "OAKLINE"],
   },
   capabilities: [
-    { key: "signals",  h: "Signals",  b: "Pipeline, billing, product usage and CRM — reconciled into one revenue truth." },
+    { key: "signals",  h: "Signals",  b: "Pipeline, billing, product usage and CRM, reconciled into one revenue truth." },
     { key: "forecast", h: "Forecast", b: "Roll-ups you can trust, with the assumptions and movements made explicit." },
     { key: "risk",     h: "Risk",     b: "Surface the accounts that need attention before a renewal quietly slips." },
   ],
@@ -432,7 +432,7 @@ const en = {
   proofBand: {
     eyebrow: "Proof",
     heading: "The number you report should be the number you trust.",
-    body: "Velur reconciles every source on a single timeline, so a board-ready forecast is one click — not one week.",
+    body: "Velur reconciles every source on a single timeline, so a board-ready forecast is one click, not one week.",
     cta: "See how it works",
     stats: [
       { label: "Faster close",      value: "8×",    caption: "vs. spreadsheets" },
@@ -441,13 +441,13 @@ const en = {
       { label: "Time to value",     value: "2 wks", caption: "median" },
     ],
   },
-  /* aiStudio block removed — the homepage AiStudioCallout has been
+  /* aiStudio block removed, the homepage AiStudioCallout has been
      deleted; the only surviving AI Studio mention is the footer
      Platform-column link "AI Studio" → /studio. */
   ctaBand: {
     eyebrow: "Get started",
     heading: "See your own revenue in Velur.",
-    body: "We'll walk you through a console wired to your stack — pipeline, billing, usage and CRM, on one timeline.",
+    body: "We'll walk you through a console wired to your stack, pipeline, billing, usage and CRM, on one timeline.",
     ctaPrimary: "Join the waitlist",
     ctaSecondary: "Read the docs",
   },
@@ -485,11 +485,11 @@ const es: typeof en = {
     pill: "Revenue Intelligence",
     line1: "Los ingresos,",
     line2: "antes de que se muevan.",
-    subhead: "Velur unifica las señales de pipeline, facturación, uso de producto y CRM en una sola consola — para que los equipos de ingresos vean qué está cambiando, y actúen antes de que les cueste.",
+    subhead: "Velur unifica las señales de pipeline, facturación, uso de producto y CRM en una sola consola, para que los equipos de ingresos vean qué está cambiando, y actúen antes de que les cueste.",
     ctaPrimary: "Unirse a la lista",
     ctaSecondary: "Explorar la plataforma",
     thesisLabel: "La tesis",
-    thesis: "El número que reportas debería ser el número en el que confías. Velur reconcilia cada fuente de ingresos en una sola línea de tiempo — un forecast listo para el board en un clic, no en una semana.",
+    thesis: "El número que reportas debería ser el número en el que confías. Velur reconcilia cada fuente de ingresos en una sola línea de tiempo, un forecast listo para el board en un clic, no en una semana.",
     cyclePre: "Reconcilia",
     cyclePost: "en una sola verdad de ingresos.",
     cycleWords: ["pipeline de Salesforce", "facturación de Stripe", "señales de HubSpot", "libros de NetSuite", "eventos de uso de producto", "renovaciones y expansión"],
@@ -707,7 +707,7 @@ const es: typeof en = {
       "Quieres una herramienta SaaS de autoservicio sin onboarding ni configuración",
     ],
   },
-  /* Bloques twoProducts + studio eliminados — la copy de AI Studio
+  /* Bloques twoProducts + studio eliminados, la copy de AI Studio
      solo vive ahora en el enlace del footer (columna Plataforma). */
   company: {
     label: "EMPRESA · CÓMO PENSAMOS",
@@ -887,7 +887,7 @@ const es: typeof en = {
     brands: ["NORTHWIND", "ATLAS", "BRIAR & CO", "CEDAR", "MERIDIAN", "OAKLINE"],
   },
   capabilities: [
-    { key: "signals",  h: "Señales",  b: "Pipeline, facturación, uso de producto y CRM — reconciliados en una sola verdad de ingresos." },
+    { key: "signals",  h: "Señales",  b: "Pipeline, facturación, uso de producto y CRM, reconciliados en una sola verdad de ingresos." },
     { key: "forecast", h: "Forecast", b: "Roll-ups en los que puedes confiar, con los supuestos y movimientos explícitos." },
     { key: "risk",     h: "Riesgo",   b: "Detecta las cuentas que necesitan atención antes de que una renovación se escape." },
   ],
@@ -895,7 +895,7 @@ const es: typeof en = {
   proofBand: {
     eyebrow: "Evidencia",
     heading: "El número que reportas debería ser el número en el que confías.",
-    body: "Velur reconcilia cada fuente en una sola línea de tiempo — un forecast listo para el board en un clic, no en una semana.",
+    body: "Velur reconcilia cada fuente en una sola línea de tiempo, un forecast listo para el board en un clic, no en una semana.",
     cta: "Ver cómo funciona",
     stats: [
       { label: "Cierre más rápido",   value: "8×",    caption: "vs. hojas de cálculo" },
@@ -904,13 +904,13 @@ const es: typeof en = {
       { label: "Time-to-value",       value: "2 sem", caption: "mediana" },
     ],
   },
-  /* Bloque aiStudio eliminado — el AiStudioCallout del homepage se
+  /* Bloque aiStudio eliminado, el AiStudioCallout del homepage se
      ha borrado. La única mención de AI Studio que queda es el
      enlace del footer en la columna Plataforma. */
   ctaBand: {
     eyebrow: "Empezar",
     heading: "Ve tus propios ingresos en Velur.",
-    body: "Te guiamos por una consola conectada a tu stack — pipeline, facturación, uso y CRM, en una sola línea de tiempo.",
+    body: "Te guiamos por una consola conectada a tu stack, pipeline, facturación, uso y CRM, en una sola línea de tiempo.",
     ctaPrimary: "Unirse a la lista",
     ctaSecondary: "Leer la documentación",
   },

@@ -29,7 +29,7 @@ import {
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 /* ────────────────────────────────────────────────────────────────────
-   Velur — Homepage v3 · "AI Revenue Operating System"
+   Velur, Homepage v3 · "AI Revenue Operating System"
    --------------------------------------------------------------------
    Cohere-grade structure (monumental centered hero → media composition
    → trust strip → problem → dark solution band → how it works →
@@ -39,7 +39,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
    Motion: GSAP + ScrollTrigger throughout. Lenis (SmoothScrollProvider)
    animates native scroll, so ScrollTrigger reads it without adapters.
    All animation lives inside gsap.matchMedia("(prefers-reduced-motion:
-   no-preference)") — reduced-motion users get the static page.
+   no-preference)"), reduced-motion users get the static page.
    ──────────────────────────────────────────────────────────────────── */
 
 const COPY = {
@@ -48,11 +48,11 @@ const COPY = {
       eyebrow: "AI Revenue Operating System",
       h1a: "AI that understands",
       h1b: "your entire business.",
-      sub: "Velur sits above the tools you already run — Shopify, Meta, Klaviyo, Stripe — and turns their fragmented data into one reasoning intelligence layer. It reads everything, so you don't have to.",
+      sub: "Velur sits above the tools you already run, Shopify, Meta, Klaviyo, Stripe, and turns their fragmented data into one reasoning intelligence layer. It reads everything, so you don't have to.",
       ctaPrimary: "Join the waitlist",
       ctaSecondary: "How it works",
       mediaChipLabel: "Today's brief · 08:02",
-      mediaChipText: "Net revenue up 12.4% — TikTok creative drove the lift. One flow needs attention.",
+      mediaChipText: "Net revenue up 12.4%, TikTok creative drove the lift. One flow needs attention.",
     },
     strip: {
       caption: "Reads from the tools you already run",
@@ -69,12 +69,12 @@ const COPY = {
         { where: "GA4",            what: "Behaviour" },
         { where: "Spreadsheets",   what: "Everything else" },
       ],
-      after: "Every tool reports its own version of the truth. None of them can see the whole business. That gap — between ten dashboards and one decision — is where revenue quietly leaks.",
+      after: "Every tool reports its own version of the truth. None of them can see the whole business. That gap, between ten dashboards and one decision, is where revenue quietly leaks.",
     },
     solution: {
       eyebrow: "The solution",
       h2: "One intelligence layer above everything.",
-      body: "Velur ingests every revenue signal onto a single modelled timeline, then uses large language models to reason across the whole customer journey — acquisition, conversion, retention, billing. It isn't another dashboard. It's the analyst that reads all of them.",
+      body: "Velur ingests every revenue signal onto a single modelled timeline, then uses large language models to reason across the whole customer journey, acquisition, conversion, retention, billing. It isn't another dashboard. It's the analyst that reads all of them.",
       points: [
         "One source of truth, reconciled daily",
         "Insight written in plain language, not charts to decode",
@@ -94,7 +94,7 @@ const COPY = {
         { icon: "plug",   title: "Connect",  body: "OAuth into your stack. Read-only scopes, no engineering, minutes not weeks." },
         { icon: "layers", title: "Unify",    body: "Velur backfills 18 months of history and reconciles every source onto one timeline." },
         { icon: "brain",  title: "Reason",   body: "LLMs analyse the relationships across marketing, commerce, finance and customer behaviour." },
-        { icon: "file",   title: "Deliver",  body: "Insights, forecasts, risks and recommendations arrive as a written brief — not a chart to decode." },
+        { icon: "file",   title: "Deliver",  body: "Insights, forecasts, risks and recommendations arrive as a written brief, not a chart to decode." },
         { icon: "check",  title: "Decide",   body: "You make the call. Faster, with the whole picture, before the moment passes." },
       ],
     },
@@ -104,7 +104,7 @@ const COPY = {
       groups: [
         {
           label: "Revenue",
-          note: "Every movement traced back to its cause — channel, creative, cohort or flow.",
+          note: "Every movement traced back to its cause, channel, creative, cohort or flow.",
           items: ["Why did revenue decline this week?", "Where are we losing money?"],
         },
         {
@@ -136,28 +136,28 @@ const COPY = {
           art: "/art/abstract-tiles.png",
           title: "The daily brief",
           body: "One paragraph at 8am: what moved, why it moved, what to do today. Written for the operator, not the analyst.",
-          detail: "Every morning Velur reads the previous night across all six connected tools, reconciles them onto one timeline, and writes a short brief — net revenue, what drove the change, which channel paid back, what needs attention. It's the work a senior analyst would do before standup, done by 8am in plain language, so you act on the day instead of decoding it.",
+          detail: "Every morning Velur reads the previous night across all six connected tools, reconciles them onto one timeline, and writes a short brief, net revenue, what drove the change, which channel paid back, what needs attention. It's the work a senior analyst would do before standup, done by 8am in plain language, so you act on the day instead of decoding it.",
         },
         {
           icon: "trending",
           art: "/art/abstract-pills.png",
           title: "Forecasts with receipts",
-          body: "Next month's expected revenue with every assumption shown — new, expansion, contraction, churn. No black box.",
-          detail: "We never hand you a single number and ask you to trust it. Velur breaks next month's expected revenue into its parts — new customers, expansion, contraction, churn — and shows the assumption behind each one. When the forecast moves you can see exactly which lever moved it, so you can defend the number or push back on it with evidence.",
+          body: "Next month's expected revenue with every assumption shown, new, expansion, contraction, churn. No black box.",
+          detail: "We never hand you a single number and ask you to trust it. Velur breaks next month's expected revenue into its parts, new customers, expansion, contraction, churn, and shows the assumption behind each one. When the forecast moves you can see exactly which lever moved it, so you can defend the number or push back on it with evidence.",
         },
         {
           icon: "shield",
           art: "/art/abstract-cylinders.png",
           title: "Risk before it lands",
-          body: "Churn signals, campaign decay and broken flows flagged while there's still time to act — not in next month's report.",
-          detail: "Velur watches the leading indicators, not the lagging ones — a flow that quietly broke, a cohort retaining worse than last month, a campaign whose ROAS is decaying before the spend catches up. Each risk is flagged while you can still act, with the most likely cause attached, instead of being explained after the damage in next month's report.",
+          body: "Churn signals, campaign decay and broken flows flagged while there's still time to act, not in next month's report.",
+          detail: "Velur watches the leading indicators, not the lagging ones, a flow that quietly broke, a cohort retaining worse than last month, a campaign whose ROAS is decaying before the spend catches up. Each risk is flagged while you can still act, with the most likely cause attached, instead of being explained after the damage in next month's report.",
         },
         {
           icon: "bulb",
           art: "/art/abstract-petals.png",
           title: "Recommendations, not homework",
           body: "Pause this ad set. Scale that creative. Fix this flow. Every recommendation tied to the number it moves.",
-          detail: "Insight you can't act on is just trivia. Every Velur recommendation is specific and tied to the number it moves — pause this ad set, scale that creative, fix this flow — with the expected impact and the data behind it. You make the call; Velur does the analysis that makes the call obvious.",
+          detail: "Insight you can't act on is just trivia. Every Velur recommendation is specific and tied to the number it moves, pause this ad set, scale that creative, fix this flow, with the expected impact and the data behind it. You make the call; Velur does the analysis that makes the call obvious.",
         },
       ],
     },
@@ -177,7 +177,7 @@ const COPY = {
     },
     proof: {
       eyebrow: "Why trust us",
-      quote: "Velur is built by a team that spent years inside DTC and small-business data stacks — data scientists, ML engineers and operators who lived the problem before building the answer.",
+      quote: "Velur is built by a team that spent years inside DTC and small-business data stacks, data scientists, ML engineers and operators who lived the problem before building the answer.",
       body: "No invented logos, no fake case studies. An honest roadmap, and a team that reads every reply.",
       link: "Meet the team →",
     },
@@ -194,11 +194,11 @@ const COPY = {
       eyebrow: "Sistema Operativo de Ingresos con IA",
       h1a: "IA que entiende",
       h1b: "todo tu negocio.",
-      sub: "Velur se sitúa por encima de las herramientas que ya usas — Shopify, Meta, Klaviyo, Stripe — y convierte sus datos fragmentados en una sola capa de inteligencia que razona. Lo lee todo, para que tú no tengas que hacerlo.",
+      sub: "Velur se sitúa por encima de las herramientas que ya usas, Shopify, Meta, Klaviyo, Stripe, y convierte sus datos fragmentados en una sola capa de inteligencia que razona. Lo lee todo, para que tú no tengas que hacerlo.",
       ctaPrimary: "Unirse a la lista",
       ctaSecondary: "Cómo funciona",
       mediaChipLabel: "Informe de hoy · 08:02",
-      mediaChipText: "Ingresos netos +12,4% — la creatividad de TikTok generó la subida. Un flujo necesita atención.",
+      mediaChipText: "Ingresos netos +12,4%, la creatividad de TikTok generó la subida. Un flujo necesita atención.",
     },
     strip: {
       caption: "Lee de las herramientas que ya usas",
@@ -215,12 +215,12 @@ const COPY = {
         { where: "GA4",             what: "Comportamiento" },
         { where: "Hojas de cálculo", what: "Todo lo demás" },
       ],
-      after: "Cada herramienta reporta su propia versión de la verdad. Ninguna puede ver el negocio completo. Esa brecha — entre diez dashboards y una decisión — es donde los ingresos se escapan en silencio.",
+      after: "Cada herramienta reporta su propia versión de la verdad. Ninguna puede ver el negocio completo. Esa brecha, entre diez dashboards y una decisión, es donde los ingresos se escapan en silencio.",
     },
     solution: {
       eyebrow: "La solución",
       h2: "Una capa de inteligencia por encima de todo.",
-      body: "Velur ingiere cada señal de ingresos en una sola línea de tiempo modelada, y usa grandes modelos de lenguaje para razonar sobre todo el recorrido del cliente — adquisición, conversión, retención, facturación. No es otro dashboard. Es el analista que los lee todos.",
+      body: "Velur ingiere cada señal de ingresos en una sola línea de tiempo modelada, y usa grandes modelos de lenguaje para razonar sobre todo el recorrido del cliente, adquisición, conversión, retención, facturación. No es otro dashboard. Es el analista que los lee todos.",
       points: [
         "Una sola fuente de verdad, reconciliada a diario",
         "Insight escrito en lenguaje claro, no gráficos que descifrar",
@@ -240,7 +240,7 @@ const COPY = {
         { icon: "plug",   title: "Conecta",   body: "OAuth a tu stack. Permisos de solo lectura, sin ingeniería, minutos y no semanas." },
         { icon: "layers", title: "Unifica",   body: "Velur hace backfill de 18 meses de histórico y reconcilia cada fuente en una sola línea de tiempo." },
         { icon: "brain",  title: "Razona",    body: "Los LLMs analizan las relaciones entre marketing, comercio, finanzas y comportamiento del cliente." },
-        { icon: "file",   title: "Entrega",   body: "Insights, forecasts, riesgos y recomendaciones llegan como un brief escrito — no como un gráfico que descifrar." },
+        { icon: "file",   title: "Entrega",   body: "Insights, forecasts, riesgos y recomendaciones llegan como un brief escrito, no como un gráfico que descifrar." },
         { icon: "check",  title: "Decide",    body: "Tú tomas la decisión. Más rápido, con la imagen completa, antes de que pase el momento." },
       ],
     },
@@ -250,7 +250,7 @@ const COPY = {
       groups: [
         {
           label: "Ingresos",
-          note: "Cada movimiento trazado hasta su causa — canal, creatividad, cohorte o flow.",
+          note: "Cada movimiento trazado hasta su causa, canal, creatividad, cohorte o flow.",
           items: ["¿Por qué bajaron los ingresos esta semana?", "¿Dónde estamos perdiendo dinero?"],
         },
         {
@@ -282,28 +282,28 @@ const COPY = {
           art: "/art/abstract-tiles.png",
           title: "El brief diario",
           body: "Un párrafo a las 8 de la mañana: qué se movió, por qué se movió, qué hacer hoy. Escrito para quien opera, no para el analista.",
-          detail: "Cada mañana Velur lee la noche anterior en las seis herramientas conectadas, las reconcilia en una sola línea de tiempo y escribe un brief corto — ingreso neto, qué causó el cambio, qué canal devolvió la inversión, qué requiere atención. Es el trabajo que haría un analista senior antes del standup, listo a las 8 y en lenguaje claro, para que actúes sobre el día en vez de descifrarlo.",
+          detail: "Cada mañana Velur lee la noche anterior en las seis herramientas conectadas, las reconcilia en una sola línea de tiempo y escribe un brief corto, ingreso neto, qué causó el cambio, qué canal devolvió la inversión, qué requiere atención. Es el trabajo que haría un analista senior antes del standup, listo a las 8 y en lenguaje claro, para que actúes sobre el día en vez de descifrarlo.",
         },
         {
           icon: "trending",
           art: "/art/abstract-pills.png",
           title: "Forecasts con recibos",
-          body: "El ingreso esperado del mes que viene con cada supuesto a la vista — nuevo, expansión, contracción, churn. Sin caja negra.",
-          detail: "Nunca te damos un único número y te pedimos que confíes. Velur descompone el ingreso esperado del mes que viene en sus partes — nuevos clientes, expansión, contracción, churn — y muestra el supuesto detrás de cada una. Cuando el forecast se mueve, ves exactamente qué palanca lo movió, para defender el número o rebatirlo con evidencia.",
+          body: "El ingreso esperado del mes que viene con cada supuesto a la vista, nuevo, expansión, contracción, churn. Sin caja negra.",
+          detail: "Nunca te damos un único número y te pedimos que confíes. Velur descompone el ingreso esperado del mes que viene en sus partes, nuevos clientes, expansión, contracción, churn, y muestra el supuesto detrás de cada una. Cuando el forecast se mueve, ves exactamente qué palanca lo movió, para defender el número o rebatirlo con evidencia.",
         },
         {
           icon: "shield",
           art: "/art/abstract-cylinders.png",
           title: "Riesgo antes de que aterrice",
-          body: "Señales de churn, decaimiento de campañas y flujos rotos detectados mientras aún hay tiempo de actuar — no en el informe del mes siguiente.",
-          detail: "Velur vigila los indicadores adelantados, no los rezagados — un flow que se rompió en silencio, una cohorte que retiene peor que el mes pasado, una campaña cuyo ROAS decae antes de que el gasto lo note. Cada riesgo se señala mientras aún puedes actuar, con la causa más probable adjunta, en vez de explicarse tras el daño en el informe del mes siguiente.",
+          body: "Señales de churn, decaimiento de campañas y flujos rotos detectados mientras aún hay tiempo de actuar, no en el informe del mes siguiente.",
+          detail: "Velur vigila los indicadores adelantados, no los rezagados, un flow que se rompió en silencio, una cohorte que retiene peor que el mes pasado, una campaña cuyo ROAS decae antes de que el gasto lo note. Cada riesgo se señala mientras aún puedes actuar, con la causa más probable adjunta, en vez de explicarse tras el daño en el informe del mes siguiente.",
         },
         {
           icon: "bulb",
           art: "/art/abstract-petals.png",
           title: "Recomendaciones, no deberes",
           body: "Pausa este ad set. Escala esa creatividad. Arregla este flujo. Cada recomendación atada al número que mueve.",
-          detail: "El insight sobre el que no puedes actuar es solo trivia. Cada recomendación de Velur es específica y está atada al número que mueve — pausa este ad set, escala esa creatividad, arregla este flujo — con el impacto esperado y los datos que la respaldan. Tú decides; Velur hace el análisis que vuelve obvia la decisión.",
+          detail: "El insight sobre el que no puedes actuar es solo trivia. Cada recomendación de Velur es específica y está atada al número que mueve, pausa este ad set, escala esa creatividad, arregla este flujo, con el impacto esperado y los datos que la respaldan. Tú decides; Velur hace el análisis que vuelve obvia la decisión.",
         },
       ],
     },
@@ -323,7 +323,7 @@ const COPY = {
     },
     proof: {
       eyebrow: "Por qué confiar en nosotros",
-      quote: "Velur lo construye un equipo que pasó años dentro de stacks de datos DTC y de pequeño negocio — data scientists, ingenieros de ML y operadores que vivieron el problema antes de construir la respuesta.",
+      quote: "Velur lo construye un equipo que pasó años dentro de stacks de datos DTC y de pequeño negocio, data scientists, ingenieros de ML y operadores que vivieron el problema antes de construir la respuesta.",
       body: "Sin logos inventados, sin casos de éxito falsos. Una hoja de ruta honesta y un equipo que lee cada respuesta.",
       link: "Conoce al equipo →",
     },
@@ -455,7 +455,7 @@ export default function HomeContent() {
 
   return (
     <div ref={root}>
-      {/* ════ 1 · HERO — centered declaration + media composition ════ */}
+      {/* ════ 1 · HERO, centered declaration + media composition ════ */}
       <section className="bg-canvas relative overflow-hidden" style={{ padding: "var(--section-y-tight) var(--gutter) 0" }}>
         <div className="text-center" style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <p className="gs-hero-eyebrow font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-6">
@@ -499,7 +499,7 @@ export default function HomeContent() {
               className="art-live gs-parallax object-cover"
               style={{ objectPosition: "center 35%" }}
             />
-            {/* Brief chip overlay — the product moment inside the art.
+            {/* Brief chip overlay, the product moment inside the art.
                 gs-float gives it a slow bob so the card feels alive. */}
             <div className="gs-float absolute left-5 bottom-5 right-5 sm:right-auto sm:max-w-[380px] bg-velur-ink/90 backdrop-blur-md border border-ink-700 rounded-[14px] p-4">
               <p className="font-display text-[10px] uppercase tracking-[0.08em] text-signal-green-300 mb-1.5">
@@ -508,13 +508,14 @@ export default function HomeContent() {
               <p className="font-sans text-[13.5px] text-on-dark leading-snug">{c.hero.mediaChipText}</p>
             </div>
           </div>
-          <div className="gs-hero-media">
+          {/* Console is desktop-only, reads cramped on phones. */}
+          <div className="gs-hero-media hidden md:block">
             <ConsoleMock />
           </div>
         </div>
       </section>
 
-      {/* ════ 3 · PROBLEM — scrub statement + quiet ripple grid ════ */}
+      {/* ════ 3 · PROBLEM, scrub statement + quiet ripple grid ════ */}
       <section className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div
           className="grid grid-cols-1 lg:grid-cols-[1.25fr_auto] gap-12 lg:gap-16 items-center"
@@ -536,7 +537,7 @@ export default function HomeContent() {
             </p>
           </div>
 
-          {/* One signal propagating through every cell — the quiet
+          {/* One signal propagating through every cell, the quiet
               counterpoint to the siloed-tools problem. Click to ripple;
               an ambient pulse fires on its own now and then. */}
           <div className="gs-rise hidden lg:block justify-self-end">
@@ -545,7 +546,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ════ 4 · SOLUTION — Signal Green dark band + revenue chart ════ */}
+      {/* ════ 4 · SOLUTION, Signal Green dark band + revenue chart ════ */}
       <section className="bg-signal-green text-on-dark relative overflow-hidden" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div
           aria-hidden
@@ -575,7 +576,7 @@ export default function HomeContent() {
               ))}
             </ul>
           </div>
-          {/* Chart is desktop-only — it reads cramped on phones. */}
+          {/* Chart is desktop-only, it reads cramped on phones. */}
           <div className="gs-console hidden md:block" style={{ clipPath: "inset(0 0 0% 0)" }}>
             <RevenueAreaCard
               label={c.solution.chart.label}
@@ -587,7 +588,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ════ 5 · HOW IT WORKS — progress rail + 5 steps ════ */}
+      {/* ════ 5 · HOW IT WORKS, progress rail + 5 steps ════ */}
       <section id="how" className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-4">{c.how.eyebrow}</p>
@@ -595,7 +596,7 @@ export default function HomeContent() {
             {c.how.h2}
           </h2>
 
-          {/* Desktop: the signal journey — a curved line weaving the
+          {/* Desktop: the signal journey, a curved line weaving the
               full width, drawn on scroll, with a pulse riding it
               station to station. */}
           <div className="hidden md:block">
@@ -630,7 +631,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ════ 6 · QUESTIONS — gooey tabs by question category ════ */}
+      {/* ════ 6 · QUESTIONS, gooey tabs by question category ════ */}
       <section className="bg-stone-200 border-y border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-action-blue mb-4">{c.questions.eyebrow}</p>
@@ -670,7 +671,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ════ 7 · FEATURES — 4 art-led capability cards ════ */}
+      {/* ════ 7 · FEATURES, 4 art-led capability cards ════ */}
       <section className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-4">{c.features.eyebrow}</p>
@@ -721,7 +722,7 @@ export default function HomeContent() {
           </div>
         </div>
 
-        {/* Feature detail modal — blurs the page, explains how each works. */}
+        {/* Feature detail modal, blurs the page, explains how each works. */}
         <AnimatePresence>
           {activeFeature !== null && (() => {
             const f = c.features.cards[activeFeature];
@@ -779,7 +780,7 @@ export default function HomeContent() {
         </AnimatePresence>
       </section>
 
-      {/* ════ 8 · THE SHIFT — before / with Velur as gooey tabs ════ */}
+      {/* ════ 8 · THE SHIFT, before / with Velur as gooey tabs ════ */}
       <section className="bg-canvas" style={{ padding: "0 var(--gutter) var(--section-y)" }}>
         <div className="gs-rise" style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <GooeyTabs
@@ -814,7 +815,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ════ 9 · INTEGRATIONS — the six live tools ════ */}
+      {/* ════ 9 · INTEGRATIONS, the six live tools ════ */}
       <section className="bg-cream border-y border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-4">{c.integrations.eyebrow}</p>
@@ -838,7 +839,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ════ 10 · PROOF — honest founder note (no fake logos) ════ */}
+      {/* ════ 10 · PROOF, honest founder note (no fake logos) ════ */}
       <section className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}>
           <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-coral mb-6 text-center">{c.proof.eyebrow}</p>
@@ -856,7 +857,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ════ 11 · CTA — abstract green art band ════ */}
+      {/* ════ 11 · CTA, abstract green art band ════ */}
       <section className="bg-canvas" style={{ padding: "0 var(--gutter) var(--section-y)" }}>
         <div
           className="gs-cta-band relative rounded-[22px] overflow-hidden text-center"

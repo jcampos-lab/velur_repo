@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 /**
- * Velur — Badge
+ * Velur, Badge
  * Small status / taxonomy label. Soft-wash by default. Use `coral` variant
  * for editorial taxonomy chips (blog category, etc.) per system rules.
  */

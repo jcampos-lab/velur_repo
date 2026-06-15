@@ -50,7 +50,7 @@ const VelurCube = forwardRef<SVGGElement, VelurCubeProps>(function VelurCube(
 
   const v = computeVerts(s, cx, cy);
 
-  // Velur Quartet mark — flat stamp at right-face centroid.
+  // Velur Quartet mark, flat stamp at right-face centroid.
   // u = half-spacing between circle centers (proportional to cube size).
   // Ratio u:r matches the original logo geometry (65:55).
   const fc  = faceCentroid(s, cx, cy);
@@ -95,7 +95,7 @@ const VelurCube = forwardRef<SVGGElement, VelurCubeProps>(function VelurCube(
         </clipPath>
       </defs>
 
-      {/* Fills — no strokes, prevents double-drawn shared edges */}
+      {/* Fills, no strokes, prevents double-drawn shared edges */}
       <polygon
         className="velur-face velur-face-right"
         points={p([v.B, v.E, v.F, v.C])}
@@ -103,7 +103,7 @@ const VelurCube = forwardRef<SVGGElement, VelurCubeProps>(function VelurCube(
         style={faceStyle}
       />
 
-      {/* Velur Quartet mark — flat stamp, circles stay circular */}
+      {/* Velur Quartet mark, flat stamp, circles stay circular */}
       <g
         transform={`translate(${fc.x}, ${fc.y})`}
         clipPath={`url(#${clipId})`}
@@ -137,7 +137,7 @@ const VelurCube = forwardRef<SVGGElement, VelurCubeProps>(function VelurCube(
         style={faceStyle}
       />
 
-      {/* Outer silhouette — single closed path, round joins for seamless corners */}
+      {/* Outer silhouette, single closed path, round joins for seamless corners */}
       <polygon
         points={p([v.A, v.B, v.E, v.F, v.G, v.D])}
         fill="none"
@@ -145,7 +145,7 @@ const VelurCube = forwardRef<SVGGElement, VelurCubeProps>(function VelurCube(
         strokeWidth={2}
         strokeLinejoin="round"
       />
-      {/* Interior ridges — each drawn once, round caps blend into the contour */}
+      {/* Interior ridges, each drawn once, round caps blend into the contour */}
       <line x1={v.B[0]} y1={v.B[1]} x2={v.C[0]} y2={v.C[1]} stroke="var(--color-ink)" strokeWidth={2} strokeLinecap="round" />
       <line x1={v.D[0]} y1={v.D[1]} x2={v.C[0]} y2={v.C[1]} stroke="var(--color-ink)" strokeWidth={2} strokeLinecap="round" />
       <line x1={v.C[0]} y1={v.C[1]} x2={v.F[0]} y2={v.F[1]} stroke="var(--color-ink)" strokeWidth={2} strokeLinecap="round" />
@@ -156,5 +156,5 @@ const VelurCube = forwardRef<SVGGElement, VelurCubeProps>(function VelurCube(
 export default VelurCube;
 
 export function velurCubeCenter(size: number, cx: number, cy: number) {
-  return { x: cx, y: cy + size }; // C vertex — top-front anchor
+  return { x: cx, y: cy + size }; // C vertex, top-front anchor
 }

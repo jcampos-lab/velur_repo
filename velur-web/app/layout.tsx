@@ -4,7 +4,7 @@ import { LanguageProvider } from "@/lib/i18n/LanguageProvider";
 import "./globals.css";
 
 /* Px Grotesk (display) loads as @font-face from /public/fonts in globals.css.
-   Hanken Grotesk (body / small UI copy) pairs with it — open-source humanist
+   Hanken Grotesk (body / small UI copy) pairs with it, open-source humanist
    grotesque designed as a counterpart to Unica77 / Söhne, full Latin Extended
    coverage so Spanish accents render correctly. */
 const hanken = Hanken_Grotesk({
@@ -17,7 +17,7 @@ const hanken = Hanken_Grotesk({
 export const metadata: Metadata = {
   title: "Velur · The AI Revenue Operating System",
   description:
-    "Velur sits above the tools you already run — Shopify, Meta, Klaviyo, Stripe — and turns their fragmented data into one reasoning intelligence layer. AI that understands your entire business.",
+    "Velur sits above the tools you already run, Shopify, Meta, Klaviyo, Stripe, and turns their fragmented data into one reasoning intelligence layer. AI that understands your entire business.",
   openGraph: {
     title: "Velur · The AI Revenue Operating System",
     description:

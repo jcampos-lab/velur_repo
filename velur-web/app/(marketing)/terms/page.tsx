@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Plain-language terms for using the Velur website and product.",
 };
 
-/* Plain-language terms. Full page width — label rail on the left, the
+/* Plain-language terms. Full page width, label rail on the left, the
    explanation on the right. */
 const SECTIONS: { h: string; body: React.ReactNode }[] = [
   {
@@ -34,7 +34,7 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
     body: (
       <p>
         Velur is not financial, legal, tax, or investment advice. It helps you see your business clearly and
-        decide faster — but the decisions are yours. Any figures, charts, or examples shown on this website are
+        decide faster, but the decisions are yours. Any figures, charts, or examples shown on this website are
         <strong> illustrative</strong>, not a promise of results.
       </p>
     ),
@@ -54,7 +54,7 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
     body: (
       <p>
         When you connect a tool, you confirm you&apos;re allowed to access that account and the data in it. Please
-        don&apos;t misuse the site — no scraping, reverse-engineering, reselling, or trying to access other
+        don&apos;t misuse the site, no scraping, reverse-engineering, reselling, or trying to access other
         businesses&apos; data. Normal, good-faith use is all we ask.
       </p>
     ),
@@ -128,9 +128,9 @@ export default function TermsPage() {
         <div className="rounded-2xl border border-line bg-wash-green/50 p-6 md:p-8 mb-4 max-w-[900px]">
           <p className="font-display text-[12px] uppercase tracking-[0.08em] text-signal-green mb-4">The short version</p>
           <ul className="space-y-2.5 font-sans text-[16px] md:text-[17px] text-ink leading-[1.55]">
-            <li>• Velur reads your tools and writes you a brief — it <strong>never changes anything</strong>.</li>
+            <li>• Velur reads your tools and writes you a brief, it <strong>never changes anything</strong>.</li>
             <li>• It&apos;s <strong>not financial advice</strong>; the decisions stay yours.</li>
-            <li>• It&apos;s early and provided <strong>as is</strong> while in beta — we&apos;ll be honest about that.</li>
+            <li>• It&apos;s early and provided <strong>as is</strong> while in beta, we&apos;ll be honest about that.</li>
             <li>• Use it in good faith; you can <strong>leave and delete your data</strong> anytime.</li>
           </ul>
         </div>

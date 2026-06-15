@@ -13,7 +13,7 @@ interface DashedPathProps {
   delay?: number;
 }
 
-// Animated dashed path — draws itself on scroll via stroke-dashoffset
+// Animated dashed path, draws itself on scroll via stroke-dashoffset
 // Wraps a raw <path> and optionally animates it via GSAP
 export default function DashedPath({
   d,

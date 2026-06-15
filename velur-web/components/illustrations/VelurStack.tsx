@@ -12,7 +12,7 @@ interface VelurStackProps {
 }
 
 // Chapter 5: Velur connects to the modern data stack.
-// Pipeline layout — five tool cubes flow left-to-right into Velur.
+// Pipeline layout, five tool cubes flow left-to-right into Velur.
 export default function VelurStack({ className }: VelurStackProps) {
   const svgRef  = useRef<SVGSVGElement>(null);
   const cubeRef = useRef<SVGGElement>(null);
@@ -29,7 +29,7 @@ export default function VelurStack({ className }: VelurStackProps) {
   const cy_tool  = baseline - toolS;   // 100
   const cy_velur = baseline - velurS;  // 58
 
-  // Velur at the right end — the destination
+  // Velur at the right end, the destination
   const velurCx     = 800;
   const velurAnchor = velurCubeCenter(velurS, velurCx, cy_velur);
 
@@ -117,7 +117,7 @@ export default function VelurStack({ className }: VelurStackProps) {
         </g>
       ))}
 
-      {/* Velur cube — hover activates line pulse */}
+      {/* Velur cube, hover activates line pulse */}
       <g
         onMouseEnter={() => setLineState("pulse")}
         onMouseLeave={() => setLineState("static")}

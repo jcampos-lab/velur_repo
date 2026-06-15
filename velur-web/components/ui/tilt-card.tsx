@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(useGSAP);
 
 /**
- * Velur — TiltCard
+ * Velur, TiltCard
  * Cursor-following 3D tilt + lift for marketing cards: the card leans
  * a few degrees toward the pointer, rises slightly, and a soft
  * specular sheen tracks the cursor. Children marked with
@@ -15,7 +15,7 @@ gsap.registerPlugin(useGSAP);
  *
  * Restraint by design: ±4° max, quick-to-follow springs, and the
  * whole effect only runs on fine pointers with no reduced-motion
- * preference — touch devices and reduced motion get a static card.
+ * preference, touch devices and reduced motion get a static card.
  */
 export function TiltCard({
   children,
@@ -94,7 +94,7 @@ export function TiltCard({
   return (
     <div ref={root} className={`relative will-change-transform ${className}`}>
       {children}
-      {/* Specular sheen — a soft radial light that follows the cursor.
+      {/* Specular sheen, a soft radial light that follows the cursor.
           Sized 2x and recentered via xPercent/yPercent in the handler. */}
       <div
         ref={sheen}

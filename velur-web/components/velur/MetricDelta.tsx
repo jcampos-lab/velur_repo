@@ -1,5 +1,5 @@
 /**
- * Velur — MetricDelta
+ * Velur, MetricDelta
  * Signed percentage / value with directional color (green up / red down).
  * The core revenue-intelligence affordance.
  *

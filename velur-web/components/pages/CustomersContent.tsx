@@ -11,24 +11,24 @@ const COPY = {
   en: {
     eyebrow: "Customers",
     h1: "Built for every DTC brand. Not for the data team you don't have.",
-    subhead: "Velur is designed for the operators actually running the business — founders, heads of growth, marketing leads. Small or mid-size, you get a complete revenue intelligence layer without standing up a data warehouse or hiring an analyst.",
+    subhead: "Velur is designed for the operators actually running the business, founders, heads of growth, marketing leads. Small or mid-size, you get a complete revenue intelligence layer without standing up a data warehouse or hiring an analyst.",
     audienceEyebrow: "Who Velur is for",
     audienceHeading: "Every DTC and subscription brand, from launch to mid-market.",
     audienceCards: [
       {
         size: "Small DTC",
-        revenue: "€100k – €1M ARR",
+        revenue: "€100k to €1M ARR",
         body: "You've outgrown Shopify's native reports but you can't justify a data hire. Velur replaces the spreadsheet pile and gives you one place to read revenue every morning.",
       },
       {
         size: "Growing DTC",
-        revenue: "€1M – €10M ARR",
+        revenue: "€1M to €10M ARR",
         body: "You're running Shopify + Klaviyo + paid social and you've lost the thread of which channel is actually paying for itself. Velur reconciles them onto one timeline so the answer is obvious before your standup.",
       },
       {
         size: "Mid-market",
-        revenue: "€10M – €50M ARR",
-        body: "You have an analyst (or three) and they're drowning in dashboard requests. Velur becomes the source of truth they query against — and the daily brief that frees them up to do real analysis.",
+        revenue: "€10M to €50M ARR",
+        body: "You have an analyst (or three) and they're drowning in dashboard requests. Velur becomes the source of truth they query against, and the daily brief that frees them up to do real analysis.",
       },
     ],
     teamEyebrow: "What you don't need",
@@ -38,10 +38,10 @@ const COPY = {
       { yes: true,  text: "OAuth into Shopify, Klaviyo, your ad accounts, Stripe, Recharge. Minutes, not weeks." },
       { yes: true,  text: "Velur backfills 18 months of history on its own infrastructure." },
       { yes: true,  text: "Data modelling, normalisation, and the intelligence layer ship with the product." },
-      { yes: true,  text: "Daily revenue brief written for the person making decisions — not for the analyst." },
+      { yes: true,  text: "Daily revenue brief written for the person making decisions, not for the analyst." },
       { yes: false, text: "You don't need BigQuery, Snowflake, dbt, Fivetran, or a warehouse subscription." },
       { yes: false, text: "You don't need a data engineer to maintain pipelines." },
-      { yes: false, text: "You don't need a BI tool license per seat — the brief comes to you." },
+      { yes: false, text: "You don't need a BI tool license per seat, the brief comes to you." },
     ],
     versusEyebrow: "Why a complete layer beats AI chatbots",
     versusHeading: "AI chatbots answer questions. A revenue intelligence layer changes how you operate.",
@@ -50,7 +50,7 @@ const COPY = {
     versusRows: [
       {
         question: "Where does the data live?",
-        chatbot: "Whatever the chatbot scraped at session start — usually a partial view of one or two platforms, refreshed inconsistently.",
+        chatbot: "Whatever the chatbot scraped at session start, usually a partial view of one or two platforms, refreshed inconsistently.",
         velur:   "A modelled, reconciled timeline of every revenue source. Backfilled, version-controlled, queryable.",
       },
       {
@@ -65,46 +65,46 @@ const COPY = {
       },
       {
         question: "What about cohorts and LTV?",
-        chatbot: "Usually surface-level — average order value, top customers. Nothing about which acquisition channel pays back.",
+        chatbot: "Usually surface-level, average order value, top customers. Nothing about which acquisition channel pays back.",
         velur:   "Behavioural cohorts modelled by first product, channel, and price point. 12-month LTV per segment with confidence intervals.",
       },
       {
         question: "Can a non-technical operator use it?",
         chatbot: "Only if they know how to prompt it. Output quality is bounded by the user's question.",
-        velur:   "Output is written for the operator. The intelligence comes to you — no prompt-engineering required.",
+        velur:   "Output is written for the operator. The intelligence comes to you, no prompt-engineering required.",
       },
       {
         question: "What happens if you cancel?",
         chatbot: "Conversation history gone, integrations disconnected, nothing to take with you.",
-        velur:   "Every SQL model, every dashboard, every score function in your repo, under your name, from day one. Cancel anytime — nothing breaks, nothing disappears.",
+        velur:   "Every SQL model, every dashboard, every score function in your repo, under your name, from day one. Cancel anytime, nothing breaks, nothing disappears.",
       },
     ],
     closingEyebrow: "Ready to read revenue clearly",
     closingHeading: "Velur is for operators who'd rather read one good brief than poke at ten dashboards.",
-    closingBody: "Join the waitlist and we'll reach out personally when the next seat opens. No automated drip, no sales funnel — just a conversation about what you're running.",
+    closingBody: "Join the waitlist and we'll reach out personally when the next seat opens. No automated drip, no sales funnel, just a conversation about what you're running.",
     closingCta: "Join the waitlist",
   },
   es: {
     eyebrow: "Clientes",
     h1: "Hecho para cualquier marca DTC. No para el equipo de datos que no tienes.",
-    subhead: "Velur está diseñado para las personas que de verdad operan el negocio — fundadores, responsables de crecimiento, leads de marketing. Pequeña o mediana, obtienes una capa completa de inteligencia de ingresos sin montar un data warehouse ni contratar un analista.",
+    subhead: "Velur está diseñado para las personas que de verdad operan el negocio, fundadores, responsables de crecimiento, leads de marketing. Pequeña o mediana, obtienes una capa completa de inteligencia de ingresos sin montar un data warehouse ni contratar un analista.",
     audienceEyebrow: "Para quién es Velur",
     audienceHeading: "Cualquier marca DTC y de suscripción, desde el lanzamiento hasta el mid-market.",
     audienceCards: [
       {
         size: "DTC pequeña",
-        revenue: "100k € – 1M € ARR",
+        revenue: "100k € a 1M € ARR",
         body: "Has superado los informes nativos de Shopify pero todavía no puedes justificar una contratación de datos. Velur reemplaza el montón de hojas de cálculo y te da un único sitio donde leer ingresos cada mañana.",
       },
       {
         size: "DTC en crecimiento",
-        revenue: "1M € – 10M € ARR",
+        revenue: "1M € a 10M € ARR",
         body: "Operas Shopify + Klaviyo + publicidad social y has perdido el hilo de qué canal de verdad se paga solo. Velur lo reconcilia todo en una línea de tiempo para que la respuesta sea obvia antes del standup.",
       },
       {
         size: "Mid-market",
-        revenue: "10M € – 50M € ARR",
-        body: "Tienes un analista (o tres) y están ahogados en peticiones de dashboards. Velur se convierte en la fuente de verdad sobre la que consultan — y en el brief diario que los libera para hacer análisis de verdad.",
+        revenue: "10M € a 50M € ARR",
+        body: "Tienes un analista (o tres) y están ahogados en peticiones de dashboards. Velur se convierte en la fuente de verdad sobre la que consultan, y en el brief diario que los libera para hacer análisis de verdad.",
       },
     ],
     teamEyebrow: "Lo que NO necesitas",
@@ -114,10 +114,10 @@ const COPY = {
       { yes: true,  text: "OAuth a Shopify, Klaviyo, tus cuentas publicitarias, Stripe, Recharge. Minutos, no semanas." },
       { yes: true,  text: "Velur hace backfill de 18 meses de histórico sobre su propia infraestructura." },
       { yes: true,  text: "Modelado de datos, normalización y capa de inteligencia incluidos con el producto." },
-      { yes: true,  text: "Brief diario de ingresos escrito para la persona que toma las decisiones — no para la analista." },
+      { yes: true,  text: "Brief diario de ingresos escrito para la persona que toma las decisiones, no para la analista." },
       { yes: false, text: "No necesitas BigQuery, Snowflake, dbt, Fivetran ni suscripción a un warehouse." },
       { yes: false, text: "No necesitas un ingeniero de datos manteniendo pipelines." },
-      { yes: false, text: "No necesitas licencia de una herramienta BI por usuario — el brief llega a ti." },
+      { yes: false, text: "No necesitas licencia de una herramienta BI por usuario, el brief llega a ti." },
     ],
     versusEyebrow: "Por qué una capa completa supera a un chatbot de IA",
     versusHeading: "Los chatbots de IA responden preguntas. Una capa de inteligencia de ingresos cambia cómo operas.",
@@ -126,7 +126,7 @@ const COPY = {
     versusRows: [
       {
         question: "¿Dónde viven los datos?",
-        chatbot: "Lo que el chatbot scrapeó al iniciar la sesión — normalmente una vista parcial de una o dos plataformas, refrescada de manera inconsistente.",
+        chatbot: "Lo que el chatbot scrapeó al iniciar la sesión, normalmente una vista parcial de una o dos plataformas, refrescada de manera inconsistente.",
         velur:   "Una línea de tiempo modelada y reconciliada de cada fuente de ingresos. Con backfill, versionada, consultable.",
       },
       {
@@ -141,23 +141,23 @@ const COPY = {
       },
       {
         question: "¿Qué pasa con cohortes y LTV?",
-        chatbot: "Normalmente superficial — ticket medio, top clientes. Nada sobre qué canal de adquisición devuelve la inversión.",
+        chatbot: "Normalmente superficial, ticket medio, top clientes. Nada sobre qué canal de adquisición devuelve la inversión.",
         velur:   "Cohortes de comportamiento modeladas por primer producto, canal y precio. LTV a 12 meses por segmento con intervalos de confianza.",
       },
       {
         question: "¿Puede usarlo alguien no técnico?",
         chatbot: "Solo si sabe cómo promptearlo. La calidad del output depende de la pregunta.",
-        velur:   "El output está escrito para la persona que opera. La inteligencia te llega a ti — no hace falta saber promptear.",
+        velur:   "El output está escrito para la persona que opera. La inteligencia te llega a ti, no hace falta saber promptear.",
       },
       {
         question: "¿Qué pasa si cancelas?",
         chatbot: "Historial de conversación borrado, integraciones desconectadas, nada que llevarte.",
-        velur:   "Cada modelo SQL, cada dashboard, cada función de scoring en tu repositorio, a tu nombre, desde el primer día. Cancela cuando quieras — nada se rompe, nada desaparece.",
+        velur:   "Cada modelo SQL, cada dashboard, cada función de scoring en tu repositorio, a tu nombre, desde el primer día. Cancela cuando quieras, nada se rompe, nada desaparece.",
       },
     ],
     closingEyebrow: "Listos para leer ingresos con claridad",
     closingHeading: "Velur es para operadores que preferirían leer un buen brief antes que tocar diez dashboards.",
-    closingBody: "Únete a la lista de espera y te escribiremos personalmente cuando se abra el siguiente cupo. Sin drip automatizado, sin embudo de ventas — solo una conversación sobre lo que estás operando.",
+    closingBody: "Únete a la lista de espera y te escribiremos personalmente cuando se abra el siguiente cupo. Sin drip automatizado, sin embudo de ventas, solo una conversación sobre lo que estás operando.",
     closingCta: "Unirse a la lista",
   },
 } as const;
@@ -192,7 +192,7 @@ export default function CustomersContent() {
         </div>
       </section>
 
-      {/* Brand art band — spiral delta (every account converging on one console) */}
+      {/* Brand art band, spiral delta (every account converging on one console) */}
       <section className="bg-canvas" style={{ padding: "var(--section-y-tight) 0 0" }}>
         <ArtBand src="/art/abstract-pills.png" className="h-[220px] md:h-[340px] lg:h-[420px]" />
       </section>
@@ -298,7 +298,7 @@ export default function CustomersContent() {
             </p>
           </div>
 
-          {/* Engaging comparison — one card per question, the answer split
+          {/* Engaging comparison, one card per question, the answer split
               into a muted "chatbot" half and a highlighted Velur half. */}
           <div className="space-y-5">
             {c.versusRows.map((row, i) => (

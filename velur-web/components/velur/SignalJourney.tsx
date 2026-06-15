@@ -9,13 +9,13 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, useGSAP);
 
 /**
- * Velur — SignalJourney
+ * Velur, SignalJourney
  * The "how it works" steps as a signal travelling through the system:
  * a curved line weaves across the full width, alternating up and down,
  * with a step station at each bend. As you scroll, the line draws
  * itself and a green signal pulse rides it from Connect to Decide.
  *
- * Desktop only (md+) — the parent should render a plain stacked list
+ * Desktop only (md+), the parent should render a plain stacked list
  * below md. Reduced motion gets the fully drawn line, no pulse.
  */
 export type JourneyStep = {
@@ -173,7 +173,7 @@ export function SignalJourney({ steps }: { steps: JourneyStep[] }) {
               </span>
             </div>
 
-            {/* Step card — above the line for even stations, below
+            {/* Step card, above the line for even stations, below
                 for odd ones. */}
             <div
               className="sj-card absolute w-[19%] -translate-x-1/2"

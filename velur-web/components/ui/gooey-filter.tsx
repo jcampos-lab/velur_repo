@@ -1,5 +1,5 @@
 /**
- * Velur — GooeyFilter
+ * Velur, GooeyFilter
  * SVG goo filter (blur → alpha contrast → composite) that visually
  * fuses adjacent shapes sharing the same filtered layer. Render once
  * per page; reference by id via `filter: url(#<id>)`.

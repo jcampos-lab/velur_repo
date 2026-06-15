@@ -37,7 +37,7 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 /**
- * Velur — AreaChart
+ * Velur, AreaChart
  * Interactive area chart (visx + framer-motion) adapted from the
  * 21st.dev area-chart pattern with three changes:
  *  - framer-motion imports (repo standard) instead of motion/react.
@@ -1525,7 +1525,7 @@ export function Area({
   const [pathLength, setPathLength] = useState(0);
   const [clipWidth, setClipWidth] = useState(0);
 
-  /* Stable across server/client renders — Math.random ids break
+  /* Stable across server/client renders, Math.random ids break
      hydration under Next SSR. */
   const uniqueId = useId().replace(/[^a-zA-Z0-9-]/g, "");
   const gradientId = `area-gradient-${dataKey}-${uniqueId}`;

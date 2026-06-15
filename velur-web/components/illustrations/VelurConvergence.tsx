@@ -90,7 +90,7 @@ export default function VelurConvergence({ className }: VelurConvergenceProps) {
     >
       <IsoGrid width={W} height={H} spacing={96} opacity={0.16} />
 
-      {/* Connection lines — static by default, pulse on Velur hover */}
+      {/* Connection lines, static by default, pulse on Velur hover */}
       {sources.map((src, i) => {
         const from = dataCubeAnchor(srcSize, src.cx, src.cy);
         return (
@@ -112,7 +112,7 @@ export default function VelurConvergence({ className }: VelurConvergenceProps) {
         </g>
       ))}
 
-      {/* Velur cube — hover triggers line pulse */}
+      {/* Velur cube, hover triggers line pulse */}
       <g
         onMouseEnter={() => setLineState("pulse")}
         onMouseLeave={() => setLineState("static")}

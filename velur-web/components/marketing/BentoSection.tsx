@@ -312,7 +312,7 @@ export default function BentoSection() {
             <MiniBrief />
           </BentoCard>
 
-          {/* KPI dashboard: desktop only — too cramped on mobile */}
+          {/* KPI dashboard: desktop only, too cramped on mobile */}
           <BentoCard className="hidden md:flex md:col-span-8 md:row-span-2 md:order-1 p-5 md:p-6">
             <KpiDashboardChart />
           </BentoCard>
@@ -321,7 +321,7 @@ export default function BentoSection() {
             <StatCard value={184} label="Average minutes saved per week" suffix="m" />
           </BentoCard>
 
-          {/* Correlation scatter: desktop only — labels overlap on small screens */}
+          {/* Correlation scatter: desktop only, labels overlap on small screens */}
           <BentoCard className="hidden md:flex md:col-span-7 md:order-4 p-5 md:p-6">
             <CorrelationChart />
           </BentoCard>

@@ -229,7 +229,7 @@ function FeaturedCourse({ c }: { c: Copy["course"] }) {
           </Link>
         </div>
 
-        {/* Preview area — Signal Green band */}
+        {/* Preview area, Signal Green band */}
         <div className="relative bg-signal-green overflow-hidden hidden md:block">
           <div className="absolute inset-0 opacity-60" style={{
             backgroundImage: "radial-gradient(circle at 30% 40%, rgba(79,183,141,0.45), transparent 55%), radial-gradient(circle at 80% 80%, rgba(31,95,224,0.18), transparent 55%)",
@@ -435,7 +435,7 @@ function PackGrid({ s, lang }: { s: Copy["packGridSection"]; lang: PackLang }) {
 }
 
 
-/* ─── Fit comparison — signature gooey tabs ───────────────────── */
+/* ─── Fit comparison, signature gooey tabs ───────────────────── */
 
 function FitSection({ f }: { f: Copy["fit"] }) {
   return (

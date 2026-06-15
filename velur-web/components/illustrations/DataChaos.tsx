@@ -10,7 +10,7 @@ interface DataChaosProps {
 }
 
 // Chapter 2: Without Velur, your data is chaos.
-// Scattered grayscale cubes in a horizontal band — no order, no protagonist.
+// Scattered grayscale cubes in a horizontal band, no order, no protagonist.
 
 const CUBES = [
   { cx:  70, cy: 52, size: 52, label: "shopify"   },
@@ -24,7 +24,7 @@ const CUBES = [
   { cx: 950, cy: 70, size: 38, label: null        },
 ];
 
-// Each cube drifts in a distinct direction — chaos, not oscillation
+// Each cube drifts in a distinct direction, chaos, not oscillation
 const DRIFTS = [
   { dx: -18, dy: -10, dur: 8.5 },
   { dx:  14, dy: -14, dur: 9.2 },

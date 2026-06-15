@@ -31,7 +31,7 @@ const COPY = {
       briefEyebrow: "Today's brief · 08:02",
       briefHeadline: "Net revenue up 12% week-over-week.",
       briefBody:
-        "TikTok creator drove 38% of the lift. Klaviyo win-back flow underperformed — pause variant B.",
+        "TikTok creator drove 38% of the lift. Klaviyo win-back flow underperformed, pause variant B.",
       roasLabel: "ROAS, blended",
     },
     platform: {
@@ -99,14 +99,14 @@ const COPY = {
     howDeep: {
       eyebrow: "How Velur works",
       heading: "From fragmented tools to one reasoning layer.",
-      intro: "Velur is not a dashboard you check — it's an intelligence layer that reads your whole business and reports back. Here is exactly what happens between connecting your first tool and making a better decision.",
+      intro: "Velur is not a dashboard you check, it's an intelligence layer that reads your whole business and reports back. Here is exactly what happens between connecting your first tool and making a better decision.",
       stages: [
         {
           num: "01",
           title: "Connect",
-          body: "Read-only OAuth into the stack you already run. Shopify, Klaviyo, Meta, TikTok, Google Ads, GA4, Stripe and Recharge connect through each platform's official flow — no engineer, no warehouse, no CSV exports.",
+          body: "Read-only OAuth into the stack you already run. Shopify, Klaviyo, Meta, TikTok, Google Ads, GA4, Stripe and Recharge connect through each platform's official flow, no engineer, no warehouse, no CSV exports.",
           details: [
-            "Read-only scopes — Velur can never write to your tools",
+            "Read-only scopes, Velur can never write to your tools",
             "EU-hosted processing under GDPR-compliant DPAs",
             "Disconnect from the source platform at any time",
           ],
@@ -114,17 +114,17 @@ const COPY = {
         {
           num: "02",
           title: "Unify",
-          body: "Velur backfills eighteen months of history and normalises every source onto a single modelled timeline — orders, spend, sessions, flows, charges and refunds, all speaking the same schema.",
+          body: "Velur backfills eighteen months of history and normalises every source onto a single modelled timeline, orders, spend, sessions, flows, charges and refunds, all speaking the same schema.",
           details: [
             "One customer record across Shopify, Klaviyo and Stripe",
             "Currency, timezone and attribution-window normalisation",
-            "Idempotent daily syncs — re-runs never duplicate data",
+            "Idempotent daily syncs, re-runs never duplicate data",
           ],
         },
         {
           num: "03",
           title: "Reason",
-          body: "This is the layer dashboards never had. Large language models analyse the relationships across marketing, commerce, finance and customer behaviour — why revenue moved, which channel actually drove it, what changes next.",
+          body: "This is the layer dashboards never had. Large language models analyse the relationships across marketing, commerce, finance and customer behaviour, why revenue moved, which channel actually drove it, what changes next.",
           details: [
             "Cross-source causality: spend → sessions → orders → margin",
             "Cohort and LTV models per channel, product and price point",
@@ -134,9 +134,9 @@ const COPY = {
         {
           num: "04",
           title: "Deliver",
-          body: "Intelligence arrives as a written brief at 8am — what moved, why, what to do today. Forecasts come with their assumptions shown. Risks come with time left to act.",
+          body: "Intelligence arrives as a written brief at 8am, what moved, why, what to do today. Forecasts come with their assumptions shown. Risks come with time left to act.",
           details: [
-            "Daily brief in your inbox — no login required",
+            "Daily brief in your inbox, no login required",
             "Forecast split by new, expansion, contraction and churn",
             "Risk flags: churn signals, campaign decay, broken flows",
           ],
@@ -144,11 +144,11 @@ const COPY = {
         {
           num: "05",
           title: "Decide",
-          body: "You make the call. Every recommendation is tied to the number it moves, and every number traces back to its raw sources — so you decide faster and can defend the decision.",
+          body: "You make the call. Every recommendation is tied to the number it moves, and every number traces back to its raw sources, so you decide faster and can defend the decision.",
           details: [
             "Recommendations ranked by expected revenue impact",
             "Every metric traceable to its source data",
-            "Models and dashboards live in your repo — cancel anytime",
+            "Models and dashboards live in your repo, cancel anytime",
           ],
         },
       ],
@@ -177,7 +177,7 @@ const COPY = {
       briefEyebrow: "Informe de hoy · 08:02",
       briefHeadline: "Ingresos netos +12% respecto a la semana pasada.",
       briefBody:
-        "Un creador de TikTok generó el 38% de la subida. El flujo de recuperación de Klaviyo no rinde — pausa la variante B.",
+        "Un creador de TikTok generó el 38% de la subida. El flujo de recuperación de Klaviyo no rinde, pausa la variante B.",
       roasLabel: "ROAS combinado",
     },
     platform: {
@@ -245,14 +245,14 @@ const COPY = {
     howDeep: {
       eyebrow: "Cómo funciona Velur",
       heading: "De herramientas fragmentadas a una sola capa que razona.",
-      intro: "Velur no es un dashboard que consultas — es una capa de inteligencia que lee todo tu negocio y te informa. Esto es exactamente lo que pasa entre conectar tu primera herramienta y tomar una decisión mejor.",
+      intro: "Velur no es un dashboard que consultas, es una capa de inteligencia que lee todo tu negocio y te informa. Esto es exactamente lo que pasa entre conectar tu primera herramienta y tomar una decisión mejor.",
       stages: [
         {
           num: "01",
           title: "Conecta",
-          body: "OAuth de solo lectura al stack que ya usas. Shopify, Klaviyo, Meta, TikTok, Google Ads, GA4, Stripe y Recharge se conectan por el flujo oficial de cada plataforma — sin ingeniero, sin warehouse, sin exportar CSVs.",
+          body: "OAuth de solo lectura al stack que ya usas. Shopify, Klaviyo, Meta, TikTok, Google Ads, GA4, Stripe y Recharge se conectan por el flujo oficial de cada plataforma, sin ingeniero, sin warehouse, sin exportar CSVs.",
           details: [
-            "Permisos de solo lectura — Velur nunca puede escribir en tus herramientas",
+            "Permisos de solo lectura, Velur nunca puede escribir en tus herramientas",
             "Procesamiento alojado en la UE bajo acuerdos DPA conformes con el RGPD",
             "Desconecta desde la plataforma de origen cuando quieras",
           ],
@@ -260,17 +260,17 @@ const COPY = {
         {
           num: "02",
           title: "Unifica",
-          body: "Velur hace backfill de dieciocho meses de histórico y normaliza cada fuente en una sola línea de tiempo modelada — pedidos, inversión, sesiones, flujos, cargos y reembolsos, todos hablando el mismo esquema.",
+          body: "Velur hace backfill de dieciocho meses de histórico y normaliza cada fuente en una sola línea de tiempo modelada, pedidos, inversión, sesiones, flujos, cargos y reembolsos, todos hablando el mismo esquema.",
           details: [
             "Un solo registro de cliente entre Shopify, Klaviyo y Stripe",
             "Normalización de moneda, zona horaria y ventana de atribución",
-            "Syncs diarios idempotentes — repetirlos nunca duplica datos",
+            "Syncs diarios idempotentes, repetirlos nunca duplica datos",
           ],
         },
         {
           num: "03",
           title: "Razona",
-          body: "Esta es la capa que los dashboards nunca tuvieron. Grandes modelos de lenguaje analizan las relaciones entre marketing, comercio, finanzas y comportamiento del cliente — por qué se movieron los ingresos, qué canal lo generó de verdad, qué cambia después.",
+          body: "Esta es la capa que los dashboards nunca tuvieron. Grandes modelos de lenguaje analizan las relaciones entre marketing, comercio, finanzas y comportamiento del cliente, por qué se movieron los ingresos, qué canal lo generó de verdad, qué cambia después.",
           details: [
             "Causalidad entre fuentes: inversión → sesiones → pedidos → margen",
             "Modelos de cohortes y LTV por canal, producto y precio",
@@ -280,9 +280,9 @@ const COPY = {
         {
           num: "04",
           title: "Entrega",
-          body: "La inteligencia llega como un brief escrito a las 8 de la mañana — qué se movió, por qué, qué hacer hoy. Los forecasts llegan con sus supuestos a la vista. Los riesgos llegan con tiempo para actuar.",
+          body: "La inteligencia llega como un brief escrito a las 8 de la mañana, qué se movió, por qué, qué hacer hoy. Los forecasts llegan con sus supuestos a la vista. Los riesgos llegan con tiempo para actuar.",
           details: [
-            "Brief diario en tu bandeja de entrada — sin necesidad de login",
+            "Brief diario en tu bandeja de entrada, sin necesidad de login",
             "Forecast desglosado en nuevo, expansión, contracción y churn",
             "Alertas de riesgo: señales de churn, decaimiento de campañas, flujos rotos",
           ],
@@ -290,11 +290,11 @@ const COPY = {
         {
           num: "05",
           title: "Decide",
-          body: "Tú tomas la decisión. Cada recomendación está atada al número que mueve, y cada número se rastrea hasta sus fuentes — decides más rápido y puedes defender la decisión.",
+          body: "Tú tomas la decisión. Cada recomendación está atada al número que mueve, y cada número se rastrea hasta sus fuentes, decides más rápido y puedes defender la decisión.",
           details: [
             "Recomendaciones ordenadas por impacto esperado en ingresos",
             "Cada métrica trazable hasta sus datos de origen",
-            "Modelos y dashboards viven en tu repositorio — cancela cuando quieras",
+            "Modelos y dashboards viven en tu repositorio, cancela cuando quieras",
           ],
         },
       ],
@@ -359,7 +359,7 @@ function HeroCard({ c, m }: { c: Copy; m: Copy["mock"] }) {
           </div>
         </div>
 
-        {/* Right preview — dunes brand art behind the floating console cards */}
+        {/* Right preview, dunes brand art behind the floating console cards */}
         <div className="relative bg-signal-green overflow-hidden hidden md:block">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -407,7 +407,7 @@ export default function ServicesContent() {
   const prefersReduced = useReducedMotion();
   const howRef = useRef<HTMLElement>(null);
 
-  /* GSAP — scoped to the "How Velur works" deep-dive section. The
+  /* GSAP, scoped to the "How Velur works" deep-dive section. The
      rest of the page keeps its existing reveal motion; all GSAP
      animation lives behind a reduced-motion matchMedia gate. */
   useGSAP(
@@ -434,7 +434,7 @@ export default function ServicesContent() {
         </div>
       </section>
 
-      {/* Module explorer — four cards, one per platform module */}
+      {/* Module explorer, four cards, one per platform module */}
       <section className="bg-cream pb-14 md:pb-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="mb-8 md:mb-10 max-w-2xl">
@@ -475,7 +475,7 @@ export default function ServicesContent() {
         </div>
       </section>
 
-      {/* How Velur works — the 5-stage deep dive (GSAP) */}
+      {/* How Velur works, the 5-stage deep dive (GSAP) */}
       <section id="how" ref={howRef} className="bg-paper border-y border-line py-14 md:py-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="gsv-rise mb-4">
@@ -493,7 +493,7 @@ export default function ServicesContent() {
             {c.howDeep.intro}
           </p>
 
-          {/* Stacked deck — readable soft tints + a Signal Green finale.
+          {/* Stacked deck, readable soft tints + a Signal Green finale.
               Each stage pins under the nav while the next slides over it. */}
           <StackedDeck
             cards={c.howDeep.stages.map((s) => ({

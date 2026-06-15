@@ -14,7 +14,7 @@ interface IsoCubeProps {
   className?: string;
 }
 
-// Isometric cube geometry — true 30° projection
+// Isometric cube geometry, true 30° projection
 // Vertex layout (s = size, apex at cx, cy):
 //   A (top-back)   = (cx,         cy         )
 //   B (top-right)  = (cx + s*R,   cy + s*0.5 )

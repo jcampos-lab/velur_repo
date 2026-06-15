@@ -6,9 +6,9 @@ import { GooeyFilter } from "@/components/ui/gooey-filter";
 import { useScreenSize } from "@/hooks/use-screen-size";
 
 /**
- * Velur — GooeyTabs
+ * Velur, GooeyTabs
  * Tabbed panel where the active tab visually FUSES into the content
- * panel through an SVG goo filter — the tab and the panel read as one
+ * panel through an SVG goo filter, the tab and the panel read as one
  * liquid surface, and the blob slides between tabs on change.
  *
  * Adapted from the 21st.dev gooey-tabs pattern with two changes:
@@ -16,14 +16,14 @@ import { useScreenSize } from "@/hooks/use-screen-size";
  *    in-flow content, so panels grow with their copy (the original
  *    used fixed heights, which clips translated text).
  *  - Velur tokens: stone surface on canvas, mono tab labels, no
- *    extra deps (no shadcn Button / radix / cva — framer-motion only).
+ *    extra deps (no shadcn Button / radix / cva, framer-motion only).
  *
  * Reusable: pass any number of tabs with arbitrary ReactNode content.
  */
 type GooeyTab = {
   /** Short label shown in the tab strip. */
   label: string;
-  /** Panel content — any markup. */
+  /** Panel content, any markup. */
   content: ReactNode;
 };
 
@@ -31,7 +31,7 @@ export function GooeyTabs({
   tabs,
   className = "",
   /** Surface color class for tab blob + panel (one layer = one goo).
-      Neutral gray by default — Velur's signature card surface. */
+      Neutral gray by default, Velur's signature card surface. */
   surfaceClass = "bg-[#ECEDEF]",
   /** Tab strip height. */
   tabHeightClass = "h-10 md:h-12",

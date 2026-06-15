@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 /**
- * Velur — MonoLabel
+ * Velur, MonoLabel
  * Uppercase mono category / system marker. Reserved for short
  * taxonomy labels (e.g. "REVENUE INTELLIGENCE", "SECURITY",
  * "CHANGELOG"). Never set a full sentence in this style.

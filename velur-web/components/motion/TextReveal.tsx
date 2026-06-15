@@ -59,12 +59,12 @@ type WordsProps = {
   style?: React.CSSProperties;
   stagger?: number;
   delay?: number;
-  /** Tailwind class applied to each word span — useful for color overrides. */
+  /** Tailwind class applied to each word span, useful for color overrides. */
   wordClassName?: string;
 };
 
 /**
- * Splits a string into words and animates each one — clip + blur reveal,
+ * Splits a string into words and animates each one, clip + blur reveal,
  * staggered. Use for hero headlines where a per-word reveal feels alive
  * instead of one blocky fade.
  */

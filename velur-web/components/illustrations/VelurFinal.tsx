@@ -8,7 +8,7 @@ interface VelurFinalProps {
   className?: string;
 }
 
-// Chapter 7: Closing signature — Velur alone, same as the opener.
+// Chapter 7: Closing signature, Velur alone, same as the opener.
 // Bookends the entire illustration experience. No label needed.
 export default function VelurFinal({ className }: VelurFinalProps) {
   const svgRef  = useRef<SVGSVGElement>(null);

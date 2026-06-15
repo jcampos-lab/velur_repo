@@ -1,5 +1,5 @@
 /**
- * Velur — ArtBackdrop
+ * Velur, ArtBackdrop
  * Full-bleed background art for dark surfaces (river/dunes/delta motif,
  * public/art/).
  *
@@ -8,9 +8,9 @@
  *    gets the still only; desktop (md+) gets the muted autoplay loop with the
  *    still as poster; prefers-reduced-motion always gets the still.
  *  - Still only: pass `still` (full path incl. extension). One image at every
- *    breakpoint — used for hero cards and bands that carry a single artwork.
+ *    breakpoint, used for hero cards and bands that carry a single artwork.
  *
- * Pure CSS variants — no JS, stays a server component.
+ * Pure CSS variants, no JS, stays a server component.
  */
 
 type ArtBackdropProps = {
@@ -33,7 +33,7 @@ export function ArtBackdrop({
   const stillSrc = still ?? `${base}.png`;
   return (
     <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
-      {/* Still — always present; the video paints over it when active */}
+      {/* Still, always present; the video paints over it when active */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={stillSrc}
@@ -43,7 +43,7 @@ export function ArtBackdrop({
         loading="lazy"
         decoding="async"
       />
-      {/* Loop — only in video mode, desktop only, hidden for reduced-motion users */}
+      {/* Loop, only in video mode, desktop only, hidden for reduced-motion users */}
       {!still && base && (
         <video
           className="absolute inset-0 hidden h-full w-full object-cover md:motion-safe:block"

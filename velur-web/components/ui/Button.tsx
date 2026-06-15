@@ -25,7 +25,7 @@ const sizeClasses = {
 };
 
 const variantClasses = {
-  // text-paper flips: white in light, dark in dark — always readable on bg-ink which also flips
+  // text-paper flips: white in light, dark in dark, always readable on bg-ink which also flips
   primary:
     "bg-ink text-paper border border-ink hover:bg-amber hover:border-amber hover:text-ink transition-colors duration-200",
   secondary:

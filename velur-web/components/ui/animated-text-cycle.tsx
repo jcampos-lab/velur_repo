@@ -38,7 +38,7 @@ export default function AnimatedTextCycle({
 
   return (
     <>
-      {/* Hidden measurement layer — renders all words at once to get accurate width */}
+      {/* Hidden measurement layer, renders all words at once to get accurate width */}
       <div
         ref={measureRef}
         aria-hidden="true"
