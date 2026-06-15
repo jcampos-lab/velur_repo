@@ -7,6 +7,31 @@ import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ButtonLink } from "@/components/velur/Button";
 import { RollingText } from "@/components/ui/rolling-text";
 
+/* Segmented EN / ES language toggle — replaces the plain text switch,
+   shared by desktop and the mobile menu. Active language = dark pill. */
+function LangToggle({ className = "" }: { className?: string }) {
+  const { lang, setLang } = useLanguage();
+  const opt = (code: "en" | "es", label: string) => (
+    <button
+      type="button"
+      onClick={() => setLang(code)}
+      aria-pressed={lang === code}
+      aria-label={code === "en" ? "English" : "Español"}
+      className={`px-2.5 py-1 rounded-full font-mono text-[11px] tracking-[0.06em] transition-colors duration-200 ${
+        lang === code ? "bg-velur-ink text-white" : "text-slate hover:text-ink"
+      }`}
+    >
+      {label}
+    </button>
+  );
+  return (
+    <div className={`inline-flex items-center rounded-full border border-line bg-stone-200/60 p-0.5 ${className}`}>
+      {opt("en", "EN")}
+      {opt("es", "ES")}
+    </div>
+  );
+}
+
 /**
  * Velur, Marketing Header
  * Three-zone bar (mark left · menu center · CTA right) following the
@@ -24,7 +49,7 @@ import { RollingText } from "@/components/ui/rolling-text";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [annOpen, setAnnOpen] = useState(true);
-  const { t, lang, setLang } = useLanguage();
+  const { t, lang } = useLanguage();
 
   /* AI Studio intentionally NOT in the top nav, it lives in the
      footer only. The top nav stays focused on Platform, Company, FAQ. */
@@ -111,16 +136,8 @@ export default function Header() {
           </nav>
 
           {/* CTA right */}
-          <div className="flex items-center gap-3 md:gap-5 shrink-0">
-            <button
-              onClick={() => setLang(lang === "en" ? "es" : "en")}
-              aria-label="Change language"
-              className="hidden md:flex items-center gap-1 font-mono text-[11px] tracking-[0.04em] text-slate hover:text-ink transition-colors duration-150"
-            >
-              <span className={lang === "en" ? "text-ink-strong" : ""}>EN</span>
-              <span className="text-hairline">/</span>
-              <span className={lang === "es" ? "text-ink-strong" : ""}>ES</span>
-            </button>
+          <div className="flex items-center gap-3 md:gap-4 shrink-0">
+            <LangToggle className="hidden md:inline-flex" />
             <ButtonLink href="/contact" variant="primary" size="sm" className="hidden md:inline-flex">
               {t.header.cta}
             </ButtonLink>
@@ -155,7 +172,7 @@ export default function Header() {
               </svg>
             </button>
           </div>
-          <nav className="flex flex-col gap-1 p-5">
+          <nav className="flex flex-col gap-1 p-5 overflow-y-auto">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -173,12 +190,32 @@ export default function Header() {
             >
               {t.header.cta}
             </Link>
-            <button
-              onClick={() => setLang(lang === "en" ? "es" : "en")}
-              className="mt-4 font-mono text-sm text-slate text-left"
+
+            <LangToggle className="mt-5 self-start" />
+
+            {/* Brand banner closing the menu. */}
+            <Link
+              href="/services"
+              onClick={() => setMenuOpen(false)}
+              className="relative block mt-8 rounded-[18px] overflow-hidden"
+              style={{ minHeight: "168px" }}
             >
-              {lang === "en" ? "Cambiar a Español" : "Switch to English"}
-            </button>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/art/abstract-green.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+              <div
+                aria-hidden
+                className="absolute inset-0"
+                style={{ background: "linear-gradient(180deg, rgba(10,26,47,0.48) 0%, rgba(10,26,47,0.74) 100%)" }}
+              />
+              <div className="relative p-6">
+                <p className="font-display text-[10px] uppercase tracking-[0.1em] text-signal-green-300 mb-2">Velur</p>
+                <p className="font-display font-normal text-white text-[22px] leading-[1.12] tracking-[-0.01em] max-w-[16ch]">
+                  {lang === "es"
+                    ? "Una capa de inteligencia por encima de todo."
+                    : "One intelligence layer above everything."}
+                </p>
+              </div>
+            </Link>
           </nav>
         </div>
       )}
