@@ -10,16 +10,16 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 /**
  * Velur — StackedDeck
  * Cohere-style stacked timeline: each card pins under the nav while the
- * next slides over it. Bold, saturated surfaces from the Velur palette
- * (midnight blue, coral, deeper blue, Signal Green finale) — every
- * theme pairs a dark surface with light text (or coral with ink text),
- * so contrast is guaranteed, never dark-on-dark.
+ * next slides over it. Refined neutral palette — ivory, carbon-black,
+ * cool gray and deep Signal Green — every theme pairs its surface with
+ * a legible text colour. The giant index sits as a full-bleed watermark
+ * on the right so the content fills the card width (no dead right gutter).
  *
  * Reused by /services ("How Velur works") and /company (the journey).
  * Reduced motion / mobile → plain stacked cards, no scroll scaling.
  */
 export type DeckCard = {
-  /** Giant faded label behind the card — a number ("01"). */
+  /** Giant faded watermark — a number ("01"). */
   ghost: string;
   /** Small label above the title. */
   eyebrow?: string;
@@ -39,45 +39,45 @@ type Theme = {
   chipText: string;
 };
 
-/* Bold rotation. The final card is always the Signal Green payoff. */
+/* ivory → carbon → gray cycle, with a deep-green finale. */
 const THEMES: Theme[] = [
   {
-    bg: "bg-midnight border-midnight",
-    title: "text-white",
-    body: "text-on-dark-muted",
-    eyebrow: "text-signal-green-300",
-    ghost: "text-white/[0.12]",
-    chipBg: "bg-white/[0.07] border-white/15",
-    chipText: "text-on-dark",
-  },
-  {
-    bg: "bg-coral border-coral",
+    bg: "bg-[#F4F1E8]",
     title: "text-velur-ink",
-    body: "text-velur-ink/80",
-    eyebrow: "text-velur-ink/70",
-    ghost: "text-velur-ink/[0.13]",
-    chipBg: "bg-velur-ink/[0.08] border-velur-ink/15",
-    chipText: "text-velur-ink/85",
+    body: "text-ink/75",
+    eyebrow: "text-signal-green",
+    ghost: "text-velur-ink/[0.06]",
+    chipBg: "bg-velur-ink/[0.05] border-velur-ink/10",
+    chipText: "text-ink/80",
   },
   {
-    bg: "bg-midnight-700 border-midnight-700",
+    bg: "bg-[#0F1115]",
     title: "text-white",
-    body: "text-on-dark-muted",
+    body: "text-white/70",
     eyebrow: "text-signal-green-300",
-    ghost: "text-white/[0.12]",
-    chipBg: "bg-white/[0.07] border-white/15",
-    chipText: "text-on-dark",
+    ghost: "text-white/[0.07]",
+    chipBg: "bg-white/[0.06] border-white/[0.12]",
+    chipText: "text-white/85",
+  },
+  {
+    bg: "bg-[#E4E5E8]",
+    title: "text-velur-ink",
+    body: "text-ink/75",
+    eyebrow: "text-signal-green",
+    ghost: "text-velur-ink/[0.07]",
+    chipBg: "bg-velur-ink/[0.05] border-velur-ink/10",
+    chipText: "text-ink/80",
   },
 ];
 
 const GREEN: Theme = {
-  bg: "bg-signal-green border-signal-green",
+  bg: "bg-signal-green",
   title: "text-white",
-  body: "text-on-dark-muted",
+  body: "text-white/75",
   eyebrow: "text-signal-green-300",
-  ghost: "text-white/[0.14]",
-  chipBg: "bg-white/[0.08] border-white/15",
-  chipText: "text-on-dark",
+  ghost: "text-white/[0.10]",
+  chipBg: "bg-white/[0.07] border-white/15",
+  chipText: "text-white/90",
 };
 
 export function StackedDeck({
@@ -122,43 +122,43 @@ export function StackedDeck({
         return (
           <div
             key={card.ghost + card.title}
-            className="md:sticky md:pb-8"
+            className="md:sticky md:pb-10"
             style={{ top: `calc(96px + ${i * 14}px)` }}
           >
             <article
-              className={`sd-card rounded-[22px] border overflow-hidden p-7 md:p-12 ${t.bg}`}
-              style={{ boxShadow: "0 -14px 48px rgba(10,26,47,0.18)" }}
+              className={`sd-card relative rounded-[24px] overflow-hidden p-9 md:p-16 md:min-h-[440px] flex flex-col justify-center ${t.bg}`}
+              style={{ boxShadow: "0 -14px 48px rgba(16,19,22,0.16)" }}
             >
-              <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-4 md:gap-12 items-start">
-                <span
-                  aria-hidden
-                  className={`font-display leading-[0.85] tracking-[-0.04em] select-none ${t.ghost}`}
-                  style={{ fontSize: "clamp(64px, 9vw, 140px)" }}
-                >
-                  {card.ghost}
-                </span>
-                <div>
-                  {card.eyebrow && (
-                    <p className={`font-display text-[12px] uppercase tracking-[0.08em] mb-3 ${t.eyebrow}`}>
-                      {card.eyebrow}
-                    </p>
-                  )}
-                  <h3 className={`font-display font-normal text-[24px] md:text-[32px] leading-[1.1] tracking-[-0.015em] mb-3 ${t.title}`}>
-                    {card.title}
-                  </h3>
-                  <p className={`font-sans text-[15.5px] md:text-[16px] leading-[1.6] max-w-[62ch] ${card.bullets ? "mb-6" : ""} ${t.body}`}>
-                    {card.body}
+              {/* Full-bleed index watermark filling the right side. */}
+              <span
+                aria-hidden
+                className={`pointer-events-none absolute -top-6 right-2 md:top-0 md:right-8 font-display leading-[0.8] tracking-[-0.05em] select-none ${t.ghost}`}
+                style={{ fontSize: "clamp(150px, 26vw, 340px)" }}
+              >
+                {card.ghost}
+              </span>
+
+              <div className="relative max-w-[780px]">
+                {card.eyebrow && (
+                  <p className={`font-display text-[12px] uppercase tracking-[0.08em] mb-4 ${t.eyebrow}`}>
+                    {card.eyebrow}
                   </p>
-                  {card.bullets && (
-                    <ul className="grid grid-cols-1 lg:grid-cols-3 gap-2.5">
-                      {card.bullets.map((b) => (
-                        <li key={b} className={`rounded-[12px] border px-4 py-3 ${t.chipBg}`}>
-                          <span className={`font-sans text-[13.5px] leading-snug ${t.chipText}`}>{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
+                )}
+                <h3 className={`font-display font-normal text-[28px] md:text-[42px] leading-[1.08] tracking-[-0.02em] mb-4 max-w-[22ch] ${t.title}`}>
+                  {card.title}
+                </h3>
+                <p className={`font-sans text-[16px] md:text-[17.5px] leading-[1.6] max-w-[66ch] ${card.bullets ? "mb-7" : ""} ${t.body}`}>
+                  {card.body}
+                </p>
+                {card.bullets && (
+                  <ul className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-[760px]">
+                    {card.bullets.map((b) => (
+                      <li key={b} className={`rounded-[12px] border px-4 py-3 ${t.chipBg}`}>
+                        <span className={`font-sans text-[13.5px] leading-snug ${t.chipText}`}>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </article>
           </div>

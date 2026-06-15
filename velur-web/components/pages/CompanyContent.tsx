@@ -62,14 +62,8 @@ const COPY = {
 
     beliefEyebrow: "What we believe",
     beliefHeading: "We're fascinated by what technology lets us become.",
-    beliefQuote:
-      "Technology is one of the biggest transformations in human history. AI now lets businesses reach outcomes that were unimaginable a generation ago — and we're here to turn that into real value, not another dashboard.",
-    beliefP1:
-      "A company built today has to be AI-native; that's simply where the world is moving. And it has to bring something genuinely new. Connecting every kind of data source into one layer of intelligence is exactly that — useful, and not yet done well for the businesses that need it most.",
-    beliefP2:
-      "Data Science is the rigor. Machine Learning is the engine. AI is the multiplier. We care about all three only as means to an end: a business that understands itself clearly, every morning, and makes better calls because of it.",
-    beliefP3:
-      "It may take years. We're fine with that. We're willing to fail many times over — as long as we keep going and keep scaling, until it works.",
+    beliefStatement:
+      "Modern AI is finally giving software a real understanding of how a business works. We're building the technology that makes that understanding widely available — to every business, not just the ones with a data team.",
 
     founderEyebrow: "Founded by",
     founderName: "Alexander Campos",
@@ -122,14 +116,8 @@ const COPY = {
 
     beliefEyebrow: "Lo que creemos",
     beliefHeading: "Nos fascina en qué nos permite convertirnos la tecnología.",
-    beliefQuote:
-      "La tecnología es una de las mayores transformaciones de la historia humana. La IA hoy permite a los negocios alcanzar resultados inimaginables hace una generación — y estamos aquí para convertir eso en valor real, no en otro dashboard.",
-    beliefP1:
-      "Una empresa que nace hoy tiene que ser AI-native; es sencillamente hacia donde va el mundo. Y tiene que aportar algo genuinamente nuevo. Conectar cada tipo de fuente de datos en una sola capa de inteligencia es exactamente eso — útil, y aún no bien resuelto para los negocios que más lo necesitan.",
-    beliefP2:
-      "Data Science es el rigor. Machine Learning es el motor. La IA es el multiplicador. Nos importan los tres solo como medios para un fin: un negocio que se entiende con claridad, cada mañana, y por eso toma mejores decisiones.",
-    beliefP3:
-      "Puede que lleve años. Nos parece bien. Estamos dispuestos a fallar muchas veces — mientras sigamos adelante y sigamos escalando, hasta que funcione.",
+    beliefStatement:
+      "La IA moderna por fin le da al software una comprensión real de cómo funciona un negocio. Construimos la tecnología que hace que esa comprensión esté ampliamente disponible — para cualquier negocio, no solo los que tienen un equipo de datos.",
 
     founderEyebrow: "Fundada por",
     founderName: "Alexander Campos",
@@ -154,7 +142,7 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/juan-alexander-campos/";
 function PhotoPlaceholder({ caption, className = "" }: { caption: string; className?: string }) {
   return (
     <div
-      className={`relative w-full rounded-[18px] overflow-hidden bg-midnight flex items-center justify-center ${className}`}
+      className={`relative w-full rounded-[18px] overflow-hidden bg-[#0F1115] flex items-center justify-center ${className}`}
       style={{ aspectRatio: "4 / 5" }}
     >
       <div
@@ -263,12 +251,12 @@ export default function CompanyContent() {
           className="absolute -bottom-32 -right-32 w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] pointer-events-none opacity-30"
           style={{
             background:
-              "radial-gradient(circle, rgba(255,107,74,0.3) 0%, rgba(255,107,74,0) 65%)",
+              "radial-gradient(circle, rgba(11,61,46,0.18) 0%, rgba(11,61,46,0) 65%)",
             filter: "blur(40px)",
           }}
         />
         <div className="relative" style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-coral mb-5">
+          <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-5">
             {c.beliefEyebrow}
           </motion.p>
           <motion.h2
@@ -279,25 +267,18 @@ export default function CompanyContent() {
             {c.beliefHeading}
           </motion.h2>
 
-          <motion.blockquote
+          <motion.p
             {...fadeUp(0.12)}
-            className="border-l-2 border-signal-green pl-6 md:pl-8 mb-10 max-w-[60ch]"
+            className="font-sans text-ink/85 leading-[1.55] max-w-[58ch]"
+            style={{ fontSize: "clamp(18px, 2vw, 22px)" }}
           >
-            <p className="font-display font-normal text-ink-strong leading-[1.3] tracking-[-0.01em]" style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}>
-              {c.beliefQuote}
-            </p>
-          </motion.blockquote>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-[1000px]">
-            <motion.p {...fadeUp(0.16)} className="font-sans text-[16px] leading-[1.6] text-ink/85">{c.beliefP1}</motion.p>
-            <motion.p {...fadeUp(0.22)} className="font-sans text-[16px] leading-[1.6] text-ink/85">{c.beliefP2}</motion.p>
-            <motion.p {...fadeUp(0.28)} className="font-sans text-[16px] leading-[1.6] text-ink/85">{c.beliefP3}</motion.p>
-          </div>
+            {c.beliefStatement}
+          </motion.p>
         </div>
       </section>
 
-      {/* ── Founder — dark band, photo on top, click → bio modal ── */}
-      <section className="bg-midnight text-on-dark" style={{ padding: "var(--section-y) var(--gutter)" }}>
+      {/* ── Founder — carbon band, photo on top, click → bio modal ── */}
+      <section className="bg-[#0F1115] text-on-dark" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div className="text-center" style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}>
           <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green-300 mb-8">
             {c.founderEyebrow}
@@ -341,7 +322,7 @@ export default function CompanyContent() {
             aria-label={c.founderName}
           >
             <div
-              className="absolute inset-0 bg-midnight/80 backdrop-blur-sm"
+              className="absolute inset-0 bg-[#0F1115]/85 backdrop-blur-sm"
               onClick={() => setBioOpen(false)}
               aria-hidden
             />
