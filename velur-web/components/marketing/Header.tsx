@@ -19,7 +19,11 @@ function LangGlobe({ className = "" }: { className?: string }) {
       onClick={() => setLang(lang === "en" ? "es" : "en")}
       aria-label={lang === "en" ? "Cambiar a Español" : "Switch to English"}
       title={lang === "en" ? "Español" : "English"}
-      className={`inline-flex items-center gap-1.5 text-slate hover:text-ink transition-colors duration-200 ${className}`}
+      /* No display utility here on purpose — the caller sets it
+         (`hidden md:inline-flex` on desktop, `inline-flex` in the mobile
+         menu). Hardcoding `inline-flex` would conflict with the desktop
+         `hidden` and leak the icon onto the mobile top bar. */
+      className={`items-center gap-1.5 text-slate hover:text-ink transition-colors duration-200 ${className}`}
     >
       <Globe size={18} strokeWidth={1.6} />
       <span className="font-mono text-[11px] tracking-[0.08em] uppercase">{lang}</span>
@@ -186,7 +190,7 @@ export default function Header() {
               {t.header.cta}
             </Link>
 
-            <LangGlobe className="mt-5 self-start" />
+            <LangGlobe className="inline-flex mt-5 self-start" />
 
             {/* Brand banner closing the menu. */}
             <Link
