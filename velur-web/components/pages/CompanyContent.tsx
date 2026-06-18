@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import Link from "next/link";
+import Image from "next/image";
 import { X } from "lucide-react";
 
 /* lucide build here has no LinkedIn glyph, small inline mark instead. */
@@ -65,13 +66,22 @@ const COPY = {
     beliefStatement:
       "Modern AI is finally giving software a real understanding of how a business works. We're building the technology that makes that understanding widely available, to every business, not just the ones with a data team.",
 
+    intro: {
+      eyebrow: "The founder",
+      lead: "Why Velur exists.",
+      paragraphs: [
+        "For more than five years, Alexander worked inside the data of DTC and apparel brands, subscription businesses, retail and fashion, and logistics, first as a data analyst, later close to marketing and growth. The pattern never changed: ten dashboards, none of them agreeing, and the real answer buried somewhere in between.",
+        "He studied data science in Germany and Barcelona, but spent most of his time on the operator's side of the screen, turning scattered, messy data into decisions teams could act on. Velur is the tool he kept wishing those small and mid-size companies had: one intelligent layer over everything, giving founders, marketers, sales managers and owners accurate, actionable answers instead of more charts to read.",
+      ],
+    },
+
     founderEyebrow: "Founded by",
     founderName: "Alexander Campos",
-    founderRole: "Founder · Data Scientist",
+    founderRole: "Founder · Data Analyst & Marketer",
     founderHint: "Read bio",
     photoCaption: "Photo coming soon",
     modalBio: [
-      "Alexander founded Velur after years as a data scientist embedded inside the data stacks of ecommerce, retail and fashion, subscription, logistics and transportation businesses, the operator who turned fragmented data into decisions teams could actually act on.",
+      "Alexander founded Velur after years as a data analyst embedded inside the data stacks of ecommerce, retail and fashion, subscription, logistics and transportation businesses, the operator who turned fragmented data into decisions teams could actually act on.",
       "He studied data science in Germany and Barcelona, specialising in artificial intelligence and business intelligence. Velur is the layer he kept wishing those businesses had, now built for the ones that need it most.",
     ],
     linkedinCta: "View LinkedIn",
@@ -119,13 +129,22 @@ const COPY = {
     beliefStatement:
       "La IA moderna por fin le da al software una comprensión real de cómo funciona un negocio. Construimos la tecnología que hace que esa comprensión esté ampliamente disponible, para cualquier negocio, no solo los que tienen un equipo de datos.",
 
+    intro: {
+      eyebrow: "El fundador",
+      lead: "Por qué existe Velur.",
+      paragraphs: [
+        "Durante más de cinco años, Alexander trabajó dentro de los datos de marcas DTC y de moda, negocios de suscripción, retail y logística, primero como analista de datos y después cerca del marketing y el crecimiento. El patrón nunca cambiaba: diez dashboards, ninguno de acuerdo, y la respuesta real enterrada en algún punto intermedio.",
+        "Estudió data science en Alemania y Barcelona, pero pasó la mayor parte del tiempo del lado del operador, convirtiendo datos dispersos y desordenados en decisiones que los equipos podían tomar. Velur es la herramienta que siempre deseó que esas pequeñas y medianas empresas tuvieran: una sola capa inteligente sobre todo, que da a fundadores, marketers, responsables de ventas y dueños de negocio respuestas precisas y accionables en lugar de más gráficos que leer.",
+      ],
+    },
+
     founderEyebrow: "Fundada por",
     founderName: "Alexander Campos",
-    founderRole: "Fundador · Data Scientist",
+    founderRole: "Fundador · Analista de Datos y Marketing",
     founderHint: "Ver bio",
     photoCaption: "Foto próximamente",
     modalBio: [
-      "Alexander fundó Velur tras años como data scientist dentro de los stacks de datos de negocios de ecommerce, retail y moda, suscripción, logística y transporte, el operador que convertía datos fragmentados en decisiones que los equipos podían tomar de verdad.",
+      "Alexander fundó Velur tras años como analista de datos dentro de los stacks de datos de negocios de ecommerce, retail y moda, suscripción, logística y transporte, el operador que convertía datos fragmentados en decisiones que los equipos podían tomar de verdad.",
       "Estudió data science en Alemania y Barcelona, con especialización en inteligencia artificial y business intelligence. Velur es la capa que siempre deseó que esos negocios tuvieran, ahora construida para los que más la necesitan.",
     ],
     linkedinCta: "Ver LinkedIn",
@@ -245,6 +264,64 @@ export default function CompanyContent() {
             </motion.h2>
           </div>
           <StackedDeck cards={c.journey.map((t) => ({ ...t }))} />
+        </div>
+      </section>
+
+      {/* ── Founder intro, portrait (left half) + bio (right) ───── */}
+      <section className="bg-canvas border-b border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
+        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+            {/* Portrait fills the left half */}
+            <motion.div
+              {...fadeUp(0)}
+              className="relative w-full overflow-hidden rounded-[22px] bg-[#E7E7E9]"
+              style={{ aspectRatio: "1 / 1" }}
+            >
+              <Image
+                src="/team/alexander.jpg"
+                alt={c.founderName}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+                priority
+              />
+            </motion.div>
+
+            {/* Bio, right */}
+            <div>
+              <motion.p {...fadeUp(0.05)} className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-5">
+                {c.intro.eyebrow}
+              </motion.p>
+              <motion.h2
+                {...fadeUp(0.08)}
+                className="font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.025em] mb-3"
+                style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}
+              >
+                {c.intro.lead}
+              </motion.h2>
+              <motion.p {...fadeUp(0.1)} className="font-display text-[12px] uppercase tracking-[0.1em] text-slate mb-6">
+                {c.founderName} · {c.founderRole}
+              </motion.p>
+              <div className="space-y-4 max-w-[54ch]">
+                {c.intro.paragraphs.map((p, i) => (
+                  <motion.p key={i} {...fadeUp(0.12 + i * 0.05)} className="font-sans text-[16.5px] leading-[1.65] text-ink/85">
+                    {p}
+                  </motion.p>
+                ))}
+              </div>
+              <motion.div {...fadeUp(0.24)}>
+                <Link
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-7 inline-flex items-center gap-2 font-sans text-[14.5px] text-ink hover:text-signal-green transition-colors"
+                >
+                  <LinkedinMark size={17} />
+                  {c.linkedinCta}
+                </Link>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
