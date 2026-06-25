@@ -87,7 +87,7 @@ const COPY = {
     onboard: {
       eyebrow: "Onboarding",
       heading: "I'm onboarding the first brands now.",
-      body: "I handle the integrations and the backfill. Your team needs an OAuth approval and twenty minutes on a Wednesday. Join the waitlist and I'll reach out when the next seat opens.",
+      body: "I handle the integrations and the backfill. Your team needs an OAuth approval and twenty minutes on a Wednesday. The daily brief is what ships first; the deeper analysis is rolling out as I build. Join the waitlist and I'll reach out when the next seat opens.",
       cta: "Join the waitlist",
     },
     steps: [
@@ -233,7 +233,7 @@ const COPY = {
     onboard: {
       eyebrow: "Onboarding",
       heading: "Estoy onboardeando las primeras marcas.",
-      body: "Yo me encargo de las integraciones y del backfill. Tu equipo solo necesita aprobar el OAuth y dedicarme veinte minutos un miércoles. Únete a la lista y te escribiré cuando se abra el siguiente cupo.",
+      body: "Yo me encargo de las integraciones y del backfill. Tu equipo solo necesita aprobar el OAuth y dedicarme veinte minutos un miércoles. El brief diario es lo primero que llega; el análisis más profundo va saliendo a medida que construyo. Únete a la lista y te escribiré cuando se abra el siguiente cupo.",
       cta: "Unirse a la lista",
     },
     steps: [

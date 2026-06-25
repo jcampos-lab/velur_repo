@@ -89,13 +89,12 @@ const COPY = {
     },
     how: {
       eyebrow: "How it works",
-      h2: "Five steps from chaos to clarity.",
+      h2: "From your tools to a daily brief.",
       steps: [
-        { icon: "plug",   title: "Connect",  body: "Read-only OAuth into your tools. No engineering, minutes not weeks, and Velur can never write back." },
-        { icon: "layers", title: "Unify",    body: "Velur backfills 90 days of history and reconciles every source onto one timeline." },
-        { icon: "brain",  title: "Compute",  body: "Velur calculates the metrics and deltas deterministically, then a language model explains them in plain words." },
-        { icon: "file",   title: "Deliver",  body: "A short written brief: what changed, the most likely drivers, and what to look at, with sources you can check." },
-        { icon: "check",  title: "Decide",   body: "You make the call, with the numbers and their sources in front of you. Reply if something looks off." },
+        { icon: "plug",   title: "Connect",         body: "Read-only OAuth into your tools. No engineering, and Velur can never write back." },
+        { icon: "layers", title: "Reconcile",       body: "Velur backfills 90 days and reconciles every source onto one timeline." },
+        { icon: "brain",  title: "Explain",         body: "Velur computes the metrics and deltas deterministically, then a language model explains them in plain words." },
+        { icon: "file",   title: "Your daily brief", body: "Each morning: what changed, the most likely drivers, and what to look at, with sources you can check. Reply if something looks off." },
       ],
     },
     questions: {
@@ -126,7 +125,7 @@ const COPY = {
     },
     features: {
       eyebrow: "What you get",
-      h2: "Intelligence that arrives, instead of dashboards that wait.",
+      h2: "Answers that come to you, instead of dashboards you check.",
       detailLabel: "How it works",
       learnMore: "How it works",
       close: "Close",
@@ -161,12 +160,15 @@ const COPY = {
         },
       ],
     },
-    shift: {
-      eyebrow: "The shift",
-      beforeLabel: "Before Velur",
-      afterLabel: "With Velur",
-      before: ["Ten disconnected tools", "Conflicting reports", "Manual spreadsheets", "Hours decoding dashboards", "Reactive management"],
-      after: ["One reconciled source of truth", "Plain-language summaries you can audit", "Numbers that trace to their source", "Unusual movements flagged early", "Faster, better-supported decisions"],
+    trust: {
+      eyebrow: "Built to be trusted",
+      h2: "Decision support you can check.",
+      points: [
+        { title: "Read-only access", body: "Velur connects through official OAuth with read-only scopes. It reads your data, never changes it." },
+        { title: "Source-backed numbers", body: "Every figure is computed deterministically and traces back to where it came from, so you can check it." },
+        { title: "Confidence-aware", body: "Low-confidence signals are kept quiet. Velur flags what's worth a look, and says when it's unsure." },
+        { title: "You stay in control", body: "Velur explains, you decide. If a brief gets something wrong, you reply and it's corrected." },
+      ],
     },
     diff: {
       eyebrow: "Why Velur",
@@ -253,13 +255,12 @@ const COPY = {
     },
     how: {
       eyebrow: "Cómo funciona",
-      h2: "Cinco pasos del caos a la claridad.",
+      h2: "De tus herramientas a un brief diario.",
       steps: [
-        { icon: "plug",   title: "Conecta",   body: "OAuth de solo lectura a tus herramientas. Sin ingeniería, minutos y no semanas, y Velur nunca puede escribir de vuelta." },
-        { icon: "layers", title: "Unifica",   body: "Velur hace backfill de 90 días de histórico y reconcilia cada fuente en una sola línea de tiempo." },
-        { icon: "brain",  title: "Calcula",   body: "Velur calcula las métricas y deltas de forma determinista, y luego un modelo de lenguaje las explica en palabras claras." },
-        { icon: "file",   title: "Entrega",   body: "Un brief corto: qué cambió, los factores más probables y qué revisar, con fuentes que puedes comprobar." },
-        { icon: "check",  title: "Decide",    body: "Tú tomas la decisión, con los números y sus fuentes delante. Responde si algo no encaja." },
+        { icon: "plug",   title: "Conecta",        body: "OAuth de solo lectura a tus herramientas. Sin ingeniería, y Velur nunca puede escribir de vuelta." },
+        { icon: "layers", title: "Reconcilia",     body: "Velur hace backfill de 90 días y reconcilia cada fuente en una sola línea de tiempo." },
+        { icon: "brain",  title: "Explica",        body: "Velur calcula las métricas y deltas de forma determinista, y luego un modelo de lenguaje las explica en palabras claras." },
+        { icon: "file",   title: "Tu brief diario", body: "Cada mañana: qué cambió, los factores más probables y qué revisar, con fuentes que puedes comprobar. Responde si algo no encaja." },
       ],
     },
     questions: {
@@ -290,7 +291,7 @@ const COPY = {
     },
     features: {
       eyebrow: "Lo que obtienes",
-      h2: "Inteligencia que llega, en vez de dashboards que esperan.",
+      h2: "Respuestas que te llegan, en vez de dashboards que revisas.",
       detailLabel: "Cómo funciona",
       learnMore: "Cómo funciona",
       close: "Cerrar",
@@ -325,12 +326,15 @@ const COPY = {
         },
       ],
     },
-    shift: {
-      eyebrow: "El cambio",
-      beforeLabel: "Antes de Velur",
-      afterLabel: "Con Velur",
-      before: ["Diez herramientas desconectadas", "Informes que se contradicen", "Hojas de cálculo manuales", "Horas descifrando dashboards", "Gestión reactiva"],
-      after: ["Una sola fuente de verdad reconciliada", "Resúmenes en lenguaje claro y auditables", "Números trazables hasta su fuente", "Movimientos inusuales señalados a tiempo", "Decisiones más rápidas y mejor fundamentadas"],
+    trust: {
+      eyebrow: "Construido para dar confianza",
+      h2: "Apoyo a la decisión que puedes comprobar.",
+      points: [
+        { title: "Acceso de solo lectura", body: "Velur se conecta por OAuth oficial con permisos de solo lectura. Lee tus datos, nunca los cambia." },
+        { title: "Números con fuente", body: "Cada cifra se calcula de forma determinista y se rastrea hasta su origen, para que la compruebes." },
+        { title: "Consciente de la confianza", body: "Las señales de baja confianza se mantienen en silencio. Velur señala lo que merece una mirada, y dice cuándo no está seguro." },
+        { title: "Mantienes el control", body: "Velur explica, tú decides. Si un brief se equivoca, respondes y se corrige." },
+      ],
     },
     diff: {
       eyebrow: "Por qué Velur",
@@ -667,6 +671,24 @@ export default function HomeContent() {
         </div>
       </section>
 
+      {/* ════ 5.5 · TRUST, visible, not in footnotes ════ */}
+      <section className="bg-canvas border-t border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
+        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-4">{c.trust.eyebrow}</p>
+          <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-12 max-w-[22ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
+            {c.trust.h2}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+            {c.trust.points.map((p) => (
+              <div key={p.title} className="gs-batch rounded-[18px] border border-line bg-paper p-6">
+                <h3 className="font-display font-normal text-ink-strong text-[17px] tracking-[-0.01em] mb-2.5">{p.title}</h3>
+                <p className="font-sans text-[14px] text-ink/75 leading-[1.55]">{p.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ════ 6 · QUESTIONS, gooey tabs by question category ════ */}
       <section className="bg-stone-200 border-y border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
@@ -814,41 +836,6 @@ export default function HomeContent() {
             );
           })()}
         </AnimatePresence>
-      </section>
-
-      {/* ════ 8 · THE SHIFT, before / with Velur as gooey tabs ════ */}
-      <section className="bg-canvas" style={{ padding: "0 var(--gutter) var(--section-y)" }}>
-        <div className="gs-rise" style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <GooeyTabs
-            tabs={[
-              {
-                label: c.shift.beforeLabel,
-                content: (
-                  <ul className="space-y-3.5 max-w-[64ch]">
-                    {c.shift.before.map((b) => (
-                      <li key={b} className="font-sans text-[15.5px] text-ink/60 leading-snug line-through decoration-ink/25 decoration-1">
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                ),
-              },
-              {
-                label: c.shift.afterLabel,
-                content: (
-                  <ul className="space-y-3.5 max-w-[64ch]">
-                    {c.shift.after.map((a) => (
-                      <li key={a} className="flex items-start gap-3">
-                        <CheckCircle2 size={20} strokeWidth={1.8} className="text-signal-green shrink-0 mt-0.5" />
-                        <span className="font-sans text-[15.5px] text-ink leading-snug">{a}</span>
-                      </li>
-                    ))}
-                  </ul>
-                ),
-              },
-            ]}
-          />
-        </div>
       </section>
 
       {/* ════ 8.5 · DIFFERENTIATION, why not a dashboard / chatbot ════ */}
