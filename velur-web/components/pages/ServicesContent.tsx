@@ -23,15 +23,15 @@ const COPY = {
     hero: {
       eyebrow: "Revenue Intelligence",
       h1: "The platform that ties your stack to revenue.",
-      body: "Shopify, Meta, Stripe, Recharge, Google Ads and Klaviyo connected to one daily brief. We tell you what actually moved money last night, in plain English, before your team is even online.",
+      body: "Shopify, Meta, Stripe, Recharge, Google Ads and Klaviyo connected to one daily brief. It tells you what changed last night and the most likely drivers, in plain English, before your team is even online.",
       cta1: "Join the waitlist",
       cta2: "How it works",
     },
     mock: {
-      briefEyebrow: "Today's brief · 08:02",
-      briefHeadline: "Net revenue up 12% week-over-week.",
+      briefEyebrow: "Example brief · 08:02",
+      briefHeadline: "Net revenue +12% week-over-week.",
       briefBody:
-        "Meta creative drove 38% of the lift. Klaviyo win-back flow underperformed, pause variant B.",
+        "Most likely driver: Meta creative. Flag to review: Klaviyo win-back flow is underperforming.",
       roasLabel: "ROAS, blended",
     },
     platform: {
@@ -52,13 +52,13 @@ const COPY = {
       },
       {
         label: "Attribution",
-        title: "iOS14 broke this. We rebuilt it.",
-        body: "First-party events, server-side signals, and modeled conversions feeding one CAC and one ROAS per channel, per campaign, per creative. No more arguing with Meta's number versus Shopify's number.",
+        title: "iOS14 broke attribution. Velur models around it.",
+        body: "First-party events, server-side signals and modeled conversions feed one blended CAC and one blended ROAS per channel. Velur shows the platform-reported numbers alongside the blended view, and flags when they diverge.",
         bullets: [
           "Server-side Meta and Google events",
           "Modeled CAC by channel and creative",
           "Margin-adjusted ROAS, not gross",
-          "Honest delta vs platform numbers",
+          "Clear delta vs platform-reported numbers",
         ],
       },
       {
@@ -75,7 +75,7 @@ const COPY = {
       {
         label: "Creative intelligence",
         title: "Which post actually sold something.",
-        body: "Tag every Meta and Instagram creative with metadata when it ships. We tie views, saves, and clicks back to orders and margin, not just engagement.",
+        body: "Tag every Meta and Instagram creative with metadata when it ships. Velur ties views, saves and clicks back to orders and margin, not just engagement.",
         bullets: [
           "Meta and Instagram tracked together",
           "Hook-by-hook revenue, not engagement",
@@ -86,20 +86,20 @@ const COPY = {
     ],
     onboard: {
       eyebrow: "Onboarding",
-      heading: "We're onboarding the first brands now.",
-      body: "We handle the integrations and the backfill. Your team needs an OAuth approval and twenty minutes on a Wednesday. Join the waitlist and we'll reach out when the next seat opens.",
+      heading: "I'm onboarding the first brands now.",
+      body: "I handle the integrations and the backfill. Your team needs an OAuth approval and twenty minutes on a Wednesday. Join the waitlist and I'll reach out when the next seat opens.",
       cta: "Join the waitlist",
     },
     steps: [
-      { label: "Step 01", title: "Plug in your stack.",     body: "Shopify, Meta, Stripe, Recharge, Google Ads and Klaviyo. OAuth or read-only keys." },
-      { label: "Step 02", title: "We backfill 18 months.",  body: "Orders, sessions, ad spend, creative metadata, email events. So your first brief is not reading a week of noise." },
-      { label: "Step 03", title: "First brief lands.",      body: "One paragraph, three numbers, two recommendations. If it is wrong, you reply and we recalibrate the next day." },
-      { label: "Step 04", title: "You own the keys.",       body: "Every SQL model, every dashboard, every score function in your repo, under your name. Cancel anytime." },
+      { label: "Step 01", title: "Plug in your stack.",      body: "Shopify, Meta, Stripe, Recharge, Google Ads and Klaviyo. Read-only OAuth or read-only keys." },
+      { label: "Step 02", title: "Velur backfills 90 days.", body: "Orders, sessions, ad spend, creative metadata, email events. So your first brief isn't reading a week of noise." },
+      { label: "Step 03", title: "First brief lands.",       body: "One short note: a few numbers, what changed, a couple of things to look at. If it's wrong, you reply and I recalibrate the next day." },
+      { label: "Step 04", title: "You stay in control.",     body: "Read-only access you can revoke anytime. Export your data and disconnect whenever you want. No lock-in." },
     ],
     howDeep: {
       eyebrow: "How Velur works",
-      heading: "From fragmented tools to one reasoning layer.",
-      intro: "Velur is not a dashboard you check, it's an intelligence layer that reads your whole business and reports back. Here is exactly what happens between connecting your first tool and making a better decision.",
+      heading: "From fragmented tools to one clear read.",
+      intro: "Velur isn't a dashboard you check. It reads across your connected tools and reports back in plain language. Here is what happens between connecting your first tool and your first brief.",
       stages: [
         {
           num: "01",
@@ -114,7 +114,7 @@ const COPY = {
         {
           num: "02",
           title: "Unify",
-          body: "Velur backfills eighteen months of history and normalises every source onto a single modelled timeline, orders, spend, sessions, flows, charges and refunds, all speaking the same schema.",
+          body: "Velur backfills 90 days of history and normalises every source onto a single modelled timeline, orders, spend, sessions, flows, charges and refunds, all speaking the same schema.",
           details: [
             "One customer record across Shopify, Klaviyo and Stripe",
             "Currency, timezone and attribution-window normalisation",
@@ -123,32 +123,32 @@ const COPY = {
         },
         {
           num: "03",
-          title: "Reason",
-          body: "This is the layer dashboards never had. Large language models analyse the relationships across marketing, commerce, finance and customer behaviour, why revenue moved, which channel actually drove it, what changes next.",
+          title: "Compute",
+          body: "Velur calculates the metrics and deltas deterministically, then a language model explains them in plain words, what changed, the most likely drivers, and what to look at. It surfaces correlations and likely drivers, not proven causes.",
           details: [
-            "Cross-source causality: spend → sessions → orders → margin",
-            "Cohort and LTV models per channel, product and price point",
-            "Anomaly detection with the probable cause attached",
+            "Cross-source context: spend, sessions, orders, margin on one timeline",
+            "Metrics and deltas computed deterministically, not guessed",
+            "Unusual movements flagged with the most likely driver",
           ],
         },
         {
           num: "04",
           title: "Deliver",
-          body: "Intelligence arrives as a written brief at 8am, what moved, why, what to do today. Forecasts come with their assumptions shown. Risks come with time left to act.",
+          body: "A written brief lands each morning, what changed, the most likely drivers, what to look at. Flags come with the numbers behind them, so you can check before you act.",
           details: [
             "Daily brief in your inbox, no login required",
-            "Forecast split by new, expansion, contraction and churn",
-            "Risk flags: churn signals, campaign decay, broken flows",
+            "Revenue broken down by new, returning and churned",
+            "Flags: unusual churn, efficiency drops, flows that changed",
           ],
         },
         {
           num: "05",
           title: "Decide",
-          body: "You make the call. Every recommendation is tied to the number it moves, and every number traces back to its raw sources, so you decide faster and can defend the decision.",
+          body: "You make the call. Every figure traces back to its raw sources, so you can check the brief instead of just trusting it, and reply if something looks off.",
           details: [
-            "Recommendations ranked by expected revenue impact",
+            "Pointers to what looks worth a closer look",
             "Every metric traceable to its source data",
-            "Models and dashboards live in your repo, cancel anytime",
+            "Read-only access you can revoke anytime, no lock-in",
           ],
         },
       ],
@@ -169,15 +169,15 @@ const COPY = {
     hero: {
       eyebrow: "Revenue Intelligence",
       h1: "La plataforma que conecta tu stack con los ingresos.",
-      body: "Shopify, Meta, Stripe, Recharge, Google Ads y Klaviyo conectados a un único informe diario. Te contamos qué movió el dinero anoche, en lenguaje claro, antes incluso de que tu equipo se haya conectado.",
+      body: "Shopify, Meta, Stripe, Recharge, Google Ads y Klaviyo conectados a un único informe diario. Te dice qué cambió anoche y los factores más probables, en lenguaje claro, antes incluso de que tu equipo se haya conectado.",
       cta1: "Unirse a la lista",
       cta2: "Cómo funciona",
     },
     mock: {
-      briefEyebrow: "Informe de hoy · 08:02",
+      briefEyebrow: "Ejemplo de brief · 08:02",
       briefHeadline: "Ingresos netos +12% respecto a la semana pasada.",
       briefBody:
-        "La creatividad de Meta generó el 38% de la subida. El flujo de recuperación de Klaviyo no rinde, pausa la variante B.",
+        "Factor más probable: creatividad de Meta. A revisar: el flujo de recuperación de Klaviyo está rindiendo por debajo.",
       roasLabel: "ROAS combinado",
     },
     platform: {
@@ -198,13 +198,13 @@ const COPY = {
       },
       {
         label: "Atribución",
-        title: "iOS14 rompió esto. Lo hemos reconstruido.",
-        body: "Eventos de primera parte, señales del lado del servidor y conversiones modeladas alimentando un único CAC y un único ROAS por canal, por campaña, por creativo. Se acabó la pelea entre el número de Meta y el de Shopify.",
+        title: "iOS14 rompió la atribución. Velur la modela.",
+        body: "Eventos de primera parte, señales del lado del servidor y conversiones modeladas alimentan un CAC combinado y un ROAS combinado por canal. Velur muestra las cifras que reportan las plataformas junto a la vista combinada, y señala cuándo divergen.",
         bullets: [
           "Eventos server-side de Meta y Google",
           "CAC modelado por canal y creativo",
           "ROAS ajustado por margen, no bruto",
-          "Delta honesto frente a las cifras de las plataformas",
+          "Delta claro frente a las cifras que reportan las plataformas",
         ],
       },
       {
@@ -221,7 +221,7 @@ const COPY = {
       {
         label: "Inteligencia creativa",
         title: "Qué publicación vendió de verdad.",
-        body: "Etiquetamos cada creativo de Meta e Instagram con metadatos cuando se publica. Conectamos vistas, guardados y clics con pedidos y margen, no solo con engagement.",
+        body: "Etiquetamos cada creativo de Meta e Instagram con metadatos cuando se publica. Velur conecta vistas, guardados y clics con pedidos y margen, no solo con engagement.",
         bullets: [
           "Meta e Instagram medidos juntos",
           "Ingresos hook a hook, no engagement",
@@ -232,20 +232,20 @@ const COPY = {
     ],
     onboard: {
       eyebrow: "Onboarding",
-      heading: "Estamos onboardeando las primeras marcas.",
-      body: "Nosotros nos encargamos de las integraciones y del backfill. Tu equipo solo necesita aprobar el OAuth y dedicarnos veinte minutos un miércoles. Únete a la lista y te escribiremos cuando se abra el siguiente cupo.",
+      heading: "Estoy onboardeando las primeras marcas.",
+      body: "Yo me encargo de las integraciones y del backfill. Tu equipo solo necesita aprobar el OAuth y dedicarme veinte minutos un miércoles. Únete a la lista y te escribiré cuando se abra el siguiente cupo.",
       cta: "Unirse a la lista",
     },
     steps: [
-      { label: "Paso 01", title: "Conecta tu stack.",            body: "Shopify, Meta, Stripe, Recharge, Google Ads y Klaviyo. OAuth o claves de solo lectura." },
-      { label: "Paso 02", title: "Hacemos backfill de 18 meses.", body: "Pedidos, sesiones, inversión publicitaria, metadatos creativos, eventos de email. Así tu primer informe no está leyendo una semana de ruido." },
-      { label: "Paso 03", title: "Llega el primer informe.",      body: "Un párrafo, tres números, dos recomendaciones. Si algo no encaja, respondes y recalibramos al día siguiente." },
-      { label: "Paso 04", title: "Las llaves son tuyas.",         body: "Cada modelo SQL, cada dashboard, cada función de scoring en tu repositorio, a tu nombre. Cancela cuando quieras." },
+      { label: "Paso 01", title: "Conecta tu stack.",              body: "Shopify, Meta, Stripe, Recharge, Google Ads y Klaviyo. OAuth o claves de solo lectura." },
+      { label: "Paso 02", title: "Velur hace backfill de 90 días.", body: "Pedidos, sesiones, inversión publicitaria, metadatos creativos, eventos de email. Así tu primer informe no está leyendo una semana de ruido." },
+      { label: "Paso 03", title: "Llega el primer informe.",       body: "Una nota corta: algunos números, qué cambió, un par de cosas que revisar. Si algo no encaja, respondes y recalibro al día siguiente." },
+      { label: "Paso 04", title: "Mantienes el control.",          body: "Acceso de solo lectura que puedes revocar cuando quieras. Exporta tus datos y desconecta en cualquier momento. Sin lock-in." },
     ],
     howDeep: {
       eyebrow: "Cómo funciona Velur",
-      heading: "De herramientas fragmentadas a una sola capa que razona.",
-      intro: "Velur no es un dashboard que consultas, es una capa de inteligencia que lee todo tu negocio y te informa. Esto es exactamente lo que pasa entre conectar tu primera herramienta y tomar una decisión mejor.",
+      heading: "De herramientas fragmentadas a una lectura clara.",
+      intro: "Velur no es un dashboard que consultas. Lee tus herramientas conectadas y te informa en lenguaje claro. Esto es lo que pasa entre conectar tu primera herramienta y tu primer brief.",
       stages: [
         {
           num: "01",
@@ -260,7 +260,7 @@ const COPY = {
         {
           num: "02",
           title: "Unifica",
-          body: "Velur hace backfill de dieciocho meses de histórico y normaliza cada fuente en una sola línea de tiempo modelada, pedidos, inversión, sesiones, flujos, cargos y reembolsos, todos hablando el mismo esquema.",
+          body: "Velur hace backfill de 90 días de histórico y normaliza cada fuente en una sola línea de tiempo modelada, pedidos, inversión, sesiones, flujos, cargos y reembolsos, todos hablando el mismo esquema.",
           details: [
             "Un solo registro de cliente entre Shopify, Klaviyo y Stripe",
             "Normalización de moneda, zona horaria y ventana de atribución",
@@ -269,32 +269,32 @@ const COPY = {
         },
         {
           num: "03",
-          title: "Razona",
-          body: "Esta es la capa que los dashboards nunca tuvieron. Grandes modelos de lenguaje analizan las relaciones entre marketing, comercio, finanzas y comportamiento del cliente, por qué se movieron los ingresos, qué canal lo generó de verdad, qué cambia después.",
+          title: "Calcula",
+          body: "Velur calcula las métricas y deltas de forma determinista, y luego un modelo de lenguaje las explica en palabras claras, qué cambió, los factores más probables y qué revisar. Muestra correlaciones y factores probables, no causas demostradas.",
           details: [
-            "Causalidad entre fuentes: inversión → sesiones → pedidos → margen",
-            "Modelos de cohortes y LTV por canal, producto y precio",
-            "Detección de anomalías con la causa probable adjunta",
+            "Contexto entre fuentes: inversión, sesiones, pedidos y margen en una línea de tiempo",
+            "Métricas y deltas calculados de forma determinista, no adivinados",
+            "Movimientos inusuales señalados con el factor más probable",
           ],
         },
         {
           num: "04",
           title: "Entrega",
-          body: "La inteligencia llega como un brief escrito a las 8 de la mañana, qué se movió, por qué, qué hacer hoy. Los forecasts llegan con sus supuestos a la vista. Los riesgos llegan con tiempo para actuar.",
+          body: "Un brief escrito llega cada mañana, qué cambió, los factores más probables, qué revisar. Las señales llegan con los números detrás, para que compruebes antes de actuar.",
           details: [
             "Brief diario en tu bandeja de entrada, sin necesidad de login",
-            "Forecast desglosado en nuevo, expansión, contracción y churn",
-            "Alertas de riesgo: señales de churn, decaimiento de campañas, flujos rotos",
+            "Ingresos desglosados en nuevo, recurrente y churn",
+            "Señales: churn inusual, caídas de eficiencia, flujos que cambiaron",
           ],
         },
         {
           num: "05",
           title: "Decide",
-          body: "Tú tomas la decisión. Cada recomendación está atada al número que mueve, y cada número se rastrea hasta sus fuentes, decides más rápido y puedes defender la decisión.",
+          body: "Tú tomas la decisión. Cada cifra se rastrea hasta sus fuentes, para que compruebes el brief en vez de solo confiar en él, y respondas si algo no encaja.",
           details: [
-            "Recomendaciones ordenadas por impacto esperado en ingresos",
+            "Pistas de qué parece que merece una mirada más cercana",
             "Cada métrica trazable hasta sus datos de origen",
-            "Modelos y dashboards viven en tu repositorio, cancela cuando quieras",
+            "Acceso de solo lectura que puedes revocar cuando quieras, sin lock-in",
           ],
         },
       ],

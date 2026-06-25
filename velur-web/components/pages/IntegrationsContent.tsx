@@ -21,7 +21,7 @@ const COPY = {
     securityCards: [
       { icon: "lock",  title: "Read-only OAuth",          body: "Every integration uses the platform's official OAuth flow with read-only scopes. We never request write access. Disconnect from your platform's settings at any time and the connection drops immediately." },
       { icon: "shield",title: "EU-hosted processing",    body: "Data is processed and stored on EU infrastructure under GDPR-compliant DPAs. Your revenue data stays yours, never resold, never used to train shared models, never shared with other brands." },
-      { icon: "check", title: "No warehouse required",   body: "You don't need BigQuery, Snowflake, or a data engineer. Velur handles modeling, normalization and orchestration. The setup is the OAuth click, then we backfill the last 18 months." },
+      { icon: "check", title: "No warehouse required",   body: "You don't need BigQuery, Snowflake, or a data engineer. Velur handles modeling, normalization and orchestration. The setup is the OAuth click, then Velur backfills the last 90 days." },
     ],
     integrationsEyebrow: "The stack",
     integrationsHeading: "Six tools. The core of how DTC revenue flows.",
@@ -95,7 +95,7 @@ const COPY = {
     securityCards: [
       { icon: "lock",   title: "OAuth de solo lectura",       body: "Cada integración usa el flujo OAuth oficial de la plataforma con permisos de solo lectura. Nunca pedimos acceso de escritura. Desconecta desde tu plataforma cuando quieras y la conexión cae al instante." },
       { icon: "shield", title: "Procesamiento en la UE",      body: "Los datos se procesan y almacenan en infraestructura europea bajo acuerdos DPA conformes con el RGPD. Tus datos de ingresos son tuyos, nunca los revendemos, nunca los usamos para entrenar modelos compartidos, nunca los compartimos con otras marcas." },
-      { icon: "check",  title: "Sin warehouse necesario",     body: "No necesitas BigQuery, Snowflake ni ingeniero de datos. Velur se encarga del modelado, la normalización y la orquestación. El setup es el clic de OAuth, y luego hacemos backfill de los últimos 18 meses." },
+      { icon: "check",  title: "Sin warehouse necesario",     body: "No necesitas BigQuery, Snowflake ni ingeniero de datos. Velur se encarga del modelado, la normalización y la orquestación. El setup es el clic de OAuth, y luego Velur hace backfill de los últimos 90 días." },
     ],
     integrationsEyebrow: "El stack",
     integrationsHeading: "Seis herramientas. El núcleo de cómo fluyen los ingresos DTC.",

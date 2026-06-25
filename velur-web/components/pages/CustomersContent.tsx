@@ -36,7 +36,7 @@ const COPY = {
     teamBody: "Most analytics products assume you already have the infrastructure to run them. Velur assumes you don't, and ships everything in the box.",
     teamPoints: [
       { yes: true,  text: "OAuth into Shopify, Klaviyo, your ad accounts, Stripe, Recharge. Minutes, not weeks." },
-      { yes: true,  text: "Velur backfills 18 months of history on its own infrastructure." },
+      { yes: true,  text: "Velur backfills 90 days of history on its own infrastructure." },
       { yes: true,  text: "Data modelling, normalisation, and the intelligence layer ship with the product." },
       { yes: true,  text: "Daily revenue brief written for the person making decisions, not for the analyst." },
       { yes: false, text: "You don't need BigQuery, Snowflake, dbt, Fivetran, or a warehouse subscription." },
@@ -112,7 +112,7 @@ const COPY = {
     teamBody: "La mayoría de productos de analítica asumen que ya tienes la infraestructura para ejecutarlos. Velur asume que no la tienes, y entrega todo en la caja.",
     teamPoints: [
       { yes: true,  text: "OAuth a Shopify, Klaviyo, tus cuentas publicitarias, Stripe, Recharge. Minutos, no semanas." },
-      { yes: true,  text: "Velur hace backfill de 18 meses de histórico sobre su propia infraestructura." },
+      { yes: true,  text: "Velur hace backfill de 90 días de histórico sobre su propia infraestructura." },
       { yes: true,  text: "Modelado de datos, normalización y capa de inteligencia incluidos con el producto." },
       { yes: true,  text: "Brief diario de ingresos escrito para la persona que toma las decisiones, no para la analista." },
       { yes: false, text: "No necesitas BigQuery, Snowflake, dbt, Fivetran ni suscripción a un warehouse." },

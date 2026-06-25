@@ -30,16 +30,16 @@ const COPY = {
     heroLineLead: "Technology is how businesses",
     heroLineTail: "reach what they couldn't before.",
     heroBody:
-      "Velur is built on one conviction: used well, data and AI help businesses discover and decide things they otherwise couldn't, value far beyond the numbers. We're a small team working across data science, machine learning and applied AI, building the intelligence layer modern businesses are missing.",
+      "Velur is built on one conviction: used well, data and AI help businesses see and decide things they otherwise couldn't. I'm a solo founder, a data analyst and operator, building the revenue intelligence layer that small and mid-size businesses are missing.",
 
     journeyEyebrow: "The journey",
     journeyHeading: "How we got to one intelligence layer.",
     journey: [
       {
         ghost: "01",
-        eyebrow: "What we kept seeing",
+        eyebrow: "What I kept seeing",
         title: "Every business runs on the same broken setup.",
-        body: "Across ecommerce, retail and fashion, subscription, logistics and transportation, we kept finding the same thing, six or seven tools per business, none of them speaking to each other, and a person stuck in the middle stitching the truth together by hand.",
+        body: "Across ecommerce, retail and fashion, subscription, logistics and transportation, I kept finding the same thing, six or seven tools per business, none of them speaking to each other, and a person stuck in the middle stitching the truth together by hand.",
       },
       {
         ghost: "02",
@@ -49,22 +49,22 @@ const COPY = {
       },
       {
         ghost: "03",
-        eyebrow: "What we're building",
-        title: "One layer of intelligence above everything.",
-        body: "Velur connects every data source a business already runs into a single reasoning layer, so instead of ten dashboards to read, there's one clear answer, already written when the day starts.",
+        eyebrow: "What I'm building",
+        title: "One clear read above everything.",
+        body: "Velur connects the data sources a business already runs onto a single timeline, so instead of ten dashboards to read, there's one clear written summary when the day starts.",
       },
       {
         ghost: "04",
         eyebrow: "Where this goes",
-        title: "AI that understands an entire business.",
-        body: "We believe the businesses that win the next decade will be the ones whose data finally works as one. We're building the layer that makes that ordinary.",
+        title: "AI that helps you read an entire business.",
+        body: "I believe the businesses that do well over the next decade will be the ones whose data finally works as one. I'm building the layer that makes that ordinary.",
       },
     ],
 
-    beliefEyebrow: "What we believe",
-    beliefHeading: "We're fascinated by what technology lets us become.",
+    beliefEyebrow: "What I believe",
+    beliefHeading: "I'm fascinated by what technology lets us become.",
     beliefStatement:
-      "Modern AI is finally giving software a real understanding of how a business works. We're building the technology that makes that understanding widely available, to every business, not just the ones with a data team.",
+      "Modern AI finally lets software read and explain how a business is performing, in plain language. I'm building Velur to make that genuinely useful for the businesses that don't have a data team, as decision support, not a replacement for judgement.",
 
     intro: {
       eyebrow: "The founder",
@@ -93,16 +93,16 @@ const COPY = {
     heroLineLead: "La tecnología es cómo los negocios",
     heroLineTail: "alcanzan lo que antes no podían.",
     heroBody:
-      "Velur se construye sobre una convicción: bien usados, los datos y la IA ayudan a los negocios a descubrir y decidir cosas que de otro modo no podrían, valor mucho más allá de los números. Somos un equipo pequeño que trabaja en data science, machine learning e IA aplicada, construyendo la capa de inteligencia que les falta a los negocios de hoy.",
+      "Velur se construye sobre una convicción: bien usados, los datos y la IA ayudan a los negocios a ver y decidir cosas que de otro modo no podrían. Soy un fundador en solitario, analista de datos y operador, construyendo la capa de inteligencia de ingresos que les falta a las pequeñas y medianas empresas.",
 
     journeyEyebrow: "El recorrido",
     journeyHeading: "Cómo llegamos a una sola capa de inteligencia.",
     journey: [
       {
         ghost: "01",
-        eyebrow: "Lo que veíamos una y otra vez",
+        eyebrow: "Lo que veía una y otra vez",
         title: "Cada negocio corre con el mismo montaje roto.",
-        body: "En ecommerce, retail y moda, suscripción, logística y transporte, encontrábamos siempre lo mismo, seis o siete herramientas por negocio, ninguna hablando con la siguiente, y una persona atrapada en el medio cosiendo la verdad a mano.",
+        body: "En ecommerce, retail y moda, suscripción, logística y transporte, encontraba siempre lo mismo, seis o siete herramientas por negocio, ninguna hablando con la siguiente, y una persona atrapada en el medio cosiendo la verdad a mano.",
       },
       {
         ghost: "02",
@@ -112,22 +112,22 @@ const COPY = {
       },
       {
         ghost: "03",
-        eyebrow: "Lo que construimos",
-        title: "Una capa de inteligencia por encima de todo.",
-        body: "Velur conecta cada fuente de datos que un negocio ya usa en una sola capa de razonamiento, para que en lugar de diez dashboards que leer, haya una respuesta clara, ya escrita cuando empieza el día.",
+        eyebrow: "Lo que construyo",
+        title: "Una lectura clara por encima de todo.",
+        body: "Velur conecta las fuentes de datos que un negocio ya usa en una sola línea de tiempo, para que en lugar de diez dashboards que leer, haya un resumen claro escrito cuando empieza el día.",
       },
       {
         ghost: "04",
         eyebrow: "Hacia dónde va",
-        title: "IA que entiende un negocio entero.",
-        body: "Creemos que los negocios que ganen la próxima década serán aquellos cuyos datos por fin funcionen como uno. Construimos la capa que hace que eso sea lo normal.",
+        title: "IA que te ayuda a leer un negocio entero.",
+        body: "Creo que los negocios que vayan bien en la próxima década serán aquellos cuyos datos por fin funcionen como uno. Construyo la capa que hace que eso sea lo normal.",
       },
     ],
 
-    beliefEyebrow: "Lo que creemos",
-    beliefHeading: "Nos fascina en qué nos permite convertirnos la tecnología.",
+    beliefEyebrow: "Lo que creo",
+    beliefHeading: "Me fascina en qué nos permite convertirnos la tecnología.",
     beliefStatement:
-      "La IA moderna por fin le da al software una comprensión real de cómo funciona un negocio. Construimos la tecnología que hace que esa comprensión esté ampliamente disponible, para cualquier negocio, no solo los que tienen un equipo de datos.",
+      "La IA moderna por fin permite que el software lea y explique cómo está rindiendo un negocio, en lenguaje claro. Construyo Velur para que eso sea de verdad útil para los negocios que no tienen un equipo de datos, como apoyo a la decisión, no un sustituto del criterio.",
 
     intro: {
       eyebrow: "El fundador",

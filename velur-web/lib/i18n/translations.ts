@@ -315,7 +315,7 @@ const en = {
         items: [
           {
             q: "What do you actually do? Is this another dashboard tool?",
-            a: "We're a revenue intelligence layer, which is fundamentally different from a dashboard. A dashboard shows you numbers. We show you numbers and tell you why they moved, which ones to act on, and what to do next. Every metric comes with an AI analyst note in plain English. Think of it as a senior data analyst available every morning, not another set of charts to stare at.",
+            a: "Velur is a revenue intelligence layer, which is different from a dashboard. A dashboard shows you numbers. Velur shows you what changed, the most likely drivers, and what to look at next, with every figure traceable to its source. Each metric comes with a plain-English note. It's decision support, not a replacement for your judgement or your analyst.",
           },
           {
             q: "How are you different from Triple Whale, Northbeam, or Daasity?",
@@ -323,7 +323,7 @@ const en = {
           },
           {
             q: "What does the daily revenue briefing include?",
-            a: "Every morning, we generate a briefing that surfaces your key metrics, net revenue, MRR, blended ROAS, contribution margin, alongside an AI-written note explaining the movements. If your revenue dropped 12% yesterday, we tell you it was driven by a drop in Meta conversion rate on your acquisition campaigns, correlated with a delivery delay in Shopify. Not just the number, the story behind it.",
+            a: "Every morning, Velur generates a briefing that surfaces your key metrics, net revenue, MRR, blended ROAS, contribution margin, alongside a plain-English note explaining the movements. If your revenue dropped 12% yesterday, Velur points to the most likely drivers, for example a drop in Meta conversion rate alongside a delivery delay showing in Shopify. It shows correlations and leaves causation to your judgement, with the numbers behind each one.",
           },
           {
             q: "Can you replace my existing analytics tools?",
@@ -778,7 +778,7 @@ const es: typeof en = {
         items: [
           {
             q: "¿Qué es exactamente Velur? ¿Es otra herramienta de dashboards?",
-            a: "Velur es una plataforma de inteligencia de ingresos, algo fundamentalmente distinto a un dashboard. Un dashboard te muestra números. Velur te muestra números y te explica por qué se movieron, cuáles requieren acción y qué hacer a continuación. Cada métrica incluye una nota analítica de IA en lenguaje natural. Piensa en ello como tener un analista de datos senior disponible cada mañana, no un conjunto de gráficos en los que quedarte mirando.",
+            a: "Velur es una capa de inteligencia de ingresos, algo distinto a un dashboard. Un dashboard te muestra números. Velur te muestra qué cambió, los factores más probables y qué revisar a continuación, con cada cifra trazable hasta su fuente. Cada métrica incluye una nota en lenguaje claro. Es apoyo a la decisión, no un sustituto de tu criterio ni de tu analista.",
           },
           {
             q: "¿En qué se diferencia Velur de Triple Whale, Northbeam o Daasity?",
@@ -786,7 +786,7 @@ const es: typeof en = {
           },
           {
             q: "¿Qué es el informe de ingresos diario y qué incluye?",
-            a: "Cada mañana, Velur genera un informe que muestra tus métricas clave, ingresos netos, MRR, ROAS combinado, margen de contribución, junto con una nota escrita por IA que explica los movimientos. Si tus ingresos bajaron un 12% ayer, Velur te dirá que fue por una caída en la tasa de conversión de Meta en tus campañas de adquisición, correlacionada con un retraso de entrega de 3 días que aparece en Shopify. No solo el número, la historia detrás.",
+            a: "Cada mañana, Velur genera un informe que muestra tus métricas clave, ingresos netos, MRR, ROAS combinado, margen de contribución, junto con una nota en lenguaje claro que explica los movimientos. Si tus ingresos bajaron un 12% ayer, Velur apunta a los factores más probables, por ejemplo una caída en la tasa de conversión de Meta junto a un retraso de entrega que aparece en Shopify. Muestra correlaciones y deja la causalidad a tu criterio, con los números detrás de cada una.",
           },
           {
             q: "¿Puede Velur reemplazar mis herramientas de análisis actuales?",

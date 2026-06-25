@@ -86,7 +86,7 @@ const COPY = {
       heading: "Curious? Let's clear things up.",
       items: [
         { q: "Does this actually look professional or like obvious AI?",     a: "Both have happened. The packs and the course teach you how to control output so it looks like real photography, with brand-consistent props, lighting, and composition. The first attempts will look AI. By week two they shouldn't." },
-        { q: "Can I use this material to train AI?",                         a: "No. The prompts and templates are licensed for your direct use, not as training data for other models. We are a small team and we ask that you respect this." },
+        { q: "Can I use this material to train AI?",                         a: "No. The prompts and templates are licensed for your direct use, not as training data for other models. Velur is a small, independent product, and I ask that you respect this." },
         { q: "What if I do not match the categories you cover?",             a: "Reach out. We have shipped work for spa, beauty, jewelry, hospitality, DTC apparel, food and drink, and coffee subscriptions. If your niche is close to one of those, we can adapt the prompt structure on a call." },
         { q: "How long does it take to see results?",                        a: "Most teams ship their first usable asset on day one with the starter guide. Real revenue impact, defined as a campaign that pays for itself, typically lands within four to six weeks." },
         { q: "Do I need to be technical?",                                   a: "No. If you can copy and paste, and if you have credit on Higgsfield or MidJourney, you have everything you need." },
@@ -175,7 +175,7 @@ const COPY = {
       heading: "¿Con dudas? Vamos a aclararlo.",
       items: [
         { q: "¿Esto va a parecer profesional o se va a notar que es IA?",                          a: "Las dos cosas han pasado. Los packs y el curso te enseñan a controlar el output para que parezca fotografía real, con props, iluminación y composición consistentes con tu marca. Los primeros intentos parecerán IA. En la segunda semana ya no deberían." },
-        { q: "¿Puedo usar este material para entrenar IA?",                                       a: "No. Los prompts y plantillas están licenciados para tu uso directo, no como datos de entrenamiento para otros modelos. Somos un equipo pequeño y te pedimos que lo respetes." },
+        { q: "¿Puedo usar este material para entrenar IA?",                                       a: "No. Los prompts y plantillas están licenciados para tu uso directo, no como datos de entrenamiento para otros modelos. Velur es un producto pequeño e independiente, y te pido que lo respetes." },
         { q: "¿Y si mi sector no encaja con las categorías que cubrís?",                          a: "Escríbenos. Hemos lanzado trabajo para spa, belleza, joyería, hostelería, moda DTC, comida y bebida, y suscripciones de café. Si tu nicho está cerca de alguno, podemos adaptar la estructura de prompts en una llamada." },
         { q: "¿Cuánto tarda en verse resultados?",                                                a: "La mayoría de clientes lanza su primer activo útil el primer día con la guía de iniciación. El impacto real en ingresos, definido como una campaña que se paga sola, suele llegar entre la cuarta y la sexta semana." },
         { q: "¿Tengo que tener conocimientos técnicos?",                                          a: "No. Si sabes copiar y pegar, y tienes crédito en Higgsfield o MidJourney, tienes todo lo que necesitas." },
