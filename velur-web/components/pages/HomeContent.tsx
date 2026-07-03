@@ -23,6 +23,10 @@ import {
   TrendingUp,
   ShieldAlert,
   Lightbulb,
+  Lock,
+  ScanSearch,
+  Gauge,
+  UserCheck,
   X,
 } from "lucide-react";
 
@@ -46,13 +50,13 @@ const COPY = {
   en: {
     hero: {
       eyebrow: "Revenue intelligence for DTC",
-      h1a: "Know what changed,",
-      h1b: "and what likely drove it.",
-      sub: "Velur connects your store, billing and ad accounts through read-only access, computes the numbers, and writes a short brief: what changed, the most likely drivers, and what to look at next. Every figure traces back to its source.",
+      h1a: "Your revenue, decoded",
+      h1b: "every morning.",
+      sub: "Velur connects your store, ads, billing and email through read-only access, reconciles everything onto one timeline, and writes the brief that explains your day: what changed, what's behind it, what to act on. Every number traces back to its source.",
       ctaPrimary: "Join the waitlist",
       ctaSecondary: "How it works",
       mediaChipLabel: "Example brief · 08:02",
-      mediaChipText: "Net revenue +12.4% w/w. Most likely driver: Meta creative. One Klaviyo flow worth a look.",
+      mediaChipText: "Net revenue +12.4% w/w. Driver: Meta creative. One Klaviyo flow needs attention.",
     },
     strip: {
       caption: "Reads from the tools you already run",
@@ -74,7 +78,7 @@ const COPY = {
     solution: {
       eyebrow: "The solution",
       h2: "Every tool, reconciled onto one timeline.",
-      body: "Velur pulls every order, charge, ad and subscription onto a single timeline and computes the metrics deterministically. A language model then explains them in plain words, what changed and the most likely drivers, with every number traceable to its source. Not another dashboard to read, a written summary of what moved and what to look at next.",
+      body: "Velur pulls every order, charge, ad and subscription onto a single timeline and computes the metrics deterministically. A language model then explains them in plain words, what changed and what's behind it, with every number traceable to its source. Not another dashboard to read, a written summary of what moved and what to look at next.",
       points: [
         "Verified metrics, reconciled daily from read-only data",
         "Plain-language summaries, not charts to decode",
@@ -94,7 +98,7 @@ const COPY = {
         { icon: "plug",   title: "Connect",         body: "Read-only OAuth into your tools. No engineering, and Velur can never write back." },
         { icon: "layers", title: "Reconcile",       body: "Velur backfills 90 days and reconciles every source onto one timeline." },
         { icon: "brain",  title: "Explain",         body: "Velur computes the metrics and deltas deterministically, then a language model explains them in plain words." },
-        { icon: "file",   title: "Your daily brief", body: "Each morning: what changed, the most likely drivers, and what to look at, with sources you can check. Reply if something looks off." },
+        { icon: "file",   title: "Your daily brief", body: "Each morning: what changed, what's behind it, and what to look at, with sources you can check. Reply if something looks off." },
       ],
     },
     questions: {
@@ -103,7 +107,7 @@ const COPY = {
       groups: [
         {
           label: "Revenue",
-          note: "Every movement linked to its most likely drivers, channel, creative, cohort or flow, with sources you can check.",
+          note: "Every movement linked to what drives it, channel, creative, cohort or flow, with sources you can check.",
           items: ["Why did revenue change this week?", "Where might we be losing money?"],
         },
         {
@@ -134,8 +138,8 @@ const COPY = {
           icon: "file",
           art: "/art/abstract-tiles.png",
           title: "The daily brief",
-          body: "One short note: what changed, the most likely drivers, what to look at. Written for the operator, in plain language.",
-          detail: "Each morning Velur reads the previous day across your connected tools, reconciles them onto one timeline, and writes a short brief: net revenue, what changed, the most likely driver, what's worth a look. It's a starting point for your day, not a replacement for your judgement, and every number links back to its source.",
+          body: "One short note: what changed, what's behind it, what to look at. Written for the operator, in plain language.",
+          detail: "Each morning Velur reads the previous day across your connected tools, reconciles them onto one timeline, and writes a short brief: net revenue, what changed, the driver behind it, what needs your attention. It's a starting point for your day, not a replacement for your judgement, and every number links back to its source.",
         },
         {
           icon: "trending",
@@ -147,16 +151,16 @@ const COPY = {
         {
           icon: "shield",
           art: "/art/abstract-cylinders.png",
-          title: "Movements worth a look",
+          title: "Signals before they cost you",
           body: "Velur flags unusual changes, a flow that shifted, a cohort retaining differently, a campaign losing efficiency, so you can look while it still matters.",
-          detail: "Velur watches for unusual movements across your data, a flow whose performance changed, a cohort retaining worse than before, a campaign losing efficiency, and flags them with the most likely driver attached. Flags are signals to review, not guarantees, and low-confidence ones are kept quiet so you're not chasing noise.",
+          detail: "Velur watches for unusual movements across your data, a flow whose performance changed, a cohort retaining worse than before, a campaign losing efficiency, and flags them with the driver behind it. Flags are signals to review, not guarantees, and low-confidence ones are kept quiet so you're not chasing noise.",
         },
         {
           icon: "bulb",
           art: "/art/abstract-petals.png",
           title: "Pointers, not commands",
-          body: "Velur points you to what changed and what looks worth a closer look, tied to the numbers behind it. You decide.",
-          detail: "Insight you can't use is just trivia. Velur points you to what changed and what looks worth a closer look, tied to the numbers behind it, so the next step is clearer. It's decision support, not autopilot: you make the call, and if it gets something wrong, you can tell it.",
+          body: "Velur points you to what changed and what needs a closer look, tied to the numbers behind it. You decide.",
+          detail: "Insight you can't use is just trivia. Velur points you to what changed and what needs a closer look, tied to the numbers behind it, so the next step is clearer. It's decision support, not autopilot: you make the call, and if it gets something wrong, you can tell it.",
         },
       ],
     },
@@ -166,7 +170,7 @@ const COPY = {
       points: [
         { title: "Read-only access", body: "Velur connects through official OAuth with read-only scopes. It reads your data, never changes it." },
         { title: "Source-backed numbers", body: "Every figure is computed deterministically and traces back to where it came from, so you can check it." },
-        { title: "Confidence-aware", body: "Low-confidence signals are kept quiet. Velur flags what's worth a look, and says when it's unsure." },
+        { title: "Confidence-aware", body: "Low-confidence signals are kept quiet. Velur flags what needs your attention, and says when it's unsure." },
         { title: "You stay in control", body: "Velur explains, you decide. If a brief gets something wrong, you reply and it's corrected." },
       ],
     },
@@ -176,7 +180,7 @@ const COPY = {
       rows: [
         {
           title: "Dashboards show numbers. Velur explains them.",
-          body: "BI tools draw the chart and stop. Velur reads across your connected sources and tells you, in plain writing, what changed and the most likely drivers, with the numbers behind it.",
+          body: "BI tools draw the chart and stop. Velur reads across your connected sources and tells you, in plain writing, what changed and what's behind it, with the numbers behind it.",
         },
         {
           title: "ChatGPT can't see your numbers. Velur can.",
@@ -203,7 +207,7 @@ const COPY = {
     },
     cta: {
       eyebrow: "Get started",
-      h2: "A clear read on your revenue, every morning.",
+      h2: "Your revenue, explained before your first coffee.",
       body: "Join the waitlist and I'll reach out personally when the next seat opens.",
       button: "Join the waitlist",
     },
@@ -212,13 +216,13 @@ const COPY = {
   es: {
     hero: {
       eyebrow: "Inteligencia de ingresos para DTC",
-      h1a: "Sabe qué cambió,",
-      h1b: "y qué lo impulsó probablemente.",
-      sub: "Velur conecta tu tienda, facturación y cuentas de anuncios con acceso de solo lectura, calcula los números y escribe un brief corto: qué cambió, los factores más probables y qué revisar a continuación. Cada cifra es trazable hasta su fuente.",
+      h1a: "Tus ingresos, descifrados",
+      h1b: "cada mañana.",
+      sub: "Velur conecta tu tienda, anuncios, facturación y email con acceso de solo lectura, lo reconcilia todo en una sola línea de tiempo y escribe el brief que explica tu día: qué cambió, qué hay detrás, sobre qué actuar. Cada número se rastrea hasta su fuente.",
       ctaPrimary: "Unirse a la lista",
       ctaSecondary: "Cómo funciona",
       mediaChipLabel: "Ejemplo de brief · 08:02",
-      mediaChipText: "Ingresos netos +12,4% s/s. Factor más probable: creatividad de Meta. Un flujo de Klaviyo a revisar.",
+      mediaChipText: "Ingresos netos +12,4% s/s. Factor: creatividad de Meta. Un flujo de Klaviyo a revisar.",
     },
     strip: {
       caption: "Lee de las herramientas que ya usas",
@@ -240,7 +244,7 @@ const COPY = {
     solution: {
       eyebrow: "La solución",
       h2: "Cada herramienta, reconciliada en una sola línea de tiempo.",
-      body: "Velur reúne cada pedido, cargo, anuncio y suscripción en una única línea de tiempo y calcula las métricas de forma determinista. Después un modelo de lenguaje las explica en palabras claras, qué cambió y los factores más probables, con cada número trazable hasta su fuente. No es otro dashboard que revisar, es un resumen escrito de qué se movió y qué revisar a continuación.",
+      body: "Velur reúne cada pedido, cargo, anuncio y suscripción en una única línea de tiempo y calcula las métricas de forma determinista. Después un modelo de lenguaje las explica en palabras claras, qué cambió y lo que hay detrás, con cada número trazable hasta su fuente. No es otro dashboard que revisar, es un resumen escrito de qué se movió y qué revisar a continuación.",
       points: [
         "Métricas verificadas, reconciliadas a diario desde datos de solo lectura",
         "Resúmenes en lenguaje claro, no gráficos que descifrar",
@@ -260,7 +264,7 @@ const COPY = {
         { icon: "plug",   title: "Conecta",        body: "OAuth de solo lectura a tus herramientas. Sin ingeniería, y Velur nunca puede escribir de vuelta." },
         { icon: "layers", title: "Reconcilia",     body: "Velur hace backfill de 90 días y reconcilia cada fuente en una sola línea de tiempo." },
         { icon: "brain",  title: "Explica",        body: "Velur calcula las métricas y deltas de forma determinista, y luego un modelo de lenguaje las explica en palabras claras." },
-        { icon: "file",   title: "Tu brief diario", body: "Cada mañana: qué cambió, los factores más probables y qué revisar, con fuentes que puedes comprobar. Responde si algo no encaja." },
+        { icon: "file",   title: "Tu brief diario", body: "Cada mañana: qué cambió, lo que hay detrás y qué revisar, con fuentes que puedes comprobar. Responde si algo no encaja." },
       ],
     },
     questions: {
@@ -300,8 +304,8 @@ const COPY = {
           icon: "file",
           art: "/art/abstract-tiles.png",
           title: "El brief diario",
-          body: "Una nota corta: qué cambió, los factores más probables, qué revisar. Escrita para quien opera, en lenguaje claro.",
-          detail: "Cada mañana Velur lee el día anterior en tus herramientas conectadas, las reconcilia en una sola línea de tiempo y escribe un brief corto: ingreso neto, qué cambió, el factor más probable, qué merece una mirada. Es un punto de partida para tu día, no un sustituto de tu criterio, y cada número enlaza con su fuente.",
+          body: "Una nota corta: qué cambió, lo que hay detrás, qué revisar. Escrita para quien opera, en lenguaje claro.",
+          detail: "Cada mañana Velur lee el día anterior en tus herramientas conectadas, las reconcilia en una sola línea de tiempo y escribe un brief corto: ingreso neto, qué cambió, el factor detrás, qué necesita tu atención. Es un punto de partida para tu día, no un sustituto de tu criterio, y cada número enlaza con su fuente.",
         },
         {
           icon: "trending",
@@ -313,16 +317,16 @@ const COPY = {
         {
           icon: "shield",
           art: "/art/abstract-cylinders.png",
-          title: "Movimientos que merecen una mirada",
+          title: "Señales antes de que cuesten dinero",
           body: "Velur señala cambios inusuales, un flow que se movió, una cohorte que retiene distinto, una campaña que pierde eficiencia, para que mires mientras aún importa.",
-          detail: "Velur vigila movimientos inusuales en tus datos, un flow cuyo rendimiento cambió, una cohorte que retiene peor que antes, una campaña que pierde eficiencia, y los señala con el factor más probable adjunto. Las señales son para revisar, no garantías, y las de baja confianza se mantienen en silencio para que no persigas ruido.",
+          detail: "Velur vigila movimientos inusuales en tus datos, un flow cuyo rendimiento cambió, una cohorte que retiene peor que antes, una campaña que pierde eficiencia, y los señala con el factor detrás. Las señales son para revisar, no garantías, y las de baja confianza se mantienen en silencio para que no persigas ruido.",
         },
         {
           icon: "bulb",
           art: "/art/abstract-petals.png",
           title: "Pistas, no órdenes",
-          body: "Velur te apunta a qué cambió y a qué parece que merece una mirada más cercana, atado a los números detrás. Tú decides.",
-          detail: "El insight que no puedes usar es solo trivia. Velur te apunta a qué cambió y a qué parece que merece una mirada más cercana, atado a los números detrás, para que el siguiente paso sea más claro. Es apoyo a la decisión, no piloto automático: tú decides, y si se equivoca, puedes decírselo.",
+          body: "Velur te apunta a qué cambió y a lo que necesita una mirada más cercana, atado a los números detrás. Tú decides.",
+          detail: "El insight que no puedes usar es solo trivia. Velur te apunta a qué cambió y a lo que necesita una mirada más cercana, atado a los números detrás, para que el siguiente paso sea más claro. Es apoyo a la decisión, no piloto automático: tú decides, y si se equivoca, puedes decírselo.",
         },
       ],
     },
@@ -332,7 +336,7 @@ const COPY = {
       points: [
         { title: "Acceso de solo lectura", body: "Velur se conecta por OAuth oficial con permisos de solo lectura. Lee tus datos, nunca los cambia." },
         { title: "Números con fuente", body: "Cada cifra se calcula de forma determinista y se rastrea hasta su origen, para que la compruebes." },
-        { title: "Consciente de la confianza", body: "Las señales de baja confianza se mantienen en silencio. Velur señala lo que merece una mirada, y dice cuándo no está seguro." },
+        { title: "Consciente de la confianza", body: "Las señales de baja confianza se mantienen en silencio. Velur señala lo que necesita tu atención, y dice cuándo no está seguro." },
         { title: "Mantienes el control", body: "Velur explica, tú decides. Si un brief se equivoca, respondes y se corrige." },
       ],
     },
@@ -342,7 +346,7 @@ const COPY = {
       rows: [
         {
           title: "Los dashboards muestran números. Velur los explica.",
-          body: "Las herramientas de BI dibujan el gráfico y se detienen. Velur lee tus fuentes conectadas y te dice, en lenguaje claro, qué cambió y los factores más probables, con los números detrás.",
+          body: "Las herramientas de BI dibujan el gráfico y se detienen. Velur lee tus fuentes conectadas y te dice, en lenguaje claro, qué cambió y lo que hay detrás, con los números detrás.",
         },
         {
           title: "ChatGPT no ve tus números. Velur sí.",
@@ -369,7 +373,7 @@ const COPY = {
     },
     cta: {
       eyebrow: "Empezar",
-      h2: "Una lectura clara de tus ingresos, cada mañana.",
+      h2: "Tus ingresos, explicados antes del primer café.",
       body: "Únete a la lista de espera y te escribiré personalmente cuando se abra el siguiente cupo.",
       button: "Unirse a la lista",
     },
@@ -679,12 +683,25 @@ export default function HomeContent() {
             {c.trust.h2}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-            {c.trust.points.map((p) => (
-              <div key={p.title} className="gs-batch rounded-[18px] border border-line bg-paper p-6">
-                <h3 className="font-display font-normal text-ink-strong text-[17px] tracking-[-0.01em] mb-2.5">{p.title}</h3>
-                <p className="font-sans text-[14px] text-ink/75 leading-[1.55]">{p.body}</p>
-              </div>
-            ))}
+            {c.trust.points.map((p, i) => {
+              const TrustIcon = [Lock, ScanSearch, Gauge, UserCheck][i] ?? Lock;
+              return (
+                <div
+                  key={p.title}
+                  className="gs-batch group relative overflow-hidden rounded-[18px] border border-line bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:border-signal-green/40 hover:shadow-[0_20px_48px_-28px_rgba(11,61,46,0.4)]"
+                >
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 top-0 h-[2.5px] bg-signal-green origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
+                  />
+                  <span className="inline-flex text-signal-green mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+                    <TrustIcon size={26} strokeWidth={1.5} />
+                  </span>
+                  <h3 className="font-display font-normal text-ink-strong text-[17px] tracking-[-0.01em] mb-2.5">{p.title}</h3>
+                  <p className="font-sans text-[14px] text-ink/75 leading-[1.55]">{p.body}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -756,7 +773,7 @@ export default function HomeContent() {
                           alt=""
                           fill
                           sizes="(max-width: 768px) 100vw, 50vw"
-                          className="art-live gs-parallax object-cover"
+                          className="art-live gs-parallax object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                         />
                       </div>
                       <div className="p-7 md:p-8">
@@ -847,7 +864,14 @@ export default function HomeContent() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
             {c.diff.rows.map((r) => (
-              <div key={r.title} className="gs-batch rounded-[22px] bg-paper border border-line p-7 md:p-8">
+              <div
+                key={r.title}
+                className="gs-batch group relative overflow-hidden rounded-[22px] bg-paper border border-line p-7 md:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_64px_-32px_rgba(16,19,22,0.35)]"
+              >
+                <span
+                  aria-hidden
+                  className="absolute left-0 top-0 h-full w-[3px] bg-signal-green origin-top scale-y-0 transition-transform duration-500 ease-out group-hover:scale-y-100"
+                />
                 <h3 className="font-display font-normal text-ink-strong text-[20px] leading-[1.2] tracking-[-0.01em] mb-4">{r.title}</h3>
                 <p className="font-sans text-[14.5px] text-ink/80 leading-[1.6]">{r.body}</p>
               </div>

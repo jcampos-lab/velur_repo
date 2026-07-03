@@ -23,7 +23,7 @@ const COPY = {
     hero: {
       eyebrow: "Revenue Intelligence",
       h1: "The platform that ties your stack to revenue.",
-      body: "Shopify, Meta, Stripe, Recharge, Google Ads and Klaviyo connected to one daily brief. It tells you what changed last night and the most likely drivers, in plain English, before your team is even online.",
+      body: "Shopify, Meta, Stripe, Recharge, Google Ads and Klaviyo connected to one daily brief. It tells you what changed last night and what's behind it, in plain English, before your team is even online.",
       cta1: "Join the waitlist",
       cta2: "How it works",
     },
@@ -31,7 +31,7 @@ const COPY = {
       briefEyebrow: "Example brief · 08:02",
       briefHeadline: "Net revenue +12% week-over-week.",
       briefBody:
-        "Most likely driver: Meta creative. Flag to review: Klaviyo win-back flow is underperforming.",
+        "Driver: Meta creative. Flag to review: Klaviyo win-back flow is underperforming.",
       roasLabel: "ROAS, blended",
     },
     platform: {
@@ -124,17 +124,17 @@ const COPY = {
         {
           num: "03",
           title: "Compute",
-          body: "Velur calculates the metrics and deltas deterministically, then a language model explains them in plain words, what changed, the most likely drivers, and what to look at. It surfaces correlations and likely drivers, not proven causes.",
+          body: "Velur calculates the metrics and deltas deterministically, then a language model explains them in plain words, what changed, what's behind it, and what to look at. It surfaces the strongest signals in your data, with the numbers to back them.",
           details: [
             "Cross-source context: spend, sessions, orders, margin on one timeline",
             "Metrics and deltas computed deterministically, not guessed",
-            "Unusual movements flagged with the most likely driver",
+            "Unusual movements flagged with the driver behind it",
           ],
         },
         {
           num: "04",
           title: "Deliver",
-          body: "A written brief lands each morning, what changed, the most likely drivers, what to look at. Flags come with the numbers behind them, so you can check before you act.",
+          body: "A written brief lands each morning, what changed, what's behind it, what to look at. Flags come with the numbers behind them, so you can check before you act.",
           details: [
             "Daily brief in your inbox, no login required",
             "Revenue broken down by new, returning and churned",
@@ -146,7 +146,7 @@ const COPY = {
           title: "Decide",
           body: "You make the call. Every figure traces back to its raw sources, so you can check the brief instead of just trusting it, and reply if something looks off.",
           details: [
-            "Pointers to what looks worth a closer look",
+            "Pointers to what needs a closer look",
             "Every metric traceable to its source data",
             "Read-only access you can revoke anytime, no lock-in",
           ],
@@ -169,7 +169,7 @@ const COPY = {
     hero: {
       eyebrow: "Revenue Intelligence",
       h1: "La plataforma que conecta tu stack con los ingresos.",
-      body: "Shopify, Meta, Stripe, Recharge, Google Ads y Klaviyo conectados a un único informe diario. Te dice qué cambió anoche y los factores más probables, en lenguaje claro, antes incluso de que tu equipo se haya conectado.",
+      body: "Shopify, Meta, Stripe, Recharge, Google Ads y Klaviyo conectados a un único informe diario. Te dice qué cambió anoche y lo que hay detrás, en lenguaje claro, antes incluso de que tu equipo se haya conectado.",
       cta1: "Unirse a la lista",
       cta2: "Cómo funciona",
     },
@@ -177,7 +177,7 @@ const COPY = {
       briefEyebrow: "Ejemplo de brief · 08:02",
       briefHeadline: "Ingresos netos +12% respecto a la semana pasada.",
       briefBody:
-        "Factor más probable: creatividad de Meta. A revisar: el flujo de recuperación de Klaviyo está rindiendo por debajo.",
+        "Factor: creatividad de Meta. A revisar: el flujo de recuperación de Klaviyo está rindiendo por debajo.",
       roasLabel: "ROAS combinado",
     },
     platform: {
@@ -270,17 +270,17 @@ const COPY = {
         {
           num: "03",
           title: "Calcula",
-          body: "Velur calcula las métricas y deltas de forma determinista, y luego un modelo de lenguaje las explica en palabras claras, qué cambió, los factores más probables y qué revisar. Muestra correlaciones y factores probables, no causas demostradas.",
+          body: "Velur calcula las métricas y deltas de forma determinista, y luego un modelo de lenguaje las explica en palabras claras, qué cambió, lo que hay detrás y qué revisar. Muestra las señales más fuertes de tus datos, con los números que las respaldan.",
           details: [
             "Contexto entre fuentes: inversión, sesiones, pedidos y margen en una línea de tiempo",
             "Métricas y deltas calculados de forma determinista, no adivinados",
-            "Movimientos inusuales señalados con el factor más probable",
+            "Movimientos inusuales señalados con el factor detrás",
           ],
         },
         {
           num: "04",
           title: "Entrega",
-          body: "Un brief escrito llega cada mañana, qué cambió, los factores más probables, qué revisar. Las señales llegan con los números detrás, para que compruebes antes de actuar.",
+          body: "Un brief escrito llega cada mañana, qué cambió, lo que hay detrás, qué revisar. Las señales llegan con los números detrás, para que compruebes antes de actuar.",
           details: [
             "Brief diario en tu bandeja de entrada, sin necesidad de login",
             "Ingresos desglosados en nuevo, recurrente y churn",
@@ -292,7 +292,7 @@ const COPY = {
           title: "Decide",
           body: "Tú tomas la decisión. Cada cifra se rastrea hasta sus fuentes, para que compruebes el brief en vez de solo confiar en él, y respondas si algo no encaja.",
           details: [
-            "Pistas de qué parece que merece una mirada más cercana",
+            "Pistas de lo que necesita una mirada más cercana",
             "Cada métrica trazable hasta sus datos de origen",
             "Acceso de solo lectura que puedes revocar cuando quieras, sin lock-in",
           ],

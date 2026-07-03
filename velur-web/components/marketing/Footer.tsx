@@ -101,10 +101,32 @@ export default function Footer() {
   return (
     <footer
       ref={root}
-      className="bg-velur-ink text-on-dark overflow-hidden"
+      className="relative bg-velur-ink text-on-dark overflow-hidden"
       style={{ padding: "var(--section-y-tight) var(--gutter) 24px" }}
     >
-      <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+      {/* Nature backdrop: silky long-exposure waterfall (Svartifoss),
+          barely-there behind an ink wash so the footer stays calm and
+          readable. Decorative only, muted, looped, reduced-motion safe. */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.16] pointer-events-none motion-reduce:hidden"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden
+      >
+        <source src="/media/footer-nature.webm" type="video/webm" />
+      </video>
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(180deg, #101316 0%, rgba(16,19,22,0.72) 35%, rgba(16,19,22,0.62) 70%, #101316 100%)",
+        }}
+      />
+      <div className="relative" style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
         <div
           className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr_1fr] gap-10 pb-12"
           style={{ borderBottom: "1px solid var(--border-dark)" }}
@@ -181,7 +203,15 @@ export default function Footer() {
 
           <SocialLinks />
 
-          <div className="flex gap-5">
+          <div className="flex items-center gap-5">
+            <a
+              href="https://commons.wikimedia.org/wiki/File:202_Svartifoss_long_exposure_timelapse_Video_by_Giles_Laurent.webm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[10.5px] text-muted-slate/60 hover:text-muted-slate no-underline"
+            >
+              Footage: Giles Laurent · CC BY-SA 4.0
+            </a>
             {f.legal.map((l) => {
               const href = KNOWN_LINKS[l];
               return href ? (
