@@ -17,6 +17,7 @@ function LinkedinMark({ size = 17 }: { size?: number }) {
 }
 import CtaSection from "@/components/marketing/CtaSection";
 import { StackedDeck } from "@/components/velur/StackedDeck";
+import { Orbs } from "@/components/velur/Orbs";
 
 /* ─── Per-page strings (Castilian Spanish for ES) ──────────────────────
    About page, Cohere-style. Company voice is always "we", the journey
@@ -221,18 +222,12 @@ export default function CompanyContent() {
         className="bg-canvas border-b border-border-light relative overflow-hidden"
         style={{ padding: "var(--section-y-tight) var(--gutter)" }}
       >
-        <div
-          className="absolute -top-32 -left-32 w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] pointer-events-none opacity-[0.35]"
-          aria-hidden
-          style={{
-            background:
-              "radial-gradient(circle, rgba(79,183,141,0.35) 0%, rgba(79,183,141,0) 65%)",
-            filter: "blur(40px)",
-          }}
-        />
+        <Orbs />
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto", position: "relative" }}>
-          <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-5">
-            {c.heroEyebrow}
+          <motion.p {...fadeUp(0)} className="mb-6">
+            <span className="inline-flex rounded-full bg-[#E4EAC8] px-4 py-2 font-display text-[11px] uppercase tracking-[0.16em] text-ink">
+              {c.heroEyebrow}
+            </span>
           </motion.p>
           <motion.h1
             {...fadeUp(0.05)}
@@ -253,7 +248,7 @@ export default function CompanyContent() {
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <div className="mb-12 md:mb-16 max-w-2xl">
             <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-3">
-              {c.journeyEyebrow}
+              <span className="text-ink/35 mr-2.5">001 /</span>{c.journeyEyebrow}
             </motion.p>
             <motion.h2
               {...fadeUp(0.05)}
@@ -299,7 +294,7 @@ export default function CompanyContent() {
             {/* Bio, right */}
             <div>
               <motion.p {...fadeUp(0.05)} className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-5">
-                {c.intro.eyebrow}
+                <span className="text-ink/35 mr-2.5">002 /</span>{c.intro.eyebrow}
               </motion.p>
               <motion.h2
                 {...fadeUp(0.08)}
@@ -347,7 +342,7 @@ export default function CompanyContent() {
         />
         <div className="relative" style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <motion.p {...fadeUp(0)} className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-5">
-            {c.beliefEyebrow}
+            <span className="text-ink/35 mr-2.5">003 /</span>{c.beliefEyebrow}
           </motion.p>
           <motion.h2
             {...fadeUp(0.05)}

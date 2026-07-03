@@ -28,9 +28,9 @@ export default function ContactContent() {
               objectPosition="center 70%"
             />
             <div className="relative">
-            <p className="font-display text-[10.5px] tracking-[0.18em] text-amber uppercase mb-5">
+            <span className="inline-flex rounded-full bg-[#E4EAC8] px-4 py-2 font-display text-[11px] uppercase tracking-[0.16em] text-ink mb-5">
               {c.label}
-            </p>
+            </span>
             <h1
               className="font-display font-normal leading-[1.05] tracking-[-0.025em] mb-5 max-w-3xl"
               style={{ fontSize: "clamp(26px, 4vw, 48px)" }}

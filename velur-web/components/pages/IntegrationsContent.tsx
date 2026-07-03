@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { Orbs } from "@/components/velur/Orbs";
 import { Lock, Shield, Check } from "lucide-react";
 import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
 import { GooeyTabs } from "@/components/ui/gooey-tabs";
@@ -240,12 +241,15 @@ export default function IntegrationsContent() {
     <>
       {/* Hero */}
       <section
-        className="bg-canvas border-b border-border-light"
+        className="relative overflow-hidden bg-canvas border-b border-border-light"
         style={{ padding: "var(--section-y-tight) var(--gutter)" }}
       >
-        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-5">
-            {c.eyebrow}
+        <Orbs />
+        <div className="relative" style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+          <p className="mb-6">
+            <span className="inline-flex rounded-full bg-[#E4EAC8] px-4 py-2 font-display text-[11px] uppercase tracking-[0.16em] text-ink">
+              {c.eyebrow}
+            </span>
           </p>
           <h1
             className="font-display font-normal text-ink-strong leading-[1.02] tracking-[-0.025em] mb-6 max-w-[20ch]"

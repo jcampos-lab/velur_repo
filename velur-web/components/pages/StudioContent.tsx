@@ -6,6 +6,7 @@ import { useState } from "react";
 import { PROMPT_PACKS, countPrompts, type Lang as PackLang } from "@/lib/promptPacks";
 import { packTitle, packTagline } from "@/lib/promptPacksEs";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { Orbs } from "@/components/velur/Orbs";
 import { GooeyTabs } from "@/components/ui/gooey-tabs";
 
 /* ─── Per-page strings (Castilian Spanish for ES) ─────────────────── */
@@ -532,10 +533,13 @@ export default function StudioContent() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-cream pt-12 md:pt-16 pb-12 md:pb-16">
-        <div className="max-w-[1100px] mx-auto px-5 md:px-10 text-center">
-          <p className="font-display text-[11px] tracking-[0.18em] text-signal-green uppercase mb-6">
-            {c.hero.eyebrow}
+      <section className="relative overflow-hidden bg-cream pt-12 md:pt-16 pb-12 md:pb-16">
+        <Orbs />
+        <div className="relative max-w-[1100px] mx-auto px-5 md:px-10 text-center">
+          <p className="mb-6">
+            <span className="inline-flex rounded-full bg-[#E4EAC8] px-4 py-2 font-display text-[11px] uppercase tracking-[0.16em] text-ink">
+              {c.hero.eyebrow}
+            </span>
           </p>
           <h1
             className="font-display font-normal text-ink leading-[1.02] tracking-[-0.025em] mb-6"

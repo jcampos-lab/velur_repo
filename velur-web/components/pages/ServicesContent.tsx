@@ -10,6 +10,7 @@ import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ArtBackdrop } from "@/components/velur/ArtBackdrop";
 import { GooeyTabs } from "@/components/ui/gooey-tabs";
 import { StackedDeck } from "@/components/velur/StackedDeck";
+import { Orbs } from "@/components/velur/Orbs";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -330,9 +331,9 @@ function HeroCard({ c, m }: { c: Copy; m: Copy["mock"] }) {
       <div className="grid grid-cols-1 md:grid-cols-2 items-stretch min-h-[420px]">
         <div className="p-7 md:p-12 flex flex-col justify-between gap-8">
           <div>
-            <p className="font-display text-[10.5px] tracking-[0.18em] text-amber uppercase mb-5">
+            <span className="inline-flex self-start rounded-full bg-[#E4EAC8] px-4 py-2 font-display text-[11px] uppercase tracking-[0.16em] text-ink mb-5">
               {c.hero.eyebrow}
-            </p>
+            </span>
             <h1
               className="font-display font-normal leading-[1.05] tracking-[-0.025em] mb-5"
               style={{ fontSize: "clamp(28px, 4vw, 56px)" }}
@@ -435,10 +436,11 @@ export default function ServicesContent() {
       </section>
 
       {/* Module explorer, four cards, one per platform module */}
-      <section className="bg-cream pb-14 md:pb-20">
-        <div className="max-w-[1280px] mx-auto px-5 md:px-10">
+      <section className="relative bg-cream pb-14 md:pb-20 overflow-hidden">
+        <Orbs />
+        <div className="relative max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="mb-8 md:mb-10 max-w-2xl">
-            <p className="font-sans text-ink/55 text-[13px] mb-2">{c.platform.eyebrow}</p>
+            <p className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-3"><span className="text-ink/35 mr-2.5">001 /</span>{c.platform.eyebrow}</p>
             <h2
               className="font-display font-normal text-ink leading-[1.05] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 38px)" }}
@@ -480,7 +482,7 @@ export default function ServicesContent() {
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="gsv-rise mb-4">
             <p className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-3">
-              {c.howDeep.eyebrow}
+              <span className="text-ink/35 mr-2.5">002 /</span>{c.howDeep.eyebrow}
             </p>
             <h2
               className="font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.025em] max-w-[22ch]"
@@ -517,9 +519,9 @@ export default function ServicesContent() {
             />
             <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-5">
-                <p className="font-display text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-4">
+                <span className="inline-flex rounded-full bg-[#E4EAC8] px-4 py-2 font-display text-[11px] uppercase tracking-[0.16em] text-ink mb-4">
                   {c.onboard.eyebrow}
-                </p>
+                </span>
                 <h2
                   className="font-display font-normal leading-[1.05] tracking-[-0.025em]"
                   style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
@@ -560,7 +562,7 @@ export default function ServicesContent() {
       <section className="bg-cream pb-14 md:pb-20">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
           <div className="mb-8 md:mb-10 max-w-2xl">
-            <p className="font-sans text-ink/55 text-[13px] mb-2">{c.fit.eyebrow}</p>
+            <p className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-3"><span className="text-ink/35 mr-2.5">004 /</span>{c.fit.eyebrow}</p>
             <h2
               className="font-display font-normal text-ink leading-[1.05] tracking-[-0.025em]"
               style={{ fontSize: "clamp(22px, 3vw, 38px)" }}
