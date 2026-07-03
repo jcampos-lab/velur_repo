@@ -11,6 +11,7 @@ import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ConsoleMock } from "@/components/velur/ConsoleMock";
 import { RevenueAreaCard } from "@/components/velur/RevenueAreaCard";
 import { SignalJourney } from "@/components/velur/SignalJourney";
+import { IntegrationFlow } from "@/components/velur/IntegrationFlow";
 import { RippleGrid } from "@/components/ui/ripple-grid";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { GooeyTabs } from "@/components/ui/gooey-tabs";
@@ -880,27 +881,44 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ════ 9 · INTEGRATIONS, the six live tools ════ */}
-      <section className="bg-cream border-y border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
+      {/* ════ 9 · INTEGRATIONS, live convergence diagram on carbon ════ */}
+      <section className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-4">{c.integrations.eyebrow}</p>
-          <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-10 max-w-[22ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
-            {c.integrations.h2}
-          </h2>
+          <div className="gs-rise relative overflow-hidden rounded-[26px] bg-[#0F1115] text-on-dark p-8 md:p-12">
+            {/* quiet dot grid, echoes the solution band */}
+            <div
+              aria-hidden
+              className="absolute inset-0 pointer-events-none opacity-[0.14]"
+              style={{ backgroundImage: "radial-gradient(circle, rgba(79,183,141,0.5) 1px, transparent 1px)", backgroundSize: "30px 30px" }}
+            />
+            <div className="relative flex flex-wrap items-end justify-between gap-6 mb-4 md:mb-2">
+              <div>
+                <p className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green-300 mb-4">{c.integrations.eyebrow}</p>
+                <h2 className="font-display font-normal text-white leading-[1.05] tracking-[-0.02em] max-w-[22ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
+                  {c.integrations.h2}
+                </h2>
+              </div>
+              <Link href="/integrations" className="font-sans text-[15px] text-signal-green-300 hover:text-white transition-colors underline underline-offset-[0.25em] decoration-1 hover:decoration-2">
+                {c.integrations.link}
+              </Link>
+            </div>
 
-          <p className="gs-rise font-display text-[11px] uppercase tracking-[0.08em] text-signal-green mb-4">{c.integrations.liveLabel}</p>
-          <div className="flex flex-wrap gap-2.5 mb-10">
-            {c.integrations.live.map((t) => (
-              <span key={t} className="gs-batch inline-flex items-center gap-2 bg-paper border border-line rounded-[30px] px-5 py-2.5 font-sans text-[14.5px] text-ink-strong transition-transform duration-300 hover:-translate-y-0.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-success" />
-                {t}
-              </span>
-            ))}
+            {/* Desktop: six tools stream into the Velur hub, one line out
+                to the brief. The illustration is the argument. */}
+            <div className="relative hidden md:block">
+              <IntegrationFlow briefLabel={c.hero.mediaChipLabel.split("·")[0].trim()} briefTime="08:02" />
+            </div>
+
+            {/* Mobile: compact chip grid on carbon */}
+            <div className="relative grid grid-cols-2 gap-2.5 mt-6 md:hidden">
+              {c.integrations.live.map((t) => (
+                <span key={t} className="inline-flex items-center gap-2 rounded-[14px] border border-white/10 bg-white/[0.04] px-4 py-3 font-sans text-[14px] text-on-dark">
+                  <span className="w-1.5 h-1.5 rounded-full bg-signal-green-300" />
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
-
-          <Link href="/integrations" className="gs-rise inline-block font-sans text-[15px] text-action-blue underline underline-offset-[0.25em] decoration-1 hover:decoration-2">
-            {c.integrations.link}
-          </Link>
         </div>
       </section>
 

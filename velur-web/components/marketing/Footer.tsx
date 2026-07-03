@@ -108,7 +108,7 @@ export default function Footer() {
           barely-there behind an ink wash so the footer stays calm and
           readable. Decorative only, muted, looped, reduced-motion safe. */}
       <video
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.16] pointer-events-none motion-reduce:hidden"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.45] pointer-events-none motion-reduce:hidden"
         autoPlay
         muted
         loop
@@ -123,7 +123,7 @@ export default function Footer() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(180deg, #101316 0%, rgba(16,19,22,0.72) 35%, rgba(16,19,22,0.62) 70%, #101316 100%)",
+            "linear-gradient(180deg, #101316 0%, rgba(16,19,22,0.5) 28%, rgba(16,19,22,0.28) 60%, rgba(16,19,22,0.82) 100%)",
         }}
       />
       <div className="relative" style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
