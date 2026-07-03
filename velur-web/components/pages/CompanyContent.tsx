@@ -271,10 +271,15 @@ export default function CompanyContent() {
       <section className="bg-canvas border-b border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
-            {/* Portrait fills the left half */}
+            {/* Portrait fills the left half, click → Anima-style window */}
             <motion.div
               {...fadeUp(0)}
-              className="relative w-full overflow-hidden rounded-[22px] bg-[#E7E7E9]"
+              onClick={() => setBioOpen(true)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setBioOpen(true)}
+              aria-haspopup="dialog"
+              className="group relative w-full overflow-hidden rounded-[22px] bg-[#E7E7E9] cursor-pointer"
               style={{ aspectRatio: "1 / 1" }}
             >
               <Image
@@ -282,9 +287,13 @@ export default function CompanyContent() {
                 alt={c.founderName}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 priority
               />
+              <span className="absolute left-5 bottom-5 inline-flex items-center gap-2.5 rounded-full bg-[#E4EAC8] px-5 py-2.5 font-display text-[11.5px] uppercase tracking-[0.14em] text-ink transition-colors group-hover:bg-[#DCE4B8]">
+                {c.founderHint}
+                <span aria-hidden className="text-[14px] leading-none">+</span>
+              </span>
             </motion.div>
 
             {/* Bio, right */}
@@ -404,52 +413,99 @@ export default function CompanyContent() {
             aria-modal="true"
             aria-label={c.founderName}
           >
+            {/* Anima-style backdrop: the page dissolves into white blur */}
             <div
-              className="absolute inset-0 bg-[#0F1115]/85 backdrop-blur-sm"
+              className="absolute inset-0 bg-white/55 backdrop-blur-2xl"
               onClick={() => setBioOpen(false)}
               aria-hidden
             />
             <motion.div
-              className="relative w-full max-w-3xl rounded-[22px] bg-canvas overflow-hidden shadow-2xl"
-              initial={prefersReduced ? {} : { scale: 0.96, y: 12 }}
+              className="relative w-full max-w-[1500px] max-h-[92vh] overflow-y-auto rounded-[24px] bg-[#F7F6F2] shadow-[0_40px_120px_-40px_rgba(16,19,22,0.4)] border border-line/60"
+              initial={prefersReduced ? {} : { scale: 0.97, y: 16 }}
               animate={{ scale: 1, y: 0 }}
-              exit={prefersReduced ? {} : { scale: 0.97, y: 8, opacity: 0 }}
-              transition={{ type: "spring", bounce: 0, duration: 0.35 }}
+              exit={prefersReduced ? {} : { scale: 0.98, y: 10, opacity: 0 }}
+              transition={{ type: "spring", bounce: 0, duration: 0.45 }}
             >
+              {/* Mobile close pill */}
               <button
                 type="button"
                 onClick={() => setBioOpen(false)}
                 aria-label={c.close}
-                className="absolute top-4 right-4 z-10 inline-flex w-9 h-9 items-center justify-center rounded-full text-ink/60 hover:text-ink hover:bg-ink/[0.06] transition-colors"
+                className="lg:hidden absolute top-4 right-4 z-10 inline-flex items-center gap-2 rounded-full bg-[#E4EAC8] px-4 py-2 font-display text-[11px] uppercase tracking-[0.12em] text-ink"
               >
-                <X size={18} strokeWidth={1.8} />
+                {c.close}
+                <X size={13} strokeWidth={2} />
               </button>
 
-              <div className="grid grid-cols-1 sm:grid-cols-[0.85fr_1.15fr] gap-6 sm:gap-8 p-6 sm:p-9">
-                <div className="w-[150px] sm:w-full mx-auto sm:mx-0">
-                  <PhotoPlaceholder caption={c.photoCaption} />
+              <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_minmax(340px,460px)_1.2fr] gap-8 lg:gap-12 p-5 sm:p-8 lg:p-12 items-center lg:min-h-[80vh]">
+                {/* Left: soft sage orb field + CLOSE pill, pure Anima */}
+                <div className="relative hidden lg:block self-stretch">
+                  <div
+                    aria-hidden
+                    className="absolute rounded-full"
+                    style={{ width: 340, height: 430, left: "-18%", top: "4%", background: "radial-gradient(ellipse, rgba(163,186,116,0.5) 0%, transparent 68%)", filter: "blur(46px)" }}
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute rounded-full"
+                    style={{ width: 280, height: 320, left: "2%", bottom: "0%", background: "radial-gradient(ellipse, rgba(128,158,98,0.55) 0%, transparent 66%)", filter: "blur(52px)" }}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setBioOpen(false)}
+                    className="absolute left-4 top-[38%] inline-flex items-center gap-9 rounded-full bg-[#E4EAC8] hover:bg-[#DCE4B8] px-7 py-3.5 font-display text-[12.5px] uppercase tracking-[0.16em] text-ink transition-colors"
+                  >
+                    {c.close}
+                    <X size={14} strokeWidth={2} />
+                  </button>
                 </div>
+
+                {/* Center: grayscale portrait, gray gradient washing the top */}
+                <div className="relative w-full max-w-[460px] mx-auto overflow-hidden rounded-[16px]" style={{ aspectRatio: "3 / 4" }}>
+                  <Image
+                    src="/team/alexander.jpg"
+                    alt={c.founderName}
+                    fill
+                    sizes="(max-width: 1024px) 90vw, 460px"
+                    className="object-cover grayscale"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0"
+                    style={{ background: "linear-gradient(180deg, rgba(130,130,134,0.3) 0%, rgba(130,130,134,0) 46%)" }}
+                  />
+                </div>
+
+                {/* Right: editorial column, pill → monumental name → rules */}
                 <div className="flex flex-col">
-                  <h3 className="font-display font-normal text-ink-strong text-[28px] sm:text-[34px] leading-tight tracking-[-0.02em]">
+                  <span className="self-start rounded-full bg-stone-200/90 px-4 py-2 font-display text-[11.5px] uppercase tracking-[0.16em] text-ink mb-6 lg:mb-8">
+                    {c.founderRole.split("·")[0]?.trim()}
+                  </span>
+                  <h3
+                    className="font-display font-normal text-ink-strong leading-[1.02] tracking-[-0.02em]"
+                    style={{ fontSize: "clamp(38px, 4.6vw, 64px)" }}
+                  >
                     {c.founderName}
                   </h3>
-                  <p className="font-display text-[12px] uppercase tracking-[0.1em] text-signal-green mt-1.5 mb-4">
-                    {c.founderRole}
-                  </p>
-                  <div className="space-y-4 mb-6">
+                  <p className="font-sans text-[17px] text-ink/80 mt-3">{c.founderRole}</p>
+
+                  <div className="border-t border-line mt-7 pt-7 space-y-5 mb-10">
                     {c.modalBio.map((p, i) => (
-                      <p key={i} className="font-sans text-[15.5px] leading-[1.6] text-ink/85">{p}</p>
+                      <p key={i} className="font-sans text-[16px] leading-[1.68] text-ink/85">{p}</p>
                     ))}
                   </div>
-                  <Link
-                    href={LINKEDIN_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center gap-2 self-start bg-velur-ink text-canvas font-sans font-medium text-[14.5px] px-5 py-3 rounded-[28px] hover:bg-ink-700 transition-colors"
-                  >
-                    <LinkedinMark size={17} />
-                    {c.linkedinCta}
-                  </Link>
+
+                  <div className="border-t border-b border-line py-5">
+                    <Link
+                      href={LINKEDIN_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-9 rounded-full bg-[#E4EAC8] hover:bg-[#DCE4B8] px-7 py-3.5 font-display text-[12.5px] uppercase tracking-[0.16em] text-ink transition-colors"
+                    >
+                      {c.linkedinCta}
+                      <span aria-hidden className="text-[17px] leading-none">+</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </motion.div>
