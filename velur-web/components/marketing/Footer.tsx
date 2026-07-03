@@ -104,11 +104,12 @@ export default function Footer() {
       className="relative bg-velur-ink text-on-dark overflow-hidden"
       style={{ padding: "var(--section-y-tight) var(--gutter) 24px" }}
     >
-      {/* Nature backdrop: silky long-exposure waterfall (Svartifoss),
-          barely-there behind an ink wash so the footer stays calm and
-          readable. Decorative only, muted, looped, reduced-motion safe. */}
+      {/* Nature backdrop: aurora borealis over Mývatn, Iceland. Slow,
+          colorful, peaceful, and dark-native, so it glows through the
+          footer instead of fighting it. Muted, looped, reduced-motion
+          safe, decorative only. */}
       <video
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.45] pointer-events-none motion-reduce:hidden"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.6] pointer-events-none motion-reduce:hidden"
         autoPlay
         muted
         loop
@@ -123,7 +124,7 @@ export default function Footer() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(180deg, #101316 0%, rgba(16,19,22,0.5) 28%, rgba(16,19,22,0.28) 60%, rgba(16,19,22,0.82) 100%)",
+            "linear-gradient(180deg, rgba(16,19,22,0.9) 0%, rgba(16,19,22,0.42) 30%, rgba(16,19,22,0.22) 62%, rgba(16,19,22,0.78) 100%)",
         }}
       />
       <div className="relative" style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
@@ -205,7 +206,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-5">
             <a
-              href="https://commons.wikimedia.org/wiki/File:202_Svartifoss_long_exposure_timelapse_Video_by_Giles_Laurent.webm"
+              href="https://commons.wikimedia.org/wiki/File:002_Northern_lights_in_the_night_sky_over_M%C3%BDvatn_in_Iceland_Video_by_Giles_Laurent.webm"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[10.5px] text-muted-slate/60 hover:text-muted-slate no-underline"

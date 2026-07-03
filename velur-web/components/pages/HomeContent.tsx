@@ -11,7 +11,7 @@ import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { ConsoleMock } from "@/components/velur/ConsoleMock";
 import { RevenueAreaCard } from "@/components/velur/RevenueAreaCard";
 import { SignalJourney } from "@/components/velur/SignalJourney";
-import { IntegrationFlow } from "@/components/velur/IntegrationFlow";
+import { Orbs } from "@/components/velur/Orbs";
 import { RippleGrid } from "@/components/ui/ripple-grid";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { GooeyTabs } from "@/components/ui/gooey-tabs";
@@ -502,6 +502,7 @@ export default function HomeContent() {
     <div ref={root}>
       {/* ════ 1 · HERO, centered declaration + media composition ════ */}
       <section className="bg-canvas relative overflow-hidden" style={{ padding: "var(--section-y-tight) var(--gutter) 0" }}>
+        <Orbs />
         <div className="text-center" style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <p className="gs-hero-eyebrow font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-6">
             {c.hero.eyebrow}
@@ -568,7 +569,7 @@ export default function HomeContent() {
         >
           <div>
             <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-coral mb-6">
-              {c.problem.eyebrow}
+              <span className="text-ink/35 mr-2.5">001 /</span>{c.problem.eyebrow}
             </p>
             <h2
               className="gs-problem font-display font-normal text-ink-strong leading-[1.08] tracking-[-0.02em] max-w-[24ch] mb-10"
@@ -604,7 +605,7 @@ export default function HomeContent() {
         >
           <div>
             <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-signal-green-300 mb-5">
-              {c.solution.eyebrow}
+              <span className="text-white/35 mr-2.5">002 /</span>{c.solution.eyebrow}
             </p>
             <h2 className="gs-rise font-display font-normal text-white leading-[1.05] tracking-[-0.02em] mb-6" style={{ fontSize: "clamp(30px, 4.2vw, 54px)" }}>
               {c.solution.h2}
@@ -636,7 +637,7 @@ export default function HomeContent() {
       {/* ════ 5 · HOW IT WORKS, progress rail + 5 steps ════ */}
       <section id="how" className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-4">{c.how.eyebrow}</p>
+          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-4"><span className="text-ink/35 mr-2.5">003 /</span>{c.how.eyebrow}</p>
           <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-14 max-w-[20ch]" style={{ fontSize: "clamp(30px, 4.2vw, 54px)" }}>
             {c.how.h2}
           </h2>
@@ -679,7 +680,7 @@ export default function HomeContent() {
       {/* ════ 5.5 · TRUST, visible, not in footnotes ════ */}
       <section className="bg-canvas border-t border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-4">{c.trust.eyebrow}</p>
+          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-4"><span className="text-ink/35 mr-2.5">004 /</span>{c.trust.eyebrow}</p>
           <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-12 max-w-[22ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
             {c.trust.h2}
           </h2>
@@ -710,7 +711,7 @@ export default function HomeContent() {
       {/* ════ 6 · QUESTIONS, gooey tabs by question category ════ */}
       <section className="bg-stone-200 border-y border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-action-blue mb-4">{c.questions.eyebrow}</p>
+          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-action-blue mb-4"><span className="text-ink/35 mr-2.5">005 /</span>{c.questions.eyebrow}</p>
           <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-12 max-w-[22ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
             {c.questions.h2}
           </h2>
@@ -750,7 +751,7 @@ export default function HomeContent() {
       {/* ════ 7 · FEATURES, 4 art-led capability cards ════ */}
       <section className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-4">{c.features.eyebrow}</p>
+          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-slate mb-4"><span className="text-ink/35 mr-2.5">006 /</span>{c.features.eyebrow}</p>
           <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-12 max-w-[24ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
             {c.features.h2}
           </h2>
@@ -859,7 +860,7 @@ export default function HomeContent() {
       {/* ════ 8.5 · DIFFERENTIATION, why not a dashboard / chatbot ════ */}
       <section className="bg-stone-200 border-y border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-action-blue mb-4">{c.diff.eyebrow}</p>
+          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-action-blue mb-4"><span className="text-ink/35 mr-2.5">007 /</span>{c.diff.eyebrow}</p>
           <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-12 max-w-[24ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
             {c.diff.h2}
           </h2>
@@ -881,51 +882,51 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ════ 9 · INTEGRATIONS, live convergence diagram on carbon ════ */}
-      <section className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
-        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <div className="gs-rise relative overflow-hidden rounded-[26px] bg-[#0F1115] text-on-dark p-8 md:p-12">
-            {/* quiet dot grid, echoes the solution band */}
-            <div
-              aria-hidden
-              className="absolute inset-0 pointer-events-none opacity-[0.14]"
-              style={{ backgroundImage: "radial-gradient(circle, rgba(79,183,141,0.5) 1px, transparent 1px)", backgroundSize: "30px 30px" }}
-            />
-            <div className="relative flex flex-wrap items-end justify-between gap-6 mb-4 md:mb-2">
-              <div>
-                <p className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green-300 mb-4">{c.integrations.eyebrow}</p>
-                <h2 className="font-display font-normal text-white leading-[1.05] tracking-[-0.02em] max-w-[22ch]" style={{ fontSize: "clamp(28px, 4vw, 50px)" }}>
-                  {c.integrations.h2}
-                </h2>
-              </div>
-              <Link href="/integrations" className="font-sans text-[15px] text-signal-green-300 hover:text-white transition-colors underline underline-offset-[0.25em] decoration-1 hover:decoration-2">
-                {c.integrations.link}
-              </Link>
-            </div>
+      {/* ════ 9 · INTEGRATIONS, calm Anima treatment: orbs + type + marks ════ */}
+      <section className="relative bg-canvas overflow-hidden border-y border-border-light" style={{ padding: "var(--section-y) var(--gutter)" }}>
+        <Orbs />
+        <div className="relative" style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-5">
+            <span className="text-ink/35 mr-2.5">008 /</span>{c.integrations.eyebrow}
+          </p>
+          <h2 className="gs-rise font-display font-normal text-ink-strong leading-[1.05] tracking-[-0.02em] mb-14 max-w-[20ch]" style={{ fontSize: "clamp(30px, 4.4vw, 56px)" }}>
+            {c.integrations.h2}
+          </h2>
 
-            {/* Desktop: six tools stream into the Velur hub, one line out
-                to the brief. The illustration is the argument. */}
-            <div className="relative hidden md:block">
-              <IntegrationFlow briefLabel={c.hero.mediaChipLabel.split("·")[0].trim()} briefTime="08:02" />
-            </div>
-
-            {/* Mobile: compact chip grid on carbon */}
-            <div className="relative grid grid-cols-2 gap-2.5 mt-6 md:hidden">
-              {c.integrations.live.map((t) => (
-                <span key={t} className="inline-flex items-center gap-2 rounded-[14px] border border-white/10 bg-white/[0.04] px-4 py-3 font-sans text-[14px] text-on-dark">
-                  <span className="w-1.5 h-1.5 rounded-full bg-signal-green-300" />
-                  {t}
+          {/* The six marks, quiet and monumental. Opacity breathes on hover. */}
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-x-8 gap-y-12 items-center mb-16">
+            {[
+              { logo: "/integrations/shopify.svg",  label: "Shopify" },
+              { logo: "/integrations/meta.svg",     label: "Meta Ads" },
+              { logo: "/integrations/stripe.svg",   label: "Stripe" },
+              { logo: "/integrations/recharge.svg", label: "Recharge" },
+              { logo: "/integrations/google.svg",   label: "Google Ads" },
+              { logo: "/integrations/klaviyo.svg",  label: "Klaviyo" },
+            ].map((it) => (
+              <div key={it.label} className="gs-batch group flex flex-col items-center gap-4">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={it.logo}
+                  alt={it.label}
+                  className="h-9 md:h-11 w-auto max-w-full object-contain opacity-55 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:-translate-y-1"
+                />
+                <span className="font-display text-[11px] uppercase tracking-[0.1em] text-slate/70 transition-colors duration-500 group-hover:text-ink">
+                  {it.label}
                 </span>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
+
+          <Link href="/integrations" className="gs-rise inline-block font-sans text-[15px] text-ink underline underline-offset-[0.3em] decoration-1 hover:decoration-2 transition-all">
+            {c.integrations.link}
+          </Link>
         </div>
       </section>
 
       {/* ════ 10 · PROOF, honest founder note (no fake logos) ════ */}
       <section className="bg-canvas" style={{ padding: "var(--section-y) var(--gutter)" }}>
         <div style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}>
-          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-coral mb-6 text-center">{c.proof.eyebrow}</p>
+          <p className="gs-rise font-display text-[13px] uppercase tracking-[0.06em] text-coral mb-6 text-center"><span className="text-ink/35 mr-2.5">009 /</span>{c.proof.eyebrow}</p>
           <blockquote className="gs-rise font-display font-normal text-ink-strong leading-[1.3] tracking-[-0.01em] text-center mb-6" style={{ fontSize: "clamp(20px, 2.6vw, 30px)" }}>
             &ldquo;{c.proof.quote}&rdquo;
           </blockquote>
