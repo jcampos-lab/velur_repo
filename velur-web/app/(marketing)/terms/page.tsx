@@ -139,6 +139,23 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
       </p>
     ),
   },
+  {
+    h: "13. Media credits",
+    body: (
+      <p>
+        The nature footage in the site footer is{" "}
+        <a
+          href="https://commons.wikimedia.org/wiki/File:002_Northern_lights_in_the_night_sky_over_M%C3%BDvatn_in_Iceland_Video_by_Giles_Laurent.webm"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-action-blue hover:underline"
+        >
+          &quot;Northern lights over M&yacute;vatn, Iceland&quot;
+        </a>{" "}
+        by Giles Laurent, used under the CC BY-SA 4.0 license.
+      </p>
+    ),
+  },
 ];
 
 export default function TermsPage() {

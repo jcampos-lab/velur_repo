@@ -69,7 +69,7 @@ const KNOWN_LINKS: Record<string, string> = {
 };
 
 export default function Footer() {
-  const { t, lang } = useLanguage();
+  const { t } = useLanguage();
   const f = t.footerKit;
   const root = useRef<HTMLElement>(null);
 
@@ -205,14 +205,6 @@ export default function Footer() {
           <SocialLinks />
 
           <div className="flex items-center gap-5">
-            <a
-              href="https://commons.wikimedia.org/wiki/File:002_Northern_lights_in_the_night_sky_over_M%C3%BDvatn_in_Iceland_Video_by_Giles_Laurent.webm"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[10.5px] text-muted-slate/60 hover:text-muted-slate no-underline"
-            >
-              Footage: Giles Laurent · CC BY-SA 4.0
-            </a>
             {f.legal.map((l) => {
               const href = KNOWN_LINKS[l];
               return href ? (
@@ -239,55 +231,43 @@ export default function Footer() {
           A soft mask-image fade dissolves the right edge into the
           velur-ink canvas. Px Grotesk only ships Regular, so we
           thicken the letterforms with a same-color stroke behind. */}
-      {/* Anima finale: the wordmark repeats across the full width,
-          bleeding off both edges, with a circular sage CONTACT US badge
-          sitting on top of the type. */}
-      <div className="relative mt-12 md:mt-16">
-        <div
-          className="relative select-none pointer-events-none overflow-hidden"
-          style={{
-            margin: "48px calc(var(--gutter) * -1) 0",
-            WebkitMaskImage:
-              "linear-gradient(to right, rgba(0,0,0,0.5) 0%, #000 12%, #000 88%, rgba(0,0,0,0.5) 100%)",
-            maskImage:
-              "linear-gradient(to right, rgba(0,0,0,0.5) 0%, #000 12%, #000 88%, rgba(0,0,0,0.5) 100%)",
-          }}
-          aria-hidden="true"
-        >
-          <div className="ft-wordmark flex items-center justify-center gap-[4vw] flex-nowrap -mx-[6vw]">
-            <Image
-              src="/logos/velur-mark-white.png"
-              alt=""
-              width={400}
-              height={400}
-              priority={false}
-              className="ft-wordmark-mark h-auto shrink-0"
-              style={{ width: "clamp(48px, 8vw, 120px)" }}
-            />
-            {[0, 1, 2].map((i) => (
-              <span
-                key={i}
-                className="leading-[0.85] tracking-[-0.04em] text-[#F4F1E8] whitespace-nowrap"
-                style={{
-                  fontFamily: "'Px Grotesk', Inter, system-ui, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "clamp(6rem, 18vw, 16rem)",
-                  WebkitTextStroke: "0.022em #F4F1E8",
-                  paintOrder: "stroke fill",
-                  fontSynthesisWeight: "auto",
-                }}
-              >
-                velur
-              </span>
-            ))}
-          </div>
+      {/* Bottom wordmark: mark + a single monumental "velur" pinned to
+          the left edge, soft fade on the right. */}
+      <div
+        className="relative mt-12 md:mt-16 select-none pointer-events-none overflow-hidden"
+        style={{
+          margin: "56px calc(var(--gutter) * -1) 0",
+          WebkitMaskImage:
+            "linear-gradient(to right, #000 0%, #000 72%, rgba(0,0,0,0.55) 90%, transparent 100%)",
+          maskImage:
+            "linear-gradient(to right, #000 0%, #000 72%, rgba(0,0,0,0.55) 90%, transparent 100%)",
+        }}
+        aria-hidden="true"
+      >
+        <div className="ft-wordmark flex items-center justify-start gap-[1.5vw] flex-nowrap">
+          <Image
+            src="/logos/velur-mark-white.png"
+            alt=""
+            width={400}
+            height={400}
+            priority={false}
+            className="ft-wordmark-mark h-auto shrink-0"
+            style={{ width: "clamp(64px, 11vw, 180px)" }}
+          />
+          <span
+            className="leading-[0.85] tracking-[-0.04em] text-[#F4F1E8] whitespace-nowrap"
+            style={{
+              fontFamily: "'Px Grotesk', Inter, system-ui, sans-serif",
+              fontWeight: 400,
+              fontSize: "clamp(9rem, 30vw, 26rem)",
+              WebkitTextStroke: "0.022em #F4F1E8",
+              paintOrder: "stroke fill",
+              fontSynthesisWeight: "auto",
+            }}
+          >
+            velur
+          </span>
         </div>
-        <Link
-          href="/contact"
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center text-center w-[104px] h-[104px] md:w-[132px] md:h-[132px] rounded-full bg-[#E4EAC8] hover:bg-[#DCE4B8] hover:scale-105 font-display text-[11px] uppercase tracking-[0.16em] text-ink transition-all duration-300"
-        >
-          {lang === "es" ? "Contáctanos" : "Contact us"}
-        </Link>
       </div>
     </footer>
   );

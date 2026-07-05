@@ -587,7 +587,7 @@ export default function HomeContent() {
               counterpoint to the siloed-tools problem. Click to ripple;
               an ambient pulse fires on its own now and then. */}
           <div className="gs-rise hidden lg:block justify-self-end">
-            <RippleGrid rows={7} cols={7} cellSize={36} />
+            <RippleGrid rows={7} cols={7} cellSize={56} />
           </div>
         </div>
       </section>
@@ -690,12 +690,8 @@ export default function HomeContent() {
               return (
                 <div
                   key={p.title}
-                  className="gs-batch group relative overflow-hidden rounded-[18px] border border-line bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:border-signal-green/40 hover:shadow-[0_20px_48px_-28px_rgba(11,61,46,0.4)]"
+                  className="gs-batch group vcard relative rounded-[18px] border border-line bg-paper p-6"
                 >
-                  <span
-                    aria-hidden
-                    className="absolute inset-x-0 top-0 h-[2.5px] bg-signal-green origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
-                  />
                   <span className="inline-flex text-signal-green mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                     <TrustIcon size={26} strokeWidth={1.5} />
                   </span>
@@ -767,7 +763,7 @@ export default function HomeContent() {
                       tabIndex={0}
                       onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setActiveFeature(i)}
                       aria-haspopup="dialog"
-                      className="group cursor-pointer rounded-[22px] bg-paper border border-line overflow-hidden transition-shadow duration-300 hover:shadow-[0_24px_64px_-32px_rgba(11,61,46,0.35)]"
+                      className="group vcard cursor-pointer rounded-[22px] bg-paper border border-line overflow-hidden"
                     >
                       <div className="relative h-[180px] md:h-[220px] overflow-hidden">
                         <Image
@@ -868,12 +864,8 @@ export default function HomeContent() {
             {c.diff.rows.map((r) => (
               <div
                 key={r.title}
-                className="gs-batch group relative overflow-hidden rounded-[22px] bg-paper border border-line p-7 md:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_64px_-32px_rgba(16,19,22,0.35)]"
+                className="gs-batch group vcard relative rounded-[22px] bg-paper border border-line p-7 md:p-8"
               >
-                <span
-                  aria-hidden
-                  className="absolute left-0 top-0 h-full w-[3px] bg-signal-green origin-top scale-y-0 transition-transform duration-500 ease-out group-hover:scale-y-100"
-                />
                 <h3 className="font-display font-normal text-ink-strong text-[20px] leading-[1.2] tracking-[-0.01em] mb-4">{r.title}</h3>
                 <p className="font-sans text-[14.5px] text-ink/80 leading-[1.6]">{r.body}</p>
               </div>

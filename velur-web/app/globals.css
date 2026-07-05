@@ -466,3 +466,22 @@
   }
   .marquee-track { animation: none; }
 }
+
+/* ── Unified card motion (sitewide) ─────────────────────────────────
+   One consistent hover for every marketing card: a clean lift, a deep
+   soft shadow, and a green-tinted border. No bars, no clipping. */
+@layer utilities {
+  .vcard {
+    transition:
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .vcard:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 26px 60px -30px rgba(16, 19, 22, 0.3);
+      border-color: rgba(11, 61, 46, 0.3);
+    }
+  }
+}

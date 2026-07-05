@@ -226,7 +226,7 @@ export default function CustomersContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-2xl bg-paper border border-line p-7 md:p-8 flex flex-col gap-4"
+                className="vcard rounded-2xl bg-paper border border-line p-7 md:p-8 flex flex-col gap-4"
               >
                 <h3 className="font-display font-normal text-ink-strong text-[22px] leading-tight tracking-[-0.01em]">
                   {card.size}
@@ -312,7 +312,7 @@ export default function CustomersContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-[20px] border border-line bg-paper overflow-hidden"
+                className="vcard rounded-[20px] border border-line bg-paper overflow-hidden"
               >
                 <div className="px-6 md:px-10 pt-6 md:pt-8 pb-2">
                   <h3 className="font-display font-normal text-ink-strong leading-snug tracking-[-0.015em]" style={{ fontSize: "clamp(20px, 2.4vw, 27px)" }}>
@@ -354,9 +354,9 @@ export default function CustomersContent() {
           className="text-center"
           style={{ maxWidth: "var(--container-text)", margin: "0 auto" }}
         >
-          <p className="font-display text-[13px] uppercase tracking-[0.06em] text-action-blue mb-5">
+          <span className="inline-flex rounded-full bg-[#E4EAC8] px-4 py-2 font-display text-[11px] uppercase tracking-[0.16em] text-ink mb-5">
             {c.closingEyebrow}
-          </p>
+          </span>
           <h2
             className="font-display font-normal text-white mb-5"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}

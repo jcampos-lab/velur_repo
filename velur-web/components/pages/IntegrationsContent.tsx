@@ -286,7 +286,7 @@ export default function IntegrationsContent() {
               return (
                 <div
                   key={card.title}
-                  className="rounded-2xl bg-paper border border-line p-6 md:p-7 flex flex-col gap-4"
+                  className="vcard rounded-2xl bg-paper border border-line p-6 md:p-7 flex flex-col gap-4"
                 >
                   <span className="inline-flex text-signal-green items-center">
                     <Icon size={28} strokeWidth={1.5} />
@@ -341,7 +341,7 @@ export default function IntegrationsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-2xl bg-paper border border-line p-6"
+                className="vcard rounded-2xl bg-paper border border-line p-6"
               >
                 <div className="flex items-center justify-center h-20 mb-5">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
