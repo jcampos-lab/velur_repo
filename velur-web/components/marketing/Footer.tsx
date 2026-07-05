@@ -69,7 +69,7 @@ const KNOWN_LINKS: Record<string, string> = {
 };
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const f = t.footerKit;
   const root = useRef<HTMLElement>(null);
 
@@ -219,12 +219,12 @@ export default function Footer() {
                 <Link
                   key={l}
                   href={href}
-                  className="group text-[12px] text-muted-slate hover:text-white no-underline"
+                  className="group font-display text-[11px] uppercase tracking-[0.12em] text-muted-slate hover:text-white no-underline"
                 >
                   <RollingText text={l} />
                 </Link>
               ) : (
-                <span key={l} className="text-[12px] text-muted-slate">
+                <span key={l} className="font-display text-[11px] uppercase tracking-[0.12em] text-muted-slate">
                   {l}
                 </span>
               );
@@ -239,49 +239,55 @@ export default function Footer() {
           A soft mask-image fade dissolves the right edge into the
           velur-ink canvas. Px Grotesk only ships Regular, so we
           thicken the letterforms with a same-color stroke behind. */}
-      <div
-        className="relative mt-12 md:mt-16 select-none pointer-events-none overflow-hidden"
-        style={{
-          /* Break out of the footer's own gutter so the mark touches
-             the very left edge of the screen. */
-          margin: "56px calc(var(--gutter) * -1) 0",
-          paddingLeft: 0,
-          paddingRight: 0,
-          /* Fade holds full opacity through 72%, dissolves through
-             90%, fully transparent at 100%. Both prefixed for Safari. */
-          WebkitMaskImage:
-            "linear-gradient(to right, #000 0%, #000 72%, rgba(0,0,0,0.55) 90%, transparent 100%)",
-          maskImage:
-            "linear-gradient(to right, #000 0%, #000 72%, rgba(0,0,0,0.55) 90%, transparent 100%)",
-        }}
-        aria-hidden="true"
-      >
-        <div className="ft-wordmark flex items-center justify-start gap-[1.5vw] flex-nowrap">
-          <Image
-            src="/logos/velur-mark-white.png"
-            alt=""
-            width={400}
-            height={400}
-            priority={false}
-            className="ft-wordmark-mark h-auto shrink-0"
-            style={{ width: "clamp(64px, 11vw, 180px)" }}
-          />
-          <span
-            className="leading-[0.85] tracking-[-0.04em] text-[#F4F1E8] whitespace-nowrap"
-            style={{
-              fontFamily: "'Px Grotesk', Inter, system-ui, sans-serif",
-              fontWeight: 400,
-              fontSize: "clamp(9rem, 30vw, 26rem)",
-              /* Subtle faux-bold, just enough to lift Px Grotesk Regular
-                 at display size without going slab. */
-              WebkitTextStroke: "0.022em #F4F1E8",
-              paintOrder: "stroke fill",
-              fontSynthesisWeight: "auto",
-            }}
-          >
-            velur
-          </span>
+      {/* Anima finale: the wordmark repeats across the full width,
+          bleeding off both edges, with a circular sage CONTACT US badge
+          sitting on top of the type. */}
+      <div className="relative mt-12 md:mt-16">
+        <div
+          className="relative select-none pointer-events-none overflow-hidden"
+          style={{
+            margin: "48px calc(var(--gutter) * -1) 0",
+            WebkitMaskImage:
+              "linear-gradient(to right, rgba(0,0,0,0.5) 0%, #000 12%, #000 88%, rgba(0,0,0,0.5) 100%)",
+            maskImage:
+              "linear-gradient(to right, rgba(0,0,0,0.5) 0%, #000 12%, #000 88%, rgba(0,0,0,0.5) 100%)",
+          }}
+          aria-hidden="true"
+        >
+          <div className="ft-wordmark flex items-center justify-center gap-[4vw] flex-nowrap -mx-[6vw]">
+            <Image
+              src="/logos/velur-mark-white.png"
+              alt=""
+              width={400}
+              height={400}
+              priority={false}
+              className="ft-wordmark-mark h-auto shrink-0"
+              style={{ width: "clamp(48px, 8vw, 120px)" }}
+            />
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                className="leading-[0.85] tracking-[-0.04em] text-[#F4F1E8] whitespace-nowrap"
+                style={{
+                  fontFamily: "'Px Grotesk', Inter, system-ui, sans-serif",
+                  fontWeight: 400,
+                  fontSize: "clamp(6rem, 18vw, 16rem)",
+                  WebkitTextStroke: "0.022em #F4F1E8",
+                  paintOrder: "stroke fill",
+                  fontSynthesisWeight: "auto",
+                }}
+              >
+                velur
+              </span>
+            ))}
+          </div>
         </div>
+        <Link
+          href="/contact"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center text-center w-[104px] h-[104px] md:w-[132px] md:h-[132px] rounded-full bg-[#E4EAC8] hover:bg-[#DCE4B8] hover:scale-105 font-display text-[11px] uppercase tracking-[0.16em] text-ink transition-all duration-300"
+        >
+          {lang === "es" ? "Contáctanos" : "Contact us"}
+        </Link>
       </div>
     </footer>
   );
