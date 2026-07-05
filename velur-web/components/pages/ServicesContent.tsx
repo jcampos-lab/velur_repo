@@ -620,9 +620,9 @@ export default function ServicesContent() {
             />
             <div className="relative grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
               <div className="max-w-2xl">
-                <span className="inline-flex rounded-full bg-[#E4EAC8] px-4 py-2 font-display text-[11px] uppercase tracking-[0.16em] text-ink mb-3">
+                <p className="font-display text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-3">
                   {c.closing.eyebrow}
-                </span>
+                </p>
                 <h3
                   className="font-display font-normal leading-[1.05] tracking-[-0.025em]"
                   style={{ fontSize: "clamp(24px, 3vw, 40px)" }}

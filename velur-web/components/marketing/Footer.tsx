@@ -205,18 +205,26 @@ export default function Footer() {
           <SocialLinks />
 
           <div className="flex items-center gap-5">
+            <a
+              href="https://commons.wikimedia.org/wiki/File:002_Northern_lights_in_the_night_sky_over_M%C3%BDvatn_in_Iceland_Video_by_Giles_Laurent.webm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[10.5px] text-muted-slate/60 hover:text-muted-slate no-underline"
+            >
+              Footage: Giles Laurent · CC BY-SA 4.0
+            </a>
             {f.legal.map((l) => {
               const href = KNOWN_LINKS[l];
               return href ? (
                 <Link
                   key={l}
                   href={href}
-                  className="group font-display text-[11px] uppercase tracking-[0.12em] text-muted-slate hover:text-white no-underline"
+                  className="group text-[12px] text-muted-slate hover:text-white no-underline"
                 >
                   <RollingText text={l} />
                 </Link>
               ) : (
-                <span key={l} className="font-display text-[11px] uppercase tracking-[0.12em] text-muted-slate">
+                <span key={l} className="text-[12px] text-muted-slate">
                   {l}
                 </span>
               );
@@ -231,12 +239,16 @@ export default function Footer() {
           A soft mask-image fade dissolves the right edge into the
           velur-ink canvas. Px Grotesk only ships Regular, so we
           thicken the letterforms with a same-color stroke behind. */}
-      {/* Bottom wordmark: mark + a single monumental "velur" pinned to
-          the left edge, soft fade on the right. */}
       <div
         className="relative mt-12 md:mt-16 select-none pointer-events-none overflow-hidden"
         style={{
+          /* Break out of the footer's own gutter so the mark touches
+             the very left edge of the screen. */
           margin: "56px calc(var(--gutter) * -1) 0",
+          paddingLeft: 0,
+          paddingRight: 0,
+          /* Fade holds full opacity through 72%, dissolves through
+             90%, fully transparent at 100%. Both prefixed for Safari. */
           WebkitMaskImage:
             "linear-gradient(to right, #000 0%, #000 72%, rgba(0,0,0,0.55) 90%, transparent 100%)",
           maskImage:
@@ -260,6 +272,8 @@ export default function Footer() {
               fontFamily: "'Px Grotesk', Inter, system-ui, sans-serif",
               fontWeight: 400,
               fontSize: "clamp(9rem, 30vw, 26rem)",
+              /* Subtle faux-bold, just enough to lift Px Grotesk Regular
+                 at display size without going slab. */
               WebkitTextStroke: "0.022em #F4F1E8",
               paintOrder: "stroke fill",
               fontSynthesisWeight: "auto",

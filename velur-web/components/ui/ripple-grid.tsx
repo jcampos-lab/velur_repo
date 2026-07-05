@@ -21,7 +21,7 @@ gsap.registerPlugin(useGSAP);
 export function RippleGrid({
   rows = 7,
   cols = 7,
-  cellSize = 52,
+  cellSize = 34,
   pulseColor = "#E9F6EE",
   pulseBorderColor = "#4FB78D",
   pulseScale = 1.06,
@@ -47,35 +47,17 @@ export function RippleGrid({
 
   const { contextSafe } = useGSAP(
     () => {
+      if (autoEvery <= 0) return;
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        /* A scattered subset of cells breathes slowly, so the surface
-           never reads as rigid even between ripples. */
-        if (root.current) {
-          root.current
-            .querySelectorAll<HTMLElement>("[data-breathe]")
-            .forEach((cell, i) => {
-              gsap.to(cell, {
-                scale: 1.08,
-                backgroundColor: "rgba(233,246,238,0.7)",
-                duration: 2.6 + (i % 4) * 0.5,
-                yoyo: true,
-                repeat: -1,
-                ease: "sine.inOut",
-                delay: i * 0.6,
-              });
-            });
-        }
-        if (autoEvery > 0) {
-          const tick = gsap.delayedCall(autoEvery, function ambient() {
-            rippleFrom(
-              Math.floor(Math.random() * rows),
-              Math.floor(Math.random() * cols),
-            );
-            tick.restart(true);
-          });
-          return () => tick.kill();
-        }
+        const tick = gsap.delayedCall(autoEvery, function ambient() {
+          rippleFrom(
+            Math.floor(Math.random() * rows),
+            Math.floor(Math.random() * cols),
+          );
+          tick.restart(true);
+        });
+        return () => tick.kill();
       });
       return () => mm.revert();
     },
@@ -128,19 +110,14 @@ export function RippleGrid({
       {Array.from({ length: rows * cols }, (_, i) => {
         const row = Math.floor(i / cols);
         const col = i % cols;
-        /* Deterministic shape mix so the grid isn't all rigid squares:
-           every 6th cell is a circle, every 4th softly rounded. */
-        const radius = i % 6 === 0 ? "50%" : i % 4 === 0 ? "12px" : "4px";
-        const breathes = (row * 3 + col * 5) % 9 === 0;
         return (
           <div
             key={`${row}-${col}`}
             data-cell
             data-row={row}
             data-col={col}
-            {...(breathes ? { "data-breathe": "" } : {})}
             className="border border-line-soft box-border"
-            style={{ backgroundColor: "rgba(255,255,255,0)", borderRadius: radius }}
+            style={{ backgroundColor: "rgba(255,255,255,0)" }}
           />
         );
       })}

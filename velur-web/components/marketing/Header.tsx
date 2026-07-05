@@ -121,13 +121,13 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Menu center: Anima pill cluster */}
-          <nav className="hidden md:flex items-center gap-1.5 mx-auto" aria-label="Main navigation">
+          {/* Menu center */}
+          <nav className="hidden md:flex items-center gap-7 mx-auto" aria-label="Main navigation">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="group rounded-full bg-[#E4EAC8]/85 hover:bg-[#DCE4B8] px-5 py-2.5 font-display text-[12px] uppercase tracking-[0.12em] text-ink transition-colors duration-200"
+                className="group font-sans text-[15px] text-ink hover:text-ink-strong transition-colors duration-150"
               >
                 <RollingText text={link.label} />
               </Link>
@@ -137,13 +137,9 @@ export default function Header() {
           {/* CTA right */}
           <div className="flex items-center gap-3 md:gap-4 shrink-0">
             <LangGlobe className="hidden md:inline-flex" />
-            <Link
-              href="/contact"
-              className="hidden md:inline-flex items-center gap-7 rounded-full bg-[#E4EAC8] hover:bg-[#DCE4B8] px-6 py-2.5 font-display text-[12px] uppercase tracking-[0.14em] text-ink transition-colors duration-200"
-            >
+            <ButtonLink href="/contact" variant="primary" size="sm" className="hidden md:inline-flex">
               {t.header.cta}
-              <span aria-hidden className="text-[15px] leading-none">+</span>
-            </Link>
+            </ButtonLink>
             <button
               className="md:hidden flex flex-col gap-1.5 p-2"
               aria-label="Open menu"
@@ -189,10 +185,9 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-6 inline-flex items-center justify-center gap-7 rounded-full bg-[#E4EAC8] px-6 py-3.5 font-display text-[13px] uppercase tracking-[0.14em] text-ink"
+              className="mt-6 inline-flex items-center justify-center gap-2 bg-velur-ink text-canvas font-medium text-base px-6 py-3.5 rounded-[32px]"
             >
               {t.header.cta}
-              <span aria-hidden className="text-[16px] leading-none">+</span>
             </Link>
 
             <LangGlobe className="inline-flex mt-5 self-start" />

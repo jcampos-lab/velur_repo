@@ -282,17 +282,8 @@ export default function CompanyContent() {
                 alt={c.founderName}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover grayscale transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 priority
-              />
-              {/* Noir portrait, lime/green wash rising from below */}
-              <div
-                aria-hidden
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(130,130,134,0.22) 0%, rgba(130,130,134,0) 34%, rgba(196,214,120,0.16) 62%, rgba(154,186,92,0.5) 100%)",
-                }}
               />
               <span className="absolute left-5 bottom-5 inline-flex items-center gap-2.5 rounded-full bg-[#E4EAC8] px-5 py-2.5 font-display text-[11.5px] uppercase tracking-[0.14em] text-ink transition-colors group-hover:bg-[#DCE4B8]">
                 {c.founderHint}
@@ -300,13 +291,10 @@ export default function CompanyContent() {
               </span>
             </motion.div>
 
-            {/* Right column: heading + name only. The full story lives
-                in the window, one bio, not two. */}
+            {/* Bio, right */}
             <div>
-              <motion.p {...fadeUp(0.05)} className="mb-6">
-                <span className="inline-flex rounded-full bg-[#E4EAC8] px-4 py-2 font-display text-[11px] uppercase tracking-[0.16em] text-ink">
-                  {c.intro.eyebrow}
-                </span>
+              <motion.p {...fadeUp(0.05)} className="font-display text-[13px] uppercase tracking-[0.06em] text-signal-green mb-5">
+                <span className="text-ink/35 mr-2.5">002 /</span>{c.intro.eyebrow}
               </motion.p>
               <motion.h2
                 {...fadeUp(0.08)}
@@ -315,19 +303,26 @@ export default function CompanyContent() {
               >
                 {c.intro.lead}
               </motion.h2>
-              <motion.p {...fadeUp(0.1)} className="font-display text-[12px] uppercase tracking-[0.1em] text-slate mb-8">
+              <motion.p {...fadeUp(0.1)} className="font-display text-[12px] uppercase tracking-[0.1em] text-slate mb-6">
                 {c.founderName} · {c.founderRole}
               </motion.p>
-              <motion.div {...fadeUp(0.16)}>
-                <button
-                  type="button"
-                  onClick={() => setBioOpen(true)}
-                  aria-haspopup="dialog"
-                  className="inline-flex items-center gap-8 rounded-full bg-[#E4EAC8] hover:bg-[#DCE4B8] px-7 py-3.5 font-display text-[12.5px] uppercase tracking-[0.16em] text-ink transition-colors"
+              <div className="space-y-4 max-w-[54ch]">
+                {c.intro.paragraphs.map((p, i) => (
+                  <motion.p key={i} {...fadeUp(0.12 + i * 0.05)} className="font-sans text-[16.5px] leading-[1.65] text-ink/85">
+                    {p}
+                  </motion.p>
+                ))}
+              </div>
+              <motion.div {...fadeUp(0.24)}>
+                <Link
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-7 inline-flex items-center gap-2 font-sans text-[14.5px] text-ink hover:text-signal-green transition-colors"
                 >
-                  {c.founderHint}
-                  <span aria-hidden className="text-[16px] leading-none">+</span>
-                </button>
+                  <LinkedinMark size={17} />
+                  {c.linkedinCta}
+                </Link>
               </motion.div>
             </div>
           </div>
@@ -359,11 +354,8 @@ export default function CompanyContent() {
 
           <motion.p
             {...fadeUp(0.12)}
-            className="font-serif italic text-ink/85 leading-[1.65] max-w-[92ch] md:columns-2 md:gap-14"
-            style={{
-              fontSize: "clamp(19px, 2.1vw, 24px)",
-              columnRule: "1px solid var(--color-line)",
-            }}
+            className="font-sans text-ink/85 leading-[1.55] max-w-[58ch]"
+            style={{ fontSize: "clamp(18px, 2vw, 22px)" }}
           >
             {c.beliefStatement}
           </motion.p>
@@ -475,10 +467,7 @@ export default function CompanyContent() {
                   <div
                     aria-hidden
                     className="absolute inset-0"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, rgba(130,130,134,0.28) 0%, rgba(130,130,134,0) 38%, rgba(196,214,120,0.14) 64%, rgba(154,186,92,0.48) 100%)",
-                    }}
+                    style={{ background: "linear-gradient(180deg, rgba(130,130,134,0.3) 0%, rgba(130,130,134,0) 46%)" }}
                   />
                 </div>
 

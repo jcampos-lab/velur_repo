@@ -408,7 +408,7 @@ function PackGrid({ s, lang }: { s: Copy["packGridSection"]; lang: PackLang }) {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5, delay: prefersReduced ? 0 : i * 0.06, ease: [0.16, 1, 0.3, 1] }}
             whileHover={prefersReduced ? undefined : { y: -3 }}
-            className="vcard rounded-2xl bg-paper border border-line overflow-hidden flex flex-col"
+            className="rounded-2xl bg-paper border border-line overflow-hidden flex flex-col"
           >
             <Link href={`/studio/packs/${p.slug}`} className="flex flex-col h-full">
               <div className={`aspect-[5/4] ${p.surface} relative p-6 flex flex-col justify-end`}>
@@ -484,7 +484,7 @@ function FitSection({ f }: { f: Copy["fit"] }) {
 function Faq({ items }: { items: Copy["faq"]["items"] }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <div className="vcard rounded-2xl bg-paper border border-line overflow-hidden">
+    <div className="rounded-2xl bg-paper border border-line overflow-hidden">
       {items.map((f, i) => {
         const isOpen = open === i;
         return (
@@ -686,9 +686,9 @@ export default function StudioContent() {
           <div className="rounded-2xl bg-brand-brown text-paper p-8 md:p-12 lg:p-16">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
               <div className="max-w-2xl">
-                <span className="inline-flex rounded-full bg-[#E4EAC8] px-4 py-2 font-display text-[11px] uppercase tracking-[0.16em] text-ink mb-3">
+                <p className="font-display text-[10.5px] tracking-[0.18em] text-signal-green-300 uppercase mb-3">
                   {c.closing.eyebrow}
-                </span>
+                </p>
                 <h3
                   className="font-display font-normal leading-[1.05] tracking-[-0.025em]"
                   style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
